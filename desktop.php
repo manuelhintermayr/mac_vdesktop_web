@@ -22,39 +22,10 @@ do_header_jquery();
 ?>
 <script src="assets/js/jquery.easing.min.js"></script>
 <script src="assets/js/jquery.easypiechart.min.js"></script>
+<script src="assets/js/desktop/main.js"></script>
+<script src="assets/js/desktop/data.js"></script>
+<script src="assets/js/desktop/error_easter_egg.js"></script>
 <script type="text/javascript">
-
-    /* Start - Allgemeine Javascripts */
-    /* Entfernt ein Element */
-    function removeElement(target) {
-        $(target).remove();
-    }
-    /* Fuegt eine Class zu einem Element mit den im "id"-String genannten Identifikator hinzu. */
-    function addClass(id, className) {
-        $(id).addClass(className);
-    }
-    /* Entfernt eine Class zu einem Element mit den im "id"-String genannten Identifikator.*/
-    function removeClass(id, className) {
-        $(id).removeClass(className);
-    }
-    /*Fuegt eine Class zu einem Element mit den im "id"-String genannten Identifikator hinzu und entfernt diesen
-    anschliessend nach einer Sekunde wieder (= 1 Sekunde). Gut fuer CSS-Animationen.*/
-    function addClassForShortTime(id, className) {
-        addClass(id, className);
-        window.setTimeout('removeClass("' + id + '","' + className + '")', 3000);
-    }
-    /* Zeigt ein Element an */
-    function showElement(target) {
-        $(target).show("slow");
-    }
-    /* Ende - Allgemeine Javascripts */
-
-    /* Start - Diverse Variablen */
-    <?php
-    include('scripts/javascript_user_details.php');
-    ?>
-    /* Ende - Diverse Variablen */
-
     /* Start - Allgemeine Methoden fuer diese Seite */
     /* Diese Methode startet alle anderen Methoden die aufgerufen werden muessen damit die Klasse funktioniert */
     function starteCode() {
@@ -75,32 +46,13 @@ do_header_jquery();
         $('.menuPunktKalender').hide();
         $('.menuPunktEmails').hide();
 
-        $("#kontaktinfo").load("kontaktinfo.php");
-        $("#lehrerliste").load("lehrerliste.php");
-
+        $("#kontaktinfo").load("scripts/kontaktinfo.php");
+        $("#lehrerliste").load("scripts/lehrerliste.php");
     }
     /* Berechnet wo sich die Dock befinden soll */
     function dockPosition() {
         var erg = (document.getElementById("dock").offsetWidth / 2);
         document.getElementById("dock").style.left = "calc(50% - " + erg + "px)";
-    }
-
-
-    /* Code fuer das Error-EasterEgg */
-    function configureErrorEasterEgg() {
-        $('.errorEasterEgg').draggable({
-            scroll: false
-        });
-        var error = '<div class="errorEasterEgg">' + $('.errorEasterEgg').html() + '</div>', x = window.innerWidth / 3, y = window.innerHeight / 3;
-        $('body').on('click', '.errorEasterEgg_ok, .errorEasterEgg_closeButton', function () {
-            $('body').append(error);
-            $('.errorEasterEgg').last().css({
-                top: y + 'px',
-                left: x + 'px'
-            }).draggable({ scroll: false });
-            x += 4;
-            y += 4;
-        });
     }
 
     /* Legt fest, welche Funktionen aufgerufen werden sollen wenn ein Item auf der Dock aufgerufen wird. */
@@ -149,7 +101,6 @@ do_header_jquery();
             }
         }
 
-
     }
     function openEINS() {
         openUserInfo();
@@ -176,7 +127,6 @@ do_header_jquery();
 
     /* Start - Code fuer das Rechte-Maustaste-Menue */
     $(document).bind("contextmenu", function (event) {
-
         event.preventDefault();
     });
 
@@ -281,7 +231,6 @@ do_header_jquery();
         }
         else {
             //Es ist das Schuljahr von diesem Jahr noch nicht vorbei
-
             var oldYear_schoolYear_start = new Date(
                 today.getFullYear() - 1,
                 thisYear_schoolYear_start.getMonth(),
@@ -290,7 +239,6 @@ do_header_jquery();
             anzahlTageSchuljahr = Math.ceil((thisYear_schoolYear_end.getTime() - oldYear_schoolYear_start.getTime()) / (one_day));
             anzahlTageSchuljahrVorbei = anzahlTageSchuljahr - Math.ceil((thisYear_schoolYear_end.getTime() - today.getTime()) / (one_day));
         }
-
         chart.update((anzahlTageSchuljahrVorbei / anzahlTageSchuljahr) * 100);
     }
 
@@ -365,7 +313,6 @@ do_header_jquery();
             inhalt = inhalt + hinzufuegen;
         }
 
-
         inhalt = inhalt + "<br><span>Lehrer:</span><br>";
         var lehrer = JSON.parse(localStorage["teachers"]);
         for (var idx = 0; idx < lehrer.length; idx++) {
@@ -428,6 +375,309 @@ do_header_jquery();
         $("#stundenplanMain").load("getContentFromPage.php?url=" + encodeURI(link) + "&var=null");
     }
 </script>
+<script>$("#personName").html(localStorage.getItem("person_name"));</script>
+<script>
+    var datum = new Date();
+    var tag = datum.getDay();
+    var tageArray = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag");
+    var monatArray = new Array("J&aauml;nner", "Februar", "M&auml;rz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
+    $("#datumSchrift").html(tageArray[tag] + ",<br>" + datum.getDate() + ". " + monatArray[datum.getMonth()] + " " + datum.getFullYear());
+</script>
+<script>
+    var $close = $("#close");
+    var $x = $("#x");
+    var $right = $("#right-half");
+    var addNotification = function () {
+        $close.removeClass("hidden");
+        setTimeout(function () {
+            $close.removeClass("invisible")
+        }, 0);
+    };
+    var closing = function (e) {
+        e.stopPropagation();
+        if ($close.hasClass("closing")) {
+            $close.addClass("invisible");
+            setTimeout(addNotification, 1000);
+        }
+        $close.toggleClass("closing");
+    };
+    $x.click(closing);
+    $right.click(closing);
+    $(document.body).click(function () {
+        $close.removeClass("closing");
+    });
+    setTimeout(addNotification, 1000);
+
+    if (navigator.userAgent.indexOf("Firefox") != -1) {
+        //Firefox unterstuetzt den CSS-ZOOM-PREFIX nicht.
+        $("#close").hide();
+    }
+</script>
+<!-- Code fuer die Fenster -->
+<script>
+    function openUserInfo() {
+        $(".menuPunktitem1").show();
+        removeClass("#dock_item1 > a > span", "deaktiviert");
+        if (minimize == 0) {
+            $(".contactInfo").animate({
+                width: windowWidth2,
+                height: windowHeight2,
+                top: "106px",
+                left: "30.5%",
+                opacity: 1,
+                transform: "scale(1)"
+            }, 0, function () {
+                windowWidth = $(".window").width();
+                $(".contactInfo").fadeIn(75, function () {
+                });
+            });
+        }
+        else {
+            minimize = -1;
+            $(".contactInfo").animate({
+                width: windowWidth,
+                height: windowHeight,
+                top: windowY,
+                bottom: windowY2,
+                left: windowX,
+                right: windowX2,
+                opacity: 1
+            }, 175, function () {
+            });
+        }
+    }
+
+    function openStundenPlan() {
+        $(".menuPunktitem2").show();
+        $(".stundenPlan").animate({
+            width: windowWidth2,
+            height: windowHeight2,
+            top: "106px",
+            left: "30.5%",
+            opacity: 1,
+            transform: "scale(1)"
+        }, 0, function () {
+            windowWidth = $(".window").width();
+            $(".stundenPlan").fadeIn(75, function () {
+            });
+        });
+    }
+
+    function openTeacherInfo() {
+        $(".menuPunktitem3").show();
+        if (minimize == 0) {
+            $(".lehrerListe").animate({
+                width: windowWidth2,
+                height: windowHeight2,
+                top: "106px",
+                left: "30.5%",
+                opacity: 1,
+                transform: "scale(1)"
+            }, 0, function () {
+                windowWidth = $(".window").width();
+                $(".lehrerListe").fadeIn(75, function () {
+                });
+            });
+        }
+        else {
+            minimize = -1;
+            $(".lehrerListe").animate({
+                width: windowWidth,
+                height: windowHeight,
+                top: windowY,
+                bottom: windowY2,
+                left: windowX,
+                right: windowX2,
+                opacity: 1
+            }, 175, function () {
+            });
+        }
+    }
+
+    setTimeout(function () {
+        /* Start - Script fuer Scrollbar */
+        $(".stundenPlan .body .left").addClass("thin");
+        // If user has Javascript disabled, the thick scrollbar is shown
+        $(".stundenPlan .body .left").mouseover(function () {
+            $(this).removeClass("thin");
+        });
+        $(".stundenPlan .body .left").mouseout(function () {
+            $(this).addClass("thin");
+        });
+        /* Ende - Script fuer Scrollbar */
+
+        $("#dock_item1").mouseover(function () {
+        });
+
+        $(".deskIcon").draggable({
+            scroll: false
+        });
+
+        $(".window").draggable({
+            handle: ".head",
+            scroll: false,
+            opacity: 0.8
+        });
+
+        $(".window").fadeOut(0, function () {
+        });
+
+        $(document).ready(function () {
+            width = $(window).width();
+            height = $(document).height();
+            windowWidth = $(".window").width();
+            windowHeight = $(".window").height();
+
+            windowWidth2 = $(".window").width();
+            windowHeight2 = $(".window").height();
+            windowX = $(".window").css("left");
+            windowX2 = $(".window").css("right");
+            windowY = $(".window").css("top");
+            windowY2 = $(".window").css("bottom");
+
+            currentApp = $(".currentApp").text();
+            minimize = 0;
+
+            intWidth = $(window).innerWidth();
+            intHeight = $(window).innerHeight();
+
+            xCenter = intWidth / 2;
+            yCenter = intHeight / 2;
+
+            $(".window").animate({
+                width: windowWidth2,
+                height: windowHeight2,
+                top: windowY,
+                bottom: windowY2,
+                left: windowX,
+                right: windowX2
+            }, 125, function () {
+                windowWidth = $(".window").width();
+            });
+        });
+
+        /* Das Fenster groesser machen*/
+        $(".expand").click(function () {
+            $(this).css("z-index", "9999");
+            if (windowWidth != width) {
+                windowX = $(".window").css("left");
+                windowX2 = $(".window").css("right");
+                windowY = $(".window").css("top");
+                windowY2 = $(".window").css("bottom");
+                $(".window").animate({
+                    width: width,
+                    height: height,
+                    top: 0,
+                    left: 0
+                }, 125, function () {
+                    windowWidth = $(".window").width();
+                });
+            } else if (windowWidth = width) {
+                $(".window").animate({
+                    width: windowWidth2,
+                    height: windowHeight2,
+                    top: windowY,
+                    bottom: windowY2,
+                    left: windowX,
+                    right: windowX2
+                }, 125, function () {
+                    windowWidth = $(".window").width();
+                    windowHeight = $(".window").height();
+                });
+            }
+        });
+
+        $(".head").dblclick(function () {
+            if (windowWidth != width) {
+                windowX = $(this).parent().css("left");
+                windowX2 = $(this).parent().css("right");
+                windowY = $(this).parent().css("top");
+                windowY2 = $(this).parent().css("bottom");
+                $(this).parent().animate({
+                    width: width,
+                    height: height,
+                    top: 0,
+                    left: 0
+                }, 125, function () {
+                    windowWidth = $(".window").width();
+                });
+            } else if (windowWidth = width) {
+                $(".window").animate({
+                    width: windowWidth2,
+                    height: windowHeight2,
+                    top: windowY,
+                    bottom: windowY2,
+                    left: windowX,
+                    right: windowX2
+                }, 125, function () {
+                    windowWidth = $(".window").width();
+                    windowHeight = $(".window").height();
+                });
+            }
+        });
+
+        $(".minimize").click(function () {
+            minimize = +1;
+            windowX = $(".window").css("left");
+            windowX2 = $(".window").css("right");
+            windowY = $(".window").css("top");
+            windowY2 = $(".window").css("bottom");
+            $(this).parent().parent().parent().animate({
+                width: 0,
+                height: 0,
+                left: 100,
+                bottom: 1,
+                opacity: 0
+            }, 225, function () {
+            });
+        });
+
+        $(".exit").click(function () {
+            $(this).parent().parent().parent().fadeOut(150, function () {
+                $(this).hide();
+                windowX = $(".window").css("left");
+                windowX2 = $(".window").css("right");
+                windowY = $(".window").css("top");
+                windowY2 = $(".window").css("bottom");
+            });
+            $(this).parent().parent().parent().css("-webkit-transform", "scale(0.9)");
+            addClass("#dock_" + $(this).parent().parent().parent().attr('id') + " > a > span", "deaktiviert");
+            $(".menuPunkt" + $(this).parent().parent().parent().attr('id')).hide();
+        });
+
+        $(".window").click(function (e) {
+            currentApp = $(this).find(".ui-center").find("p"),
+                $(this, ".ui-center").find("p", function () {
+                    $(".currentApp").text(this);
+                });
+            $(".window").css("z-index", "100"),
+                $(this).css("z-index", "9999"),
+                $(this).css("-webkit-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
+                $(this).css("-moz-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
+                $(this).css("box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important");
+            e.stopPropagation();
+        });
+        $(document).click(function () {
+            $(".window").css("z-index", "100"),
+                $(this).css("-webkit-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
+                $(this).css("-moz-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
+                $(this).css("box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important");
+        });
+
+        /* Damit das Desktop Icon funktioniert */
+        $(".deskIcon img").click(function (e) {
+            $(".deskIcon img").css("background", "rgba(255,255,255,0)"),
+                $(".deskIcon img").css("border-color", "rgba(255,255,255,0)"),
+                $(this).css("border-color", "rgba(255,255,255,0.5)")
+            $(this).css("background", "rgba(255,255,255,0.4)")
+            e.stopPropagation();
+        });
+
+    }, 1000);
+
+    window.setTimeout('starteCode()', 100); //Damit der ganze Javascript-Part nun doch ausgefuehrt wird
+</script>
+<link rel="stylesheet" href="assets/style/desktop.css" type="text/css" />
 <style>
     /*Jener Style von: http://codepen.io/Irina_Tsareva/pen/eEncK */
     .progress-bar {
@@ -456,9 +706,6 @@ do_header_jquery();
     }
 </style>
 <!-- Ende - Code für den StundenplanInfo -->
-
-
-<link rel="stylesheet" href="assets/style/desktop.css" type="text/css" />
 <style>
     #dock {
         left: 50%;
@@ -469,7 +716,6 @@ do_header_jquery();
         /*Bei Schueler*/
     }
 </style>
-
 <!-- Code fuer die Fenster -->
 <style>
     /* Start - Code fuer den Dekstop */
@@ -749,7 +995,6 @@ do_header_jquery();
     .stundenPlan .body .left ul {
         padding-left: 0px;
         list-style: none;
-
         height: 100%;
     }
 
@@ -780,6 +1025,147 @@ do_header_jquery();
     }
 
     /* Ende - Code fuer die Lehrer-Liste */
+</style>
+<style>
+    #close {
+        position: relative;
+        left: 77.5%;
+        margin-top: -83px;
+        width: 200px;
+        margin-left: -100px;
+        opacity: 1;
+        transition: opacity 0.2s linear;
+        overflow: hidden;
+        height: 82px;
+        zoom: 22%;
+        -moz-zoom: 22%;
+        -webkit-zoom: 22%;
+        -o-zoom: 22%;
+    }
+
+    #x {
+        position: absolute;
+        font-size: 100px;
+        color: #444;
+        line-height: 80px;
+        right: 0;
+        cursor: pointer;
+        width: 80px;
+        height: 80px;
+        border-radius: 40px;
+        text-align: center;
+        transition: transform 0.2s linear, opacity 0.2s ease-in;
+        transform: translateX(0px) rotate(0deg);
+        opacity: 1;
+    }
+
+    #left-half {
+        position: absolute;
+        clip: rect(0px, 40px, 90px, 0px);
+        left: 120px;
+        width: 200px;
+        transform: translateX(0px);
+        transition: transform 0.2s linear;
+    }
+
+    #right-half {
+        position: absolute;
+        clip: rect(0px, 200px, 90px, 160px);
+        right: 0;
+        transition: clip 0.2s linear;
+        width: 200px;
+        text-align: center;
+        padding-top: 10px;
+        color: #999;
+    }
+
+    .closing #left-half {
+        transform: translateX(-120px);
+        clip: rect(0px, 60px, 90px, 0px);
+    }
+
+    .closing #right-half {
+        clip: rect(0px, 200px, 90px, 40px);
+    }
+
+    .closing #x {
+        transform: translateX(-120px) rotate(-90deg);
+        opacity: 0;
+    }
+
+    #close.invisible {
+        opacity: 0;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .bevel-box {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        background-color: #222;
+        height: 80px;
+        border-radius: 40px;
+        box-shadow: 0 1px 1px #777, inset 0 1px 1px #111;
+        cursor: pointer;
+    }
+
+    .text-shadow {
+        text-shadow: 0 1px 1px #111, 0 -1px 1px #777;
+        font-size: 50px;
+    }
+</style>
+<style>
+    .percent {
+        display: inline-block;
+        z-index: 2;
+        left: 70px;
+        top: -48px;
+        position: relative;
+    }
+
+    .percent:after {
+        content: '%';
+        margin-left: 0.1em;
+        font-size: .8em;
+    }
+</style>
+<style>
+    .msg {
+        margin: 0 0 1em;
+        padding: 1.6em 18px 1px;
+        border: 1px solid #F1F2F6;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+        -kthml-border-radius: 5px;
+        margin: 1%;
+    }
+
+    .noselect {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .msg.error,
+    .msg.confirm,
+    .msg.warn,
+    .msg.announce {
+        padding: 25px 25px 19px 80px;
+        min-height: 48px;
+    }
+
+    .msg.warn,
+    .msg.announce {
+        border-color: #EBE9C5;
+        background: #FDFDEF url("../assets/images/alert_warning.png") no-repeat 20px 1.6em;
+    }
 </style>
 </head>
 
@@ -812,7 +1198,6 @@ do_header_jquery();
                             <li class="separator"></li>
                             <li><a href="#" class="disabled">Kalender</a></li>
                             <li><a href="#" class="disabled">E-Mails</a></li>
-
                         </ul>
                     </div>
                 </li>
@@ -866,7 +1251,6 @@ do_header_jquery();
                 </li>
                 <li>
                     <a href="#"><b><span id="personName"></span></b>
-                        <script>$("#personName").html(localStorage.getItem("person_name"));</script>
                     </a>
                 <li>
                     <a href="#" id="clock">00:00:00</a>
@@ -888,7 +1272,8 @@ do_header_jquery();
             </li>
             <li id="dock_item3">
                 <a id="drei" class='osx-tooltip' href="#drei" data-text="Lehrerliste">
-                    <span class="bluePoint deaktiviert"><img src="assets/images/contacts.png" alt="Lehrerliste" /></span>
+                    <span class="bluePoint deaktiviert"><img src="assets/images/contacts.png"
+                            alt="Lehrerliste" /></span>
                 </a>
             </li>
         </ul>
@@ -908,42 +1293,18 @@ do_header_jquery();
                 <span class="notification_neuerEintragText">
                     <span class="notification_datum">
                         <span id="datumSchrift"></span>
-                        <script>
-                            var datum = new Date();
-                            var tag = datum.getDay();
-                            var tageArray = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag");
-                            var monatArray = new Array("J&aauml;nner", "Februar", "M&auml;rz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
-                            $("#datumSchrift").html(tageArray[tag] + ",<br>" + datum.getDate() + ". " + monatArray[datum.getMonth()] + " " + datum.getFullYear());
-                        </script>
                     </span>
                 </span>
             </li>
-
             <ul id="notification_benarichtigunen">
                 <li class="notification_neueUeberschrift">
                     <div class="notification_icon spengergasse_icon">
                     </div> Schuljahr - &Uuml;bersicht:
                 </li>
                 <li class="notification_neuerEintrag">
-                    <style>
-                        .percent {
-                            display: inline-block;
-                            z-index: 2;
-                            left: 70px;
-                            top: -48px;
-                            position: relative;
-                        }
-
-                        .percent:after {
-                            content: '%';
-                            margin-left: 0.1em;
-                            font-size: .8em;
-                        }
-                    </style>
                     <span class="notification_neuerEintragText">
                         Restliche Schuljahr-Dauer:
                         <br>
-
                         <span class="chart" data-percent="0">
                             <span class="percent"></span>
                         </span>
@@ -993,149 +1354,25 @@ margin-top: 5px;
                         <div id="right-half" class="bevel-box text-shadow">Clear</div>
                         <div id="x" class="text-shadow">×</div>
                     </div>
-                    <style>
-                        #close {
-                            position: relative;
-                            left: 77.5%;
-                            margin-top: -83px;
-                            width: 200px;
-                            margin-left: -100px;
-                            opacity: 1;
-                            transition: opacity 0.2s linear;
-                            overflow: hidden;
-                            height: 82px;
-                            zoom: 22%;
-                            -moz-zoom: 22%;
-                            -webkit-zoom: 22%;
-                            -o-zoom: 22%;
-                        }
-
-                        #x {
-                            position: absolute;
-                            font-size: 100px;
-                            color: #444;
-                            line-height: 80px;
-                            right: 0;
-                            cursor: pointer;
-                            width: 80px;
-                            height: 80px;
-                            border-radius: 40px;
-                            text-align: center;
-                            transition: transform 0.2s linear, opacity 0.2s ease-in;
-                            transform: translateX(0px) rotate(0deg);
-                            opacity: 1;
-                        }
-
-                        #left-half {
-                            position: absolute;
-                            clip: rect(0px, 40px, 90px, 0px);
-                            left: 120px;
-                            width: 200px;
-                            transform: translateX(0px);
-                            transition: transform 0.2s linear;
-                        }
-
-                        #right-half {
-                            position: absolute;
-                            clip: rect(0px, 200px, 90px, 160px);
-                            right: 0;
-                            transition: clip 0.2s linear;
-                            width: 200px;
-                            text-align: center;
-                            padding-top: 10px;
-                            color: #999;
-                        }
-
-                        .closing #left-half {
-                            transform: translateX(-120px);
-                            clip: rect(0px, 60px, 90px, 0px);
-                        }
-
-                        .closing #right-half {
-                            clip: rect(0px, 200px, 90px, 40px);
-                        }
-
-                        .closing #x {
-                            transform: translateX(-120px) rotate(-90deg);
-                            opacity: 0;
-                        }
-
-                        #close.invisible {
-                            opacity: 0;
-                        }
-
-                        .hidden {
-                            display: none;
-                        }
-
-                        .bevel-box {
-                            box-sizing: border-box;
-                            -moz-box-sizing: border-box;
-                            background-color: #222;
-                            height: 80px;
-                            border-radius: 40px;
-                            box-shadow: 0 1px 1px #777, inset 0 1px 1px #111;
-                            cursor: pointer;
-                        }
-
-                        .text-shadow {
-                            text-shadow: 0 1px 1px #111, 0 -1px 1px #777;
-                            font-size: 50px;
-                        }
-                    </style>
-                    <script>
-                        var $close = $("#close");
-                        var $x = $("#x");
-                        var $right = $("#right-half");
-                        var addNotification = function () {
-                            $close.removeClass("hidden");
-                            setTimeout(function () {
-                                $close.removeClass("invisible")
-                            }, 0);
-                        };
-                        var closing = function (e) {
-                            e.stopPropagation();
-                            if ($close.hasClass("closing")) {
-                                $close.addClass("invisible");
-                                setTimeout(addNotification, 1000);
-                            }
-                            $close.toggleClass("closing");
-                        };
-                        $x.click(closing);
-                        $right.click(closing);
-                        $(document.body).click(function () {
-                            $close.removeClass("closing");
-                        });
-                        setTimeout(addNotification, 1000);
-
-
-                        if (navigator.userAgent.indexOf("Firefox") != -1) {
-                            //Firefox unterstuetzt den CSS-ZOOM-PREFIX nicht.
-                            $("#close").hide();
-                        }
-
-                    </script>
                 </li>
-
-                <!-- Wird in Zukunft vl. eingebaut:
-                    <li class="notification_neuerEintrag">
-                         <span class="notification_neuerEintragUeberschrift">GIS</span> 
-                         <span class="notification_neuerEintragText notification_neuerEintragDatum">Dienstag, 21. April, 10:00</span>
-                         <br>
-                         <span class="notification_neuerEintragText">
-                             LE19 - Digitalisieren von Fl&auml;chen
-                         </span>
-                    </li>
-                    <li class="notification_neuerEintrag">
-                         <span class="notification_neuerEintragUeberschrift">PRE</span> 
-                         <span class="notification_neuerEintragText notification_neuerEintragDatum">Mittwoch, 22. April, 10:00</span>
-                         <br>
-                         <span class="notification_neuerEintragText">
-                             Upload StatusBERICHT
-                         </span>
-                    </li>
-                    -->
-
+                <li class="notification_neuerEintrag">
+                    <span class="notification_neuerEintragUeberschrift">GIS</span>
+                    <span class="notification_neuerEintragText notification_neuerEintragDatum">Dienstag, 21. April,
+                        10:00</span>
+                    <br>
+                    <span class="notification_neuerEintragText">
+                        LE19 - Digitalisieren von Fl&auml;chen
+                    </span>
+                </li>
+                <li class="notification_neuerEintrag">
+                    <span class="notification_neuerEintragUeberschrift">PRE</span>
+                    <span class="notification_neuerEintragText notification_neuerEintragDatum">Mittwoch, 22. April,
+                        10:00</span>
+                    <br>
+                    <span class="notification_neuerEintragText">
+                        Upload StatusBERICHT
+                    </span>
+                </li>
                 <li class="notification_neuerEintrag">
                     <span class="notification_neuerEintragText">
                         <i>Keine Aufgaben gefunden.</i>
@@ -1156,7 +1393,6 @@ margin-top: 5px;
         </div>
         <button class="errorEasterEgg_ok"> <span>OK</span></button>
     </div>
-
 
     <div id="body">
         <div class="window contactInfo" id="item1">
@@ -1230,53 +1466,14 @@ margin-top: 5px;
                         </ul>
                     </div>
                 </div>
-                <style>
-                    .msg {
-                        margin: 0 0 1em;
-                        padding: 1.6em 18px 1px;
-                        border: 1px solid #F1F2F6;
-                        border-radius: 5px;
-                        -webkit-border-radius: 5px;
-                        -moz-border-radius: 5px;
-                        -o-border-radius: 5px;
-                        -kthml-border-radius: 5px;
-                        margin: 1%;
-                    }
-
-                    .noselect {
-                        -webkit-touch-callout: none;
-                        -webkit-user-select: none;
-                        -khtml-user-select: none;
-                        -moz-user-select: none;
-                        -ms-user-select: none;
-                        user-select: none;
-                    }
-
-                    .msg.error,
-                    .msg.confirm,
-                    .msg.warn,
-                    .msg.announce {
-                        padding: 25px 25px 19px 80px;
-                        min-height: 48px;
-                    }
-
-                    .msg.warn,
-                    .msg.announce {
-
-                        border-color: #EBE9C5;
-                        background: #FDFDEF url("../assets/images/alert_warning.png") no-repeat 20px 1.6em;
-                    }
-                </style>
                 <div class="center" id="stundenplanMain">
                     <!-- Standartmaessig wird immer ein Fehler hier angezeigt -->
-
                     <div class="msg warn noselect">
                         <h4>Der Stundenplan f&uuml;r deine Klasse wurde nicht gefunden.</h4>
                         <p>W&auml;hle links einen Stundenplan aus.
                         </p>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -1298,282 +1495,15 @@ margin-top: 5px;
             </div>
         </div>
 
-
         <div class="desktop">
             <div class="deskIcon" style="left: 1279px; top: 121px;">
-                <img src="assets/images/textedit.png" id="readmeRightClick" oncontextmenu="javascript:readMeRightClick()"
-                    ondblclick="zeigeUeberDiesesProejkt()" alt="readme.txt" />
+                <img src="assets/images/textedit.png" id="readmeRightClick"
+                    oncontextmenu="javascript:readMeRightClick()" ondblclick="zeigeUeberDiesesProejkt()"
+                    alt="readme.txt" />
                 <span>readme.txt</span>
             </div>
         </div>
-
-
     </div>
-
-    <!-- Code fuer die Fenster -->
-    <script>
-        /* Start - Script fuer Scrollbar */
-        $(".stundenPlan .body .left").addClass("thin");
-        // If user has Javascript disabled, the thick scrollbar is shown
-        $(".stundenPlan .body .left").mouseover(function () {
-            $(this).removeClass("thin");
-        });
-        $(".stundenPlan .body .left").mouseout(function () {
-            $(this).addClass("thin");
-        });
-        /* Ende - Script fuer Scrollbar */
-
-        $("#dock_item1").mouseover(function () {
-        });
-
-        $(".deskIcon").draggable({
-            scroll: false
-        });
-
-        $(".window").draggable({
-            handle: ".head",
-            scroll: false,
-            opacity: 0.8
-        });
-
-        $(".window").fadeOut(0, function () {
-        });
-
-        $(document).ready(function () {
-            width = $(window).width();
-            height = $(document).height();
-            windowWidth = $(".window").width();
-            windowHeight = $(".window").height();
-
-            windowWidth2 = $(".window").width();
-            windowHeight2 = $(".window").height();
-            windowX = $(".window").css("left");
-            windowX2 = $(".window").css("right");
-            windowY = $(".window").css("top");
-            windowY2 = $(".window").css("bottom");
-
-            currentApp = $(".currentApp").text();
-
-            minimize = 0;
-
-            intWidth = $(window).innerWidth();
-            intHeight = $(window).innerHeight();
-
-            xCenter = intWidth / 2;
-            yCenter = intHeight / 2;
-
-            $(".window").animate({
-                width: windowWidth2,
-                height: windowHeight2,
-                top: windowY,
-                bottom: windowY2,
-                left: windowX,
-                right: windowX2
-            }, 125, function () {
-                windowWidth = $(".window").width();
-            });
-
-        });
-
-        /* Das Fenster groesser machen*/
-        $(".expand").click(function () {
-            $(this).css("z-index", "9999");
-            if (windowWidth != width) {
-                windowX = $(".window").css("left");
-                windowX2 = $(".window").css("right");
-                windowY = $(".window").css("top");
-                windowY2 = $(".window").css("bottom");
-                $(".window").animate({
-                    width: width,
-                    height: height,
-                    top: 0,
-                    left: 0
-                }, 125, function () {
-                    windowWidth = $(".window").width();
-                });
-            } else if (windowWidth = width) {
-                $(".window").animate({
-                    width: windowWidth2,
-                    height: windowHeight2,
-                    top: windowY,
-                    bottom: windowY2,
-                    left: windowX,
-                    right: windowX2
-                }, 125, function () {
-                    windowWidth = $(".window").width();
-                    windowHeight = $(".window").height();
-                });
-            }
-        });
-
-        $(".head").dblclick(function () {
-            if (windowWidth != width) {
-                windowX = $(this).parent().css("left");
-                windowX2 = $(this).parent().css("right");
-                windowY = $(this).parent().css("top");
-                windowY2 = $(this).parent().css("bottom");
-                $(this).parent().animate({
-                    width: width,
-                    height: height,
-                    top: 0,
-                    left: 0
-                }, 125, function () {
-                    windowWidth = $(".window").width();
-                });
-            } else if (windowWidth = width) {
-                $(".window").animate({
-                    width: windowWidth2,
-                    height: windowHeight2,
-                    top: windowY,
-                    bottom: windowY2,
-                    left: windowX,
-                    right: windowX2
-                }, 125, function () {
-                    windowWidth = $(".window").width();
-                    windowHeight = $(".window").height();
-                });
-            }
-        });
-
-        $(".minimize").click(function () {
-            minimize = +1;
-            windowX = $(".window").css("left");
-            windowX2 = $(".window").css("right");
-            windowY = $(".window").css("top");
-            windowY2 = $(".window").css("bottom");
-            $(this).parent().parent().parent().animate({
-                width: 0,
-                height: 0,
-                left: 100,
-                bottom: 1,
-                opacity: 0
-            }, 225, function () {
-            });
-        });
-
-        $(".exit").click(function () {
-            $(this).parent().parent().parent().fadeOut(150, function () {
-                $(this).hide();
-                windowX = $(".window").css("left");
-                windowX2 = $(".window").css("right");
-                windowY = $(".window").css("top");
-                windowY2 = $(".window").css("bottom");
-            });
-            $(this).parent().parent().parent().css("-webkit-transform", "scale(0.9)");
-            addClass("#dock_" + $(this).parent().parent().parent().attr('id') + " > a > span", "deaktiviert");
-            $(".menuPunkt" + $(this).parent().parent().parent().attr('id')).hide();
-        });
-
-        $(".window").click(function (e) {
-            currentApp = $(this).find(".ui-center").find("p"),
-                $(this, ".ui-center").find("p", function () {
-                    $(".currentApp").text(this);
-                });
-            $(".window").css("z-index", "100"),
-                $(this).css("z-index", "9999"),
-                $(this).css("-webkit-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
-                $(this).css("-moz-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
-                $(this).css("box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important");
-            e.stopPropagation();
-        });
-        $(document).click(function () {
-            $(".window").css("z-index", "100"),
-                $(this).css("-webkit-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
-                $(this).css("-moz-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
-                $(this).css("box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important");
-        });
-
-        /* Damit das Desktop Icon funktioniert */
-        $(".deskIcon img").click(function (e) {
-            $(".deskIcon img").css("background", "rgba(255,255,255,0)"),
-                $(".deskIcon img").css("border-color", "rgba(255,255,255,0)"),
-                $(this).css("border-color", "rgba(255,255,255,0.5)")
-            $(this).css("background", "rgba(255,255,255,0.4)")
-            e.stopPropagation();
-        });
-
-        function openUserInfo() {
-            $(".menuPunktitem1").show();
-            removeClass("#dock_item1 > a > span", "deaktiviert");
-            if (minimize == 0) {
-                $(".contactInfo").animate({
-                    width: windowWidth2,
-                    height: windowHeight2,
-                    top: "106px",
-                    left: "30.5%",
-                    opacity: 1,
-                    transform: "scale(1)"
-                }, 0, function () {
-                    windowWidth = $(".window").width();
-                    $(".contactInfo").fadeIn(75, function () {
-                    });
-                });
-            }
-            else {
-                minimize = -1;
-                $(".contactInfo").animate({
-                    width: windowWidth,
-                    height: windowHeight,
-                    top: windowY,
-                    bottom: windowY2,
-                    left: windowX,
-                    right: windowX2,
-                    opacity: 1
-                }, 175, function () {
-                });
-            }
-        }
-
-        function openStundenPlan() {
-            $(".menuPunktitem2").show();
-            $(".stundenPlan").animate({
-                width: windowWidth2,
-                height: windowHeight2,
-                top: "106px",
-                left: "30.5%",
-                opacity: 1,
-                transform: "scale(1)"
-            }, 0, function () {
-                windowWidth = $(".window").width();
-                $(".stundenPlan").fadeIn(75, function () {
-                });
-            });
-        }
-
-        function openTeacherInfo() {
-            $(".menuPunktitem3").show();
-            if (minimize == 0) {
-                $(".lehrerListe").animate({
-                    width: windowWidth2,
-                    height: windowHeight2,
-                    top: "106px",
-                    left: "30.5%",
-                    opacity: 1,
-                    transform: "scale(1)"
-                }, 0, function () {
-                    windowWidth = $(".window").width();
-                    $(".lehrerListe").fadeIn(75, function () {
-                    });
-                });
-            }
-            else {
-                minimize = -1;
-                $(".lehrerListe").animate({
-                    width: windowWidth,
-                    height: windowHeight,
-                    top: windowY,
-                    bottom: windowY2,
-                    left: windowX,
-                    right: windowX2,
-                    opacity: 1
-                }, 175, function () {
-                });
-            }
-        }
-
-        window.setTimeout('starteCode()', 1000); //Damit der ganze Javascript-Part nun doch ausgefuehrt wird
-    </script>
-
 </body>
 
 </html>
