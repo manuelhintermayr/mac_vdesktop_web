@@ -10,9 +10,19 @@ do_header_start("VDesktop - Login");
 do_header_jquery();
 ?>
 
-<script type="text/javascript">
+<script name="redirect_to_home" type="text/javascript">
+    function confirmExit(event) {
+        event.preventDefault();
+        const confirmed = confirm("Do you really want to leave the site?\n\nYou will be redirected to the author's website.");
+        if (confirmed) {
+            window.location.href = "https://manuelhintermayr.com";
+        }
+    }
+</script>
+<script name="login_script" type="text/javascript">
     function login() {
         $("#loginButtonIcon").hide();
+        $("#loginMessageBox").hide();
         $("#loadingSpinner").show();
         $.ajax({
             type: "POST",
@@ -56,19 +66,22 @@ do_header_jquery();
     function removeClass(id, className) {
         $(id).removeClass(className);
     }
-
+</script>
+<script name="page_start" type="text/javascript">
     function loadAnfang() {
         $("#loginButton").click(function (event) {
             event.preventDefault();
             login();
         });
+        $(".login-input").on("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                login();
+            }
+        });
     }
+    window.addEventListener('DOMContentLoaded', loadAnfang);
 </script>
-
-<script>
-    window.setTimeout('loadAnfang()', 3000);      
-</script>
-
 <link rel="stylesheet" href="assets/style/login.css" type="text/css" />
 </head>
 
@@ -76,21 +89,25 @@ do_header_jquery();
     <section>
         <span id="hintergrund"></span>
         <span id="cancelButton">
-            <center><a href="javascript:window.close();"><img src="assets/images/login/cancelbutton.png"></a></center>
+            <center>
+                <a href="#" onclick="confirmExit(event)">
+                    <img src="assets/images/login/cancelbutton.png" alt="Cancel">
+                </a>
+            </center>
         </span>
         <form>
             <div id="pageWrapper">
                 <div id="loginWindowWrapper">
-                    <section id="loginMessageBox" style="display: none;">
-                        <p id="loginHintPrimary">
-                        The following error has occurred:
+                    <section id="loginMessageBox">
+                        <p id="loginHintPrimary" class="login-hint">
+                            The following error has occurred:
                         </p>
-                        <p id="loginHintSecondary">
+                        <p id="loginHintSecondary" class="login-hint">
                             <b>
                                 <div id='message'></div>
                             </b>
                         </p>
-                        <a href="javascript:void(0)" id="messageBoxArrow"></a>
+                        <a href="#" id="messageBoxArrow"></a>
                     </section>
                     <section id="loginPanel">
                         <div id="loginImageContainer">
@@ -101,29 +118,30 @@ do_header_jquery();
                         <div id="loginFieldsWrapper">
                             <table id="loginFieldsTable">
                                 <tbody id="loginFieldsBody">
-                                    <tr id="loginRowUsername">
-                                        <td id="labelCellUsername">
-                                            <label for="USERNAME" id="hiddenLabelUsername">
+                                    <tr class="login-row">
+                                        <td class="login-label-cell">
+                                            <label for="USERNAME" class="hidden-label">
                                                 Username
                                             </label>
                                         </td>
-                                        <td id="inputCellUsername">
-                                            <input type="text" id="inputUsername" name="user" placeholder="Enter Username"
-                                                value="" size="40" maxlength="100" />
+                                        <td class="input-cell">
+                                            <input type="text" class="login-input" name="user"
+                                                placeholder="Enter Username" value="" size="40" maxlength="100" />
                                         </td>
                                     </tr>
-                                    <tr id="loginRowPassword">
-                                        <td id="labelCellPassword">
-                                            <label for="PASSWORD" id="hiddenLabelPassword">
+                                    <tr class="login-row">
+                                        <td class="login-label-cell">
+                                            <label for="PASSWORD" class="hidden-label">
                                                 Password
                                             </label>
                                         </td>
-                                        <td id="inputCellPassword">
-                                            <input type="password" name="pass" size="40" maxlength="100" id="inputPassword"
-                                                placeholder="Enter Password" />
+                                        <td class="input-cell">
+                                            <input type="password" class="login-input" name="pass" size="40"
+                                                maxlength="100" placeholder="Enter Password" />
                                         </td>
                                         <td id="loginButtonCell">
-                                            <span id="loginButton"><span id="loginButtonIcon" class="loginButton"></span>
+                                            <span id="loginButton"><span id="loginButtonIcon"
+                                                    class="loginButton"></span>
                                                 <img alt="loading" id="loadingSpinner" style="display: none;"
                                                     src="assets/images/spinner.gif" />
                                             </span>
@@ -137,6 +155,6 @@ do_header_jquery();
             </div>
         </form>
     </section>
-
 </body>
+
 </html>

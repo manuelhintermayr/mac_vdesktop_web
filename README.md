@@ -2,7 +2,7 @@
 
 **VDesktop** – *The practical virtual computer. In the browser. Simple and reliable.*
 
-![VDesktop mac-style logo](images/preview_pic.jpg)
+![VDesktop mac-style logo](assets/images/preview_pic.jpg)
 
 ---
 

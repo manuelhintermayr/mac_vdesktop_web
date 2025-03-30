@@ -7,7 +7,7 @@ function isValidUser($username, $passwort)
 	if ($username == "admin" && $passwort == "admin") {
 		return "TRUE";
 	} else {
-		return "Incorrect access data, try 'admin'/'admin'";
+		return "Incorrect access data; try 'admin'/'admin'";
 	}
 
 }
