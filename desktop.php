@@ -799,7 +799,7 @@ do_header_jquery();
                             <li><a href="#" onclick="$('.errorEasterEgg').show();">Abstr&uuml;rzen...</a></li>
                             <li><a href="#" class="disabled">Herunterfahren...</a></li>
                             <li class="separator"></li>
-                            <li><a href="logout.php">Ausloggen...<span>⇧⌘Q</span></a></li>
+                            <li><a href="logout/index.php">Ausloggen...<span>⇧⌘Q</span></a></li>
                         </ul>
                     </div>
                 </li>

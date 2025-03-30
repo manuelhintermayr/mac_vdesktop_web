@@ -120,7 +120,7 @@ body {
 }
 
 
-#DIV_1,
+#pageWrapper,
 #CENTER_2 {
     width: 1865px;
     perspective-origin: 932.5px 0px;
@@ -128,10 +128,10 @@ body {
     font: normal normal normal normal 12px/16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/*#DIV_1, #CENTER_2*/
+/*#pageWrapper, #CENTER_2*/
 
 /* Position wo sich das Login-Fenster aufhält */
-#DIV_3 {
+#loginWindowWrapper {
     height: 360px;
     left: 50%;
     position: absolute;
@@ -145,9 +145,9 @@ body {
     margin: -144px 0px 0px -240px;
 }
 
-/*#DIV_3*/
+/*#loginWindowWrapper*/
 
-#SECTION_4 {
+#loginMessageBox {
     box-shadow: rgba(0, 0, 0, 0.65098) 0px 7px 25px 0px;
     height: 90px;
     left: 228.390625px;
@@ -167,9 +167,9 @@ body {
     padding: 16px;
 }
 
-/*#SECTION_4*/
+/*#loginMessageBox*/
 
-#P_5 {
+#loginHintPrimary {
     color: rgb(100, 100, 100);
     height: 16px;
     text-align: center;
@@ -183,9 +183,9 @@ body {
     outline: rgb(100, 100, 100) none 0px;
 }
 
-/*#P_5*/
+/*#loginHintPrimary*/
 
-#P_6 {
+#loginHintSecondary {
     color: rgb(100, 100, 100);
     text-align: center;
     text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
@@ -198,9 +198,9 @@ body {
     outline: rgb(100, 100, 100) none 0px;
 }
 
-/*#P_6*/
+/*#loginHintSecondary*/
 
-#A_7 {
+#messageBoxArrow {
     color: rgb(75, 102, 167);
     display: block;
     height: 0px;
@@ -224,9 +224,9 @@ body {
     outline: rgb(75, 102, 167) none 0px;
 }
 
-/*#A_7*/
+/*#messageBoxArrow*/
 
-#SECTION_8 {
+#loginPanel {
     box-sizing: border-box;
     clear: both;
     color: rgb(77, 77, 77);
@@ -248,9 +248,9 @@ body {
     left: 52.391px;
 }
 
-/*#SECTION_8*/
+/*#loginPanel*/
 
-#SECTION_8:after {
+#loginPanel:after {
     clear: both;
     color: rgb(77, 77, 77);
     display: block;
@@ -266,9 +266,9 @@ body {
     overflow: hidden;
 }
 
-/*#SECTION_8:after*/
+/*#loginPanel:after*/
 
-#SECTION_8:before {
+#loginPanel:before {
     color: rgb(77, 77, 77);
     display: block;
     text-align: -webkit-center;
@@ -282,9 +282,9 @@ body {
     overflow: hidden;
 }
 
-/*#SECTION_8:before*/
+/*#loginPanel:before*/
 
-#DIV_9 {
+#loginImageContainer {
     background-position: 114px 28px;
     border-collapse: collapse;
     color: rgb(77, 77, 77);
@@ -301,9 +301,9 @@ body {
     outline: rgb(77, 77, 77) none 0px;
 }
 
-/*#DIV_9*/
+/*#loginImageContainer*/
 
-#H1_10 {
+#loginTitle {
     border-collapse: collapse;
     display: table-cell;
     height: 20px;
@@ -319,9 +319,9 @@ body {
     padding: 140px 0px 0px;
 }
 
-/*#H1_10*/
+/*#loginTitle*/
 
-#SPAN_11 {
+#loginImageOverlay {
     border-collapse: collapse;
     color: rgb(77, 77, 77);
     display: table-cell;
@@ -335,9 +335,9 @@ body {
     outline: rgb(77, 77, 77) none 0px;
 }
 
-/*#SPAN_11*/
+/*#loginImageOverlay*/
 
-#DIV_12 {
+#loginFieldsWrapper {
     color: rgb(77, 77, 77);
     height: 96px;
     text-align: -webkit-center;
@@ -352,9 +352,9 @@ body {
     padding: 8px;
 }
 
-/*#DIV_12*/
+/*#loginFieldsWrapper*/
 
-#DIV_12:after {
+#loginFieldsWrapper:after {
     clear: both;
     color: rgb(77, 77, 77);
     display: block;
@@ -370,9 +370,9 @@ body {
     overflow: hidden;
 }
 
-/*#DIV_12:after*/
+/*#loginFieldsWrapper:after*/
 
-#DIV_12:before {
+#loginFieldsWrapper:before {
     color: rgb(77, 77, 77);
     display: block;
     text-align: -webkit-center;
@@ -386,9 +386,9 @@ body {
     overflow: hidden;
 }
 
-/*#DIV_12:before*/
+/*#loginFieldsWrapper:before*/
 
-#TABLE_13 {
+#loginFieldsTable {
     border-collapse: collapse;
     color: rgb(77, 77, 77);
     height: 96px;
@@ -401,9 +401,9 @@ body {
     outline: rgb(77, 77, 77) none 0px;
 }
 
-/*#TABLE_13*/
+/*#loginFieldsTable*/
 
-#TBODY_14 {
+#loginFieldsBody {
     border-collapse: collapse;
     color: rgb(77, 77, 77);
     height: 96px;
@@ -416,10 +416,10 @@ body {
     outline: rgb(77, 77, 77) none 0px;
 }
 
-/*#TBODY_14*/
+/*#loginFieldsBody*/
 
-#TR_15,
-#TR_21 {
+#loginRowUsername,
+#loginRowPassword {
     border-collapse: collapse;
     color: rgb(77, 77, 77);
     height: 48px;
@@ -431,10 +431,10 @@ body {
     outline: rgb(77, 77, 77) none 0px;
 }
 
-/*#TR_15, #TR_21*/
+/*#loginRowUsername, #loginRowPassword*/
 
-#TD_16,
-#TD_22 {
+#labelCellUsername,
+#labelCellPassword {
     border-collapse: collapse;
     color: rgb(77, 77, 77);
     height: 40px;
@@ -450,10 +450,10 @@ body {
     padding: 4px;
 }
 
-/*#TD_16, #TD_22*/
+/*#labelCellUsername, #labelCellPassword*/
 
-#LABEL_17,
-#LABEL_23 {
+#hiddenLabelUsername,
+#hiddenLabelPassword {
     border-collapse: collapse;
     color: rgb(102, 102, 102);
     display: block;
@@ -469,9 +469,9 @@ body {
     outline: rgb(102, 102, 102) none 0px;
 }
 
-/*#LABEL_17, #LABEL_23*/
+/*#hiddenLabelUsername, #hiddenLabelPassword*/
 
-#TD_18 {
+#inputCellUsername {
     border-collapse: collapse;
     color: rgb(77, 77, 77);
     height: 40px;
@@ -487,31 +487,10 @@ body {
     padding: 4px;
 }
 
-/*#TD_18*/
+/*#inputCellUsername*/
 
-#INPUT_19,
-#INPUT_25 {
-    border-collapse: collapse;
-    box-sizing: content-box;
-    color: rgba(255, 255, 255, 0.658824);
-    display: none;
-    height: 18px;
-    width: 240px;
-    perspective-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    background: rgb(203, 203, 203) none repeat scroll 0% 0% / auto padding-box border-box;
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 5px 5px 5px 5px;
-    font: normal normal normal normal 14px/22px HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-    outline: rgba(255, 255, 255, 0.658824) none 0px;
-    padding: 5px;
-    transition: border 0.1s ease 0s, box-shadow 0.1s ease 0s;
-}
-
-/*#INPUT_19, #INPUT_25*/
-
-#INPUT_20,
-#INPUT_26 {
+#inputUsername,
+#inputPassword {
     border-collapse: collapse;
     box-sizing: content-box;
     color: rgba(255, 255, 255, 0.658824);
@@ -530,9 +509,9 @@ body {
     transition: border 0.1s ease 0s, box-shadow 0.1s ease 0s;
 }
 
-/*#INPUT_20, #INPUT_26*/
+/*#inputUsername, #inputPassword*/
 
-#TD_24 {
+#inputCellPassword {
     border-collapse: collapse;
     color: rgb(77, 77, 77);
     height: 40px;
@@ -547,9 +526,9 @@ body {
     padding: 4px;
 }
 
-/*#TD_24*/
+/*#inputCellPassword*/
 
-#TD_27 {
+#loginButtonCell {
     border-collapse: collapse;
     color: rgb(77, 77, 77);
     height: 40px;
@@ -565,9 +544,9 @@ body {
     padding: 4px;
 }
 
-/*#TD_27*/
+/*#loginButtonCell*/
 
-#A_28 {
+#loginButton {
     border-collapse: collapse;
     color: rgb(75, 102, 167);
     display: block;
@@ -588,9 +567,9 @@ body {
     padding: 0px 0px 0px 37px;
 }
 
-/*#A_28*/
+/*#loginButton*/
 
-#SPAN_29 {
+#loginButtonIcon {
     border-collapse: collapse;
     box-shadow: rgba(255, 255, 255, 0.498039) 0px 1px 0px 0px inset;
     color: rgb(255, 255, 255);
@@ -609,7 +588,7 @@ body {
     outline: rgb(255, 255, 255) none 0px;
 }
 
-/*#SPAN_29*/
+/*#loginButtonIcon*/
 
 #loadingSpinner {
     left: -42px;

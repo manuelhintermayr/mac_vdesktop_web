@@ -12,7 +12,7 @@ do_header_jquery();
 
 <script type="text/javascript">
     function login() {
-        $("#SPAN_29").hide();
+        $("#loginButtonIcon").hide();
         $("#loadingSpinner").show();
         $.ajax({
             type: "POST",
@@ -23,7 +23,6 @@ do_header_jquery();
                 $('section').fadeOut('slow', function () {
                     $('body').css({ 'background-image': "url('assets/images/yosemite.jpg')" });
                     $('section').html('<span style="border-color: rgba(255, 255, 255, 0.498039); padding:2px; background: rgba(255, 255, 255, 0.4);">Lade Hauptseite... </span>').fadeIn('fast', function () {
-
                         window.history.pushState("", "", 'desktop.php');
                     });
                 });
@@ -33,13 +32,13 @@ do_header_jquery();
             statusCode: {
                 403: function (e) {
                     $("#loadingSpinner").hide();
-                    $("#SPAN_29").show();
+                    $("#loginButtonIcon").show();
                     $("#message").text(e.responseText);
                     fehlAnmeldung();
                 },
                 500: function (e) {
                     $("#loadingSpinner").hide();
-                    $("#SPAN_29").show();
+                    $("#loginButtonIcon").show();
                     $("#message").html("Anmelde-Server funktioniert momentan nicht. <br><u>(500 Error Response)</u>");
                     fehlAnmeldung();
                 }
@@ -48,11 +47,10 @@ do_header_jquery();
         return false;
     }
 
-
     function fehlAnmeldung() {
-        $("#SECTION_4").show("slow");
-        $("#SECTION_8").addClass("error");
-        window.setTimeout('removeClass("#SECTION_8","error")', 1000);
+        $("#loginMessageBox").show("slow");
+        $("#loginPanel").addClass("error");
+        window.setTimeout('removeClass("#loginPanel","error")', 1000);
     }
 
     function removeClass(id, className) {
@@ -60,13 +58,11 @@ do_header_jquery();
     }
 
     function loadAnfang() {
-        $("#A_28").click(function (event) {
+        $("#loginButton").click(function (event) {
             event.preventDefault();
             login();
         });
-
     }
-
 </script>
 
 <script>
@@ -83,51 +79,51 @@ do_header_jquery();
             <center><a href="javascript:window.close();"><img src="assets/images/login/cancelbutton.png"></a></center>
         </span>
         <form>
-            <div id="DIV_1">
-                <div id="DIV_3">
-                    <section id="SECTION_4" style="display: none;">
-                        <p id="P_5">
+            <div id="pageWrapper">
+                <div id="loginWindowWrapper">
+                    <section id="loginMessageBox" style="display: none;">
+                        <p id="loginHintPrimary">
                         The following error has occurred:
                         </p>
-                        <p id="P_6">
+                        <p id="loginHintSecondary">
                             <b>
                                 <div id='message'></div>
                             </b>
                         </p>
-                        <a href="javascript:void(0)" id="A_7"></a>
+                        <a href="javascript:void(0)" id="messageBoxArrow"></a>
                     </section>
-                    <section id="SECTION_8">
-                        <div id="DIV_9">
-                            <h1 id="H1_10">
+                    <section id="loginPanel">
+                        <div id="loginImageContainer">
+                            <h1 id="loginTitle">
                                 Login
-                            </h1><span id="SPAN_11"></span>
+                            </h1><span id="loginImageOverlay"></span>
                         </div>
-                        <div id="DIV_12">
-                            <table id="TABLE_13">
-                                <tbody id="TBODY_14">
-                                    <tr id="TR_15">
-                                        <td id="TD_16">
-                                            <label for="USERNAME" id="LABEL_17">
+                        <div id="loginFieldsWrapper">
+                            <table id="loginFieldsTable">
+                                <tbody id="loginFieldsBody">
+                                    <tr id="loginRowUsername">
+                                        <td id="labelCellUsername">
+                                            <label for="USERNAME" id="hiddenLabelUsername">
                                                 Username
                                             </label>
                                         </td>
-                                        <td id="TD_18">
-                                            <input type="text" id="INPUT_20" name="user" placeholder="Enter Username"
+                                        <td id="inputCellUsername">
+                                            <input type="text" id="inputUsername" name="user" placeholder="Enter Username"
                                                 value="" size="40" maxlength="100" />
                                         </td>
                                     </tr>
-                                    <tr id="TR_21">
-                                        <td id="TD_22">
-                                            <label for="PASSWORD" id="LABEL_23">
+                                    <tr id="loginRowPassword">
+                                        <td id="labelCellPassword">
+                                            <label for="PASSWORD" id="hiddenLabelPassword">
                                                 Password
                                             </label>
                                         </td>
-                                        <td id="TD_24">
-                                            <input type="password" name="pass" size="40" maxlength="100" id="INPUT_26"
+                                        <td id="inputCellPassword">
+                                            <input type="password" name="pass" size="40" maxlength="100" id="inputPassword"
                                                 placeholder="Enter Password" />
                                         </td>
-                                        <td id="TD_27">
-                                            <span id="A_28"><span id="SPAN_29" class="loginButton"></span>
+                                        <td id="loginButtonCell">
+                                            <span id="loginButton"><span id="loginButtonIcon" class="loginButton"></span>
                                                 <img alt="loading" id="loadingSpinner" style="display: none;"
                                                     src="assets/images/spinner.gif" />
                                             </span>
@@ -139,10 +135,8 @@ do_header_jquery();
                     </section>
                 </div>
             </div>
-
         </form>
     </section>
 
 </body>
-
 </html>
