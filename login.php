@@ -10,96 +10,16 @@ do_header_start("VDesktop - Login");
 do_header_jquery();
 ?>
 
-<script name="redirect_to_home" type="text/javascript">
-    function confirmExit(event) {
-        event.preventDefault();
-        const confirmed = confirm("Do you really want to leave the site?\n\nYou will be redirected to the author's website.");
-        if (confirmed) {
-            window.location.href = "https://manuelhintermayr.com";
-        }
-    }
-</script>
-<script name="login_script" type="text/javascript">
-    function login() {
-        $("#loginButtonIcon").hide();
-        $("#loginMessageBox").hide();
-        $("#loadingSpinner").show();
-        $.ajax({
-            type: "POST",
-            url: 'login/index.php',
-            data: $('form').serialize(),
-            dataType: 'json',
-            success: function (data) {
-                $('section').fadeOut('slow', function () {
-                    $('body').css({ 'background-image': "url('assets/images/yosemite.jpg')" });
-                    $('section').html('<span style="border-color: rgba(255, 255, 255, 0.498039); padding:2px; background: rgba(255, 255, 255, 0.4);">Lade Hauptseite... </span>').fadeIn('fast', function () {
-                        window.history.pushState("", "", 'desktop.php');
-                    });
-                });
-                location.reload();
-                $("body").load("desktop.php");
-            },
-            statusCode: {
-                403: function (e) {
-                    $("#loadingSpinner").hide();
-                    $("#loginButtonIcon").show();
-                    $("#message").text(e.responseText);
-                    fehlAnmeldung();
-                },
-                500: function (e) {
-                    $("#loadingSpinner").hide();
-                    $("#loginButtonIcon").show();
-                    $("#message").html("Anmelde-Server funktioniert momentan nicht. <br><u>(500 Error Response)</u>");
-                    fehlAnmeldung();
-                }
-            }
-        });
-        return false;
-    }
-
-    function fehlAnmeldung() {
-        $("#loginMessageBox").show("slow");
-        $("#loginPanel").addClass("error");
-        window.setTimeout('removeClass("#loginPanel","error")', 1000);
-    }
-
-    function removeClass(id, className) {
-        $(id).removeClass(className);
-    }
-</script>
-<script name="info_popup" type="text/javascript">
-    setTimeout(function () {
-        $("#infoPopup").draggable({
-            handle: ".mac-titlebar",
-            scroll: false,
-            opacity: 0.8
-        });
-        $("#closePopup, .mac-close").on("click", function () {
-            $("#infoPopup").fadeOut(300);
-        });
-        $("#infoPopup").fadeIn(400);
-    }, 3000);
-</script>
-<script name="page_start" type="text/javascript">
-    function loadAnfang() {
-        $("#loginButton").click(function (event) {
-            event.preventDefault();
-            login();
-        });
-        $(".login-input").on("keydown", function (event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                login();
-            }
-        });
-    }
-    window.addEventListener('DOMContentLoaded', loadAnfang);
-</script>
+<script src='assets/js/login/redirect_to_home.js'></script>
+<script src='assets/js/login/login_script.js'></script>
+<script src='assets/js/login/info_popup.js'></script>
+<script src='assets/js/login/page_start.js'></script>
 <link rel="stylesheet" href="assets/style/login.css" type="text/css" />
 </head>
 
 <body>
-    <div id="infoPopup" class="mac-window" style="display: none;">
+    <!-- Info Modal -->
+    <div id="infoPopup" class="mac-window">
         <div class="mac-titlebar">
             <span class="mac-buttons">
                 <span class="mac-close"></span>
@@ -111,7 +31,7 @@ do_header_jquery();
                 Welcome to <strong>VDesktop</strong> – a virtual desktop environment built entirely in the browser.
                 You can log in to the demo using the default credentials: <b>admin</b> / <b>admin</b>.
             </p>
-            <img src="assets/images/preview_pic.jpg" alt="preview" height="170px" />
+            <img src="assets/images/preview_pic.jpg" alt="preview" width="100%" />
             <p>
                 This project was originally created as a uni project during the academic year
                 <strong>2014/2015</strong> at <b>HTL Spengergasse</b>. <br /><br />
@@ -122,11 +42,11 @@ do_header_jquery();
                 <a href="https://github.com/manuelhintermayr/mac_vdesktop_web"
                     target="_blank">github.com/manuelhintermayr/mac_vdesktop_web</a>
             </p>
-
             <button id="closePopup" class="mac-close-btn">Close</button>
         </div>
     </div>
 
+    <!-- Login Form -->
     <section>
         <span id="hintergrund"></span>
         <span id="cancelButton">

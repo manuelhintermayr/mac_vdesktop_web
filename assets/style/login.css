@@ -324,6 +324,7 @@ a,
 
 /* macOS-style window: */
 .mac-window {
+    display: none;
     position: fixed;
     top: 28%; 
     left: calc(50% - 200px);
