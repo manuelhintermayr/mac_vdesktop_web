@@ -67,6 +67,19 @@ do_header_jquery();
         $(id).removeClass(className);
     }
 </script>
+<script name="info_popup" type="text/javascript">
+    setTimeout(function () {
+        $("#infoPopup").draggable({
+            handle: ".mac-titlebar",
+            scroll: false,
+            opacity: 0.8
+        });
+        $("#closePopup, .mac-close").on("click", function () {
+            $("#infoPopup").fadeOut(300);
+        });
+        $("#infoPopup").fadeIn(400);
+    }, 3000);
+</script>
 <script name="page_start" type="text/javascript">
     function loadAnfang() {
         $("#loginButton").click(function (event) {
@@ -86,6 +99,34 @@ do_header_jquery();
 </head>
 
 <body>
+    <div id="infoPopup" class="mac-window" style="display: none;">
+        <div class="mac-titlebar">
+            <span class="mac-buttons">
+                <span class="mac-close"></span>
+            </span>
+            <span class="mac-title">General Info</span>
+        </div>
+        <div class="mac-content">
+            <p>
+                Welcome to <strong>VDesktop</strong> – a virtual desktop environment built entirely in the browser.
+                You can log in to the demo using the default credentials: <b>admin</b> / <b>admin</b>.
+            </p>
+            <img src="assets/images/preview_pic.jpg" alt="preview" height="170px" />
+            <p>
+                This project was originally created as a uni project during the academic year
+                <strong>2014/2015</strong> at <b>HTL Spengergasse</b>. <br /><br />
+                Please note: it is a product of its time and is not actively maintained.
+            </p>
+            <p>
+                You can find the full source code here:
+                <a href="https://github.com/manuelhintermayr/mac_vdesktop_web"
+                    target="_blank">github.com/manuelhintermayr/mac_vdesktop_web</a>
+            </p>
+
+            <button id="closePopup" class="mac-close-btn">Close</button>
+        </div>
+    </div>
+
     <section>
         <span id="hintergrund"></span>
         <span id="cancelButton">
@@ -143,7 +184,7 @@ do_header_jquery();
                                             <span id="loginButton"><span id="loginButtonIcon"
                                                     class="loginButton"></span>
                                                 <img alt="loading" id="loadingSpinner" style="display: none;"
-                                                    src="assets/images/spinner.gif" />
+                                                    src="assets/images/login/spinner.gif" />
                                             </span>
                                         </td>
                                     </tr>
