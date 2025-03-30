@@ -1,0 +1,1228 @@
+/* Allgemeiner Code fuer die Haupt-GUI */
+
+/* Fuer Sonderzeichen und Schriftarten. */
+@font-face {
+  font-family: osxFont;
+  src: url("../fonts/HelveticaNeue-Light.otf");
+  font-weight: normal;
+}
+
+a {
+  cursor: url("../cursors/link_mac.cur"), default !important;
+}
+
+html,
+body,
+div,
+.disabled,
+#menu-rechts ul a,
+.rightClickMenu {
+  cursor: url("../cursors/cursor_mac.cur"), default !important;
+}
+
+#dock ul img,
+.deskIcon img,
+#notificationIcon,
+.exit:hover,
+.minimize:hover,
+.expand:hover,
+.stundenPlan .body .left ul li,
+.rightClickMenu menuitem,
+#x,
+#right-half {
+  cursor: url("../cursors/link_mac.cur"), default !important;
+}
+
+.errorEasterEgg,
+.errorEasterEgg_titleError,
+.errorEasterEgg_message {
+  cursor: url("../cursors/cursor_win_default.png"), default !important;
+}
+
+.errorEasterEgg_closeButton,
+.errorEasterEgg_ok span {
+  cursor: url("../cursors/cursor_win_hand.png"), default !important;
+}
+
+
+
+/* Design der Buttons */
+.button {
+  font: normal normal bold normal 12px/22px osxFont;
+  border-collapse: collapse;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: rgb(43, 38, 38);
+  cursor: pointer;
+  display: block;
+  height: 23px;
+  text-align: center;
+  text-shadow: rgba(255, 255, 255, 0.74902) 0px 1px 0px;
+  white-space: nowrap;
+  width: 32px;
+  background: rgb(251, 251, 251);
+  border-top: 0px none rgb(43, 38, 38);
+  border-right: 0px none rgb(43, 38, 38);
+  border-bottom: 1px solid rgb(206, 206, 206);
+  border-left: 0px none rgb(43, 38, 38);
+  border-radius: 4px 4px 4px 4px;
+  -webkit-border-after: 1px solid rgb(206, 206, 206);
+  -webkit-border-before: 0px none rgb(43, 38, 38);
+  -webkit-border-end: 0px none rgb(43, 38, 38);
+  -webkit-border-start: 0px none rgb(43, 38, 38);
+  -webkit-transition: all 0.25s ease 0s;
+  border: 1px solid #999;
+  border-bottom: 1px solid #777;
+  padding: 0px 8px;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #f2f2f2;
+  color: #666;
+}
+
+.button:active {
+  height: auto;
+  background: rgb(192, 192, 192);
+  box-shadow: rgba(0, 0, 0, 0.14902) 0px 2px 4px 0px inset;
+}
+
+
+
+/* Start - Style fuer Die Dock */
+#dock {
+  height: 95px;
+  position: fixed;
+  bottom: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+#dock>ul>li {
+  display: block;
+  float: left;
+  padding: 6.5px;
+}
+
+#dock>ul {
+  padding-left: 0;
+  padding-top: 0;
+}
+
+/* Code fuer die Mini-Ueberschriften */
+.osx-tooltip:hover:before {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(0, 0, 0, 0.65);
+  content: "";
+  height: 0;
+  opacity: 1;
+  position: absolute;
+  top: -10px;
+  width: 0;
+  margin-left: 24px;
+}
+
+.osx-tooltip:hover:after {
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 3px;
+  color: #fff;
+  content: attr(data-text);
+  font-family: HelveticaNeue-Light, Helvetica, Arial, sans-serif;
+  opacity: 1;
+  padding: 8px 10px;
+  position: absolute;
+  top: -44px;
+  white-space: nowrap;
+}
+
+/* Fuer die Dock das Huepfen*/
+
+
+#dock ul li a span img {
+  width: 64px;
+  height: auto;
+  border: none;
+  -webkit-transition: width .3s, height .2s;
+  -moz-transition: width .3s, height .2s;
+  -o-transition: width .3s, height .2s;
+}
+
+#dock ul li a:hover img,
+#dock ul li a:focus img {
+  width: 110%;
+}
+
+#dock li:active img {
+  opacity: .9;
+}
+
+#dock ul li a:target span {
+  -moz-animation: bounce .3s 6 alternate ease-out;
+  width: 100px;
+  -webkit-animation-iteration-count: 6;
+  -webkit-animation-delay: .3s;
+  -webkit-animation-name: bounce;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 300ms;
+
+}
+
+
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateY(-20px);
+  }
+}
+
+
+
+@-moz-keyframes bounce {
+  0% {
+    -moz-transform: translateY(0);
+  }
+
+  100% {
+    -moz-transform: translateY(-20px);
+  }
+}
+
+
+
+/* Blauer Punkt*/
+.bluePoint:after,
+.bluePoint:hover:after,
+.bluePoint:focus:after,
+.bluePoint:target:after {
+  content: " ";
+  position: absolute;
+  bottom: 0px;
+  margin-left: 30px;
+  width: 5px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, .8);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow:
+    inset 0 1px 3px rgba(75, 255, 255, .4),
+    0 0 4px rgba(75, 255, 255, .5),
+    0 -1px 7px rgb(75, 255, 255);
+  -moz-box-shadow:
+    inset 0 1px 3px rgba(75, 255, 255, .4),
+    0 0 4px rgba(75, 255, 255, .5),
+    0 -1px 7px rgb(75, 255, 255);
+  box-shadow:
+    inset 0 1px 3px rgba(75, 255, 255, .4),
+    0 0 4px rgba(75, 255, 255, .5),
+    0 -1px 7px rgb(75, 255, 255);
+  -webkit-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  display: block;
+}
+
+
+
+/*
+.osx-tooltip:hover .bluePoint:after{
+    margin-left: 34px;
+}
+
+
+#dock ul li a:target .bluePoint:after{
+    margin-left: 0px;    
+}*/
+
+/* Alle Objekte mit dieser Klasse, bei denen wird der after-CSS-Pseudo Tag angezeigt*/
+.deaktiviert:after {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+
+
+
+body {
+  margin: 0;
+  background: url("../images/yosemite.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+html {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#div1 {
+  background: #000000;
+  opacity: 0.65;
+  z-index: 101;
+}
+
+menu {
+  cursor: default;
+  color: #FFFFFF;
+}
+
+menu a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: default;
+}
+
+menu>div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22px;
+  background: -webkit-linear-gradient(top, rgba(250, 250, 250, 0.8) 0%,
+      rgba(206, 206, 206, 0.8) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  opacity: 0.7;
+}
+
+menu,
+menu nav ul,
+menu nav li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 101;
+}
+
+menu nav>ul {
+  position: absolute;
+  top: 0;
+  font-family: osxFont;
+  font-size: 14px;
+
+}
+
+menu #menu-links>ul>li {
+  display: block;
+  float: left;
+}
+
+menu #menu-rechts>ul>li {
+  display: block;
+  float: right;
+}
+
+#menu-links ul li div {
+  left: -10px;
+}
+
+menu nav>ul>li>a {
+  margin: 0;
+  padding: 0;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  display: block;
+  padding: 2px 10px 0px 10px;
+  line-height: 20px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+
+}
+
+menu nav>ul>li:hover>a {
+  background: #466cf2;
+  background: -webkit-linear-gradient(top, rgba(105, 136, 244, 1) 0%,
+      rgba(53, 92, 239, 1) 100%);
+  color: white;
+  text-shadow: none !important;
+  border-top: 1px solid #607feb;
+  border-bottom: 1px solid #2b51e8;
+
+}
+
+menu nav>ul>li>div {
+  display: none;
+  position: relative;
+
+}
+
+menu nav>ul>li:hover>div,
+menu nav>ul>li>a:hover+div {
+  display: block;
+}
+
+menu nav>ul>li>div:hover {
+  display: block;
+}
+
+menu nav>ul>li>div>ul {
+  background: #000000;
+  opacity: 0.65;
+  padding: 4px 0px 4px 0px;
+  -webkit-outer-shadow: 0px 10px 10px black;
+  display: block;
+  white-space: nowrap;
+  line-break: none;
+  position: absolute;
+  display: inline-table;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-top: none;
+  border-right: none;
+  border-radius: 0px 0px 6px 6px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+menu nav>ul>li>div>ul>li {
+  display: table-row;
+}
+
+menu nav>ul>li>div>ul>li>a {
+  line-height: 18px;
+  padding: 2px 14px 0px 20px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  min-width: 160px;
+}
+
+menu nav>ul>li>div>ul>li>a.disabled {
+  color: gray;
+}
+
+menu nav>ul>li>div>ul>li>a.disabled:hover {
+  background: none;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  color: gray;
+}
+
+menu nav>ul>li>div>ul>li>a:hover {
+  background: -webkit-linear-gradient(top, rgba(105, 136, 244, 1) 0%,
+      rgba(53, 92, 239, 1) 100%);
+  color: white;
+  border-top: 1px solid #607feb;
+  border-bottom: 1px solid #2b51e8;
+
+}
+
+menu nav>ul>li>div>ul>li>a>span {
+  text-align: right;
+  margin-left: 30px;
+  display: block;
+  float: right;
+}
+
+menu nav li.separator {
+  border-top: 2px solid rgba(178, 178, 178, 0.5);
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+menu #menu-links ul {
+  left: 10px;
+}
+
+#menu-links {
+  float: left;
+}
+
+#menu-rechts {
+  float: right;
+}
+
+#menu-rechts ul {
+  right: 10px;
+}
+
+#notificationIcon {
+  background: url("../images/spotlight-menu-icons_active.png");
+  height: 21px;
+  background-position: -586px -1px;
+  width: 21px;
+}
+
+/* Damit genug Platz fuer das Icon ist*/
+#menu-rechts>ul>li:nth-child(1)>a {
+  padding: 2px 7px 0px 7px;
+}
+
+
+/*OSX WINDOW STYLE*/
+
+.fenster {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: 0 4px 12px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, .5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .5);
+  width: 800px;
+  margin: auto;
+  margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid #C1C2C2;
+}
+
+.inside {
+  background: #fff;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.inside .blok {
+  width: 32%;
+  float: left;
+  margin-right: 1.5%;
+  height: 50px;
+  background: #efefef;
+}
+
+.top {
+  padding: 7px 0;
+  position: relative;
+  background: #f1f1f1;
+  background: -moz-linear-gradient(top, #E9E9E9 3%, #d8d8d8 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(3%, #E9E9E9), color-stop(100%, #d8d8d8));
+  background: -webkit-linear-gradient(top, #E9E9E9 3%, #d8d8d8 100%);
+  background: -o-linear-gradient(top, #E9E9E9 3%, #d8d8d8 100%);
+  background: -ms-linear-gradient(top, #E9E9E9 3%, #d8d8d8 100%);
+  background: linear-gradient(to bottom, #E9E9E9 3%, #d8d8d8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1f1f1', endColorstr='#d8d8d8', GradientType=0);
+
+  -webkit-box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.76);
+  -moz-box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.76);
+  box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.76);
+
+  overflow: hidden;
+  border-bottom: 2px solid #BDBCC1;
+}
+
+.top>div {
+  float: left;
+}
+
+
+.panel {
+  padding-left: 9px;
+  padding-top: 2px;
+}
+
+.panel>span {
+  display: inline-block;
+  float: left;
+  width: 12px;
+  height: 12px;
+  margin-right: 7px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+
+}
+
+.panel span.first {
+  background: #FF5F4F;
+}
+
+.panel span.second {
+  background: #F9C206;
+}
+
+.panel span.third {
+  background: #19CC32;
+}
+
+
+.nav {
+  overflow: hidden;
+}
+
+.nav>span {
+  display: inline-block;
+  float: left;
+  background: #FBFBFB;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  height: 23px;
+  padding: 0 8px;
+  cursor: pointer;
+  color: #B4B4B4;
+  border-bottom: 1px solid #CECECE;
+}
+
+.nav>span:hover {
+  background: #f2f2f2;
+  color: #666;
+}
+
+.nav>span i.fa {
+  font-size: 23px;
+}
+
+.nav span.active {
+  color: #707070;
+}
+
+.nav span.prev {
+  margin-right: 1px;
+  margin-left: 7px;
+}
+
+.nav span.next {
+  margin-right: 7px;
+}
+
+.nav span.set i {
+  font-size: 14px;
+  position: relative;
+  top: 3px;
+}
+
+.nav span.address {
+  width: 400px;
+  margin-left: 75px;
+  display: inline-block;
+  background: #fff;
+  line-height: 23px;
+  padding: 0;
+  text-align: center;
+  position: relative;
+}
+
+.nav span.address>input {
+  font-size: 12px;
+  color: #505050;
+  border: none;
+  background: none;
+  text-align: center;
+  position: relative;
+  width: 300px;
+}
+
+.nav span.address>input:focus {
+  outline: none;
+}
+
+.nav span.address>input.class {
+  text-align: left;
+}
+
+
+
+.nav span.address>i.fa {
+  position: absolute;
+  right: 5px;
+  top: 7px;
+  font-size: 11px;
+  color: #010101;
+}
+
+.nav.right {
+  float: right !important;
+  margin-right: 35px;
+}
+
+.nav span.share {
+  margin-right: 7px;
+}
+
+.nav span.share>i.fa {
+  font-size: 11px;
+  position: relative;
+  top: 2px;
+}
+
+.nav span.tabs {
+  position: relative;
+  width: 26px;
+  padding: 0;
+}
+
+.nav span.tabs span {
+  height: 7px;
+  width: 7px;
+  border: 1px solid #B4B4B4;
+  display: inline-block;
+  position: absolute;
+  background: #FBFBFB;
+}
+
+.nav span.tabs span.front {
+  top: 8px;
+  left: 6px;
+  z-index: 6;
+}
+
+.nav span.tabs span.behind {
+  top: 6px;
+  left: 8px;
+  z-index: 5;
+}
+
+.nav span.tabs:hover span {
+  border: 1px solid #666;
+}
+
+span.new {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: #CACACA;
+  width: 23px;
+  height: 23px;
+  text-align: center;
+  line-height: 23px;
+  border-top: 1px solid #C1C2C2;
+  border-left: 1px solid #C1C2C2;
+}
+
+span.new:hover {
+  -webkit-box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+span.new .plus {
+  position: absolute;
+  background: #b0b0b0;
+  display: inline-block;
+}
+
+span.new .plus.x {
+  height: 1px;
+  width: 14px;
+  top: 12px;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+span.new .plus.y {
+  height: 14px;
+  width: 1px;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+
+}
+
+#calendarWindow>div.inside>iframe {
+  margin-bottom: -3px;
+  width: 100%;
+  margin-bottom: -3px;
+  height: 100%;
+}
+
+.inside {
+  padding: 0px;
+  height: 350px;
+}
+
+
+
+
+/* Start - Style fuer Error-EasterEgg */
+.errorEasterEgg_titleError {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  margin: 0 auto;
+  padding: 0 2px 0 2px;
+  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  color: #fff;
+  text-shadow: 0 0 #fff;
+  line-height: 30px;
+  background-image: -webkit-linear-gradient(left, #0050e0, #3890f8);
+  background-image: -moz-linear-gradient(left, #0050e0, #3890f8);
+  background-image: linear-gradient(left, #0050e0, #3890f8);
+}
+
+.errorEasterEgg {
+  position: absolute;
+  width: 494px;
+  height: 142px;
+  padding: 2px;
+  border: 1px outset #dedede;
+  border-color: #a3a3a3;
+  background-color: #e8e8d8;
+  animation: display 200ms;
+  animation-fill-mode: forwards;
+}
+
+.errorEasterEgg:nth-of-type(1) {
+  top: 17%;
+  left: 12%;
+  animation-delay: 100ms;
+}
+
+.errorEasterEgg:nth-of-type(2) {
+  top: 38%;
+  left: 4%;
+  animation-delay: 200ms;
+}
+
+.errorEasterEgg:nth-of-type(3) {
+  top: 79%;
+  left: 33%;
+  animation-delay: 300ms;
+}
+
+.errorEasterEgg:nth-of-type(4) {
+  top: 21%;
+  left: 5%;
+  animation-delay: 400ms;
+}
+
+.errorEasterEgg:nth-of-type(5) {
+  top: 9%;
+  left: 24%;
+  animation-delay: 500ms;
+}
+
+.errorEasterEgg:nth-of-type(6) {
+  top: 80%;
+  left: 6%;
+  animation-delay: 600ms;
+}
+
+.errorEasterEgg:nth-of-type(7) {
+  top: 44%;
+  left: 27%;
+  animation-delay: 700ms;
+}
+
+.errorEasterEgg:nth-of-type(8) {
+  top: 37%;
+  left: 9%;
+  animation-delay: 800ms;
+}
+
+.errorEasterEgg:nth-of-type(9) {
+  top: 57%;
+  left: 42%;
+  animation-delay: 900ms;
+}
+
+.errorEasterEgg:nth-of-type(10) {
+  top: 33%;
+  left: 39%;
+  animation-delay: 1000ms;
+}
+
+.errorEasterEgg:nth-of-type(11) {
+  top: 42%;
+  left: 34%;
+  animation-delay: 1100ms;
+}
+
+.errorEasterEgg:nth-of-type(12) {
+  top: 75%;
+  left: 52%;
+  animation-delay: 1200ms;
+}
+
+.errorEasterEgg:nth-of-type(13) {
+  top: 34%;
+  left: 63%;
+  animation-delay: 1300ms;
+}
+
+.errorEasterEgg:nth-of-type(14) {
+  top: 13%;
+  left: 29%;
+  animation-delay: 1400ms;
+}
+
+.errorEasterEgg:nth-of-type(15) {
+  top: 57%;
+  left: 1%;
+  animation-delay: 1500ms;
+}
+
+.errorEasterEgg_closeButton {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 25px;
+  height: 25px;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  background-color: #e8e8d8;
+}
+
+.errorEasterEgg_message {
+  width: 100%;
+  margin-top: 25px;
+  margin-left: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.errorEasterEgg_message img {
+  float: left;
+  margin-top: -15px;
+  margin-right: 20px;
+}
+
+.errorEasterEgg_ok {
+  position: absolute;
+  width: 100px;
+  height: 27px;
+  background-color: #e8e8d8;
+  border: 1px solid #2b2b2b;
+  box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.7);
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.errorEasterEgg_ok:focus>span {
+  border: 1px dotted #000;
+}
+
+.errorEasterEgg_ok span {
+  display: block;
+  width: 108%;
+  height: 86%;
+  margin-top: -2px;
+  margin-left: -4px;
+  line-height: 17px;
+}
+
+/* Ende - Style fuer Error-EasterEgg */
+
+/* Start - Style fuer FehlerPopUps */
+.ErrorWindow {
+  background: #eee;
+  width: 415px;
+  margin: auto;
+  margin-top: 12.5vh;
+  border: 1px solid #acacac;
+  border-radius: 6px;
+  box-shadow: 0px 0px 20px #acacac;
+  padding-bottom: 0px;
+}
+
+.ErrorPopUp_close a {
+  text-decoration: none;
+}
+
+.ErrorPopUp_close a:hover {
+  cursor: pointer;
+}
+
+.ErrorPopUp_closebutton span {
+  line-height: 9px;
+  vertical-align: 50%;
+}
+
+.ErrorPopUp_titlebar:hover {
+  cursor: all-scroll;
+}
+
+.ErrorPopUp_titlebar {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ebebeb, color-stop(1.0, #d5d5d5)));
+  background: -webkit-linear-gradient(top, #ebebeb, #d5d5d5);
+  background: -moz-linear-gradient(top, #ebebeb, #d5d5d5);
+  background: -ms-linear-gradient(top, #ebebeb, #d5d5d5);
+  background: -o-linear-gradient(top, #ebebeb, #d5d5d5);
+  background: linear-gradient(top, #ebebeb, #d5d5d5);
+  color: #4d494d;
+  font-size: 11pt;
+  line-height: 20px;
+  text-align: center;
+  width: 100%;
+  height: 20px;
+  border-top: 1px solid #f3f1f3;
+  border-bottom: 1px solid #b1aeb1;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  cursor: default;
+  font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+}
+
+.ErrorPopUp_buttons {
+  padding-left: 8px;
+  padding-top: 3px;
+  float: left;
+  line-height: 0px;
+}
+
+.ErrorPopUp_buttons:hover a {
+  visibility: visible;
+}
+
+.ErrorPopUp_close {
+  background: #ff5c5c;
+  font-size: 9pt;
+  width: 11px;
+  height: 11px;
+  border: 1px solid #e33e41;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ErrorPopUp_close:active {
+  background: #c14645;
+  border: 1px solid #b03537;
+}
+
+.ErrorPopUp_close:active .ErrorPopUp_closebutton {
+  color: #4e0002;
+}
+
+.ErrorPopUp_closebutton {
+  color: #820005;
+  visibility: hidden;
+  cursor: default;
+}
+
+.ErrorPopUp_content {}
+
+.ErrorPopUp_container-alert {
+  padding: 15px 20px;
+  position: relative;
+}
+
+.ErrorPopUp_about-alert {
+  width: 295px;
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  line-height: 15px;
+  margin-left: 15px;
+}
+
+.ErrorPopUp_container-alert img {
+  float: left;
+}
+
+.ErrorPopUp_about-alert p {
+  color: #000;
+  font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+  font-size: 10px;
+  margin-top: 5px;
+  line-height: 14px;
+}
+
+.button {
+  float: right;
+}
+
+/* Ende - Style fuer FehlerPopUps */
+
+
+/* Start - Style fuer Navigation Center */
+#notificationCenter:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0;
+  height: 100%;
+  width: 361px;
+  -webkit-filter: blur(5px);
+  background: rgba(102, 102, 102, 0.59) none repeat scroll 0% 0% / cover padding-box border-box;
+}
+
+#notificationCenter {
+  height: calc(100% - 24px);
+  position: fixed;
+  right: 0px;
+  top: 24px;
+  width: 361px;
+  border: 1px solid rgba(0, 0, 0, 0.298039);
+  z-index: 2;
+}
+
+#notification_inhalt {
+  height: 100%;
+  position: absolute;
+  width: 361px;
+  z-index: 2;
+  background: rgba(50, 50, 50, 0.2) none repeat scroll 0% 0% / auto padding-box border-box;
+}
+
+#notification_HEADER {
+  height: 30px;
+  list-style: none outside none;
+  margin: 10px 0px 0px 15px;
+  padding: 0px;
+}
+
+#notification_heutigeUeberschrift {
+  color: rgb(51, 51, 51);
+  text-align: center;
+  width: 330px;
+  background: rgba(255, 255, 255, 0.4) none repeat scroll 0% 0% / auto padding-box border-box;
+  font: normal normal normal normal 16px/normal 'Helvetica Neue', Arial;
+  padding: 10px 0px;
+  border-radius: 5px;
+}
+
+#notification_benarichtigunen {
+  margin: 20px 0px 0px;
+  padding: 0px;
+}
+
+.notification_neueUeberschrift {
+  height: 19px;
+  color: rgba(255, 255, 255, 0.6);
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.298039) none repeat scroll 0% 0% / auto padding-box border-box;
+  font: normal normal normal normal 16px/normal 'Helvetica Neue', Arial;
+  list-style: none outside none;
+  padding: 5px 0px;
+}
+
+.notification_icon {
+  float: left;
+  height: 25px;
+  width: 25px;
+  margin: 0px 0px 0px 5px;
+}
+
+.moodle_icon {
+  background: rgba(0, 0, 0, 0) url("../images/moodle.gif") no-repeat scroll 1px -1px / 72% padding-box border-box;
+}
+
+.spengergasse_icon {
+  background: rgba(0, 0, 0, 0) url("../images/spengergasse.png") no-repeat scroll 1px -1px / 72% padding-box border-box;
+}
+
+.notification_neuerEintrag {
+  width: 311px;
+  font: normal normal normal normal 16px/normal 'Times New Roman';
+  list-style: none outside none;
+  padding: 10px 10px 10px 40px;
+  padding-bottom: 15px;
+}
+
+.notification_neuerEintragUeberschrift {
+  color: rgb(255, 255, 255);
+  -webkit-text-fill-color: rgb(255, 255, 255);
+  font: normal normal bold normal 16px/normal 'Helvetica Neue', Arial;
+  list-style: none outside none;
+}
+
+.notification_neuerEintragText {
+  color: rgba(255, 255, 255, 0.6);
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.6);
+  font: normal normal normal normal 16px/normal 'Helvetica Neue', Arial;
+  list-style: none outside none;
+}
+
+.notification_neuerEintragDatum {
+  margin: 0px 0px 0px 10px;
+}
+
+.notification_datum {
+  font-family: osxFont;
+  font-size: 40px;
+}
+
+/* Ende - Style fuer Navigation Center */
+
+
+/* Start - Code fuer das rechte Mausmenu */
+.rightClickMenu {
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+
+  margin: 0;
+  padding: 3px 0 4px;
+
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.35);
+  border-radius: 4px;
+
+  font-family: Lucida Grande;
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.rightClickMenu::before {
+  display: block;
+  position: absolute;
+  content: "";
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  right: -1px;
+
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  z-index: -1;
+}
+
+.rightClickMenu hr {
+  border: none;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.10);
+  margin: 6px 1px 5px;
+  padding: 0;
+}
+
+.rightClickMenu menuitem {
+  display: block;
+  padding: 0 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 14px;
+  color: #000;
+  padding-top: 4px;
+  z-index: 100;
+}
+
+.rightClickMenu menuitem::after {
+  vertical-align: 2px;
+  content: attr(label);
+}
+
+.rightClickMenu menuitem:hover {
+  background: -webkit-linear-gradient(top, #648bf5, #2866f2);
+  background: linear-gradient(to bottom, #648bf5 0%, #2866f2 100%);
+  border-top: 1px solid #5a82eb;
+  border-bottom: 1px solid #1758e7;
+}
+
+.rightClickMenu menuitem:hover::after {
+  color: #fff;
+}
+
+#target {
+  background: #cad;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+/* Ende - Code fuer das rechte Mausmenu*/

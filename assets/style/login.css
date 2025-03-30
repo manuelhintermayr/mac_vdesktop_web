@@ -1,0 +1,395 @@
+/*Der Allgemeine Hintergrund*/
+body {
+    background: url("../images/login/transparent.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    cursor: url("../cursors/cursor_mac.cur"), default !important;
+}
+
+a,
+#loginButtonIcon,
+.mac-close,
+#closePopup {
+    cursor: url("../cursors/link_mac.cur"), default !important;
+}
+
+#hintergrund {
+    background: url("../images/yosemite.jpg") no-repeat center center fixed;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border: 1;
+    z-index: 0;
+    margin: -1px;
+}
+
+/* Ruetteln beim Fehl-Anmelden*/
+.error {
+    -moz-animation: error 0.35s linear;
+    -webkit-animation: error 0.35s linear;
+}
+
+@-webkit-keyframes error {
+    0% {
+        -webkit-transform: translateX(0px);
+    }
+
+    25% {
+        -webkit-transform: translateX(30px);
+    }
+
+    45% {
+        -webkit-transform: translateX(-30px);
+    }
+
+    65% {
+        -webkit-transform: translateX(30px);
+    }
+
+    82% {
+        -webkit-transform: translateX(-30px);
+    }
+
+    94% {
+        -webkit-transform: translateX(30px);
+    }
+
+    35%,
+    55%,
+    75%,
+    87%,
+    97%,
+    100% {
+        -webkit-transform: translateX(0px);
+    }
+}
+
+@-moz-keyframes error {
+    0% {
+        -moz-transform: translateX(0px);
+    }
+
+    25% {
+        -moz-transform: translateX(30px);
+    }
+
+    45% {
+        -moz-transform: translateX(-30px);
+    }
+
+    65% {
+        -moz-transform: translateX(30px);
+    }
+
+    82% {
+        -moz-transform: translateX(-30px);
+    }
+
+    94% {
+        -moz-transform: translateX(30px);
+    }
+
+    35%,
+    55%,
+    75%,
+    87%,
+    97%,
+    100% {
+        -moz-transform: translateX(0px);
+    }
+}
+
+/*Style für Cancel Button*/
+#cancelButton {
+    width: 100%;
+    bottom: 0px;
+    position: absolute;
+    left: 0px;
+    padding-bottom: 26px;
+}
+
+/* START: Style für Login-Panel*/
+#pageWrapper {
+    font: normal normal normal normal 12px/16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Position wo sich das Login-Fenster aufhält */
+#loginWindowWrapper {
+    left: 50%;
+    position: absolute;
+    top: 40%;
+    margin: -144px 0px 0px -240px;
+}
+
+#loginMessageBox {
+    display: none;
+    box-shadow: rgba(0, 0, 0, 0.65098) 0px 7px 25px 0px;
+    left: 228.390625px;
+    position: absolute;
+    text-align: center;
+    top: 291px;
+    background: rgb(242, 240, 235) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 1px solid rgba(52, 52, 52, 0.34902);
+    border-radius: 3px 3px 3px 3px;
+    margin: 0px 1px 8px -165px;
+    padding: 16px;
+}
+
+.login-hint {
+    color: rgb(100, 100, 100);
+    text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
+    width: 330px;
+    margin: 8px 0 0;
+}
+
+#loginHintPrimary {
+    height: 16px;
+    perspective-origin: 165px 8px;
+    transform-origin: 165px 8px;
+}
+
+#loginHintSecondary {
+    perspective-origin: 165px 0px;
+    transform-origin: 165px 0px;
+}
+
+#messageBoxArrow {
+    left: 165px;
+    position: absolute;
+    top: -13px;
+    z-index: 1;
+    border-top: 0px none rgb(75, 102, 167);
+    border-right: 14px solid rgba(0, 0, 0, 0);
+    border-bottom: 14px solid rgb(242, 240, 235);
+    border-left: 14px solid rgba(0, 0, 0, 0);
+    margin: 0px 0px 0px -14px;
+}
+
+#loginPanel {
+    margin: 20px;
+    position: absolute;
+    left: 52.391px;
+}
+
+#loginPanel:after {
+    clear: both;
+    color: rgb(77, 77, 77);
+    display: block;
+    text-align: -webkit-center;
+    visibility: hidden;
+    width: 320px;
+    perspective-origin: 160px 0px;
+    transform-origin: 160px 0px;
+    content: ' ';
+    border: 0px none rgb(77, 77, 77);
+    font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
+    outline: rgb(77, 77, 77) none 0px;
+    overflow: hidden;
+}
+
+#loginPanel:before {
+    color: rgb(77, 77, 77);
+    display: block;
+    text-align: -webkit-center;
+    width: 320px;
+    perspective-origin: 160px 0px;
+    transform-origin: 160px 0px;
+    content: ' ';
+    border: 0px none rgb(77, 77, 77);
+    font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
+    outline: rgb(77, 77, 77) none 0px;
+    overflow: hidden;
+}
+
+#loginImageContainer {
+    background: rgba(0, 0, 0, 0) url("../images/login/login.png") no-repeat scroll 114px 28px / auto padding-box border-box;
+}
+
+#loginTitle {
+    display: table-cell;
+    letter-spacing: 1px;
+    text-align: center;
+    text-shadow: rgba(255, 255, 255, 0.74902) 0px 1px 0px;
+    width: 320px;
+    font: normal normal bold normal 15px/20px 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+    padding: 140px 0px 0px;
+}
+
+#loginFieldsWrapper {
+    padding: 8px;
+}
+
+#loginFieldsWrapper:after {
+    clear: both;
+    color: rgb(77, 77, 77);
+    display: block;
+    text-align: -webkit-center;
+    visibility: hidden;
+    width: 304px;
+    perspective-origin: 152px 0px;
+    transform-origin: 152px 0px;
+    content: ' ';
+    border: 0px none rgb(77, 77, 77);
+    font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
+    outline: rgb(77, 77, 77) none 0px;
+    overflow: hidden;
+}
+
+#loginFieldsWrapper:before {
+    color: rgb(77, 77, 77);
+    display: block;
+    text-align: -webkit-center;
+    width: 304px;
+    perspective-origin: 152px 0px;
+    transform-origin: 152px 0px;
+    content: ' ';
+    border: 0px none rgb(77, 77, 77);
+    font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
+    outline: rgb(77, 77, 77) none 0px;
+    overflow: hidden;
+}
+
+#loginFieldsTable {
+    border-spacing: 0px 0px;
+}
+
+.login-label-cell {
+    padding: 4px;
+}
+
+.hidden-label {
+    display: block;
+    height: 40px;
+    visibility: hidden;
+    width: 0px;
+    margin: 0px 8px 0px 0px;
+}
+
+.input-cell {
+    padding: 4px;
+}
+
+.login-input {
+    cursor: url("../cursors/text_select_mac.cur"), default !important;
+    box-sizing: content-box;
+    color: rgba(0, 0, 0, 0.658824);
+    height: 18px;
+    width: 240px;
+    background: rgb(203, 203, 203) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5px 5px 5px 5px;
+    font: normal normal normal normal 14px/22px HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    padding: 5px;
+    transition: border 0.1s ease 0s, box-shadow 0.1s ease 0s;
+}
+
+#loginButtonCell {
+    padding: 4px;
+}
+
+#loginButton {
+    float: left;
+    left: -33px;
+    position: relative;
+    padding: 0px 0px 0px 37px;
+}
+
+#loginButtonIcon {
+    display: block;
+    height: 28px;
+    width: 28px;
+    background: rgba(0, 0, 0, 0) url("../images/login/arrow.png") repeat scroll 0% 0% / auto padding-box border-box;
+    border-radius: 100% 100% 100% 100%;
+}
+
+#loadingSpinner {
+    left: -42px;
+    top: 2px;
+    position: relative;
+}
+
+/* END: Style für Login-Panel*/
+
+/* macOS-style window: */
+.mac-window {
+    display: none;
+    position: fixed;
+    top: 28%; 
+    left: calc(50% - 200px);
+    width: 400px;
+    background: #ececec;
+    border-radius: 6px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    z-index: 9999;
+}
+
+.mac-titlebar {
+    background: #e0e0e0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.mac-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.mac-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.mac-close {
+    background: #ff5f56;
+}
+
+.mac-close:hover {
+    background: #FF6A6B;
+}
+
+.mac-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(-18px);
+    /* optisch zentrieren */
+}
+
+.mac-content {
+    padding: 20px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+.mac-close-btn {
+    margin-top: 15px;
+    padding: 6px 14px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
