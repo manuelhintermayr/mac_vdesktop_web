@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script src="jquery.min_v1.11.0.js"></script>
+        <script src="jquery-ui.min_v1.11.2.js"></script>
+    </head>
+    <body>
+        <script>
+            var schuelerKlasse = "";
+
+            /* Start - Berechnung der Kalenderwoche */
+            var KWDatum = new Date();
+            var DonnerstagDat = new Date(KWDatum.getTime() + (3 - ((KWDatum.getDay() + 6) % 7)) * 86400000);
+            KWJahr = DonnerstagDat.getFullYear();
+            var DonnerstagKW = new Date(new Date(KWJahr, 0, 4).getTime() + (3 - ((new Date(KWJahr, 0, 4).getDay() + 6) % 7)) * 86400000);
+            KW = Math.floor(1.5 + (DonnerstagDat.getTime() - DonnerstagKW.getTime()) / 86400000 / 7);
+            var KWstring;
+            if (KW < 10) {
+                KWstring = "0" + KW;
+            }
+            else {
+                KWstring = "" + KW;
+            }
+            localStorage["KWstring"] = KWstring;
+            /* Ende - Berechnung der Kalenderwoche */
+
+            /* Start - Berechnung der Klassen */
+            $(function () {
+                $.get('getContentFromPage.php?url=https%3A%2F%2Fintranet.spengergasse.at%2Finfostundenplan%2Fframes%2Fnavbar.htm&var=null', function (result) {
+                    var result_1 = result.substring(result.indexOf("var classes")); //Quelltext der Seite wurde entfernt bis zu den "var classes" entfernen
+                    var result_2 = result_1.substr(0, result_1.indexOf('var flcl')); //Der hintere restliche Quelltext der Seite wurde entfernt, so, dass nur noch als Inhalt die Klassen, Lehrer und Raum-Variablen enthalten sind. 
+                    $("#tempDivForInfostundenplan").html('<script>' + result_2 + '\nlocalStorage[\"classes\"] = JSON.stringify(classes);\nlocalStorage[\"teachers\"] = JSON.stringify(teachers);\nlocalStorage[\"rooms\"] = JSON.stringify(rooms);\n<\/script>'); //Speichert die ganzen Arrays als JSON-Array 
+
+                    document.write("<h1>Klassen-JSON:<\/h1>");
+                    document.write(localStorage["classes"]);
+                    document.write("<br>");
+                    document.write("<h1>Lehrer-JSON:<\/h1>");
+                    document.write(localStorage["teachers"]);
+                    document.write("<br>");
+                    document.write("<h1>Raum-JSON:<\/h1>");
+                    document.write(localStorage["rooms"]);
+                    document.write("<br><hr>");
+                    document.write("<h1>Klassen:<\/h1>");
+                    var klassen = JSON.parse(localStorage["classes"]);
+                    for (var idx = 0; idx < klassen.length; idx++) {
+                        var aktueller_index_int = (idx + 1);
+                        var aktueller_index = aktueller_index_int+"";
+
+                        if (aktueller_index_int < 10) {
+                            aktueller_index = "0000"+aktueller_index;
+                        }
+                        else{
+                            if(aktueller_index_int < 100)
+                            {
+                                aktueller_index = "000"+aktueller_index;
+                            }
+                            else{
+                                if(aktueller_index_int < 1000)
+                                {
+                                    aktueller_index = "00"+aktueller_index;
+                                }
+                                else{
+                                    if(aktueller_index_int < 10000)
+                                    {
+                                        aktueller_index = "0"+aktueller_index;
+                                    }
+                                }
+                            }
+                        }
+
+                        document.write("<a href=\"https://intranet.spengergasse.at/infostundenplan/" + KW + "/c/c" + aktueller_index + ".htm\">" + klassen[idx] + "<\/a>");
+                        document.write("<br>");
+                    }
+                    
+                    document.write("<br>");
+                    document.write("<h1>Lehrer:<\/h1>");
+                    var lehrer = JSON.parse(localStorage["teachers"]);
+                    for (var idx = 0; idx < lehrer.length; idx++) {
+                        var aktueller_index_int = (idx + 1);
+                        var aktueller_index = aktueller_index_int+"";
+
+                        if (aktueller_index_int < 10) {
+                            aktueller_index = "0000"+aktueller_index;
+                        }
+                        else{
+                            if(aktueller_index_int < 100)
+                            {
+                                aktueller_index = "000"+aktueller_index;
+                            }
+                            else{
+                                if(aktueller_index_int < 1000)
+                                {
+                                    aktueller_index = "00"+aktueller_index;
+                                }
+                                else{
+                                    if(aktueller_index_int < 10000)
+                                    {
+                                        aktueller_index = "0"+aktueller_index;
+                                    }
+                                }
+                            }
+                        }
+                        document.write("<a href=\"https://intranet.spengergasse.at/infostundenplan/" + KW + "/t/t" + aktueller_index + ".htm\">" + lehrer[idx] + "<\/a>");
+                        document.write("<br>");
+                    }
+
+                    document.write("<br>");
+                    document.write("<h1>Raume:<\/h1>");
+                    var raume = JSON.parse(localStorage["rooms"]);
+                    for (var idx = 0; idx < raume.length; idx++) {
+                        var aktueller_index_int = (idx + 1);
+                        var aktueller_index = aktueller_index_int+"";
+
+                        if (aktueller_index_int < 10) {
+                            aktueller_index = "0000"+aktueller_index;
+                        }
+                        else{
+                            if(aktueller_index_int < 100)
+                            {
+                                aktueller_index = "000"+aktueller_index;
+                            }
+                            else{
+                                if(aktueller_index_int < 1000)
+                                {
+                                    aktueller_index = "00"+aktueller_index;
+                                }
+                                else{
+                                    if(aktueller_index_int < 10000)
+                                    {
+                                        aktueller_index = "0"+aktueller_index;
+                                    }
+                                }
+                            }
+                        }
+                        document.write("<a href=\"https://intranet.spengergasse.at/infostundenplan/" + KW + "/r/r" + aktueller_index + ".htm\">" + raume[idx] + "<\/a>");
+                        document.write("<br>");
+                    }
+
+                });
+            });
+
+
+        </script>
+        <div id="tempDivForInfostundenplan"></div>
+
+
+    </body>
+</html>
