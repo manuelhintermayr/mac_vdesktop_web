@@ -1,11 +1,8 @@
 <?php
-    session_start();
-    
+    // include('login_functions.php'); - hat schon stattgefunden    
     $var_name="Unknown";
     $var_typ="Unknown";
     $var_kuerzel="Unknown";
-    
-    include('ldap_site.php');
     if($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn']))
     {
         $var_name="Anon";
@@ -24,9 +21,9 @@
             //redirect...
         }
         else{
-            $var_name=$_SESSION['displayname'];
-            $var_typ=$_SESSION['status'];
-            $var_kuerzel=$_SESSION['klasse'];
+            $var_name="";//$_SESSION['displayname'];
+            $var_typ="";//$_SESSION['status'];
+            $var_kuerzel="";//$_SESSION['klasse'];
         }
     }
     
@@ -41,4 +38,3 @@ echo 'localStorage.setItem("person_kuerzel", "';
 echo $var_kuerzel;
 echo '"); ';
 ?>
-

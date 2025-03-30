@@ -1,18 +1,18 @@
 /*Der Allgemeine Hintergrund*/
-body{
-  background: url("transparent.png");
+body {
+    background: url("../images/login/transparent.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-#hintergrund{
-    background: url(yosemite.jpg) no-repeat center center fixed;
-    -webkit-filter : blur(5px);
-    -moz-filter    : blur(5px);
-    -o-filter      : blur(5px);
-    -ms-filter     : blur(5px);
-    filter         : blur(5px);
+#hintergrund {
+    background: url("../images/yosemite.jpg") no-repeat center center fixed;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -24,16 +24,17 @@ body{
     left: 0;
     border: 1;
     z-index: 0;
-    margin:-1px;  
+    margin: -1px;
 }
-#message{
+
+#message {
     font: normal normal normal normal 12px/16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /*Style für Cancel Button*/
-#cancelButton{
-    width:100%;
-    height:115px;
+#cancelButton {
+    width: 100%;
+    height: 115px;
     bottom: 0px;
     position: absolute;
     left: 0px;
@@ -41,39 +42,93 @@ body{
     padding-bottom: 26px;
     background-repeat: no-repeat;
 }
+
 /* Ruetteln beim Fehl-Anmelden*/
 .error {
-	-moz-animation:error 0.35s linear;	
-	-webkit-animation:error 0.35s linear;	
+    -moz-animation: error 0.35s linear;
+    -webkit-animation: error 0.35s linear;
 }
 
 @-webkit-keyframes error {
-	0% { -webkit-transform:translateX(0px); }
-	25% { -webkit-transform:translateX(30px); }
-	45% { -webkit-transform:translateX(-30px); }
-	65% { -webkit-transform:translateX(30px); }
-	82% { -webkit-transform:translateX(-30px); }
-	94% { -webkit-transform:translateX(30px); }
-	35%, 55%, 75%, 87%, 97%, 100% { -webkit-transform:translateX(0px); }
+    0% {
+        -webkit-transform: translateX(0px);
+    }
+
+    25% {
+        -webkit-transform: translateX(30px);
+    }
+
+    45% {
+        -webkit-transform: translateX(-30px);
+    }
+
+    65% {
+        -webkit-transform: translateX(30px);
+    }
+
+    82% {
+        -webkit-transform: translateX(-30px);
+    }
+
+    94% {
+        -webkit-transform: translateX(30px);
+    }
+
+    35%,
+    55%,
+    75%,
+    87%,
+    97%,
+    100% {
+        -webkit-transform: translateX(0px);
+    }
 }
 
 @-moz-keyframes error {
-	0% { -moz-transform:translateX(0px); }
-	25% { -moz-transform:translateX(30px); }
-	45% { -moz-transform:translateX(-30px); }
-	65% { -moz-transform:translateX(30px); }
-	82% { -moz-transform:translateX(-30px); }
-	94% { -moz-transform:translateX(30px); }
-	35%, 55%, 75%, 87%, 97%, 100% { -moz-transform:translateX(0px); }
+    0% {
+        -moz-transform: translateX(0px);
+    }
+
+    25% {
+        -moz-transform: translateX(30px);
+    }
+
+    45% {
+        -moz-transform: translateX(-30px);
+    }
+
+    65% {
+        -moz-transform: translateX(30px);
+    }
+
+    82% {
+        -moz-transform: translateX(-30px);
+    }
+
+    94% {
+        -moz-transform: translateX(30px);
+    }
+
+    35%,
+    55%,
+    75%,
+    87%,
+    97%,
+    100% {
+        -moz-transform: translateX(0px);
+    }
 }
 
 
-#DIV_1, #CENTER_2 {
+#DIV_1,
+#CENTER_2 {
     width: 1865px;
     perspective-origin: 932.5px 0px;
     transform-origin: 932.5px 0px;
     font: normal normal normal normal 12px/16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}/*#DIV_1, #CENTER_2*/
+}
+
+/*#DIV_1, #CENTER_2*/
 
 /* Position wo sich das Login-Fenster aufhält */
 #DIV_3 {
@@ -88,7 +143,9 @@ body{
     transform-origin: 240px 180px;
     font: normal normal normal normal 12px/16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: -144px 0px 0px -240px;
-}/*#DIV_3*/
+}
+
+/*#DIV_3*/
 
 #SECTION_4 {
     box-shadow: rgba(0, 0, 0, 0.65098) 0px 7px 25px 0px;
@@ -108,7 +165,9 @@ body{
     font: normal normal normal normal 12px/16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0px 1px 8px -165px;
     padding: 16px;
-}/*#SECTION_4*/
+}
+
+/*#SECTION_4*/
 
 #P_5 {
     color: rgb(100, 100, 100);
@@ -122,7 +181,9 @@ body{
     font: normal normal normal normal 12px/16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 8px 0px 0px;
     outline: rgb(100, 100, 100) none 0px;
-}/*#P_5*/
+}
+
+/*#P_5*/
 
 #P_6 {
     color: rgb(100, 100, 100);
@@ -135,7 +196,9 @@ body{
     font: normal normal normal normal 12px/16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 8px 0px 0px;
     outline: rgb(100, 100, 100) none 0px;
-}/*#P_6*/
+}
+
+/*#P_6*/
 
 #A_7 {
     color: rgb(75, 102, 167);
@@ -159,7 +222,9 @@ body{
     font: normal normal normal normal 12px/16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0px 0px 0px -14px;
     outline: rgb(75, 102, 167) none 0px;
-}/*#A_7*/
+}
+
+/*#A_7*/
 
 #SECTION_8 {
     box-sizing: border-box;
@@ -178,10 +243,12 @@ body{
     margin: 20px;
     outline: rgb(77, 77, 77) none 0px;
     overflow: hidden;
-    
+
     position: absolute;
     left: 52.391px;
-}/*#SECTION_8*/
+}
+
+/*#SECTION_8*/
 
 #SECTION_8:after {
     clear: both;
@@ -197,7 +264,9 @@ body{
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
     overflow: hidden;
-}/*#SECTION_8:after*/
+}
+
+/*#SECTION_8:after*/
 
 #SECTION_8:before {
     color: rgb(77, 77, 77);
@@ -211,7 +280,9 @@ body{
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
     overflow: hidden;
-}/*#SECTION_8:before*/
+}
+
+/*#SECTION_8:before*/
 
 #DIV_9 {
     background-position: 114px 28px;
@@ -223,12 +294,14 @@ body{
     width: 320px;
     perspective-origin: 160px 80px;
     transform-origin: 160px 80px;
-    background: rgba(0, 0, 0, 0) url(login.png) no-repeat scroll 114px 28px / auto padding-box border-box;
+    background: rgba(0, 0, 0, 0) url("../images/login/login.png") no-repeat scroll 114px 28px / auto padding-box border-box;
     border: 0px none rgb(77, 77, 77);
     border-radius: 3px 3px 0 0;
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
-}/*#DIV_9*/
+}
+
+/*#DIV_9*/
 
 #H1_10 {
     border-collapse: collapse;
@@ -244,7 +317,9 @@ body{
     font: normal normal bold normal 15px/20px 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
     margin: 0px;
     padding: 140px 0px 0px;
-}/*#H1_10*/
+}
+
+/*#H1_10*/
 
 #SPAN_11 {
     border-collapse: collapse;
@@ -258,7 +333,9 @@ body{
     border: 0px none rgb(77, 77, 77);
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
-}/*#SPAN_11*/
+}
+
+/*#SPAN_11*/
 
 #DIV_12 {
     color: rgb(77, 77, 77);
@@ -273,7 +350,9 @@ body{
     outline: rgb(77, 77, 77) none 0px;
     overflow: hidden;
     padding: 8px;
-}/*#DIV_12*/
+}
+
+/*#DIV_12*/
 
 #DIV_12:after {
     clear: both;
@@ -289,7 +368,9 @@ body{
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
     overflow: hidden;
-}/*#DIV_12:after*/
+}
+
+/*#DIV_12:after*/
 
 #DIV_12:before {
     color: rgb(77, 77, 77);
@@ -303,7 +384,9 @@ body{
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
     overflow: hidden;
-}/*#DIV_12:before*/
+}
+
+/*#DIV_12:before*/
 
 #TABLE_13 {
     border-collapse: collapse;
@@ -316,7 +399,9 @@ body{
     border-spacing: 0px 0px;
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
-}/*#TABLE_13*/
+}
+
+/*#TABLE_13*/
 
 #TBODY_14 {
     border-collapse: collapse;
@@ -329,9 +414,12 @@ body{
     border: 0px none rgb(77, 77, 77);
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
-}/*#TBODY_14*/
+}
 
-#TR_15, #TR_21 {
+/*#TBODY_14*/
+
+#TR_15,
+#TR_21 {
     border-collapse: collapse;
     color: rgb(77, 77, 77);
     height: 48px;
@@ -341,9 +429,12 @@ body{
     border: 0px none rgb(77, 77, 77);
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
-}/*#TR_15, #TR_21*/
+}
 
-#TD_16, #TD_22 {
+/*#TR_15, #TR_21*/
+
+#TD_16,
+#TD_22 {
     border-collapse: collapse;
     color: rgb(77, 77, 77);
     height: 40px;
@@ -357,9 +448,12 @@ body{
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
     padding: 4px;
-}/*#TD_16, #TD_22*/
+}
 
-#LABEL_17, #LABEL_23 {
+/*#TD_16, #TD_22*/
+
+#LABEL_17,
+#LABEL_23 {
     border-collapse: collapse;
     color: rgb(102, 102, 102);
     display: block;
@@ -373,7 +467,9 @@ body{
     font: normal normal normal normal 13px/40px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0px 8px 0px 0px;
     outline: rgb(102, 102, 102) none 0px;
-}/*#LABEL_17, #LABEL_23*/
+}
+
+/*#LABEL_17, #LABEL_23*/
 
 #TD_18 {
     border-collapse: collapse;
@@ -389,9 +485,12 @@ body{
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
     padding: 4px;
-}/*#TD_18*/
+}
 
-#INPUT_19, #INPUT_25 {
+/*#TD_18*/
+
+#INPUT_19,
+#INPUT_25 {
     border-collapse: collapse;
     box-sizing: content-box;
     color: rgba(255, 255, 255, 0.658824);
@@ -407,9 +506,12 @@ body{
     outline: rgba(255, 255, 255, 0.658824) none 0px;
     padding: 5px;
     transition: border 0.1s ease 0s, box-shadow 0.1s ease 0s;
-}/*#INPUT_19, #INPUT_25*/
+}
 
-#INPUT_20, #INPUT_26 {
+/*#INPUT_19, #INPUT_25*/
+
+#INPUT_20,
+#INPUT_26 {
     border-collapse: collapse;
     box-sizing: content-box;
     color: rgba(255, 255, 255, 0.658824);
@@ -426,7 +528,9 @@ body{
     outline: rgba(255, 255, 255, 0.658824) none 0px;
     padding: 5px;
     transition: border 0.1s ease 0s, box-shadow 0.1s ease 0s;
-}/*#INPUT_20, #INPUT_26*/
+}
+
+/*#INPUT_20, #INPUT_26*/
 
 #TD_24 {
     border-collapse: collapse;
@@ -441,7 +545,9 @@ body{
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
     padding: 4px;
-}/*#TD_24*/
+}
+
+/*#TD_24*/
 
 #TD_27 {
     border-collapse: collapse;
@@ -457,7 +563,9 @@ body{
     font: normal normal normal normal 12px/16px Helvetica, Arial, sans-serif;
     outline: rgb(77, 77, 77) none 0px;
     padding: 4px;
-}/*#TD_27*/
+}
+
+/*#TD_27*/
 
 #A_28 {
     border-collapse: collapse;
@@ -472,13 +580,15 @@ body{
     width: 28px;
     perspective-origin: 32.5px 14px;
     transform-origin: 32.5px 14px;
-    background: rgba(0, 0, 0, 0) url(transparent.png) repeat scroll 0% 0% / auto padding-box border-box;
+    background: rgba(0, 0, 0, 0) url("../images/login/transparent.png") repeat scroll 0% 0% / auto padding-box border-box;
     border: 0px none rgb(75, 102, 167);
     border-radius: 3px 3px 3px 3px;
     font: normal normal bold normal 14px/36px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     outline: rgb(75, 102, 167) none 0px;
     padding: 0px 0px 0px 37px;
-}/*#A_28*/
+}
+
+/*#A_28*/
 
 #SPAN_29 {
     border-collapse: collapse;
@@ -492,15 +602,16 @@ body{
     width: 28px;
     perspective-origin: 14px 14px;
     transform-origin: 14px 14px;
-    background: rgba(0, 0, 0, 0) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAHlBMVEXs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Oxv/P/QAAAACXRSTlMAAStok5fV6epkw0urAAAARElEQVQY02OYiQoY6MOPQOVPYepE4c9Q0EBV3wRTAOXDFcDMhymA8WcoqKPan8iMVx5NP7r5aPajuw/d/ej+o3v4wgEAa6MB3qSyTtAAAAAASUVORK5CYII=) repeat scroll 0% 0% / auto padding-box border-box;
+    background: rgba(0, 0, 0, 0) url("../images/login/arrow.png") repeat scroll 0% 0% / auto padding-box border-box;
     border: 0px none rgb(255, 255, 255);
     border-radius: 100% 100% 100% 100%;
     font: normal normal bold normal 14px/36px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     outline: rgb(255, 255, 255) none 0px;
-}/*#SPAN_29*/
+}
 
-#loadingSpinner
-{
+/*#SPAN_29*/
+
+#loadingSpinner {
     left: -42px;
     top: 2px;
     position: relative;
