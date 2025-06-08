@@ -1,68 +1,38 @@
 /* Handles main window operations */
 var $close = $("#close");
-    var $x = $("#x");
-    var $right = $("#right-half");
-    var addNotification = function () {
-        $close.removeClass("hidden");
-        setTimeout(function () {
-            $close.removeClass("invisible")
-        }, 0);
-    };
-    var closing = function (e) {
-        e.stopPropagation();
-        if ($close.hasClass("closing")) {
-            $close.addClass("invisible");
-            setTimeout(addNotification, 1000);
-        }
-        $close.toggleClass("closing");
-    };
-    $x.click(closing);
-    $right.click(closing);
-    $(document.body).click(function () {
-        $close.removeClass("closing");
-    });
-    setTimeout(addNotification, 1000);
-
-    if (navigator.userAgent.indexOf("Firefox") != -1) {
-        //Firefox unterstuetzt den CSS-ZOOM-PREFIX nicht.
-        $("#close").hide();
+var $x = $("#x");
+var $right = $("#right-half");
+var addNotification = function () {
+    $close.removeClass("hidden");
+    setTimeout(function () {
+        $close.removeClass("invisible")
+    }, 0);
+};
+var closing = function (e) {
+    e.stopPropagation();
+    if ($close.hasClass("closing")) {
+        $close.addClass("invisible");
+        setTimeout(addNotification, 1000);
     }
+    $close.toggleClass("closing");
+};
+$x.click(closing);
+$right.click(closing);
+$(document.body).click(function () {
+    $close.removeClass("closing");
+});
+setTimeout(addNotification, 1000);
 
-    function openUserInfo() {
-        $(".navigation_contactInfo").show();
-        removeClass("#dock_item1 > a > span", "deaktiviert");
-        if (minimize == 0) {
-            $(".contactInfo").animate({
-                width: windowWidth2,
-                height: windowHeight2,
-                top: "106px",
-                left: "30.5%",
-                opacity: 1,
-                transform: "scale(1)"
-            }, 0, function () {
-                windowWidth = $(".window").width();
-                $(".contactInfo").fadeIn(75, function () {
-                });
-            });
-        }
-        else {
-            minimize = -1;
-            $(".contactInfo").animate({
-                width: windowWidth,
-                height: windowHeight,
-                top: windowY,
-                bottom: windowY2,
-                left: windowX,
-                right: windowX2,
-                opacity: 1
-            }, 175, function () {
-            });
-        }
-    }
+if (navigator.userAgent.indexOf("Firefox") != -1) {
+    //Firefox unterstuetzt den CSS-ZOOM-PREFIX nicht.
+    $("#close").hide();
+}
 
-    function openStundenPlan() {
-        $(".navigation_timetable").show();
-        $(".stundenPlan").animate({
+function openUserInfo() {
+    $(".navigation_contactInfo").show();
+    removeClass("#dock_item1 > a > span", "deaktiviert");
+    if (minimize == 0) {
+        $(".contactInfo").animate({
             width: windowWidth2,
             height: windowHeight2,
             top: "106px",
@@ -71,92 +41,155 @@ var $close = $("#close");
             transform: "scale(1)"
         }, 0, function () {
             windowWidth = $(".window").width();
-            $(".stundenPlan").fadeIn(75, function () {
+            $(".contactInfo").fadeIn(75, function () {
             });
         });
     }
-
-    function openTeacherInfo() {
-        $(".menuPunktitem3").show();
-        if (minimize == 0) {
-            $(".lehrerListe").animate({
-                width: windowWidth2,
-                height: windowHeight2,
-                top: "106px",
-                left: "30.5%",
-                opacity: 1,
-                transform: "scale(1)"
-            }, 0, function () {
-                windowWidth = $(".window").width();
-                $(".lehrerListe").fadeIn(75, function () {
-                });
-            });
-        }
-        else {
-            minimize = -1;
-            $(".lehrerListe").animate({
-                width: windowWidth,
-                height: windowHeight,
-                top: windowY,
-                bottom: windowY2,
-                left: windowX,
-                right: windowX2,
-                opacity: 1
-            }, 175, function () {
-            });
-        }
+    else {
+        minimize = -1;
+        $(".contactInfo").animate({
+            width: windowWidth,
+            height: windowHeight,
+            top: windowY,
+            bottom: windowY2,
+            left: windowX,
+            right: windowX2,
+            opacity: 1
+        }, 175, function () {
+        });
     }
+}
 
-    setTimeout(function () {
-        /* Start - Script fuer Scrollbar */
-        $(".stundenPlan .body .left").addClass("thin");
-        // If user has Javascript disabled, the thick scrollbar is shown
-        $(".stundenPlan .body .left").mouseover(function () {
-            $(this).removeClass("thin");
+function openStundenPlan() {
+    $(".navigation_timetable").show();
+    $(".stundenPlan").animate({
+        width: windowWidth2,
+        height: windowHeight2,
+        top: "106px",
+        left: "30.5%",
+        opacity: 1,
+        transform: "scale(1)"
+    }, 0, function () {
+        windowWidth = $(".window").width();
+        $(".stundenPlan").fadeIn(75, function () {
         });
-        $(".stundenPlan .body .left").mouseout(function () {
-            $(this).addClass("thin");
-        });
-        /* Ende - Script fuer Scrollbar */
+    });
+}
 
-        $("#dock_item1").mouseover(function () {
-        });
-
-        $(".deskIcon").draggable({
-            scroll: false
-        });
-
-        $(".window").draggable({
-            handle: ".head",
-            scroll: false,
-            opacity: 0.8
-        });
-
-        $(".window").fadeOut(0, function () {
-        });
-
-        $(document).ready(function () {
-            width = $(window).width();
-            height = $(document).height();
+function openTeacherInfo() {
+    $(".menuPunktitem3").show();
+    if (minimize == 0) {
+        $(".lehrerListe").animate({
+            width: windowWidth2,
+            height: windowHeight2,
+            top: "106px",
+            left: "30.5%",
+            opacity: 1,
+            transform: "scale(1)"
+        }, 0, function () {
             windowWidth = $(".window").width();
-            windowHeight = $(".window").height();
+            $(".lehrerListe").fadeIn(75, function () {
+            });
+        });
+    }
+    else {
+        minimize = -1;
+        $(".lehrerListe").animate({
+            width: windowWidth,
+            height: windowHeight,
+            top: windowY,
+            bottom: windowY2,
+            left: windowX,
+            right: windowX2,
+            opacity: 1
+        }, 175, function () {
+        });
+    }
+}
 
-            windowWidth2 = $(".window").width();
-            windowHeight2 = $(".window").height();
+function openCalendar() {
+    alert("Die Kalenderfunktion ist noch nicht implementiert.");
+}
+
+setTimeout(function () {
+    /* Start - Script fuer Scrollbar */
+    $(".stundenPlan .body .left").addClass("thin");
+    // If user has Javascript disabled, the thick scrollbar is shown
+    $(".stundenPlan .body .left").mouseover(function () {
+        $(this).removeClass("thin");
+    });
+    $(".stundenPlan .body .left").mouseout(function () {
+        $(this).addClass("thin");
+    });
+    /* Ende - Script fuer Scrollbar */
+
+    $("#dock_item1").mouseover(function () {
+    });
+
+    $(".deskIcon").draggable({
+        scroll: false
+    });
+
+    $(".window").draggable({
+        handle: ".head",
+        scroll: false,
+        opacity: 0.8
+    });
+
+    $(".window").fadeOut(0, function () {
+    });
+
+    $(document).ready(function () {
+        width = $(window).width();
+        height = $(document).height();
+        windowWidth = $(".window").width();
+        windowHeight = $(".window").height();
+
+        windowWidth2 = $(".window").width();
+        windowHeight2 = $(".window").height();
+        windowX = $(".window").css("left");
+        windowX2 = $(".window").css("right");
+        windowY = $(".window").css("top");
+        windowY2 = $(".window").css("bottom");
+
+        currentApp = $(".currentApp").text();
+        minimize = 0;
+
+        intWidth = $(window).innerWidth();
+        intHeight = $(window).innerHeight();
+
+        xCenter = intWidth / 2;
+        yCenter = intHeight / 2;
+
+        $(".window").animate({
+            width: windowWidth2,
+            height: windowHeight2,
+            top: windowY,
+            bottom: windowY2,
+            left: windowX,
+            right: windowX2
+        }, 125, function () {
+            windowWidth = $(".window").width();
+        });
+    });
+
+    /* Das Fenster groesser machen*/
+    $(".expand").click(function () {
+        $(this).css("z-index", "9999");
+        if (windowWidth != width) {
             windowX = $(".window").css("left");
             windowX2 = $(".window").css("right");
             windowY = $(".window").css("top");
             windowY2 = $(".window").css("bottom");
-
-            currentApp = $(".currentApp").text();
-            minimize = 0;
-
-            intWidth = $(window).innerWidth();
-            intHeight = $(window).innerHeight();
-
-            xCenter = intWidth / 2;
-            yCenter = intHeight / 2;
-
+            $(".window").animate({
+                width: width,
+                height: height,
+                top: 0,
+                left: 0
+            }, 125, function () {
+                windowWidth = $(".window").width();
+            });
+        } else if (windowWidth = width) {
             $(".window").animate({
                 width: windowWidth2,
                 height: windowHeight2,
@@ -166,126 +199,113 @@ var $close = $("#close");
                 right: windowX2
             }, 125, function () {
                 windowWidth = $(".window").width();
+                windowHeight = $(".window").height();
             });
-        });
+        }
+    });
 
-        /* Das Fenster groesser machen*/
-        $(".expand").click(function () {
-            $(this).css("z-index", "9999");
-            if (windowWidth != width) {
-                windowX = $(".window").css("left");
-                windowX2 = $(".window").css("right");
-                windowY = $(".window").css("top");
-                windowY2 = $(".window").css("bottom");
-                $(".window").animate({
-                    width: width,
-                    height: height,
-                    top: 0,
-                    left: 0
-                }, 125, function () {
-                    windowWidth = $(".window").width();
-                });
-            } else if (windowWidth = width) {
-                $(".window").animate({
-                    width: windowWidth2,
-                    height: windowHeight2,
-                    top: windowY,
-                    bottom: windowY2,
-                    left: windowX,
-                    right: windowX2
-                }, 125, function () {
-                    windowWidth = $(".window").width();
-                    windowHeight = $(".window").height();
-                });
-            }
-        });
-
-        $(".head").dblclick(function () {
-            if (windowWidth != width) {
-                windowX = $(this).parent().css("left");
-                windowX2 = $(this).parent().css("right");
-                windowY = $(this).parent().css("top");
-                windowY2 = $(this).parent().css("bottom");
-                $(this).parent().animate({
-                    width: width,
-                    height: height,
-                    top: 0,
-                    left: 0
-                }, 125, function () {
-                    windowWidth = $(".window").width();
-                });
-            } else if (windowWidth = width) {
-                $(".window").animate({
-                    width: windowWidth2,
-                    height: windowHeight2,
-                    top: windowY,
-                    bottom: windowY2,
-                    left: windowX,
-                    right: windowX2
-                }, 125, function () {
-                    windowWidth = $(".window").width();
-                    windowHeight = $(".window").height();
-                });
-            }
-        });
-
-        $(".minimize").click(function () {
-            minimize = +1;
-            windowX = $(".window").css("left");
-            windowX2 = $(".window").css("right");
-            windowY = $(".window").css("top");
-            windowY2 = $(".window").css("bottom");
-            $(this).parent().parent().parent().animate({
-                width: 0,
-                height: 0,
-                left: 100,
-                bottom: 1,
-                opacity: 0
-            }, 225, function () {
+    $(".head").dblclick(function () {
+        if (windowWidth != width) {
+            windowX = $(this).parent().css("left");
+            windowX2 = $(this).parent().css("right");
+            windowY = $(this).parent().css("top");
+            windowY2 = $(this).parent().css("bottom");
+            $(this).parent().animate({
+                width: width,
+                height: height,
+                top: 0,
+                left: 0
+            }, 125, function () {
+                windowWidth = $(".window").width();
             });
-        });
-
-        $(".exit").click(function () {
-            $(this).parent().parent().parent().fadeOut(150, function () {
-                $(this).hide();
-                windowX = $(".window").css("left");
-                windowX2 = $(".window").css("right");
-                windowY = $(".window").css("top");
-                windowY2 = $(".window").css("bottom");
+        } else if (windowWidth = width) {
+            $(".window").animate({
+                width: windowWidth2,
+                height: windowHeight2,
+                top: windowY,
+                bottom: windowY2,
+                left: windowX,
+                right: windowX2
+            }, 125, function () {
+                windowWidth = $(".window").width();
+                windowHeight = $(".window").height();
             });
-            $(this).parent().parent().parent().css("-webkit-transform", "scale(0.9)");
-            addClass("#dock_" + $(this).parent().parent().parent().attr('id') + " > a > span", "deaktiviert");
-            $(".menuPunkt" + $(this).parent().parent().parent().attr('id')).hide();
-        });
+        }
+    });
 
-        $(".window").click(function (e) {
-            currentApp = $(this).find(".ui-center").find("p"),
-                $(this, ".ui-center").find("p", function () {
-                    $(".currentApp").text(this);
-                });
-            $(".window").css("z-index", "100"),
-                $(this).css("z-index", "9999"),
-                $(this).css("-webkit-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
-                $(this).css("-moz-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
-                $(this).css("box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important");
-            e.stopPropagation();
+    $(".minimize").click(function () {
+        minimize = +1;
+        windowX = $(".window").css("left");
+        windowX2 = $(".window").css("right");
+        windowY = $(".window").css("top");
+        windowY2 = $(".window").css("bottom");
+        $(this).parent().parent().parent().animate({
+            width: 0,
+            height: 0,
+            left: 100,
+            bottom: 1,
+            opacity: 0
+        }, 225, function () {
         });
-        $(document).click(function () {
-            $(".window").css("z-index", "100"),
-                $(this).css("-webkit-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
-                $(this).css("-moz-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
-                $(this).css("box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important");
-        });
+    });
 
-        /* Damit das Desktop Icon funktioniert */
-        $(".deskIcon img").click(function (e) {
-            $(".deskIcon img").css("background", "rgba(255,255,255,0)"),
-                $(".deskIcon img").css("border-color", "rgba(255,255,255,0)"),
-                $(this).css("border-color", "rgba(255,255,255,0.5)")
-            $(this).css("background", "rgba(255,255,255,0.4)")
-            e.stopPropagation();
-        });
+    $(".exit").click(function () {
+        var $window = $(this).parent().parent().parent();
+        closeApplicationWindow($window);
+    });
 
-    }, 1000);
+    $(".window").click(function (e) {
+        currentApp = $(this).find(".ui-center").find("p"),
+            $(this, ".ui-center").find("p", function () {
+                $(".currentApp").text(this);
+            });
+        $(".window").css("z-index", "100"),
+            $(this).css("z-index", "9999"),
+            $(this).css("-webkit-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
+            $(this).css("-moz-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
+            $(this).css("box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important");
+        e.stopPropagation();
+    });
+    $(document).click(function () {
+        $(".window").css("z-index", "100"),
+            $(this).css("-webkit-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
+            $(this).css("-moz-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
+            $(this).css("box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important");
+    });
 
-    window.setTimeout('starteCode()', 100); //Damit der ganze Javascript-Part nun doch ausgefuehrt wird
+    /* Damit das Desktop Icon funktioniert */
+    $(".deskIcon img").click(function (e) {
+        $(".deskIcon img").css("background", "rgba(255,255,255,0)"),
+            $(".deskIcon img").css("border-color", "rgba(255,255,255,0)"),
+            $(this).css("border-color", "rgba(255,255,255,0.5)")
+        $(this).css("background", "rgba(255,255,255,0.4)")
+        e.stopPropagation();
+    });
+
+}, 1000);
+
+window.setTimeout('starteCode()', 100); //Damit der ganze Javascript-Part nun doch ausgefuehrt wird
+
+
+function closeApplicationWindow($window) {
+    if ($window.hasClass("contactInfo")) {
+        $('.navigation_contactInfo').hide();
+    }
+    if ($window.hasClass("stundenPlan")) {
+        $('.navigation_timetable').hide();
+    }
+    if ($window.hasClass("calendar")) {
+        $('.navigation_calendar').hide();
+    }
+
+    $window.fadeOut(150, function () {
+        $(this).hide();
+        windowX = $(".window").css("left");
+        windowX2 = $(".window").css("right");
+        windowY = $(".window").css("top");
+        windowY2 = $(".window").css("bottom");
+    });
+    $window.css("-webkit-transform", "scale(0.9)");
+    addClass("#dock_" + $window.attr('id') + " > a > span", "deaktiviert");
+    $(".menuPunkt" + $window.attr('id')).hide();
+}

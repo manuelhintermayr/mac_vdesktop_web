@@ -43,7 +43,7 @@ do_header_jquery();
     <!-- Start: Navigation Bar -->
     <menu>
         <div id="menu-bar"></div>
-        <nav id="menu-links">
+        <nav id="menu-left">
             <ul>
                 <li><a class="apple-logo"></a>
                     <div>
@@ -60,11 +60,11 @@ do_header_jquery();
                 <li><a><b>Programs</b></a>
                     <div>
                         <ul>
-                            <li><a href="#" class="disabled">Contact Info</a></li>
-                            <li><a href="#" class="disabled">Timetable</a></li>
+                            <li><a href="#" onclick="dockAuswahl(1)">Contact Info</a></li>
+                            <li><a href="#" onclick="dockAuswahl(2)">Timetable</a></li>
                             <li><a href="#" class="disabled">Teacher List</a></li>
                             <li class="separator"></li>
-                            <li><a href="#" class="disabled">Calendar</a></li>
+                            <li><a href="#" onclick="dockAuswahl(4)">Calendar</a></li>
                         </ul>
                     </div>
                 </li>
@@ -72,7 +72,8 @@ do_header_jquery();
                     <a href="#">Contact Info</a>
                     <div>
                         <ul>
-                            <li><a href="#" class="disabled">Currently unavailable.</a></li>
+                            <li><a href="#" onclick="closeApplicationWindow($('.window.contactInfo.ui-draggable'))">Close window.</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -80,7 +81,8 @@ do_header_jquery();
                     <a href="#">Timetable</a>
                     <div>
                         <ul>
-                            <li><a href="#" class="disabled">Currently unavailable.</a></li>
+                            <li><a href="#" onclick="closeApplicationWindow($('.window.stundenPlan.ui-draggable'))">Close window.</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -88,13 +90,14 @@ do_header_jquery();
                     <a href="#">Calendar</a>
                     <div>
                         <ul>
-                            <li><a href="#" class="disabled">Currently unavailable.</a></li>
+                            <li><a href="#" onclick="closeApplicationWindow($('.window.calendar.ui-draggable'))">Close window.</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </nav>
-        <nav id="menu-rechts">
+        <nav id="menu-right">
             <ul>
                 <li>
                     <a href="#" onclick="toggleNotificationCenter()"><span id="notificationIcon"></span></a>
@@ -127,6 +130,12 @@ do_header_jquery();
                 <a id="drei" class='osx-tooltip' href="#drei" data-text="Teacher List">
                     <span class="bluePoint deaktiviert"><img src="assets/images/contacts.png"
                             alt="Teacher List" /></span>
+                </a>
+            </li>
+            <li id="dock_item4">
+                <a id="drei" class='osx-tooltip' href="#drei" data-text="Calendar">
+                    <span class="bluePoint deaktiviert"><img src="assets/images/contacts.png"
+                            alt="Calendar" /></span>
                 </a>
             </li>
         </ul>

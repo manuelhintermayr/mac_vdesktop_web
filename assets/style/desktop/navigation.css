@@ -41,12 +41,12 @@ menu nav>ul {
 
 }
 
-menu #menu-links>ul>li {
+menu #menu-left>ul>li {
   display: block;
   float: left;
 }
 
-menu #menu-rechts>ul>li {
+menu #menu-right>ul>li {
   display: block;
   float: right;
 }
@@ -57,7 +57,7 @@ menu #menu-rechts>ul>li {
   z-index: 101;
 }
 
-#menu-links ul li div {
+#menu-left ul li div {
   left: -10px;
 }
 
@@ -166,19 +166,19 @@ menu nav li.separator {
   margin-bottom: 5px;
 }
 
-menu #menu-links ul {
+menu #menu-left ul {
   left: 10px;
 }
 
-#menu-links {
+#menu-left {
   float: left;
 }
 
-#menu-rechts {
+#menu-right {
   float: right;
 }
 
-#menu-rechts ul {
+#menu-right ul {
   right: 10px;
 }
 
@@ -191,12 +191,12 @@ menu #menu-links ul {
 }
 
 /* Style for the Apple logo in the navigation bar */
-#menu-links ul li a.apple-logo {
+#menu-left ul li a.apple-logo {
     font-size: 20px;
     text-shadow: 0px 1px 0px white;
 }
 
 /* Enough space for the icon */
-#menu-rechts>ul>li:nth-child(1)>a {
+#menu-right>ul>li:nth-child(1)>a {
   padding: 2px 7px 0px 7px;
 }

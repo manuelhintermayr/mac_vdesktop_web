@@ -15,7 +15,7 @@ html,
 body,
 div,
 .disabled,
-#menu-rechts ul a,
+#menu-right ul a,
 .rightClickMenu {
   cursor: url("../../cursors/cursor_mac.cur"), default !important;
 }
