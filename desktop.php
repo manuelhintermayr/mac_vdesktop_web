@@ -26,9 +26,9 @@ do_header_jquery();
 <script src="assets/js/jquery.easypiechart.min.js"></script>
 <script src="assets/js/desktop/navigation.js"></script>
 <script src="assets/js/desktop/notificationCenter.js"></script>
+<script src="assets/js/desktop/errorEasterEgg.js"></script>
 <script src="assets/js/desktop/main.js"></script>
 <script src="assets/js/desktop/data.js"></script>
-<script src="assets/js/desktop/errorEasterEgg.js"></script>
 <script src="assets/js/desktop/desktop.js"></script>
 <script src="assets/js/desktop/stundenplanInfo.js"></script>
 <script src="assets/js/desktop/window-operations.js"></script>
@@ -36,6 +36,7 @@ do_header_jquery();
 <link rel="stylesheet" href="assets/style/desktop/main.css" type="text/css" />
 <link rel="stylesheet" href="assets/style/desktop/navigation.css" type="text/css" />
 <link rel="stylesheet" href="assets/style/desktop/notificationCenter.css" type="text/css" />
+<link rel="stylesheet" href="assets/style/desktop/errorEasterEgg.css" type="text/css" />
 <link rel="stylesheet" href="assets/style/desktop/windows.css" type="text/css" />
 </head>
 
@@ -72,7 +73,9 @@ do_header_jquery();
                     <a href="#">Contact Info</a>
                     <div>
                         <ul>
-                            <li><a href="#" onclick="closeApplicationWindow($('.window.contactInfo.ui-draggable'))">Close window.</a>
+                            <li><a href="#"
+                                    onclick="closeApplicationWindow($('.window.contactInfo.ui-draggable'))">Close
+                                    window.</a>
                             </li>
                         </ul>
                     </div>
@@ -81,7 +84,9 @@ do_header_jquery();
                     <a href="#">Timetable</a>
                     <div>
                         <ul>
-                            <li><a href="#" onclick="closeApplicationWindow($('.window.stundenPlan.ui-draggable'))">Close window.</a>
+                            <li><a href="#"
+                                    onclick="closeApplicationWindow($('.window.stundenPlan.ui-draggable'))">Close
+                                    window.</a>
                             </li>
                         </ul>
                     </div>
@@ -90,7 +95,8 @@ do_header_jquery();
                     <a href="#">Calendar</a>
                     <div>
                         <ul>
-                            <li><a href="#" onclick="closeApplicationWindow($('.window.calendar.ui-draggable'))">Close window.</a>
+                            <li><a href="#" onclick="closeApplicationWindow($('.window.calendar.ui-draggable'))">Close
+                                    window.</a>
                             </li>
                         </ul>
                     </div>
@@ -134,8 +140,7 @@ do_header_jquery();
             </li>
             <li id="dock_item4">
                 <a id="drei" class='osx-tooltip' href="#drei" data-text="Calendar">
-                    <span class="bluePoint deaktiviert"><img src="assets/images/contacts.png"
-                            alt="Calendar" /></span>
+                    <span class="bluePoint deaktiviert"><img src="assets/images/contacts.png" alt="Calendar" /></span>
                 </a>
             </li>
         </ul>
@@ -260,8 +265,17 @@ do_header_jquery();
     </div>
     <!-- End: Easter Egg -->
 
+    <!-- Start: Desktop Icons -->
+    <div class="desktop">
+        <div class="deskIcon" style="left: 280px; top: 120px;">
+            <img src="assets/images/textedit.png" id="readmeRightClick" oncontextmenu="javascript:readMeRightClick()"
+                ondblclick="showAboutThisProject()" alt="readme.txt" />
+            <span>readme.txt</span>
+        </div>
+    </div>
+
     <!-- Start: Application Windows -->
-    <div id="body">
+    <div id="content">
         <div class="window contactInfo" id="item1">
             <div class="head">
                 <div class="ui-right">
@@ -359,15 +373,6 @@ do_header_jquery();
             </div>
             <div class="body" id="lehrerliste">
                 Lade...
-            </div>
-        </div>
-
-        <div class="desktop">
-            <div class="deskIcon" style="left: 279px; top: 121px;">
-                <img src="assets/images/textedit.png" id="readmeRightClick"
-                    oncontextmenu="javascript:readMeRightClick()" ondblclick="showAboutThisProject()"
-                    alt="readme.txt" />
-                <span>readme.txt</span>
             </div>
         </div>
     </div>
