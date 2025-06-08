@@ -66,3 +66,18 @@ function updateDateDisplay(date) {
     const formattedDate = `${dayName},<br>${date.getDate()}. ${monthName} ${date.getFullYear()}`;
     $("#notificationDate").html(formattedDate);
 }
+
+/* Clears the notification center */
+function clearNotificationCenter() {
+    var $close = $("#clearNotificationCenter");
+
+    if ($close.hasClass("closing")) {
+        $close.addClass("invisible");
+    }
+    $close.toggleClass("closing");
+}
+
+if (navigator.userAgent.indexOf("Firefox") != -1) {
+    //Firefox unterstuetzt den CSS-ZOOM-PREFIX nicht.
+    $("#clearNotificationCenter").hide();
+}

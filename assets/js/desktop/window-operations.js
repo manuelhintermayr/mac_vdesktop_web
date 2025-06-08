@@ -1,32 +1,3 @@
-/* Handles main window operations */
-var $close = $("#close");
-var $x = $("#x");
-var $right = $("#right-half");
-var addNotification = function () {
-    $close.removeClass("hidden");
-    setTimeout(function () {
-        $close.removeClass("invisible")
-    }, 0);
-};
-var closing = function (e) {
-    e.stopPropagation();
-    if ($close.hasClass("closing")) {
-        $close.addClass("invisible");
-        setTimeout(addNotification, 1000);
-    }
-    $close.toggleClass("closing");
-};
-$x.click(closing);
-$right.click(closing);
-$(document.body).click(function () {
-    $close.removeClass("closing");
-});
-setTimeout(addNotification, 1000);
-
-if (navigator.userAgent.indexOf("Firefox") != -1) {
-    //Firefox unterstuetzt den CSS-ZOOM-PREFIX nicht.
-    $("#close").hide();
-}
 
 function openUserInfo() {
     $(".navigation_contactInfo").show();

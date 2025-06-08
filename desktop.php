@@ -177,19 +177,22 @@ do_header_jquery();
                             <span class="percent"></span>
                         </span>
                         <br>
-                        <span class="notification_legendBar notification_legendBar--past"></span>&nbsp;&nbsp;&nbsp;= % of the past school year
+                        <span class="notification_legendBar notification_legendBar--past"></span>&nbsp;&nbsp;&nbsp;= %
+                        of the past school year
                         <br>
-                        <span class="notification_legendBar notification_legendBar--remaining"></span>&nbsp;&nbsp;&nbsp;= % of the remaining school year
+                        <span
+                            class="notification_legendBar notification_legendBar--remaining"></span>&nbsp;&nbsp;&nbsp;=
+                        % of the remaining school year
                     </span>
                 </li>
                 <li class="notification_heading">
                     <div class="notification_icon moodle_icon">
                     </div> Moodle - Submission Deadlines:
-                    <div id="close" class="">
+                    <div id="close">
                         <div id="left-half" class="bevel-box"></div>
                         <div id="centre"></div>
-                        <div id="right-half" class="bevel-box text-shadow">Clear</div>
-                        <div id="x" class="text-shadow">×</div>
+                        <div id="right-half" onclick="clearNotificationCenter()" class="bevel-box text-shadow">Clear</div>
+                        <div id="x" class="text-shadow" onclick="clearNotificationCenter()">×</div>
                     </div>
                 </li>
                 <li class="notification_entry notification_entry--task">
@@ -210,7 +213,7 @@ do_header_jquery();
                         Upload Status Report
                     </span>
                 </li>
-                <li class="notification_entry notification_entry--empty">
+                <li class="notification_entry notification_entry--empty" style="display: none;">
                     <span class="notification_entryText">
                         <i>No tasks found.</i>
                     </span>

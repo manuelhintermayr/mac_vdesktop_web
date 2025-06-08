@@ -108,7 +108,7 @@
 }
 
 .notification_seperator {
-    border-bottom: 2px solid rgba(178,178,178,0.5);
+    border-bottom: 2px solid rgba(178, 178, 178, 0.5);
     display: block;
 }
 
@@ -126,7 +126,7 @@
     -webkit-transition: opacity .5s;
     -moz-transition: opacity .5s;
     -o-transition: opacity .5s;
-    box-shadow: inset 0 1px 3px var(--legend-shadow, rgba(0,0,0,0)), 0 0 4px var(--legend-glow, rgba(0,0,0,0)), 0 -1px 7px var(--legend-glow2, rgba(0,0,0,0));
+    box-shadow: inset 0 1px 3px var(--legend-shadow, rgba(0, 0, 0, 0)), 0 0 4px var(--legend-glow, rgba(0, 0, 0, 0)), 0 -1px 7px var(--legend-glow2, rgba(0, 0, 0, 0));
 }
 
 .notification_legendBar--past {
@@ -141,4 +141,94 @@
     --legend-shadow: rgba(244, 237, 238, 0.4);
     --legend-glow: rgba(247, 241, 241, 0.5);
     --legend-glow2: rgb(228, 179, 184);
+}
+
+/* Clear notification center */
+#close {
+    position: relative;
+    left: 77.5%;
+    margin-top: -83px;
+    width: 200px;
+    margin-left: -100px;
+    opacity: 1;
+    transition: opacity 0.2s linear;
+    overflow: hidden;
+    height: 82px;
+    zoom: 22%;
+    -moz-zoom: 22%;
+    -webkit-zoom: 22%;
+    -o-zoom: 22%;
+}
+
+#x {
+    position: absolute;
+    font-size: 100px;
+    color: #444;
+    line-height: 80px;
+    right: 0;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    text-align: center;
+    transition: transform 0.2s linear, opacity 0.2s ease-in;
+    transform: translateX(0px) rotate(0deg);
+    opacity: 1;
+}
+
+#left-half {
+    position: absolute;
+    clip: rect(0px, 40px, 90px, 0px);
+    left: 120px;
+    width: 200px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+}
+
+#right-half {
+    position: absolute;
+    clip: rect(0px, 200px, 90px, 160px);
+    right: 0;
+    transition: clip 0.2s linear;
+    width: 200px;
+    text-align: center;
+    padding-top: 10px;
+    color: #999;
+}
+
+.closing #left-half {
+    transform: translateX(-120px);
+    clip: rect(0px, 60px, 90px, 0px);
+}
+
+.closing #right-half {
+    clip: rect(0px, 200px, 90px, 40px);
+}
+
+.closing #x {
+    transform: translateX(-120px) rotate(-90deg);
+    opacity: 0;
+}
+
+#close.invisible {
+    opacity: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.bevel-box {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: #222;
+    height: 80px;
+    border-radius: 40px;
+    box-shadow: 0 1px 1px #777, inset 0 1px 1px #111;
+    cursor: pointer;
+}
+
+.text-shadow {
+    text-shadow: 0 1px 1px #111, 0 -1px 1px #777;
+    font-size: 50px;
 }

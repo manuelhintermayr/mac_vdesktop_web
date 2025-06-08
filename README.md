@@ -39,10 +39,13 @@ This project was built using:
   from [Irina Tsareva's CodePen](https://codepen.io/Irina_Tsareva/pen/oNrLKr)
 
 - **XP-style Error Message Easter Egg**  
-  inspired by [this Windows XP CodePen by N19](https://codepen.io/N19/pen/ZYrrrN)
+  from [this Windows XP CodePen by N19](https://codepen.io/N19/pen/ZYrrrN)
 
 - **Window Management Concept**  
-  inspired by [this draggable windows CodePen by Keubix](https://codepen.io/Keubix/pen/LEeXQr) (used as conceptual basis for multi-window interaction)
+  from [this draggable windows CodePen by Keubix](https://codepen.io/Keubix/pen/LEeXQr) (used as conceptual basis for multi-window interaction)
+
+- **iOS Clear Notifications Button in CSS**  
+  from [Adrian Osmond's CodePen](https://codepen.io/adrianosmond/pen/ALjgev)
 
 ---
 
