@@ -232,3 +232,18 @@
     text-shadow: 0 1px 1px #111, 0 -1px 1px #777;
     font-size: 50px;
 }
+
+
+.percent {
+    display: inline-block;
+    z-index: 2;
+    left: 70px;
+    top: -48px;
+    position: relative;
+}
+
+.percent:after {
+    content: '%';
+    margin-left: 0.1em;
+    font-size: .8em;
+}

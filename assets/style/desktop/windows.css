@@ -1,3 +1,188 @@
+/*OSX WINDOW STYLE*/
+
+
+#calendarWindow>div.inside>iframe {
+    margin-bottom: -3px;
+    width: 100%;
+    margin-bottom: -3px;
+    height: 100%;
+}
+
+.inside {
+    padding: 0px;
+    height: 350px;
+}
+
+/* Start - Style for error popups */
+.ErrorWindow {
+    background: #eee;
+    width: 415px;
+    margin: auto;
+    margin-top: 12.5vh;
+    border: 1px solid #acacac;
+    border-radius: 6px;
+    box-shadow: 0px 0px 20px #acacac;
+    padding-bottom: 0px;
+}
+
+.ErrorPopUp_close a {
+    text-decoration: none;
+}
+
+.ErrorPopUp_close a:hover {
+    cursor: pointer;
+}
+
+.ErrorPopUp_closebutton span {
+    line-height: 9px;
+    vertical-align: 50%;
+}
+
+.ErrorPopUp_titlebar:hover {
+    cursor: all-scroll;
+}
+
+.ErrorPopUp_titlebar {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ebebeb, color-stop(1.0, #d5d5d5)));
+    background: -webkit-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: -moz-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: -ms-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: -o-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: linear-gradient(top, #ebebeb, #d5d5d5);
+    color: #4d494d;
+    font-size: 11pt;
+    line-height: 20px;
+    text-align: center;
+    width: 100%;
+    height: 20px;
+    border-top: 1px solid #f3f1f3;
+    border-bottom: 1px solid #b1aeb1;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    cursor: default;
+    font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+}
+
+.ErrorPopUp_buttons {
+    padding-left: 8px;
+    padding-top: 3px;
+    float: left;
+    line-height: 0px;
+}
+
+.ErrorPopUp_buttons:hover a {
+    visibility: visible;
+}
+
+.ErrorPopUp_close {
+    background: #ff5c5c;
+    font-size: 9pt;
+    width: 11px;
+    height: 11px;
+    border: 1px solid #e33e41;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.ErrorPopUp_close:active {
+    background: #c14645;
+    border: 1px solid #b03537;
+}
+
+.ErrorPopUp_close:active .ErrorPopUp_closebutton {
+    color: #4e0002;
+}
+
+.ErrorPopUp_closebutton {
+    color: #820005;
+    visibility: hidden;
+    cursor: default;
+}
+
+.ErrorPopUp_content {}
+
+.ErrorPopUp_container-alert {
+    padding: 15px 20px;
+    position: relative;
+}
+
+.ErrorPopUp_about-alert {
+    width: 295px;
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    line-height: 15px;
+    margin-left: 15px;
+}
+
+.ErrorPopUp_container-alert img {
+    float: left;
+}
+
+.ErrorPopUp_about-alert p {
+    color: #000;
+    font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+    font-size: 10px;
+    margin-top: 5px;
+    line-height: 14px;
+}
+
+.button {
+    float: right;
+}
+
+/* error button style */
+/* Design of the buttons */
+.button {
+    font: normal normal bold normal 12px/22px osxFont;
+    border-collapse: collapse;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: rgb(43, 38, 38);
+    cursor: pointer;
+    display: block;
+    height: 23px;
+    text-align: center;
+    text-shadow: rgba(255, 255, 255, 0.74902) 0px 1px 0px;
+    white-space: nowrap;
+    width: 32px;
+    background: rgb(251, 251, 251);
+    border-top: 0px none rgb(43, 38, 38);
+    border-right: 0px none rgb(43, 38, 38);
+    border-bottom: 1px solid rgb(206, 206, 206);
+    border-left: 0px none rgb(43, 38, 38);
+    border-radius: 4px 4px 4px 4px;
+    -webkit-border-after: 1px solid rgb(206, 206, 206);
+    -webkit-border-before: 0px none rgb(43, 38, 38);
+    -webkit-border-end: 0px none rgb(43, 38, 38);
+    -webkit-border-start: 0px none rgb(43, 38, 38);
+    -webkit-transition: all 0.25s ease 0s;
+    border: 1px solid #999;
+    border-bottom: 1px solid #777;
+    padding: 0px 8px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #f2f2f2;
+    color: #666;
+}
+
+.button:active {
+    height: auto;
+    background: rgb(192, 192, 192);
+    box-shadow: rgba(0, 0, 0, 0.14902) 0px 2px 4px 0px inset;
+}
+
+/* End - Style for error popups */
+
+
 /* Start - Code for the Desktop */
 .desktop {
     position: absolute;
@@ -305,3 +490,40 @@ div.active {
 }
 
 /* End - Code for the Teacher List */
+
+
+
+.msg {
+    margin: 0 0 1em;
+    padding: 1.6em 18px 1px;
+    border: 1px solid #F1F2F6;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -kthml-border-radius: 5px;
+    margin: 1%;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.msg.error,
+.msg.confirm,
+.msg.warn,
+.msg.announce {
+    padding: 25px 25px 19px 80px;
+    min-height: 48px;
+}
+
+.msg.warn,
+.msg.announce {
+    border-color: #EBE9C5;
+    background: #FDFDEF url("../../images/alert_warning.png") no-repeat 20px 1.6em;
+}

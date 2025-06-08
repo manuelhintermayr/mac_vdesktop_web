@@ -158,3 +158,11 @@
 
 
 
+#dock {
+  left: 50%;
+  /*Calculation: 50% - (WIDTH-PX/2)*/
+  left: calc(50% - 78px);
+  /*For teacher*/
+  left: calc(50% - 115px);
+  /*For student*/
+}
