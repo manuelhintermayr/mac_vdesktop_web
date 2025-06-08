@@ -288,7 +288,8 @@ do_header_jquery();
                 <div class="ui-left">
                 </div>
             </div>
-            <div class="body scrollableWindowBody" id="contactInfoBody" style="overflow-y: scroll; position:relative;top: -18px; height:94%; width: 98.4%;">
+            <div class="body scrollableWindowBody" id="contactInfoBody"
+                style="overflow-y: scroll; position:relative;top: -18px; height:94%; width: 98.4%;">
                 <h3>Loading...</h3>
                 <p>Please wait while the content is loading.</p>
             </div>
@@ -309,27 +310,8 @@ do_header_jquery();
                 </div>
             </div>
             <div class="body" id="timetableBody">
-                <div class="left" id="section_resize">
-                    <div>
-                        <ul>
-                            <span>Klassen:</span>
-                            <br>
-                            <li><i></i>Keine Eintr&auml;ge vorhanden.</li>
-                            <br>
-                            <span>Lehrer:</span>
-                            <br>
-                            <li><i></i>Keine Eintr&auml;ge vorhanden.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="center" id="timetableContent">
-                    <!-- Standartmaessig wird immer ein Fehler hier angezeigt -->
-                    <div class="msg warn noselect">
-                        <h4>Der Stundenplan f&uuml;r deine Klasse wurde nicht gefunden.</h4>
-                        <p>W&auml;hle links einen Stundenplan aus.
-                        </p>
-                    </div>
-                </div>
+                <h3>Loading...</h3>
+                <p>Please wait while the content is loading.</p>
             </div>
         </div>
 
@@ -347,16 +329,14 @@ do_header_jquery();
                 <div class="ui-left">
                 </div>
             </div>
-            <div class="body" id="calendarBody" style="overflow-y: scroll; position:relative;top: -18px; height:94%; width: 98.4%;">
+            <div class="body" id="calendarBody"
+                style="overflow-y: scroll; position:relative;top: -18px; height:94%; width: 98.4%;">
                 <h3>Loading...</h3>
                 <p>Please wait while the content is loading.</p>
             </div>
         </div>
     </div>
     <!-- End: Application Windows -->
-
-    <!-- Div existiert nur damit dort ein Javascript-durch Ajax ausgeführt werden kann -->
-    <div id="tempDivForInfotimetable"></div>
 </body>
 
 </html>

@@ -60,7 +60,7 @@ function starteCode() {
     positionDock();
     loadChart();      
     $("#contactInfoBody").load("scripts/contactInfo.php");
-    $("#timetableBody").load("scripts/timeTable.php");
+    $("#timetableBody").load("scripts/timetable.php");
     $("#calendarBody").load("scripts/calendar.php");
     
     // Load README.md content into the readMe window
