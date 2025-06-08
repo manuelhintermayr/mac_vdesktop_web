@@ -58,10 +58,8 @@ function starteCode() {
     prepareDock();
     configureErrorEasterEgg();
     positionDock();
-    loadChart();
-
-    $("#contactInfoBody").load("scripts/contactInfo.php");
-    $("#timeTableBody").load("scripts/timeTable.php");
+    loadChart();    $("#contactInfoBody").load("scripts/contactInfo.php");
+    $("#timetableBody").load("scripts/timeTable.php");
     $("#calendarBody").load("scripts/calendar.php");
 
     $(document).bind("contextmenu", function (event) {

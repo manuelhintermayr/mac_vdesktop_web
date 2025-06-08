@@ -30,7 +30,7 @@ do_header_jquery();
 <script src="assets/js/desktop/errorEasterEgg.js"></script>
 <script src="assets/js/desktop/dock.js"></script>
 <script src="assets/js/desktop/window-operations.js"></script>
-<script src="assets/js/desktop/stundenplanInfo.js"></script>
+<script src="assets/js/desktop/timetableInfo.js"></script>
 <!-- Stylesheets -->
 <link rel="stylesheet" href="assets/style/desktop/main.css" type="text/css" />
 <link rel="stylesheet" href="assets/style/desktop/navigation.css" type="text/css" />
@@ -83,9 +83,8 @@ do_header_jquery();
                 <li class="navigation_timetable" style="display: none;">
                     <a href="#">Timetable</a>
                     <div>
-                        <ul>
-                            <li><a href="#"
-                                    onclick="closeApplicationWindow($('.window.stundenPlan.ui-draggable'))">Close
+                        <ul>                            <li><a href="#"
+                                    onclick="closeApplicationWindow($('.window.timetable.ui-draggable'))">Close
                                     window.</a>
                             </li>
                         </ul>
@@ -117,17 +116,21 @@ do_header_jquery();
             </ul>
         </nav>
     </menu>
-    <!-- End: Navigation Bar -->    <!-- Start: Dock -->
+    <!-- End: Navigation Bar -->
+
+    <!-- Start: Dock -->
     <div id="dock">
         <ul>
             <li id="dock_contactInfo">
                 <a id="eins" class='osx-tooltip' href="#" data-text="Contact Info">
-                    <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/finder.png" alt="Contact Info" /></span>
+                    <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/finder.png"
+                            alt="Contact Info" /></span>
                 </a>
             </li>
             <li id="dock_timetable">
                 <a id="zwei" class='osx-tooltip' href="#" data-text="Timetable">
-                    <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/reminders.png" alt="Timetable" /></span>
+                    <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/reminders.png"
+                            alt="Timetable" /></span>
                 </a>
             </li>
             <li id="dock_teacherList">
@@ -138,7 +141,8 @@ do_header_jquery();
             </li>
             <li id="dock_calendar">
                 <a id="vier" class='osx-tooltip' href="#" data-text="Calendar">
-                    <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/calendar.png" alt="Calendar" /></span>
+                    <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/calendar.png"
+                            alt="Calendar" /></span>
                 </a>
             </li>
         </ul>
@@ -189,7 +193,8 @@ do_header_jquery();
                     <div id="close">
                         <div id="left-half" class="bevel-box"></div>
                         <div id="centre"></div>
-                        <div id="right-half" onclick="clearNotificationCenter()" class="bevel-box text-shadow">Clear</div>
+                        <div id="right-half" onclick="clearNotificationCenter()" class="bevel-box text-shadow">Clear
+                        </div>
                         <div id="x" class="text-shadow" onclick="clearNotificationCenter()">×</div>
                     </div>
                 </li>
@@ -246,24 +251,7 @@ do_header_jquery();
 
     <!-- Start: Application Windows -->
     <div id="content">
-        <div class="window contactInfo" id="contactInfo" style="display: none;">
-            <div class="head">
-                <div class="ui-right">
-                    <div class="exit"></div>
-                    <div class="minimize"></div>
-                    <div class="expand"></div>
-                </div>
-                <div class="ui-center">
-                    <p>Contact Info</p>
-                </div>
-                <div class="ui-left">
-                </div>
-            </div>
-            <div class="body" id="contactInfoBody">
-                Lade...
-            </div>
-        </div>
-
+        <!-- Window: ReadMe -->
         <div class="window" id="readMeInfoDiv" style="display: none;">
             <div class="head">
                 <div class="ui-right">
@@ -290,7 +278,8 @@ do_header_jquery();
             </div>
         </div>
 
-        <div class="window stundenPlan" id="stundenPlan" style="display: none;">
+        <!-- Window: Contact Info -->
+        <div class="window contactInfo" id="contactInfo" style="display: none;">
             <div class="head">
                 <div class="ui-right">
                     <div class="exit"></div>
@@ -298,12 +287,29 @@ do_header_jquery();
                     <div class="expand"></div>
                 </div>
                 <div class="ui-center">
-                    <p>Stundenplan</p>
+                    <p>Contact Info</p>
                 </div>
                 <div class="ui-left">
                 </div>
             </div>
-            <div class="body">
+            <div class="body" id="contactInfoBody">
+                Lade...
+            </div>
+        </div>        <!-- Window: Timetable -->
+        <div class="window timetable" id="timetable" style="display: none;">
+            <div class="head">
+                <div class="ui-right">
+                    <div class="exit"></div>
+                    <div class="minimize"></div>
+                    <div class="expand"></div>
+                </div>
+                <div class="ui-center">
+                    <p>Timetable</p>
+                </div>
+                <div class="ui-left">
+                </div>
+            </div>
+            <div class="body" id="timetableBody">
                 <div class="left" id="section_resize">
                     <div>
                         <ul>
@@ -317,7 +323,7 @@ do_header_jquery();
                         </ul>
                     </div>
                 </div>
-                <div class="center" id="stundenplanMain">
+                <div class="center" id="timetableContent">
                     <!-- Standartmaessig wird immer ein Fehler hier angezeigt -->
                     <div class="msg warn noselect">
                         <h4>Der Stundenplan f&uuml;r deine Klasse wurde nicht gefunden.</h4>
@@ -328,7 +334,8 @@ do_header_jquery();
             </div>
         </div>
 
-        <div class="window lehrerListe" id="lehrerListe" style="display: none;">
+        <!-- Window: Calendar -->
+        <div class="window calendar" id="calendar" style="display: none;">
             <div class="head">
                 <div class="ui-right">
                     <div class="exit"></div>
@@ -336,12 +343,12 @@ do_header_jquery();
                     <div class="expand"></div>
                 </div>
                 <div class="ui-center">
-                    <p>Lehrerliste</p>
+                    <p>Calendar</p>
                 </div>
                 <div class="ui-left">
                 </div>
             </div>
-            <div class="body" id="lehrerliste">
+            <div class="body" id="calendarBody">
                 Lade...
             </div>
         </div>
@@ -349,7 +356,7 @@ do_header_jquery();
     <!-- End: Application Windows -->
 
     <!-- Div existiert nur damit dort ein Javascript-durch Ajax ausgeführt werden kann -->
-    <div id="tempDivForInfostundenplan"></div>
+    <div id="tempDivForInfotimetable"></div>
 </body>
 
 </html>

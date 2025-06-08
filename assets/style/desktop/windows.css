@@ -388,7 +388,7 @@ div.active {
 /* End - Code for the Schedule */
 
 /* Start - Code for the Teacher List */
-.stundenPlan .body .left {
+.timetable .body .left {
     position: relative;
     width: 22.5%;
     background-image: url('../../images/bluredBackground.jpg');
@@ -406,42 +406,42 @@ div.active {
     border-bottom-left-radius: 5px;
 }
 
-.stundenPlan .body .left::-webkit-scrollbar,
-.stundenPlan .body .center::-webkit-scrollbar,
+.timetable .body .left::-webkit-scrollbar,
+.timetable .body .center::-webkit-scrollbar,
 #readMeInfoDiv>div.body::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
 
-.stundenPlan .body .left.thin::-webkit-scrollbar,
-.stundenPlan .body .center.thin::-webkit-scrollbar {
+.timetable .body .left.thin::-webkit-scrollbar,
+.timetable .body .center.thin::-webkit-scrollbar {
     width: 2px;
 }
 
-.stundenPlan .body .left::-webkit-scrollbar-track,
-.stundenPlan .body .center::-webkit-scrollbar-track,
-.stundenPlan .body .left::-webkit-scrollbar-track-piece,
-.stundenPlan .body .center::-webkit-scrollbar-track-piece,
+.timetable .body .left::-webkit-scrollbar-track,
+.timetable .body .center::-webkit-scrollbar-track,
+.timetable .body .left::-webkit-scrollbar-track-piece,
+.timetable .body .center::-webkit-scrollbar-track-piece,
 #readMeInfoDiv>div.body::-webkit-scrollbar-track,
 #readMeInfoDiv>div.body::-webkit-scrollbar-track-piece {
     border-radius: 10px;
     background: #eee;
 }
 
-.stundenPlan .body .left::-webkit-scrollbar-thumb,
-.stundenPlan .body .center::-webkit-scrollbar-thumb,
+.timetable .body .left::-webkit-scrollbar-thumb,
+.timetable .body .center::-webkit-scrollbar-thumb,
 #readMeInfoDiv>div.body::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: #888;
 }
 
-.stundenPlan .body .left::-webkit-scrollbar-thumb:window-inactive,
-.stundenPlan .body .center::-webkit-scrollbar-thumb:window-inactive,
+.timetable .body .left::-webkit-scrollbar-thumb:window-inactive,
+.timetable .body .center::-webkit-scrollbar-thumb:window-inactive,
 #readMeInfoDiv>div.body ::-webkit-scrollbar-thumb:window-inactive {
     background: rgba(100, 100, 100, 0.4);
 }
 
-.stundenPlan .body .center {
+.timetable .body .center {
     position: absolute;
     top: 0;
     padding-top: 38px;
@@ -454,20 +454,20 @@ div.active {
     overflow-x: scroll;
 }
 
-.stundenPlan .body .left div {
+.timetable .body .left div {
     background: rgba(255, 255, 255, 0.26);
     position: absolute;
     margin-top: -12px;
     width: 100%;
 }
 
-.stundenPlan .body .left ul {
+.timetable .body .left ul {
     padding-left: 0px;
     list-style: none;
     height: 100%;
 }
 
-.stundenPlan .body .left ul span {
+.timetable .body .left ul span {
     padding: 4px 4px;
     color: #000;
     font-family: soleil, sans-serif;
@@ -475,11 +475,11 @@ div.active {
     font-size: 18px;
 }
 
-.stundenPlan .body .left ul li i {
+.timetable .body .left ul li i {
     padding-right: 4px;
 }
 
-.stundenPlan .body .left ul li {
+.timetable .body .left ul li {
     width: 100%;
     padding: 6px 12px;
     color: #000;
@@ -489,7 +489,7 @@ div.active {
     letter-spacing: 0.12em;
 }
 
-.stundenPlan .body .left ul li:hover {
+.timetable .body .left ul li:hover {
     background: rgba(255, 255, 255, 0.45) !important;
 }
 

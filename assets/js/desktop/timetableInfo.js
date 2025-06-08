@@ -25,15 +25,15 @@ $(function () {
             var result_1 = result.substring(startIndex); // Extract substring starting from "var classes"
             var result_2 = result_1.substr(0, endIndex); // Extract substring up to "var flcl"
 
-            $("#tempDivForInfostundenplan").html('<script>' + result_2 + '\nlocalStorage["classes"] = JSON.stringify(classes);\nlocalStorage["teachers"] = JSON.stringify(teachers);\nlocalStorage["rooms"] = JSON.stringify(rooms);\n<\/script>');
-            ladeInfostundenplanInPage();
+            $("#tempDivForInfotimetable").html('<script>' + result_2 + '\nlocalStorage["classes"] = JSON.stringify(classes);\nlocalStorage["teachers"] = JSON.stringify(teachers);\nlocalStorage["rooms"] = JSON.stringify(rooms);\n<\/script>');
+            ladeInfoTimetableInPage();
         } else {
             console.error("Expected substrings not found in the result.");
         }
     });
 });
 
-function ladeInfostundenplanInPage() {
+function ladeInfoTimetableInPage() {
     var inhalt = "<div>"
         + "<ul><span>Klassen:<\/span><br>";
     var klassen = JSON.parse(localStorage["classes"]);
@@ -120,6 +120,6 @@ function ladeInfostundenplanInPage() {
 }
 
 function ladeStundenplan(link) {
-    $("#stundenplanMain").html('<center><h2>Lade Seite...</h2><br> <div class="progress-bar progress-bar--yosemite"><span class="progress-bar__line" style="width: 30%;"></span></div></center>');
-    $("#stundenplanMain").load("getContentFromPage.php?url=" + encodeURI(link) + "&var=null");
+    $("#timetableContent").html('<center><h2>Lade Seite...</h2><br> <div class="progress-bar progress-bar--yosemite"><span class="progress-bar__line" style="width: 30%;"></span></div></center>');
+    $("#timetableContent").load("getContentFromPage.php?url=" + encodeURI(link) + "&var=null");
 }

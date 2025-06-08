@@ -33,16 +33,15 @@ function openUserInfo() {
 function openTimetable() {
     $(".navigation_timetable").show();
     removeClass("#dock_timetable > a > span", "dock_dotHidden");
-    $(".stundenPlan").animate({
+    $(".timetable").animate({
         width: windowWidth2,
         height: windowHeight2,
         top: "106px",
         left: "30.5%",
         opacity: 1,
-        transform: "scale(1)"
-    }, 0, function () {
+        transform: "scale(1)"    }, 0, function () {
         windowWidth = $(".window").width();
-        $(".stundenPlan").fadeIn(75, function () {
+        $(".timetable").fadeIn(75, function () {
         });
     });
 }
@@ -86,12 +85,12 @@ function openCalendar() {
 
 setTimeout(function () {
     /* Start - Script for Scrollbar */
-    $(".stundenPlan .body .left").addClass("thin");
+    $(".timetable .body .left").addClass("thin");
     // If user has Javascript disabled, the thick scrollbar is shown
-    $(".stundenPlan .body .left").mouseover(function () {
+    $(".timetable .body .left").mouseover(function () {
         $(this).removeClass("thin");
     });
-    $(".stundenPlan .body .left").mouseout(function () {
+    $(".timetable .body .left").mouseout(function () {
         $(this).addClass("thin");
     });
     /* End - Script for Scrollbar */    $("#dock_contactInfo").mouseover(function () {
@@ -258,11 +257,10 @@ setTimeout(function () {
 window.setTimeout('starteCode()', 100); //So that the entire Javascript part is executed
 
 
-function closeApplicationWindow($window) {
-    if ($window.hasClass("contactInfo")) {
+function closeApplicationWindow($window) {    if ($window.hasClass("contactInfo")) {
         $('.navigation_contactInfo').hide();
     }
-    if ($window.hasClass("stundenPlan")) {
+    if ($window.hasClass("timetable")) {
         $('.navigation_timetable').hide();
     }
     if ($window.hasClass("calendar")) {
