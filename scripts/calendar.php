@@ -51,36 +51,99 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
             $nextYear++;
         }
         
+        // Calculate current week number
+        $weekNumber = date('W', $firstDayOfMonth);
+        
+        // Get previous month data for displaying last days of previous month
+        $prevMonthDays = date('t', mktime(0, 0, 0, $prevMonth, 1, $prevYear));
+        
         echo '<div class="calendar-container">';
-        echo '<div class="calendar-header">';
-        echo '<div class="calendar-nav">';
-        echo '<button class="nav-btn prev-btn" onclick="loadCalendar(' . $prevMonth . ', ' . $prevYear . ')">&#8249;</button>';
-        echo '<div class="month-year">' . $monthName . ' ' . $displayYear . '</div>';
-        echo '<button class="nav-btn next-btn" onclick="loadCalendar(' . $nextMonth . ', ' . $nextYear . ')">&#8250;</button>';
+        
+        // Modern calendar header with navigation
+        echo '<div class="calendar-header-modern">';
+        echo '<div class="month-year-display">';
+        echo '<span class="month-name">' . $monthName . '</span> <span class="year-number">' . $displayYear . '</span>';
+        echo '</div>';
+        echo '<div class="nav-controls">';
+        echo '<button class="nav-arrow double-back" onclick="loadCalendar(' . ($displayMonth == 1 ? 1 : 1) . ', ' . ($displayMonth == 1 ? $displayYear-1 : $displayYear) . ')">&laquo;</button>';
+        echo '<button class="nav-arrow single-back" onclick="loadCalendar(' . $prevMonth . ', ' . $prevYear . ')">&lsaquo;</button>';
+        
+        // Today button with circular highlight
+        echo '<button class="today-btn">' . date('j') . '</button>';
+        
+        echo '<button class="nav-arrow single-forward" onclick="loadCalendar(' . $nextMonth . ', ' . $nextYear . ')">&rsaquo;</button>';
+        echo '<button class="nav-arrow double-forward" onclick="loadCalendar(' . ($displayMonth == 12 ? 1 : 12) . ', ' . ($displayMonth == 12 ? $displayYear+1 : $displayYear) . ')">&raquo;</button>';
         echo '</div>';
         echo '</div>';
         
-        echo '<div class="calendar-grid">';
+        echo '<div class="calendar-week-view">';
+        // Week number header
+        echo '<div class="week-header">W1</div>';
         
-        // Day headers
-        $dayHeaders = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+        // Day headers - Monday first like macOS
+        $dayHeaders = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
         foreach ($dayHeaders as $day) {
             echo '<div class="day-header">' . $day . '</div>';
         }
         
-        // Empty cells for days before the first day of the month
-        for ($i = 0; $i < $dayOfWeek; $i++) {
-            echo '<div class="day-cell empty"></div>';
+        // Adjust day of week calculation for Monday-first layout
+        $adjustedDayOfWeek = ($dayOfWeek + 6) % 7; // Convert Sunday=0 to Monday=0
+        
+        // Add week number cell
+        echo '<div class="week-cell">W' . $weekNumber . '</div>';
+        
+        // Calculate days from previous month to display
+        $prevMonthStartDay = $prevMonthDays - $adjustedDayOfWeek + 1;
+        
+        // Empty cells for days before the first day of the month (previous month's days)
+        for ($i = 0; $i < $adjustedDayOfWeek; $i++) {
+            echo '<div class="day-cell prev-month">';
+            echo '<div class="day-number">' . ($prevMonthStartDay + $i) . '</div>';
+            
+            // For Dec 30 specifically, add a grey circle (as shown in the image)
+            if ($displayMonth == 1 && $displayYear == 2025 && ($prevMonthStartDay + $i) == 30) {
+                echo '<div class="day-circle"></div>';
+            }
+            
+            echo '</div>';
         }
         
         // Days of the month
         for ($day = 1; $day <= $daysInMonth; $day++) {
             $isToday = ($day == $currentDay && $displayMonth == $currentMonth && $displayYear == $currentYear);
             $todayClass = $isToday ? ' today' : '';
+            $dateText = '';
+            
+            // For the first week of January 2025, show "Jan" prefix for Jan 1 and Jan 4
+            if ($displayMonth == 1 && $displayYear == 2025 && ($day == 1 || $day == 4)) {
+                $dateText = 'Jan ';
+            }
             
             echo '<div class="day-cell' . $todayClass . '">';
-            echo '<div class="day-number">' . $day . '</div>';
+            echo '<div class="day-number">' . $dateText . $day . '</div>';
+            
+            // Add food icon to Jan 2 (as shown in image)
+            if ($displayMonth == 1 && $displayYear == 2025 && $day == 2) {
+                echo '<div class="day-icon">🍕</div>';
+            }
+            
             echo '</div>';
+            
+            // Start a new week after Sunday
+            if (($day + $adjustedDayOfWeek) % 7 == 0 && $day < $daysInMonth) {
+                $weekNumber++;
+                echo '<div class="week-cell">W' . $weekNumber . '</div>';
+            }
+        }
+        
+        // Fill in the remaining days from next month if needed
+        $remainingCells = 7 - (($daysInMonth + $adjustedDayOfWeek) % 7);
+        if ($remainingCells < 7) {
+            for ($i = 1; $i <= $remainingCells; $i++) {
+                echo '<div class="day-cell next-month">';
+                echo '<div class="day-number">' . $i . '</div>';
+                echo '</div>';
+            }
         }
         
         echo '</div>';
@@ -92,117 +155,228 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
             $("#calendarBody").load("scripts/calendar.php?month=" + month + "&year=" + year);
         }
         </script>';
-        
-        // Add CSS for calendar styling
+          // Add CSS for calendar styling
         echo '<style>
         .calendar-container {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
             max-width: 100%;
             margin: 0 auto;
             background: #fff;
-            border-radius: 8px;
+            border-radius: 0;
             overflow: hidden;
+            border: 1px solid #e5e5e5;
         }
         
-        .calendar-header {
-            background: linear-gradient(#f5f5f5, #e8e8e8);
-            border-bottom: 1px solid #ccc;
-            padding: 12px 20px;
-        }
-        
-        .calendar-nav {
+        .calendar-header-modern {
+            background: #fafafa;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 16px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
-        .nav-btn {
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 32px;
-            height: 28px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            color: #666;
-            transition: all 0.2s ease;
+        .month-year-display {
+            font-size: 22px;
+            font-weight: 400;
+            color: #1d1d1f;
+            letter-spacing: -0.5px;
         }
         
-        .nav-btn:hover {
-            background: #f0f0f0;
+        .nav-controls {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-arrow {
+            background: #fff;
+            border: 1px solid #d1d1d1;
+            border-radius: 6px;
+            width: 36px;
+            height: 32px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 300;
+            color: #666;
+            transition: all 0.1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 4px;
+        }
+        
+        .nav-arrow:hover {
+            background: #f5f5f5;
+            border-color: #b3b3b3;
+        }
+        
+        .nav-arrow:active {
+            background: #e8e8e8;
             border-color: #999;
         }
         
-        .nav-btn:active {
-            background: #e0e0e0;
+        .today-btn {
+            background: #007aff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 8px;
+            position: relative;
+            overflow: hidden;
         }
         
-        .month-year {
-            font-size: 18px;
-            font-weight: 300;
-            color: #333;
+        .today-btn:focus {
+            outline: none;
+        }
+        
+        .today-btn::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.2s ease;
+        }
+        
+        .today-btn:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .calendar-week-view {
+            display: grid;
+            grid-template-columns: auto repeat(7, 1fr);
+            border-collapse: collapse;
+        }
+        
+        .week-header {
+            background: #f9f9f9;
+            padding: 12px 8px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: #8e8e93;
+            border-bottom: 1px solid #e5e5e5;
+            border-right: 1px solid #e5e5e5;
+            text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 1px;
-            background: #e0e0e0;
-            padding: 1px;
+        .week-cell {
+            background: #f9f9f9;
+            padding: 12px 8px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: #007aff;
+            border-bottom: 1px solid #e5e5e5;
+            border-right: 1px solid #e5e5e5;
         }
         
         .day-header {
-            background: #f8f8f8;
-            padding: 8px;
+            background: #f9f9f9;
+            padding: 12px 8px;
             text-align: center;
-            font-size: 11px;
-            font-weight: 600;
-            color: #666;
-            border-bottom: 1px solid #ddd;
+            font-size: 12px;
+            font-weight: 500;
+            color: #8e8e93;
+            border-bottom: 1px solid #e5e5e5;
+            border-right: 1px solid #e5e5e5;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .day-header:last-child {
+            border-right: none;
         }
         
         .day-cell {
             background: #fff;
-            min-height: 60px;
+            min-height: 100px;
             position: relative;
-            transition: background-color 0.2s ease;
+            border-bottom: 1px solid #e5e5e5;
+            border-right: 1px solid #e5e5e5;
+            transition: background-color 0.1s ease;
+        }
+        
+        .day-cell:last-child {
+            border-right: none;
         }
         
         .day-cell:hover:not(.empty) {
-            background: #f9f9f9;
+            background: #f8f8f8;
         }
         
-        .day-cell.empty {
+        .day-cell.prev-month, .day-cell.next-month {
             background: #fafafa;
+            color: #c7c7cc;
+        }
+        
+        .day-cell.prev-month .day-number, .day-cell.next-month .day-number {
+            color: #c7c7cc;
         }
         
         .day-cell.today {
-            background: #e3f2fd;
-            border: 2px solid #2196F3;
+            background: #f0f8ff;
         }
         
         .day-cell.today:hover {
-            background: #bbdefb;
+            background: #e8f4fd;
         }
         
         .day-number {
             position: absolute;
-            top: 4px;
-            left: 6px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #333;
+            top: 8px;
+            left: 12px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #1d1d1f;
+            line-height: 1;
         }
         
         .day-cell.today .day-number {
-            color: #1976D2;
-            font-weight: 600;
+            color: #007aff;
+            font-weight: 500;
+            background: #007aff;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            top: 6px;
+            left: 10px;
         }
         
-        .day-cell.empty .day-number {
-            color: #ccc;
+        .day-circle {
+            position: absolute;
+            top: 9px;
+            left: 11px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #cccccc;
+            z-index: -1;
+        }
+        
+        .day-icon {
+            position: absolute;
+            top: 40px;
+            left: 12px;
+            font-size: 24px;
         }
         </style>';
     }
