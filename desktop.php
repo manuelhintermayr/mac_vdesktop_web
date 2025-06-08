@@ -25,6 +25,7 @@ do_header_jquery();
 <script src="assets/js/jquery.easing.min.js"></script>
 <script src="assets/js/jquery.easypiechart.min.js"></script>
 <script src="assets/js/desktop/navigation.js"></script>
+<script src="assets/js/desktop/notificationCenter.js"></script>
 <script src="assets/js/desktop/main.js"></script>
 <script src="assets/js/desktop/data.js"></script>
 <script src="assets/js/desktop/error_easter_egg.js"></script>

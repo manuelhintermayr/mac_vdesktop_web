@@ -136,6 +136,10 @@
         showElement("#readMeInfoDiv");
     }
 
+    function showErrorEasterEgg() {
+    $('.errorEasterEgg').show();
+}
+
     function isFirefox() {
         if (navigator.userAgent.indexOf("Firefox") != -1) {
             return true;
