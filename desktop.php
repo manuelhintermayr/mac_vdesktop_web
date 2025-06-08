@@ -112,7 +112,7 @@ do_header_jquery();
         <nav id="menu-rechts">
             <ul>
                 <li>
-                    <a href="#" onclick="openAndCloseNotificationCenter()"><span
+                    <a href="#" onclick="toggleNotificationCenter()"><span
                             id="notificationIcon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                 </li>
                 <li>
