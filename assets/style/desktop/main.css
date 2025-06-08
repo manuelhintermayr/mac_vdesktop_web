@@ -3,12 +3,12 @@
 /* Fuer Sonderzeichen und Schriftarten. */
 @font-face {
   font-family: osxFont;
-  src: url("../fonts/HelveticaNeue-Light.otf");
+  src: url("../../fonts/HelveticaNeue-Light.otf");
   font-weight: normal;
 }
 
 a {
-  cursor: url("../cursors/link_mac.cur"), default !important;
+  cursor: url("../../cursors/link_mac.cur"), default !important;
 }
 
 html,
@@ -17,7 +17,7 @@ div,
 .disabled,
 #menu-rechts ul a,
 .rightClickMenu {
-  cursor: url("../cursors/cursor_mac.cur"), default !important;
+  cursor: url("../../cursors/cursor_mac.cur"), default !important;
 }
 
 #dock ul img,
@@ -30,18 +30,18 @@ div,
 .rightClickMenu menuitem,
 #x,
 #right-half {
-  cursor: url("../cursors/link_mac.cur"), default !important;
+  cursor: url("../../cursors/link_mac.cur"), default !important;
 }
 
 .errorEasterEgg,
 .errorEasterEgg_titleError,
 .errorEasterEgg_message {
-  cursor: url("../cursors/cursor_win_default.png"), default !important;
+  cursor: url("../../cursors/cursor_win_default.png"), default !important;
 }
 
 .errorEasterEgg_closeButton,
 .errorEasterEgg_ok span {
-  cursor: url("../cursors/cursor_win_hand.png"), default !important;
+  cursor: url("../../cursors/cursor_win_hand.png"), default !important;
 }
 
 
@@ -256,7 +256,7 @@ div,
 
 body {
   margin: 0;
-  background: url("../images/yosemite.jpg");
+  background: url("../../images/yosemite.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -454,7 +454,7 @@ menu #menu-links ul {
 }
 
 #notificationIcon {
-  background: url("../images/spotlight-menu-icons_active.png");
+  background: url("../../images/spotlight-menu-icons_active.png");
   height: 21px;
   background-position: -586px -1px;
   width: 21px;
@@ -1110,11 +1110,11 @@ span.new .plus.y {
 }
 
 .moodle_icon {
-  background: rgba(0, 0, 0, 0) url("../images/moodle.gif") no-repeat scroll 1px -1px / 72% padding-box border-box;
+  background: rgba(0, 0, 0, 0) url("../../images/moodle.gif") no-repeat scroll 1px -1px / 72% padding-box border-box;
 }
 
 .spengergasse_icon {
-  background: rgba(0, 0, 0, 0) url("../images/spengergasse.png") no-repeat scroll 1px -1px / 72% padding-box border-box;
+  background: rgba(0, 0, 0, 0) url("../../images/spengergasse.png") no-repeat scroll 1px -1px / 72% padding-box border-box;
 }
 
 .notification_neuerEintrag {
@@ -1285,5 +1285,5 @@ span.new .plus.y {
     .msg.warn,
     .msg.announce {
         border-color: #EBE9C5;
-        background: #FDFDEF url("../assets/images/alert_warning.png") no-repeat 20px 1.6em;
+        background: #FDFDEF url("../../images/alert_warning.png") no-repeat 20px 1.6em;
     }

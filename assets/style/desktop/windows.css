@@ -202,7 +202,7 @@
     .stundenPlan .body .left {
         position: relative;
         width: 22.5%;
-        background-image: url('assets/images/bluredBackground.jpg');
+        background-image: url('../../images/bluredBackground.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;

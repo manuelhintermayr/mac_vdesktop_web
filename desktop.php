@@ -17,7 +17,9 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
     }
 }
 
-do_header_start("VDesktop - Home");
+do_header_start("VDesktop - Home");?>
+<!-- Javascript -->
+<?php
 do_header_jquery();
 ?>
 <script src="assets/js/jquery.easing.min.js"></script>
@@ -28,8 +30,9 @@ do_header_jquery();
 <script src="assets/js/desktop/desktop.js"></script>
 <script src="assets/js/desktop/stundenplanInfo.js"></script>
 <script src="assets/js/desktop/window-operations.js"></script>
-<link rel="stylesheet" href="assets/style/desktop.css" type="text/css" />
-<link rel="stylesheet" href="assets/style/windows.css" type="text/css" />
+<!-- Stylesheets -->
+<link rel="stylesheet" href="assets/style/desktop/main.css" type="text/css" />
+<link rel="stylesheet" href="assets/style/desktop/windows.css" type="text/css" />
 </head>
 
 <body>
