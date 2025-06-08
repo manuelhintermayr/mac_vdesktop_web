@@ -1,19 +1,4 @@
-/*OSX WINDOW STYLE*/
-
-
-#calendarWindow>div.inside>iframe {
-    margin-bottom: -3px;
-    width: 100%;
-    margin-bottom: -3px;
-    height: 100%;
-}
-
-.inside {
-    padding: 0px;
-    height: 350px;
-}
-
-/* Start - Style for error popups */
+/* Start: Style for error popups */
 .ErrorWindow {
     background: #eee;
     width: 415px;
@@ -108,8 +93,6 @@
     cursor: default;
 }
 
-.ErrorPopUp_content {}
-
 .ErrorPopUp_container-alert {
     padding: 15px 20px;
     position: relative;
@@ -140,8 +123,6 @@
     float: right;
 }
 
-/* error button style */
-/* Design of the buttons */
 .button {
     font: normal normal bold normal 12px/22px osxFont;
     border-collapse: collapse;
@@ -183,60 +164,12 @@
     background: rgb(192, 192, 192);
     box-shadow: rgba(0, 0, 0, 0.14902) 0px 2px 4px 0px inset;
 }
+/* End: Style for error popups */
 
-/* End - Style for error popups */
-
-
-/* Start - Code for the Desktop */
-.desktop {
-    position: absolute;
-    top: 96px;
-    left: 32px;
-}
-
-.desktop .deskIcon {
-    position: relative;
-    text-align: center;
-    display: inline-block;
-    padding: 12px 12px;
-}
-
-.desktop .deskIcon span {
-    position: absolute;
-    top: 84px;
-    left: 13px;
-    font-family: soleil, sans-serif;
-    font-weight: 100;
-    color: #fff;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-.desktop .deskIcon img {
-    width: 64px;
-    border-radius: 5px;
-    padding: 0px 2px;
-    border: 2px solid rgba(255, 255, 255, 0);
-    transition: background 0.1s, border-color 0.1s, -webkit-transform 0.2s;
-}
-
-.desktop .deskIcon img:hover {
-    -webkit-transform: scale(1.08);
-}
-
-/* End - Code for the Desktop */
-
-/* Start - Code for the Windows */
-.window .body {
-    width: 100%;
-    height: 100%;
-    padding: 4px 6px;
-    font-family: "Source Code Pro", sans-serif;
-    font-weight: 100;
-}
-
+/* Start: Code for the application windows */
 .window {
     position: absolute;
-    width: 768px;
+    width: 780px;
     height: 400px;
     left: 384px;
     top: 128px;
@@ -256,6 +189,14 @@
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
     z-index: 900;
+}
+
+.window .body {
+    width: 100%;
+    height: 100%;
+    padding: 4px 6px;
+    font-family: "Source Code Pro", sans-serif;
+    font-weight: 100;
 }
 
 .head {
@@ -370,24 +311,17 @@ div.active {
     margin-right: 20px;
     cursor: default;
 }
+/* End: Code for the application windows */
 
-/* End - Code for the Windows */
-
-/* Start - Code for the Contact Info */
+/* Start: Code for the Contact Info */
 .contactInfo {
     max-width: 1920px !important;
     height: 296px;
     overflow: hidden;
 }
+/* End: Code for the Contact Info */
 
-/* End - Code for the Contact Info */
-
-/* Start - Code for the Schedule */
-.lehrerLisste .body {}
-
-/* End - Code for the Schedule */
-
-/* Start - Code for the Teacher List */
+/* Start: Code for the timetable */
 .timetable .body .left {
     position: relative;
     width: 22.5%;
@@ -492,11 +426,17 @@ div.active {
 .timetable .body .left ul li:hover {
     background: rgba(255, 255, 255, 0.45) !important;
 }
+/* End: Code for the timetable */
 
-/* End - Code for the Teacher List */
+/* Start: Code for the calendar */
+.calendar { }
+/* End: Code for the calendar */
 
 
 
+
+
+/* ???? */	
 .msg {
     margin: 0 0 1em;
     padding: 1.6em 18px 1px;
@@ -530,4 +470,16 @@ div.active {
 .msg.announce {
     border-color: #EBE9C5;
     background: #FDFDEF url("../../images/alert_warning.png") no-repeat 20px 1.6em;
+}
+
+#calendarWindow>div.inside>iframe {
+    margin-bottom: -3px;
+    width: 100%;
+    margin-bottom: -3px;
+    height: 100%;
+}
+
+.inside {
+    padding: 0px;
+    height: 350px;
 }

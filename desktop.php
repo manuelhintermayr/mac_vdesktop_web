@@ -266,7 +266,7 @@ do_header_jquery();
                 <div class="ui-left">
                 </div>
             </div>
-            <div class="body" style=" overflow-y: scroll; position:relative;top: -18px; height:94%; width: 98.4%;">
+            <div class="body" style="overflow-y: scroll; position:relative;top: -18px; height:94%; width: 98.4%;">
                 <div style="padding: 20px; text-align: center;">
                     <h3>Loading...</h3>
                     <p>Please wait while the content is loading.</p>
@@ -288,7 +288,7 @@ do_header_jquery();
                 <div class="ui-left">
                 </div>
             </div>
-            <div class="body" id="contactInfoBody">
+            <div class="body scrollableWindowBody" id="contactInfoBody" style="overflow-y: scroll; position:relative;top: -18px; height:94%; width: 98.4%;">
                 <h3>Loading...</h3>
                 <p>Please wait while the content is loading.</p>
             </div>
