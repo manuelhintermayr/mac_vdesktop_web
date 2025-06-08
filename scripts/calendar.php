@@ -56,20 +56,65 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
         
         // Get previous month data for displaying last days of previous month
         $prevMonthDays = date('t', mktime(0, 0, 0, $prevMonth, 1, $prevYear));
+          // Function to check if a date is an Austrian holiday
+        function isAustrianHoliday($day, $month, $year) {
+            // Fixed holidays
+            $fixedHolidays = [
+                '01-01' => 'Neujahr',                     // New Year's Day
+                '01-06' => 'Heilige Drei Könige',         // Epiphany
+                '05-01' => 'Staatsfeiertag',              // Labor Day
+                '08-15' => 'Mariä Himmelfahrt',           // Assumption of Mary
+                '10-26' => 'Nationalfeiertag',            // National Day
+                '11-01' => 'Allerheiligen',               // All Saints' Day
+                '12-08' => 'Mariä Empfängnis',            // Immaculate Conception
+                '12-25' => 'Weihnachten',                 // Christmas Day
+                '12-26' => 'Stefanitag'                   // St. Stephen's Day
+            ];
+            
+            // Check if the date is a fixed holiday
+            $dateKey = sprintf('%02d-%02d', $month, $day);
+            if (isset($fixedHolidays[$dateKey])) {
+                return $fixedHolidays[$dateKey];
+            }
+            
+            // Calculate Easter date for the given year
+            $easter = easter_date($year);
+            $easterDay = date('d', $easter);
+            $easterMonth = date('m', $easter);
+            $easterTimestamp = mktime(0, 0, 0, $easterMonth, $easterDay, $year);
+            
+            // Define Easter-dependent holidays
+            $easterHolidays = [
+                date('d.m', strtotime('-2 days', $easterTimestamp)) => 'Good Friday',
+                date('d.m', strtotime('+1 day', $easterTimestamp)) => 'Easter Monday',
+                date('d.m', strtotime('+39 days', $easterTimestamp)) => 'Ascension Day',
+                date('d.m', strtotime('+50 days', $easterTimestamp)) => 'Whit Monday',
+                date('d.m', strtotime('+60 days', $easterTimestamp)) => 'Corpus Christi'
+            ];
+            
+            // Format current date for comparison
+            $currentDate = sprintf('%02d.%02d', $day, $month);
+            
+            // Check if the date is an Easter-dependent holiday
+            if (isset($easterHolidays[$currentDate])) {
+                return $easterHolidays[$currentDate];
+            }
+            
+            return false;
+        }
         
         echo '<div class="calendar-container">';
         
         // Modern calendar header with navigation
         echo '<div class="calendar-header-modern">';
         echo '<div class="month-year-display">';
-        echo '<span class="month-name">' . $monthName . '</span> <span class="year-number">' . $displayYear . '</span>';
-        echo '</div>';
+        echo '<span class="month-name">' . $monthName . '</span> <span class="year-number">' . $displayYear . '</span>';        echo '</div>';
         echo '<div class="nav-controls">';
         echo '<button class="nav-arrow double-back" onclick="loadCalendar(' . ($displayMonth == 1 ? 1 : 1) . ', ' . ($displayMonth == 1 ? $displayYear-1 : $displayYear) . ')">&laquo;</button>';
         echo '<button class="nav-arrow single-back" onclick="loadCalendar(' . $prevMonth . ', ' . $prevYear . ')">&lsaquo;</button>';
         
-        // Today button with circular highlight
-        echo '<button class="today-btn">' . date('j') . '</button>';
+        // Today button with circular highlight - now with onclick to navigate to current date
+        echo '<button class="today-btn" onclick="loadCalendar(' . date('n') . ', ' . date('Y') . ')">' . date('j') . '</button>';
         
         echo '<button class="nav-arrow single-forward" onclick="loadCalendar(' . $nextMonth . ', ' . $nextYear . ')">&rsaquo;</button>';
         echo '<button class="nav-arrow double-forward" onclick="loadCalendar(' . ($displayMonth == 12 ? 1 : 12) . ', ' . ($displayMonth == 12 ? $displayYear+1 : $displayYear) . ')">&raquo;</button>';
@@ -106,25 +151,36 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
             }
             
             echo '</div>';
-        }
-        
-        // Days of the month
+        }          // Days of the month
         for ($day = 1; $day <= $daysInMonth; $day++) {
             $isToday = ($day == $currentDay && $displayMonth == $currentMonth && $displayYear == $currentYear);
             $todayClass = $isToday ? ' today' : '';
             $dateText = '';
+              // Check if the day is a weekend (Saturday or Sunday)
+            $dayTimestamp = mktime(0, 0, 0, $displayMonth, $day, $displayYear);
+            $dayOfWeekNum = date('w', $dayTimestamp); // 0 (Sunday) through 6 (Saturday)
+            $isWeekend = ($dayOfWeekNum == 0 || $dayOfWeekNum == 6);
+            $weekendClass = $isWeekend ? ' weekend' : '';
+            
+            // Check if the day is an Austrian holiday
+            $holidayName = isAustrianHoliday($day, $displayMonth, $displayYear);
+            $isHoliday = $holidayName !== false;
+            $holidayClass = $isHoliday ? ' holiday' : '';
             
             // For the first week of January 2025, show "Jan" prefix for Jan 1 and Jan 4
             if ($displayMonth == 1 && $displayYear == 2025 && ($day == 1 || $day == 4)) {
                 $dateText = 'Jan ';
-            }
-            
-            echo '<div class="day-cell' . $todayClass . '">';
+            }            echo '<div class="day-cell' . $todayClass . $weekendClass . $holidayClass . '">';
             echo '<div class="day-number">' . $dateText . $day . '</div>';
             
             // Add food icon to Jan 2 (as shown in image)
             if ($displayMonth == 1 && $displayYear == 2025 && $day == 2) {
                 echo '<div class="day-icon">🍕</div>';
+            }
+            
+            // Display holiday name if it's a holiday
+            if ($isHoliday) {
+                echo '<div class="holiday-name">' . $holidayName . '</div>';
             }
             
             echo '</div>';
@@ -164,7 +220,6 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
             background: #fff;
             border-radius: 0;
             overflow: hidden;
-            border: 1px solid #e5e5e5;
         }
         
         .calendar-header-modern {
@@ -316,14 +371,12 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
         
         .day-cell:hover:not(.empty) {
             background: #f8f8f8;
-        }
-        
-        .day-cell.prev-month, .day-cell.next-month {
+        }        .day-cell.prev-month, .day-cell.next-month, .day-cell.weekend, .day-cell.holiday {
             background: #fafafa;
             color: #c7c7cc;
         }
         
-        .day-cell.prev-month .day-number, .day-cell.next-month .day-number {
+        .day-cell.prev-month .day-number, .day-cell.next-month .day-number, .day-cell.weekend .day-number, .day-cell.holiday .day-number {
             color: #c7c7cc;
         }
         
@@ -371,12 +424,20 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
             background-color: #cccccc;
             z-index: -1;
         }
-        
-        .day-icon {
+          .day-icon {
             position: absolute;
             top: 40px;
             left: 12px;
             font-size: 24px;
+        }
+        
+        .holiday-name {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            font-size: 12px;
+            color: #007aff;
+            font-weight: 400;
         }
         </style>';
     }

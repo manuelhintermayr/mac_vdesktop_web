@@ -429,7 +429,9 @@ div.active {
 /* End: Code for the timetable */
 
 /* Start: Code for the calendar */
-.calendar { }
+#calendarBody {
+    padding: 0;
+}
 /* End: Code for the calendar */
 
 
