@@ -1226,3 +1226,62 @@ span.new .plus.y {
 }
 
 /* Ende - Code fuer das rechte Mausmenu*/
+
+    #dock {
+        left: 50%;
+        /*Berechnung: 50% - (WIDTH-PX/2)*/
+        left: calc(50% - 78px);
+        /*Bei Lehrer*/
+        left: calc(50% - 115px);
+        /*Bei Schueler*/
+    }
+
+
+    .percent {
+        display: inline-block;
+        z-index: 2;
+        left: 70px;
+        top: -48px;
+        position: relative;
+    }
+
+    .percent:after {
+        content: '%';
+        margin-left: 0.1em;
+        font-size: .8em;
+    }
+
+    .msg {
+        margin: 0 0 1em;
+        padding: 1.6em 18px 1px;
+        border: 1px solid #F1F2F6;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+        -kthml-border-radius: 5px;
+        margin: 1%;
+    }
+
+    .noselect {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .msg.error,
+    .msg.confirm,
+    .msg.warn,
+    .msg.announce {
+        padding: 25px 25px 19px 80px;
+        min-height: 48px;
+    }
+
+    .msg.warn,
+    .msg.announce {
+        border-color: #EBE9C5;
+        background: #FDFDEF url("../assets/images/alert_warning.png") no-repeat 20px 1.6em;
+    }
