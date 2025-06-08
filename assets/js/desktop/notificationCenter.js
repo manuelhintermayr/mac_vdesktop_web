@@ -64,5 +64,5 @@ function updateDateDisplay(date) {
     const monthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date);
 
     const formattedDate = `${dayName},<br>${date.getDate()}. ${monthName} ${date.getFullYear()}`;
-    $("#datumSchrift").html(formattedDate);
+    $("#notificationDate").html(formattedDate);
 }

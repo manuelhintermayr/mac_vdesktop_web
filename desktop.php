@@ -155,94 +155,63 @@ do_header_jquery();
                     Today
                 </li>
             </ul> <br>
-            <div style="border-bottom: 2px solid rgba(178,178,178,0.5);display: block;"></div>
+            <div class="notification_seperator"></div>
             <br>
-            <li class="notification_newEntry">
-                <span class="notification_newEntryText">
-                    <span class="notification_date">
-                        <span id="datumSchrift"></span>
+            <li class="notification_entry">
+                <span class="notification_entryText">
+                    <span class="notification_date_area">
+                        <span id="notificationDate"></span>
                     </span>
                 </span>
             </li>
             <ul id="notification_notifications">
-                <li class="notification_newHeading">
-                    <div class="notification_icon spengergasse_icon">
+                <li class="notification_heading">
+                    <div class="notification_icon school_icon">
                     </div> School Year - Overview:
                 </li>
-                <li class="notification_newEntry">
-                    <span class="notification_newEntryText">
+                <li class="notification_entry">
+                    <span class="notification_entryText">
                         Remaining School Year Duration:
                         <br>
                         <span class="chart" data-percent="0">
                             <span class="percent"></span>
                         </span>
                         <br>
-                        <span style="background-color: rgba(255, 255, 255, .8);
-    height: 7px;
-    width: 6px;
-    background-color: rgba(240, 3, 3, 0.8);
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: inset 0 1px 3px rgba(215, 74, 90, 0.4), 0 0 4px rgba(232, 10, 36, 0.5), 0 -1px 7px rgb(250, 6, 34);
-    -moz-box-shadow: inset 0 1px 3px rgba(215, 74, 90, 0.4), 0 0 4px rgba(232, 10, 36, 0.5), 0 -1px 7px rgb(250, 6, 34);
-    box-shadow: inset 0 1px 3px rgba(215, 74, 90, 0.4), 0 0 4px rgba(232, 10, 36, 0.5), 0 -1px 7px rgb(250, 6, 34);
-    -webkit-transition: opacity .5s;
-    -moz-transition: opacity .5s;
-    -o-transition: opacity .5s;
-    position: absolute;
-    margin-top: 5px;">&nbsp;</span>&nbsp;&nbsp;&nbsp;= % of the past school year
+                        <span class="notification_legendBar notification_legendBar--past"></span>&nbsp;&nbsp;&nbsp;= % of the past school year
                         <br>
-                        <span style="background-color: rgba(255, 255, 255, .8);
-    height: 7px;
-    width: 6px;
-    background-color: rgba(255, 251, 251, 0.8);
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: inset 0 1px 3px rgba(244, 237, 238, 0.4), 0 0 4px rgba(247, 241, 241, 0.5), 0 -1px 7px rgb(228, 179, 184);
-    -moz-box-shadow: inset 0 1px 3px rgba(244, 237, 238, 0.4), 0 0 4px rgba(247, 241, 241, 0.5), 0 -1px 7px rgb(228, 179, 184);
-    box-shadow: inset 0 1px 3px rgba(244, 237, 238, 0.4), 0 0 4px rgba(247, 241, 241, 0.5), 0 -1px 7px rgb(228, 179, 184);
-    -webkit-transition: opacity .5s;
-    -moz-transition: opacity .5s;
-    -o-transition: opacity .5s;
-    position: absolute;
-    margin-top: 5px;
-    ">&nbsp;</span>&nbsp;&nbsp;&nbsp;= % of the remaining school year
+                        <span class="notification_legendBar notification_legendBar--remaining"></span>&nbsp;&nbsp;&nbsp;= % of the remaining school year
                     </span>
                 </li>
-                <li class="notification_newHeading">
+                <li class="notification_heading">
                     <div class="notification_icon moodle_icon">
                     </div> Moodle - Submission Deadlines:
-                    <div id="close" class="hidden invisible">
+                    <div id="close" class="">
                         <div id="left-half" class="bevel-box"></div>
                         <div id="centre"></div>
                         <div id="right-half" class="bevel-box text-shadow">Clear</div>
                         <div id="x" class="text-shadow">×</div>
                     </div>
                 </li>
-                <li class="notification_newEntry">
-                    <span class="notification_newEntryHeading">GIS</span>
-                    <span class="notification_newEntryText notification_newEntryDate">Tuesday, 21 April,
+                <li class="notification_entry notification_entry--task">
+                    <span class="notification_entryHeading">GIS</span>
+                    <span class="notification_entryText notification_entryDate">Tuesday, 21 April,
                         10:00</span>
                     <br>
-                    <span class="notification_newEntryText">
+                    <span class="notification_entryText">
                         LE19 - Digitizing Areas
                     </span>
                 </li>
-                <li class="notification_newEntry">
-                    <span class="notification_newEntryHeading">PRE</span>
-                    <span class="notification_newEntryText notification_newEntryDate">Wednesday, 22 April,
+                <li class="notification_entry notification_entry--task">
+                    <span class="notification_entryHeading">PRE</span>
+                    <span class="notification_entryText notification_entryDate">Wednesday, 22 April,
                         10:00</span>
                     <br>
-                    <span class="notification_newEntryText">
+                    <span class="notification_entryText">
                         Upload Status Report
                     </span>
                 </li>
-                <li class="notification_newEntry">
-                    <span class="notification_newEntryText">
+                <li class="notification_entry notification_entry--empty">
+                    <span class="notification_entryText">
                         <i>No tasks found.</i>
                     </span>
                 </li>
