@@ -214,6 +214,13 @@
         chart.update((anzahlTageSchuljahrVorbei / anzahlTageSchuljahr) * 100);
     }
 
+    var datum = new Date();
+    var tag = datum.getDay();
+    var tageArray = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag");
+    var monatArray = new Array("J&aauml;nner", "Februar", "M&auml;rz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
+    $("#datumSchrift").html(tageArray[tag] + ",<br>" + datum.getDate() + ". " + monatArray[datum.getMonth()] + " " + datum.getFullYear());
+    /* Ende - Codes fuer das Navigation Center */
+
     function zeigeUeberDiesesProejkt() {
         showElement("#readMeInfoDiv");
     }
