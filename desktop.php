@@ -46,7 +46,7 @@ do_header_jquery();
                 <li><a style="font-size: 20px; text-shadow: 0px 1px 0px white;"></a>
                     <div>
                         <ul>
-                            <li><a href="#" onclick="zeigeUeberDiesesProejkt()">About this Webservice</a></li>
+                            <li><a href="#" onclick="showAboutThisProject()">About this Webservice</a></li>
                             <li class="separator"></li>
                             <li><a href="#" onclick="$('.errorEasterEgg').show();">Crash...</a></li>
                             <li><a href="#" class="disabled">Shutdown...</a></li>
@@ -372,7 +372,7 @@ do_header_jquery();
         <div class="desktop">
             <div class="deskIcon" style="left: 1279px; top: 121px;">
                 <img src="assets/images/textedit.png" id="readmeRightClick"
-                    oncontextmenu="javascript:readMeRightClick()" ondblclick="zeigeUeberDiesesProejkt()"
+                    oncontextmenu="javascript:readMeRightClick()" ondblclick="showAboutThisProject()"
                     alt="readme.txt" />
                 <span>readme.txt</span>
             </div>

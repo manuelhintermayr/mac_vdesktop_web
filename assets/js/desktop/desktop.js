@@ -1,4 +1,4 @@
- /* Start - Allgemeine Methoden fuer diese Seite */
+/* Start - Allgemeine Methoden fuer diese Seite */
     /* Diese Methode startet alle anderen Methoden die aufgerufen werden muessen damit die Klasse funktioniert */
     function starteCode() {
         starteUhr(); /* Zum starten der Uhr */
@@ -104,7 +104,7 @@
 
     function readMeRightClick() {
         removeElement("menu.rightClickMenu"); // Zuerst die alten Loeschen
-        $('<menu type=\"context\" class=\"rightClickMenu\" id=\"menu_readme\">\n  <menuitem label=\"&Ouml;ffnen\" onclick=\"zeigeUeberDiesesProejkt()\"><\/menuitem>\n  <hr>\n  <menuitem label=\"Seite neu laden\" onclick=\"location.reload();\"><\/menuitem>\n  <hr>\n  <menuitem label=\"Eigenschaften\" onclick=\"newErrorPopUp(\'Fehler\', \'Nicht verf&uuml;gbar\', \'Diese Option ist momentan noch nicht verf&uuml;gbar.\');\"><\/menuitem>\n<\/menu>')
+        $('<menu type="context" class="rightClickMenu" id="menu_readme">\n  <menuitem label="Open" onclick="showAboutThisProject()"></menuitem>\n  <hr>\n  <menuitem label="Reload Page" onclick="location.reload();"></menuitem>\n  <hr>\n  <menuitem label="Properties" onclick="newErrorPopUp(\'Error\', \'Not available\', \'This option is currently not available.\');"></menuitem>\n</menu>')
             .appendTo("body")
             .css({ top: event.pageY + "px", left: event.pageX + "px" });
     }
@@ -187,7 +187,7 @@
     $("#datumSchrift").html(tageArray[tag] + ",<br>" + datum.getDate() + ". " + monatArray[datum.getMonth()] + " " + datum.getFullYear());
     /* Ende - Codes fuer das Navigation Center */
 
-    function zeigeUeberDiesesProejkt() {
+    function showAboutThisProject() {
         showElement("#readMeInfoDiv");
     }
 
