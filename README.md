@@ -50,7 +50,7 @@ This project was built using:
 ## 🧪 Project Status
 
 This project has been lightly updated to remain runnable for demonstration purposes. 
-It should be viewed as a project of its time (2014/2015) and is not actively maintained or developed further. Nevertheless, it got refactored 2025 a little bit.
+It should be viewed as a project of its time (2014/2015) and is not actively maintained or developed further. Nevertheless, it got refactored 2025 to be fully finished as it was intended to look alike.
 
 ---
 

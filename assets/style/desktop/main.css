@@ -6,6 +6,7 @@
 
 body {
   margin: 0;
+  background-color: #5a82eb;
   background: url("../../images/yosemite.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -178,4 +179,92 @@ div,
 /* Center timetable h2 titles */
 #timetableContent h2 {
   text-align: center;
+}
+
+/* Loading Screen Styles */
+#loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+#loadingScreen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+#loadingScreen .spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top: 6px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 30px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loadingScreen h2 {
+    font-size: 28px;
+    font-weight: 300;
+    margin: 0 0 15px 0;
+    letter-spacing: 1px;
+}
+
+#loadingScreen p {
+    font-size: 16px;
+    font-weight: 200;
+    margin: 0;
+    opacity: 0.8;
+}
+
+#loadingScreen .loading-dots {
+    display: inline-block;
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+/* Hide main content initially */
+body.loading {
+    overflow: hidden !important;
+}
+
+body.loading menu,
+body.loading #dock,
+body.loading #notificationCenter,
+body.loading .errorEasterEgg,
+body.loading .desktop,
+body.loading #content {
+    display: none !important;
+}
+
+/* Reset overflow when loading is done */
+body:not(.loading) {
+    overflow: auto;
 }

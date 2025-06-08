@@ -40,7 +40,12 @@ do_header_jquery();
 <link rel="stylesheet" href="assets/style/desktop/windows.css" type="text/css" />
 </head>
 
-<body onload="runPageConfiguration()">
+<body class="loading" onload="runPageConfiguration()">    <!-- Loading Screen -->
+    <div id="loadingScreen">
+        <div class="spinner"></div>
+        <h2>VDesktop Loading</h2>
+        <p>Preparing resources<span class="loading-dots">...</span></p>
+    </div>
     <!-- Start: Navigation Bar -->
     <menu>
         <div id="menu-bar"></div>
@@ -337,6 +342,14 @@ do_header_jquery();
         </div>
     </div>
     <!-- End: Application Windows -->
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" style="display: none;">
+        <div class="spinner"></div>
+        <h2>Loading</h2>
+        <p>Please wait while we prepare the content for you.</p>
+        <div class="loading-dots"></div>
+    </div>
 </body>
 
 </html>

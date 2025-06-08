@@ -54,21 +54,43 @@ function showErrorEasterEgg() {
 
 /* This method starts all other methods that need to be called for the class to work */
 function runPageConfiguration() {
+    // Show loading screen message updates
+    updateLoadingMessage("Configuring application windows...");
     configureApplicationWindows();
+    
+    updateLoadingMessage("Starting clock...");
     startClock();
+    
+    updateLoadingMessage("Preparing dock...");
     prepareDock();
+    
+    updateLoadingMessage("Configuring easter eggs...");
     configureErrorEasterEgg();
+    
+    updateLoadingMessage("Positioning dock...");
     positionDock();
+    
+    updateLoadingMessage("Loading charts...");
     loadChart();
+    
+    updateLoadingMessage("Loading contact information...");
     $("#contactInfoBody").load("scripts/contactInfo.php");
+    
+    updateLoadingMessage("Loading timetable...");
     $("#timetableBody").load("scripts/timetable.php");
+    
+    updateLoadingMessage("Loading calendar...");
     $("#calendarBody").load("scripts/calendar.php");
 
+    updateLoadingMessage("Loading README.md content...");
     // Load README.md content into the readMe window
     $("#readMeInfoDiv .body").load("scripts/readmeContent.php");
+    
+    updateLoadingMessage("Loading timetable for 5AHIF...");
     // Load the timetable for the own class
     loadTimetable("5AHIF", "class");
 
+    // Configure event handlers
     $(document).bind("contextmenu", function (event) {
         event.preventDefault(); // Prevent the default right click menu from appearing
     });
@@ -78,4 +100,32 @@ function runPageConfiguration() {
     if (isFirefox()) {
         $("#clearNotificationCenter").hide(); // Hide the clear notifications button in Firefox
     }
+    
+    // Final step: Hide loading screen and show content
+    setTimeout(function() {
+        updateLoadingMessage("Finalizing...");
+        setTimeout(function() {
+            hideLoadingScreen();
+        }, 500);
+    }, 1000);
+}
+
+// Function to update loading message
+function updateLoadingMessage(message) {
+    $('#loadingScreen p').html(message + '<span class="loading-dots">...</span>');
+}
+
+// Function to hide loading screen and show content
+function hideLoadingScreen() {
+    // Remove loading class from body to show content
+    $('body').removeClass('loading');
+    
+    // Fade out loading screen
+    $('#loadingScreen').fadeOut(800, function() {
+        $(this).remove();
+    });
+    
+    // Fade in main content
+    $('menu, #dock, .desktop, #content').hide().fadeIn(1000);
+    positionDock();
 }
