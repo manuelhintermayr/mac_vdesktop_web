@@ -91,14 +91,15 @@ function markdownToHtml($markdownText)
 }
 
 // Function to convert Markdown lists to HTML
-function convertLists($html) {
+function convertLists($html)
+{
     $lines = explode("\n", $html);
     $result = [];
     $inList = false;
-    
+
     foreach ($lines as $line) {
         $trimmedLine = trim($line);
-        
+
         // Check if line is a list item
         if (preg_match('/^- (.+)$/', $trimmedLine, $matches)) {
             if (!$inList) {
@@ -115,12 +116,12 @@ function convertLists($html) {
             $result[] = $line;
         }
     }
-    
+
     // Close list if we ended while still in one
     if ($inList) {
         $result[] = '</ul>';
     }
-    
+
     return implode("\n", $result);
 }
 

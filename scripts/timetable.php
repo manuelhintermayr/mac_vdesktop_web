@@ -10,55 +10,58 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
     } else {
         ?>
 
-                <div class="left" id="section_resize">
-                    <div>
-                        <ul>
-                            <span>Classes:</span>
-                            <br>
-                            <?php if (!empty($mockClasses)): ?>
-                                <?php foreach ($mockClasses as $id => $name): ?>
-                                <li onclick="loadTimetable('<?php echo htmlspecialchars($id); ?>', 'class')" class="timetable-link" data-type="class" data-id="<?php echo htmlspecialchars($id); ?>">
-                                    <i></i><?php echo htmlspecialchars($id); ?>
-                                </li>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <li><i></i>No entries available.</li>
-                            <?php endif; ?>
-                            <br>
-                            <span>Teachers:</span>
-                            <br>
-                            <?php if (!empty($mockTeachers)): ?>
-                                <?php foreach ($mockTeachers as $id => $name): ?>
-                                <li onclick="loadTimetable('<?php echo htmlspecialchars($id); ?>', 'teacher')" class="timetable-link" data-type="teacher" data-id="<?php echo htmlspecialchars($id); ?>">
-                                    <i></i><?php echo htmlspecialchars($name); ?>
-                                </li>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <li><i></i>No entries available.</li>
-                            <?php endif; ?>
-                            <br>
-                            <span>Rooms:</span>
-                            <br>
-                            <?php if (!empty($mockRooms)): ?>
-                                <?php foreach ($mockRooms as $id => $name): ?>
-                                <li onclick="loadTimetable('<?php echo htmlspecialchars($id); ?>', 'room')" class="timetable-link" data-type="room" data-id="<?php echo htmlspecialchars($id); ?>">
-                                    <i></i><?php echo htmlspecialchars($id); ?>
-                                </li>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <li><i></i>No entries available.</li>
-                            <?php endif; ?>
-                        </ul>
-                    </div>
-                </div>
-                <div class="center" id="timetableContent">
-                    <!-- By default, an error is always displayed here -->
-                    <div class="msg warn noselect">
-                        <h4>The timetable for your class was not found.</h4>
-                        <p>Please select a timetable on the left.
-                        </p>
-                    </div>
-                </div>
+        <div class="left" id="section_resize">
+            <div>
+                <ul>
+                    <span>Classes:</span>
+                    <br>
+                    <?php if (!empty($mockClasses)): ?>
+                        <?php foreach ($mockClasses as $id => $name): ?>
+                            <li onclick="loadTimetable('<?php echo htmlspecialchars($id); ?>', 'class')" class="timetable-link"
+                                data-type="class" data-id="<?php echo htmlspecialchars($id); ?>">
+                                <i></i><?php echo htmlspecialchars($id); ?>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <li><i></i>No entries available.</li>
+                    <?php endif; ?>
+                    <br>
+                    <span>Teachers:</span>
+                    <br>
+                    <?php if (!empty($mockTeachers)): ?>
+                        <?php foreach ($mockTeachers as $id => $name): ?>
+                            <li onclick="loadTimetable('<?php echo htmlspecialchars($id); ?>', 'teacher')" class="timetable-link"
+                                data-type="teacher" data-id="<?php echo htmlspecialchars($id); ?>">
+                                <i></i><?php echo htmlspecialchars($name); ?>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <li><i></i>No entries available.</li>
+                    <?php endif; ?>
+                    <br>
+                    <span>Rooms:</span>
+                    <br>
+                    <?php if (!empty($mockRooms)): ?>
+                        <?php foreach ($mockRooms as $id => $name): ?>
+                            <li onclick="loadTimetable('<?php echo htmlspecialchars($id); ?>', 'room')" class="timetable-link"
+                                data-type="room" data-id="<?php echo htmlspecialchars($id); ?>">
+                                <i></i><?php echo htmlspecialchars($id); ?>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <li><i></i>No entries available.</li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+        <div class="center" id="timetableContent">
+            <!-- By default, an error is always displayed here -->
+            <div class="msg warn noselect">
+                <h4>The timetable for your class was not found.</h4>
+                <p>Please select a timetable on the left.
+                </p>
+            </div>
+        </div>
         <?php
     }
 }

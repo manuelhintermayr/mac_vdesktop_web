@@ -40,7 +40,7 @@ $mockTimetablesClasses = [
             ['time' => '10:40-11:30', 'subject' => 'BWM', 'teacher' => 'VWX', 'room' => 'D2.08']
         ]
     ],
-    
+
     // 1BHIF timetable
     '1BHIF' => [
         'monday' => [
@@ -77,7 +77,7 @@ $mockTimetablesClasses = [
             ['time' => '14:20-15:10', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'A2.15']
         ]
     ],
-    
+
     // 1CHIF timetable
     '1CHIF' => [
         'monday' => [
@@ -112,7 +112,7 @@ $mockTimetablesClasses = [
             ['time' => '10:40-11:30', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'B3.22']
         ]
     ],
-    
+
     // 1DHIF timetable
     '1DHIF' => [
         'monday' => [
@@ -147,7 +147,7 @@ $mockTimetablesClasses = [
             ['time' => '14:20-15:10', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'C1.04']
         ]
     ],
-    
+
     // Adding entries for the higher grades with more specialized subjects
     '2AVIF' => [
         'monday' => [
@@ -186,7 +186,7 @@ $mockTimetablesClasses = [
             ['time' => '11:40-12:30', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'A2.15']
         ]
     ],
-    
+
     '2BVIF' => [
         'monday' => [
             ['time' => '8:00-8:50', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'A1.01'],
@@ -395,3 +395,4 @@ $mockTimetablesClasses = [
         ]
     ],
 ];
+?>

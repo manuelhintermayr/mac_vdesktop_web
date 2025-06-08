@@ -164,6 +164,7 @@
     background: rgb(192, 192, 192);
     box-shadow: rgba(0, 0, 0, 0.14902) 0px 2px 4px 0px inset;
 }
+
 /* End: Style for error popups */
 
 /* Start: Code for the application windows */
@@ -311,6 +312,7 @@ div.active {
     margin-right: 20px;
     cursor: default;
 }
+
 /* End: Code for the application windows */
 
 /* Start: Code for the Contact Info */
@@ -319,6 +321,7 @@ div.active {
     height: 296px;
     overflow: hidden;
 }
+
 /* End: Code for the Contact Info */
 
 /* Start: Code for the timetable */
@@ -433,7 +436,8 @@ div.active {
     margin-top: 15px;
 }
 
-.timetable th, .timetable td {
+.timetable th,
+.timetable td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;

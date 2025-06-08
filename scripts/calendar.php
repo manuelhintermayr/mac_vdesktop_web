@@ -11,16 +11,16 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
         $currentYear = date('Y');
         $currentMonth = date('n');
         $currentDay = date('j');
-        
+
         // Handle month navigation
         if (isset($_GET['month']) && isset($_GET['year'])) {
-            $displayMonth = (int)$_GET['month'];
-            $displayYear = (int)$_GET['year'];
+            $displayMonth = (int) $_GET['month'];
+            $displayYear = (int) $_GET['year'];
         } else {
             $displayMonth = $currentMonth;
             $displayYear = $currentYear;
         }
-        
+
         // Validate month and year
         if ($displayMonth < 1) {
             $displayMonth = 12;
@@ -29,13 +29,13 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
             $displayMonth = 1;
             $displayYear++;
         }
-        
+
         // Get calendar data
         $firstDayOfMonth = mktime(0, 0, 0, $displayMonth, 1, $displayYear);
         $daysInMonth = date('t', $firstDayOfMonth);
         $dayOfWeek = date('w', $firstDayOfMonth); // 0 = Sunday, 1 = Monday, etc.
         $monthName = date('F', $firstDayOfMonth);
-        
+
         // Calculate previous and next month
         $prevMonth = $displayMonth - 1;
         $prevYear = $displayYear;
@@ -43,89 +43,93 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
             $prevMonth = 12;
             $prevYear--;
         }
-        
+
         $nextMonth = $displayMonth + 1;
         $nextYear = $displayYear;
         if ($nextMonth > 12) {
             $nextMonth = 1;
             $nextYear++;
         }
-        
+
         // Calculate current week number
         $weekNumber = date('W', $firstDayOfMonth);
-        
+
         // Get previous month data for displaying last days of previous month
         $prevMonthDays = date('t', mktime(0, 0, 0, $prevMonth, 1, $prevYear));
-        
+
         // Function to get school events for a specific date
-        function getSchoolEvents($day, $month) {
+        function getSchoolEvents($day, $month)
+        {
             // Define school events with day-month keys
             $schoolEvents = [
                 // January events
                 '01-15' => [['name' => 'Math Test', 'time' => '10a']],
                 '01-22' => [['name' => 'English Essay Due', 'time' => '2p']],
                 '01-28' => [['name' => 'Physics Lab', 'time' => '1p']],
-                
+
                 // February events
                 '02-05' => [['name' => 'History Exam', 'time' => '9a']],
                 '02-14' => [['name' => 'Chemistry Test', 'time' => '11a']],
                 '02-26' => [['name' => 'Coding Project Due', 'time' => '4p']],
-                
+
                 // March events
                 '03-08' => [['name' => 'Literature Essay', 'time' => '12p']],
                 '03-17' => [['name' => 'Science Fair', 'time' => '2p']],
                 '03-25' => [['name' => 'Math Exam', 'time' => '9a']],
-                
+
                 // April events
                 '04-03' => [['name' => 'Language Test', 'time' => '10a']],
                 '04-12' => [['name' => 'Biology Lab', 'time' => '1p']],
                 '04-22' => [['name' => 'Term Paper Due', 'time' => '3p']],
-                
+
                 // May events
                 '05-05' => [['name' => 'Geography Test', 'time' => '11a']],
                 '05-16' => [['name' => 'Group Presentation', 'time' => '1p']],
                 '05-27' => [['name' => 'Final Project Due', 'time' => '4p']],
-                
+
                 // June events
                 '06-03' => [['name' => 'French Oral Exam', 'time' => '9a']],
-                '06-10' => [['name' => 'PE Assessment', 'time' => '2p'],
-                             ['name' => 'Art Exhibition', 'time' => '5p']],
+                '06-10' => [
+                    ['name' => 'PE Assessment', 'time' => '2p'],
+                    ['name' => 'Art Exhibition', 'time' => '5p']
+                ],
                 '06-21' => [['name' => 'End of Year Exam', 'time' => '10a']],
-                
+
                 // September events (after summer break)
                 '09-12' => [['name' => 'Class Photo', 'time' => '10a']],
                 '09-18' => [['name' => 'Math Quiz', 'time' => '11a']],
                 '09-26' => [['name' => 'Science Project', 'time' => '2p']],
-                
+
                 // October events
                 '10-04' => [['name' => 'Book Report Due', 'time' => '9a']],
                 '10-15' => [['name' => 'History Test', 'time' => '1p']],
                 '10-28' => [['name' => 'Computer Lab', 'time' => '3p']],
-                
+
                 // November events
                 '11-08' => [['name' => 'Physics Test', 'time' => '10a']],
                 '11-17' => [['name' => 'Essay Deadline', 'time' => '4p']],
                 '11-29' => [['name' => 'Math Final', 'time' => '9a']],
-                
+
                 // December events
                 '12-05' => [['name' => 'Chemistry Lab', 'time' => '11a']],
                 '12-12' => [['name' => 'Language Final', 'time' => '10a']],
                 '12-18' => [['name' => 'End of Term Test', 'time' => '9a']]
             ];
-            
+
             // Format key for lookup
             $dateKey = sprintf('%02d-%02d', $month, $day);
-            
+
             // Return events if they exist for this date
             if (isset($schoolEvents[$dateKey])) {
                 return $schoolEvents[$dateKey];
             }
-            
+
             return [];
         }
-        
+
         // Function to check if a date is an Austrian holiday
-        function isAustrianHoliday($day, $month, $year) {            // Fixed holidays
+        function isAustrianHoliday($day, $month, $year)
+        {            // Fixed holidays
             $fixedHolidays = [
                 '01-01' => 'New Year',                     // New Year's Day
                 '01-06' => 'Epiphany',         // Epiphany
@@ -137,13 +141,13 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
                 '12-25' => 'Christmas',                 // Christmas Day
                 '12-26' => 'Boxing Day'                   // St. Stephen's Day
             ];
-            
+
             // Check if the date is a fixed holiday
             $dateKey = sprintf('%02d-%02d', $month, $day);
             if (isset($fixedHolidays[$dateKey])) {
                 return $fixedHolidays[$dateKey];
             }
-            
+
             // Calculate Easter date for the given year
             $easter = easter_date($year);
             $easterDay = date('d', $easter);
@@ -156,98 +160,100 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
                 date('d.m', strtotime('+50 days', $easterTimestamp)) => 'Whit Monday',
                 date('d.m', strtotime('+60 days', $easterTimestamp)) => 'Corpus Christi'
             ];
-            
+
             // Format current date for comparison
             $currentDate = sprintf('%02d.%02d', $day, $month);
-            
+
             // Check if the date is an Easter-dependent holiday
             if (isset($easterHolidays[$currentDate])) {
                 return $easterHolidays[$currentDate];
             }
-            
+
             return false;
         }
-        
+
         echo '<div class="calendar-container">';
-        
+
         // Modern calendar header with navigation
         echo '<div class="calendar-header-modern">';
         echo '<div class="month-year-display">';
-        echo '<span class="month-name">' . $monthName . '</span> <span class="year-number">' . $displayYear . '</span>';        echo '</div>';
+        echo '<span class="month-name">' . $monthName . '</span> <span class="year-number">' . $displayYear . '</span>';
+        echo '</div>';
         echo '<div class="nav-controls">';
-        echo '<button class="nav-arrow double-back" onclick="loadCalendar(' . ($displayMonth == 1 ? 1 : 1) . ', ' . ($displayMonth == 1 ? $displayYear-1 : $displayYear) . ')">&laquo;</button>';
+        echo '<button class="nav-arrow double-back" onclick="loadCalendar(' . ($displayMonth == 1 ? 1 : 1) . ', ' . ($displayMonth == 1 ? $displayYear - 1 : $displayYear) . ')">&laquo;</button>';
         echo '<button class="nav-arrow single-back" onclick="loadCalendar(' . $prevMonth . ', ' . $prevYear . ')">&lsaquo;</button>';
-        
+
         // Today button with circular highlight - now with onclick to navigate to current date
         echo '<button class="today-btn" onclick="loadCalendar(' . date('n') . ', ' . date('Y') . ')">' . date('j') . '</button>';
-        
+
         echo '<button class="nav-arrow single-forward" onclick="loadCalendar(' . $nextMonth . ', ' . $nextYear . ')">&rsaquo;</button>';
-        echo '<button class="nav-arrow double-forward" onclick="loadCalendar(' . ($displayMonth == 12 ? 1 : 12) . ', ' . ($displayMonth == 12 ? $displayYear+1 : $displayYear) . ')">&raquo;</button>';
+        echo '<button class="nav-arrow double-forward" onclick="loadCalendar(' . ($displayMonth == 12 ? 1 : 12) . ', ' . ($displayMonth == 12 ? $displayYear + 1 : $displayYear) . ')">&raquo;</button>';
         echo '</div>';
         echo '</div>';
-        
+
         echo '<div class="calendar-week-view">';
         // Week number header
         echo '<div class="week-header">W1</div>';
-        
+
         // Day headers - Monday first like macOS
         $dayHeaders = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
         foreach ($dayHeaders as $day) {
             echo '<div class="day-header">' . $day . '</div>';
         }
-        
+
         // Adjust day of week calculation for Monday-first layout
         $adjustedDayOfWeek = ($dayOfWeek + 6) % 7; // Convert Sunday=0 to Monday=0
-        
+
         // Add week number cell
         echo '<div class="week-cell">W' . $weekNumber . '</div>';
-        
+
         // Calculate days from previous month to display
         $prevMonthStartDay = $prevMonthDays - $adjustedDayOfWeek + 1;
-        
+
         // Empty cells for days before the first day of the month (previous month's days)
         for ($i = 0; $i < $adjustedDayOfWeek; $i++) {
             echo '<div class="day-cell prev-month">';
             echo '<div class="day-number">' . ($prevMonthStartDay + $i) . '</div>';
-            
+
             // For Dec 30 specifically, add a grey circle (as shown in the image)
             if ($displayMonth == 1 && $displayYear == 2025 && ($prevMonthStartDay + $i) == 30) {
                 echo '<div class="day-circle"></div>';
             }
-            
+
             echo '</div>';
         }          // Days of the month
         for ($day = 1; $day <= $daysInMonth; $day++) {
             $isToday = ($day == $currentDay && $displayMonth == $currentMonth && $displayYear == $currentYear);
             $todayClass = $isToday ? ' today' : '';
             $dateText = '';
-              // Check if the day is a weekend (Saturday or Sunday)
+            // Check if the day is a weekend (Saturday or Sunday)
             $dayTimestamp = mktime(0, 0, 0, $displayMonth, $day, $displayYear);
             $dayOfWeekNum = date('w', $dayTimestamp); // 0 (Sunday) through 6 (Saturday)
             $isWeekend = ($dayOfWeekNum == 0 || $dayOfWeekNum == 6);
             $weekendClass = $isWeekend ? ' weekend' : '';
-            
+
             // Check if the day is an Austrian holiday
             $holidayName = isAustrianHoliday($day, $displayMonth, $displayYear);
             $isHoliday = $holidayName !== false;
             $holidayClass = $isHoliday ? ' holiday' : '';
-            
+
             // For the first week of January 2025, show "Jan" prefix for Jan 1 and Jan 4
             if ($displayMonth == 1 && $displayYear == 2025 && ($day == 1 || $day == 4)) {
                 $dateText = 'Jan ';
-            }            echo '<div class="day-cell' . $todayClass . $weekendClass . $holidayClass . '">';
+            }
+            echo '<div class="day-cell' . $todayClass . $weekendClass . $holidayClass . '">';
             echo '<div class="day-number">' . $dateText . $day . '</div>';
-            
+
             // Add food icon to Jan 2 (as shown in image)
             if ($displayMonth == 1 && $displayYear == 2025 && $day == 2) {
                 echo '<div class="day-icon">🍕</div>';
             }
-            
+
             // Display holiday name if it's a holiday
             if ($isHoliday) {
                 echo '<div class="holiday-name">' . $holidayName . '</div>';
             }
-              // Get and display school events for the day
+            // Get and display school events for the day
             $schoolEvents = getSchoolEvents($day, $displayMonth);
             if (!empty($schoolEvents)) {
                 foreach ($schoolEvents as $index => $event) {
@@ -258,16 +264,16 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
                     echo '</div>';
                 }
             }
-            
+
             echo '</div>';
-            
+
             // Start a new week after Sunday
             if (($day + $adjustedDayOfWeek) % 7 == 0 && $day < $daysInMonth) {
                 $weekNumber++;
                 echo '<div class="week-cell">W' . $weekNumber . '</div>';
             }
         }
-        
+
         // Fill in the remaining days from next month if needed
         $remainingCells = 7 - (($daysInMonth + $adjustedDayOfWeek) % 7);
         if ($remainingCells < 7) {
@@ -277,17 +283,17 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
                 echo '</div>';
             }
         }
-        
+
         echo '</div>';
         echo '</div>';
-        
+
         // Add JavaScript for navigation
         echo '<script>
         function loadCalendar(month, year) {
             $("#calendarBody").load("scripts/calendar.php?month=" + month + "&year=" + year);
         }
         </script>';
-          // Add CSS for calendar styling
+        // Add CSS for calendar styling
         echo '<style>
         .calendar-container {
             font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;

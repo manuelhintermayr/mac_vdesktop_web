@@ -62,9 +62,10 @@ $mockTimetables = array_merge(
 );
 
 // Function to get HTML representation of a timetable
-function getTimetableHTML($id) {
+function getTimetableHTML($id)
+{
     global $mockTimetables, $mockClasses, $mockTeachers, $mockRooms;
-    
+
     // Check if the ID exists in our mock data
     if (!isset($mockTimetables[$id])) {
         return '<div class="msg warn">
@@ -72,7 +73,7 @@ function getTimetableHTML($id) {
             <p>No timetable was found for the selected ID.</p>
         </div>';
     }
-    
+
     $timetable = $mockTimetables[$id];
     if (isset($mockClasses[$id])) {
         $title = $mockClasses[$id];
@@ -83,12 +84,12 @@ function getTimetableHTML($id) {
     } else {
         $title = $id;
     }
-    
+
     // Build HTML for the timetable based on mock data
     $html = '<h2>' . htmlspecialchars($title) . '</h2>';
     $html .= '<table class="timetable">';
     $html .= '<tr><th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr>';
-    
+
     // Time slots
     $timeSlots = [
         '8:00-8:50',
@@ -106,36 +107,36 @@ function getTimetableHTML($id) {
         '17:50-18:40',
         '18:10-19:00'
     ];
-    
+
     foreach ($timeSlots as $timeSlot) {
         $html .= '<tr>';
         $html .= '<td>' . $timeSlot . '</td>';
-        
+
         // Days of week
         foreach (['monday', 'tuesday', 'wednesday', 'thursday', 'friday'] as $day) {
             $html .= '<td>';
-            
+
             // Find any lesson in this timeslot for this day
             foreach ($timetable[$day] ?? [] as $lesson) {
                 if ($lesson['time'] == $timeSlot) {
                     if (isset($mockClasses[$id])) {
                         // Class view
-                        $html .= '<div class="lesson">' . $lesson['subject'] . '<br>' . 
-                                $lesson['teacher'] . ' - ' . $lesson['room'] . '</div>';
+                        $html .= '<div class="lesson">' . $lesson['subject'] . '<br>' .
+                            $lesson['teacher'] . ' - ' . $lesson['room'] . '</div>';
                     } else {
                         // Teacher view
-                        $html .= '<div class="lesson">' . $lesson['subject'] . '<br>' . 
-                                $lesson['class'] . ' - ' . $lesson['room'] . '</div>';
+                        $html .= '<div class="lesson">' . $lesson['subject'] . '<br>' .
+                            $lesson['class'] . ' - ' . $lesson['room'] . '</div>';
                     }
                 }
             }
-            
+
             $html .= '</td>';
         }
-        
+
         $html .= '</tr>';
     }
-    
+
     $html .= '</table>';
     return $html;
 }

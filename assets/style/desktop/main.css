@@ -56,6 +56,7 @@ div,
 .errorEasterEgg_ok span {
   cursor: url("../../cursors/cursor_win_hand.png"), default !important;
 }
+
 /* End - Code for the cursors */
 
 /* Start - Code for the right mouse menu */
@@ -133,46 +134,48 @@ div,
   width: 100px;
   height: 100px;
 }
+
 /* End - Code for the right mouse menu */
 
 /* Start: Code for the Desktop (icons, like readme) */
 .desktop {
-    position: absolute;
-    top: 96px;
-    left: 32px;
+  position: absolute;
+  top: 96px;
+  left: 32px;
 }
 
 .desktop .deskIcon {
-    position: relative;
-    text-align: center;
-    display: inline-block;
-    padding: 12px 12px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  padding: 12px 12px;
 }
 
 .desktop .deskIcon span {
-    position: absolute;
-    top: 84px;
-    left: 13px;
-    font-family: soleil, sans-serif;
-    font-weight: 100;
-    color: #fff;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 84px;
+  left: 13px;
+  font-family: soleil, sans-serif;
+  font-weight: 100;
+  color: #fff;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .desktop .deskIcon img {
-    width: 64px;
-    border-radius: 5px;
-    padding: 0px 2px;
-    border: 2px solid rgba(255, 255, 255, 0);
-    transition: background 0.1s, border-color 0.1s, -webkit-transform 0.2s;
+  width: 64px;
+  border-radius: 5px;
+  padding: 0px 2px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  transition: background 0.1s, border-color 0.1s, -webkit-transform 0.2s;
 }
 
 .desktop .deskIcon img:hover {
-    -webkit-transform: scale(1.08);
+  -webkit-transform: scale(1.08);
 }
+
 /* End: Code for the Desktop */
 
 /* Center timetable h2 titles */
 #timetableContent h2 {
-    text-align: center;
+  text-align: center;
 }

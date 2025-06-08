@@ -31,5 +31,4 @@ function do_html_end()
 	echo "</body>
 	</html>";
 }
-
 ?>

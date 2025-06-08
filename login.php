@@ -44,7 +44,7 @@ do_header_jquery();
             </p>
             <button id="closePopup" class="mac-close-btn">Close</button>
         </div>
-    </div>    <!-- Login Form -->
+    </div> <!-- Login Form -->
     <section>
         <span id="background"></span>
         <span id="cancelButton">

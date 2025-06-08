@@ -4,7 +4,7 @@ include('getTimeTable_data.php'); // Updated path
 // Check if we have an ID parameter
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    
+
     // Get the HTML for the requested timetable
     echo getTimetableHTML($id);
 } else {

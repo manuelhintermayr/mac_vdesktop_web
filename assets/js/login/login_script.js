@@ -17,7 +17,8 @@ function login() {
             location.reload();
             $("body").load("desktop.php");
         },
-        statusCode: {            403: function (e) {
+        statusCode: {
+            403: function (e) {
                 $("#loadingSpinner").hide();
                 $("#loginButtonIcon").show();
                 $("#message").text(e.responseText);

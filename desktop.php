@@ -60,7 +60,8 @@ do_header_jquery();
                 </li>
                 <li><a><b>Programs</b></a>
                     <div>
-                        <ul>                            <li><a href="#" onclick="selectDockItem(1)">Contact Info</a></li>
+                        <ul>
+                            <li><a href="#" onclick="selectDockItem(1)">Contact Info</a></li>
                             <li><a href="#" onclick="selectDockItem(2)">Timetable</a></li>
                             <li><a href="#" class="disabled">Teacher List</a></li>
                             <li class="separator"></li>
@@ -119,7 +120,8 @@ do_header_jquery();
 
     <!-- Start: Dock -->
     <div id="dock">
-        <ul>            <li id="dock_contactInfo">
+        <ul>
+            <li id="dock_contactInfo">
                 <a id="one" class='osx-tooltip' href="#" data-text="Contact Info">
                     <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/finder.png"
                             alt="Contact Info" /></span>

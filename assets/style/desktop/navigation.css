@@ -192,8 +192,8 @@ menu #menu-left ul {
 
 /* Style for the Apple logo in the navigation bar */
 #menu-left ul li a.apple-logo {
-    font-size: 20px;
-    text-shadow: 0px 1px 0px white;
+  font-size: 20px;
+  text-shadow: 0px 1px 0px white;
 }
 
 /* Enough space for the icon */

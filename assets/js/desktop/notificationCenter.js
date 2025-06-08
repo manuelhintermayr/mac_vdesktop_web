@@ -83,7 +83,7 @@ function clearNotificationCenter() {
     if ($close.hasClass("closing")) {
         $close.addClass("invisible");
         $('.notification_entry--task').fadeOut();
-        setTimeout(function() {
+        setTimeout(function () {
             $('.notification_entry--empty').fadeIn();
         }, 500);
         $("#clearNotificationCenter").hide();

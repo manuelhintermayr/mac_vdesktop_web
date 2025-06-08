@@ -3,7 +3,7 @@ function prepareDock() {
         { id: "#dock_contactInfo", item: 1 },
         { id: "#dock_timetable", item: 2 },
         { id: "#dock_teacherList", item: 3 },
-        { id: "#dock_calendar", item: 4 }    ];
+        { id: "#dock_calendar", item: 4 }];
     dockItems.forEach(({ id, item }) => {
         $(id).bind('click', { item }, function (event) {
             selectDockItem(event.data.item);

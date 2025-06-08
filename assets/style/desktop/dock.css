@@ -76,6 +76,7 @@
   -webkit-animation-direction: alternate;
   -webkit-animation-duration: 300ms;
 }
+
 @-webkit-keyframes bounce {
   0% {
     -webkit-transform: translateY(0);
@@ -85,6 +86,7 @@
     -webkit-transform: translateY(-20px);
   }
 }
+
 @-moz-keyframes bounce {
   0% {
     -moz-transform: translateY(0);
@@ -94,6 +96,7 @@
     -moz-transform: translateY(-20px);
   }
 }
+
 #dock ul li.bounce a.osx-tooltip:hover:after {
   margin-left: 0px;
 }
