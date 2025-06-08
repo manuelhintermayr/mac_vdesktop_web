@@ -122,23 +122,23 @@ do_header_jquery();
         <ul>
             <li id="dock_contactInfo">
                 <a id="eins" class='osx-tooltip' href="#" data-text="Contact Info">
-                    <span class="dock_dot dock_dotHidden"><img src="assets/images/finder.png" alt="Contact Info" /></span>
+                    <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/finder.png" alt="Contact Info" /></span>
                 </a>
             </li>
             <li id="dock_timetable">
                 <a id="zwei" class='osx-tooltip' href="#" data-text="Timetable">
-                    <span class="dock_dot dock_dotHidden"><img src="assets/images/calendar.png" alt="Timetable" /></span>
+                    <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/reminders.png" alt="Timetable" /></span>
                 </a>
             </li>
             <li id="dock_teacherList">
                 <a id="drei" class='osx-tooltip' href="#" data-text="Teacher List">
-                    <span class="dock_dot dock_dotHidden"><img src="assets/images/contacts.png"
+                    <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/contacts.png"
                             alt="Teacher List" /></span>
                 </a>
             </li>
             <li id="dock_calendar">
                 <a id="vier" class='osx-tooltip' href="#" data-text="Calendar">
-                    <span class="dock_dot dock_dotHidden"><img src="assets/images/contacts.png" alt="Calendar" /></span>
+                    <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/calendar.png" alt="Calendar" /></span>
                 </a>
             </li>
         </ul>

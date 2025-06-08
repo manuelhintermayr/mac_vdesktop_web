@@ -1,4 +1,3 @@
-
 function openUserInfo() {
     $(".navigation_contactInfo").show();
     removeClass("#dock_contactInfo > a > span", "dock_dotHidden");
@@ -31,8 +30,9 @@ function openUserInfo() {
     }
 }
 
-function openStundenPlan() {
+function openTimetable() {
     $(".navigation_timetable").show();
+    removeClass("#dock_timetable > a > span", "dock_dotHidden");
     $(".stundenPlan").animate({
         width: windowWidth2,
         height: windowHeight2,
@@ -49,6 +49,7 @@ function openStundenPlan() {
 
 function openTeacherInfo() {
     $(".menuPunktitem3").show();
+    removeClass("#dock_teacherList > a > span", "dock_dotHidden");
     if (minimize == 0) {
         $(".lehrerListe").animate({
             width: windowWidth2,
@@ -79,6 +80,7 @@ function openTeacherInfo() {
 }
 
 function openCalendar() {
+    removeClass("#dock_calendar > a > span", "dock_dotHidden");
     alert("The calendar function is not yet implemented.");
 }
 
@@ -273,7 +275,7 @@ function closeApplicationWindow($window) {
         windowX2 = $(".window").css("right");
         windowY = $(".window").css("top");
         windowY2 = $(".window").css("bottom");
-    }); 
+    });
     $window.css("-webkit-transform", "scale(0.9)");
     addClass("#dock_" + $window.attr('id') + " > a > span", "dock_dotHidden");
     $(".menuPunkt" + $window.attr('id')).hide();

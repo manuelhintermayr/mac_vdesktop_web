@@ -20,7 +20,7 @@
   padding-top: 0;
 }
 
-/* Code for the mini headings */
+/* mini headings */
 .osx-tooltip:hover:before {
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
@@ -45,11 +45,10 @@
   position: absolute;
   top: -44px;
   white-space: nowrap;
+  margin-left: -86px;
 }
 
 /* For the dock bouncing */
-
-
 #dock ul li a span img {
   width: 64px;
   height: auto;
@@ -61,7 +60,9 @@
 
 #dock ul li a:hover img,
 #dock ul li a:focus img {
-  width: 110%;
+  width: 70px;
+  position: relative;
+  top: -5px;
 }
 
 #dock li:active img {
@@ -103,9 +104,6 @@
   }
 }
 
-
-
-/* Blue point */
 .dock_dot:after,
 .dock_dot:hover:after,
 .dock_dot:focus:after,

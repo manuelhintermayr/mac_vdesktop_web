@@ -22,10 +22,10 @@ function dockAuswahl(item) {
     setTimeout(function () { }, 3000); //Wait so the animation can finish
     switch (item) {
         case 1:
-            window.setTimeout('openEINS()', 2500);
+            window.setTimeout('openUserInfo()', 2500);
             break;
         case 2:
-            window.setTimeout('openZWEI()', 2500);
+            window.setTimeout('openTimetable()', 2500);
             break;
         case 3:
             window.setTimeout("newErrorPopUp('Error', 'Failed to start application', 'The application you tried to start may only be started by a student.');", 2500);
@@ -46,27 +46,5 @@ function getItemName(item) {
         case 3: return "teacherList";
         case 4: return "calendar";
         default: return "item" + item;
-    }
-}
-function openEINS() {
-    openUserInfo();
-}
-
-function openZWEI() {
-    removeClass("#dock_timetable > a > span", "dock_dotHidden");
-    openStundenPlan();
-}
-
-function openDREI() {
-    removeClass("#dock_teacherList > a > span", "dock_dotHidden");
-    openTeacherInfo();
-}
-
-function openCalendar() {
-    if ($("#calendarWindow").length) {
-        $("#calendarWindow").show();
-    }
-    else {
-        $("body").append('<div class="fenster" id="calendarWindow"><div class="top"><div class="panel"><span class="first"></span><span class="second"></span><span class="third"></span></div></div><div class="inside"><iframe src="calender.html"></iframe></div></div>');
     }
 }
