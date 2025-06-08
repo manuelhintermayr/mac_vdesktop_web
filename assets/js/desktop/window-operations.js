@@ -29,7 +29,7 @@ var $close = $("#close");
     }
 
     function openUserInfo() {
-        $(".menuPunktitem1").show();
+        $(".navigation_contactInfo").show();
         removeClass("#dock_item1 > a > span", "deaktiviert");
         if (minimize == 0) {
             $(".contactInfo").animate({
@@ -61,7 +61,7 @@ var $close = $("#close");
     }
 
     function openStundenPlan() {
-        $(".menuPunktitem2").show();
+        $(".navigation_timetable").show();
         $(".stundenPlan").animate({
             width: windowWidth2,
             height: windowHeight2,

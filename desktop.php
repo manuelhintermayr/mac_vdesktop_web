@@ -65,11 +65,10 @@ do_header_jquery();
                             <li><a href="#" class="disabled">Teacher List</a></li>
                             <li class="separator"></li>
                             <li><a href="#" class="disabled">Calendar</a></li>
-                            <li><a href="#" class="disabled">Emails</a></li>
                         </ul>
                     </div>
                 </li>
-                <li class="menuPunktitem1">
+                <li class="navigation_contactInfo">
                     <a href="#">Contact Info</a>
                     <div>
                         <ul>
@@ -77,7 +76,7 @@ do_header_jquery();
                         </ul>
                     </div>
                 </li>
-                <li class="menuPunktitem2">
+                <li class="navigation_timetable">
                     <a href="#">Timetable</a>
                     <div>
                         <ul>
@@ -85,24 +84,8 @@ do_header_jquery();
                         </ul>
                     </div>
                 </li>
-                <li class="menuPunktitem3">
-                    <a href="#">Teacher List</a>
-                    <div>
-                        <ul>
-                            <li><a href="#" class="disabled">Currently unavailable.</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="menuPunktKalender">
+                <li class="navigation_calendar">
                     <a href="#">Calendar</a>
-                    <div>
-                        <ul>
-                            <li><a href="#" class="disabled">Currently unavailable.</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="menuPunktEmails">
-                    <a href="#">Emails</a>
                     <div>
                         <ul>
                             <li><a href="#" class="disabled">Currently unavailable.</a></li>
@@ -118,7 +101,7 @@ do_header_jquery();
                             id="notificationIcon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                 </li>
                 <li>
-                    <a href="#"><b><span id="personName"></span></b>
+                    <a href="#"><b><span id="personName">Max Mustermann</span></b>
                     </a>
                 <li>
                     <a href="#" id="clock">00:00:00</a>
