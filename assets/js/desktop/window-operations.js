@@ -1,7 +1,7 @@
 
 function openUserInfo() {
     $(".navigation_contactInfo").show();
-    removeClass("#dock_item1 > a > span", "deaktiviert");
+    removeClass("#dock_contactInfo > a > span", "dock_dotHidden");
     if (minimize == 0) {
         $(".contactInfo").animate({
             width: windowWidth2,
@@ -92,9 +92,7 @@ setTimeout(function () {
     $(".stundenPlan .body .left").mouseout(function () {
         $(this).addClass("thin");
     });
-    /* End - Script for Scrollbar */
-
-    $("#dock_item1").mouseover(function () {
+    /* End - Script for Scrollbar */    $("#dock_contactInfo").mouseover(function () {
     });
 
     $(".deskIcon").draggable({
@@ -275,8 +273,7 @@ function closeApplicationWindow($window) {
         windowX2 = $(".window").css("right");
         windowY = $(".window").css("top");
         windowY2 = $(".window").css("bottom");
-    });
-    $window.css("-webkit-transform", "scale(0.9)");
-    addClass("#dock_" + $window.attr('id') + " > a > span", "deaktiviert");
+    });    $window.css("-webkit-transform", "scale(0.9)");
+    addClass("#dock_" + $window.attr('id') + " > a > span", "dock_dotHidden");
     $(".menuPunkt" + $window.attr('id')).hide();
 }

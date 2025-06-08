@@ -117,30 +117,28 @@ do_header_jquery();
             </ul>
         </nav>
     </menu>
-    <!-- End: Navigation Bar -->
-
-    <!-- Start: Dock -->
+    <!-- End: Navigation Bar -->    <!-- Start: Dock -->
     <div id="dock">
         <ul>
-            <li id="dock_item1">
-                <a id="eins" class='osx-tooltip' href="#eins" data-text="Contact Info">
-                    <span class="bluePoint deaktiviert"><img src="assets/images/finder.png" alt="Contact Info" /></span>
+            <li id="dock_contactInfo">
+                <a id="eins" class='osx-tooltip' href="#" data-text="Contact Info">
+                    <span class="dock_dot dock_dotHidden"><img src="assets/images/finder.png" alt="Contact Info" /></span>
                 </a>
             </li>
-            <li id="dock_item2">
-                <a id="zwei" class='osx-tooltip' href="#zwei" data-text="Timetable">
-                    <span class="bluePoint deaktiviert"><img src="assets/images/calendar.png" alt="Timetable" /></span>
+            <li id="dock_timetable">
+                <a id="zwei" class='osx-tooltip' href="#" data-text="Timetable">
+                    <span class="dock_dot dock_dotHidden"><img src="assets/images/calendar.png" alt="Timetable" /></span>
                 </a>
             </li>
-            <li id="dock_item3">
-                <a id="drei" class='osx-tooltip' href="#drei" data-text="Teacher List">
-                    <span class="bluePoint deaktiviert"><img src="assets/images/contacts.png"
+            <li id="dock_teacherList">
+                <a id="drei" class='osx-tooltip' href="#" data-text="Teacher List">
+                    <span class="dock_dot dock_dotHidden"><img src="assets/images/contacts.png"
                             alt="Teacher List" /></span>
                 </a>
             </li>
-            <li id="dock_item4">
-                <a id="drei" class='osx-tooltip' href="#drei" data-text="Calendar">
-                    <span class="bluePoint deaktiviert"><img src="assets/images/contacts.png" alt="Calendar" /></span>
+            <li id="dock_calendar">
+                <a id="vier" class='osx-tooltip' href="#" data-text="Calendar">
+                    <span class="dock_dot dock_dotHidden"><img src="assets/images/contacts.png" alt="Calendar" /></span>
                 </a>
             </li>
         </ul>

@@ -1,27 +1,25 @@
-/* Calculates where the dock should be positioned */
+function prepareDock() {
+    $("#dock_contactInfo").bind('click', { item: 1 }, function (event) {
+        dockAuswahl(event.data.item);
+    });
+    $("#dock_timetable").bind('click', { item: 2 }, function (event) {
+        dockAuswahl(event.data.item);
+    });
+    $("#dock_teacherList").bind('click', { item: 3 }, function (event) {
+        dockAuswahl(event.data.item);
+    });
+    $("#dock_calendar").bind('click', { item: 4 }, function (event) {
+        dockAuswahl(event.data.item);
+    });
+}
+
 function positionDock() {
     var erg = (document.getElementById("dock").offsetWidth / 2);
     document.getElementById("dock").style.left = "calc(50% - " + erg + "px)";
 }
 
-/* Defines which functions should be called when an item on the dock is selected. */
-function prepareDock() {
-    $("#dock_item1").bind('click', { item: 1 }, function (event) {
-        dockAuswahl(event.data.item);
-    });
-    $("#dock_item2").bind('click', { item: 2 }, function (event) {
-        dockAuswahl(event.data.item);
-    });
-    $("#dock_item3").bind('click', { item: 3 }, function (event) {
-        dockAuswahl(event.data.item);
-    });
-    $("#dock_item4").bind('click', { item: 4 }, function (event) {
-        dockAuswahl(event.data.item);
-    });
-}
-
 function dockAuswahl(item) {
-    addClassForShortTime("#dock_item" + item, "bounce");
+    addClassForShortTime("#dock_" + getItemName(item), "bounce");
     setTimeout(function () { }, 3000); //Wait so the animation can finish
     switch (item) {
         case 1:
@@ -41,17 +39,27 @@ function dockAuswahl(item) {
     }
 
 }
+
+function getItemName(item) {
+    switch (item) {
+        case 1: return "contactInfo";
+        case 2: return "timetable";
+        case 3: return "teacherList";
+        case 4: return "calendar";
+        default: return "item" + item;
+    }
+}
 function openEINS() {
     openUserInfo();
 }
 
 function openZWEI() {
-    removeClass("#dock_item2 > a > span", "deaktiviert");
+    removeClass("#dock_timetable > a > span", "dock_dotHidden");
     openStundenPlan();
 }
 
 function openDREI() {
-    removeClass("#dock_item3 > a > span", "deaktiviert");
+    removeClass("#dock_teacherList > a > span", "dock_dotHidden");
     openTeacherInfo();
 }
 

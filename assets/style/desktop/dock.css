@@ -106,10 +106,10 @@
 
 
 /* Blue point */
-.bluePoint:after,
-.bluePoint:hover:after,
-.bluePoint:focus:after,
-.bluePoint:target:after {
+.dock_dot:after,
+.dock_dot:hover:after,
+.dock_dot:focus:after,
+.dock_dot:target:after {
   content: " ";
   position: absolute;
   bottom: 0px;
@@ -142,16 +142,16 @@
 
 
 /*
-.osx-tooltip:hover .bluePoint:after{
+.osx-tooltip:hover .dock_dot:after{
     margin-left: 34px;
 }
 
 
-#dock ul li a:target .bluePoint:after{    margin-left: 0px;    
+#dock ul li a:target .dock_dot:after{    margin-left: 0px;    
 }*/
 
 /* All objects with this class will have the after-CSS-Pseudo tag displayed */
-.deaktiviert:after {
+.dock_dotHidden:after {
   opacity: 0;
   visibility: hidden;
 }
