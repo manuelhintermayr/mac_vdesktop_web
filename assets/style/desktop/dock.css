@@ -1,0 +1,160 @@
+/* Start - Style for the Dock */
+#dock {
+  height: 95px;
+  position: fixed;
+  bottom: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+#dock>ul>li {
+  display: block;
+  float: left;
+  padding: 6.5px;
+}
+
+#dock>ul {
+  padding-left: 0;
+  padding-top: 0;
+}
+
+/* Code for the mini headings */
+.osx-tooltip:hover:before {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(0, 0, 0, 0.65);
+  content: "";
+  height: 0;
+  opacity: 1;
+  position: absolute;
+  top: -10px;
+  width: 0;
+  margin-left: 24px;
+}
+
+.osx-tooltip:hover:after {
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 3px;
+  color: #fff;
+  content: attr(data-text);
+  font-family: HelveticaNeue-Light, Helvetica, Arial, sans-serif;
+  opacity: 1;
+  padding: 8px 10px;
+  position: absolute;
+  top: -44px;
+  white-space: nowrap;
+}
+
+/* For the dock bouncing */
+
+
+#dock ul li a span img {
+  width: 64px;
+  height: auto;
+  border: none;
+  -webkit-transition: width .3s, height .2s;
+  -moz-transition: width .3s, height .2s;
+  -o-transition: width .3s, height .2s;
+}
+
+#dock ul li a:hover img,
+#dock ul li a:focus img {
+  width: 110%;
+}
+
+#dock li:active img {
+  opacity: .9;
+}
+
+#dock ul li a:target span {
+  -moz-animation: bounce .3s 6 alternate ease-out;
+  width: 100px;
+  -webkit-animation-iteration-count: 6;
+  -webkit-animation-delay: .3s;
+  -webkit-animation-name: bounce;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 300ms;
+
+}
+
+
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateY(-20px);
+  }
+}
+
+
+
+@-moz-keyframes bounce {
+  0% {
+    -moz-transform: translateY(0);
+  }
+
+  100% {
+    -moz-transform: translateY(-20px);
+  }
+}
+
+
+
+/* Blue point */
+.bluePoint:after,
+.bluePoint:hover:after,
+.bluePoint:focus:after,
+.bluePoint:target:after {
+  content: " ";
+  position: absolute;
+  bottom: 0px;
+  margin-left: 30px;
+  width: 5px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, .8);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow:
+    inset 0 1px 3px rgba(75, 255, 255, .4),
+    0 0 4px rgba(75, 255, 255, .5),
+    0 -1px 7px rgb(75, 255, 255);
+  -moz-box-shadow:
+    inset 0 1px 3px rgba(75, 255, 255, .4),
+    0 0 4px rgba(75, 255, 255, .5),
+    0 -1px 7px rgb(75, 255, 255);
+  box-shadow:
+    inset 0 1px 3px rgba(75, 255, 255, .4),
+    0 0 4px rgba(75, 255, 255, .5),
+    0 -1px 7px rgb(75, 255, 255);
+  -webkit-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  display: block;
+}
+
+
+
+/*
+.osx-tooltip:hover .bluePoint:after{
+    margin-left: 34px;
+}
+
+
+#dock ul li a:target .bluePoint:after{    margin-left: 0px;    
+}*/
+
+/* All objects with this class will have the after-CSS-Pseudo tag displayed */
+.deaktiviert:after {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+

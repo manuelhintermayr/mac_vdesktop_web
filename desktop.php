@@ -28,6 +28,7 @@ do_header_jquery();
 <script src="assets/js/desktop/navigation.js"></script>
 <script src="assets/js/desktop/notificationCenter.js"></script>
 <script src="assets/js/desktop/errorEasterEgg.js"></script>
+<script src="assets/js/desktop/dock.js"></script>
 <script src="assets/js/desktop/window-operations.js"></script>
 <script src="assets/js/desktop/stundenplanInfo.js"></script>
 <!-- Stylesheets -->
@@ -35,6 +36,7 @@ do_header_jquery();
 <link rel="stylesheet" href="assets/style/desktop/navigation.css" type="text/css" />
 <link rel="stylesheet" href="assets/style/desktop/notificationCenter.css" type="text/css" />
 <link rel="stylesheet" href="assets/style/desktop/errorEasterEgg.css" type="text/css" />
+<link rel="stylesheet" href="assets/style/desktop/dock.css" type="text/css" />
 <link rel="stylesheet" href="assets/style/desktop/windows.css" type="text/css" />
 </head>
 
