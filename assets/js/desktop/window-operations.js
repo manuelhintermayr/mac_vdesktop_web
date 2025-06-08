@@ -273,7 +273,8 @@ function closeApplicationWindow($window) {
         windowX2 = $(".window").css("right");
         windowY = $(".window").css("top");
         windowY2 = $(".window").css("bottom");
-    });    $window.css("-webkit-transform", "scale(0.9)");
+    }); 
+    $window.css("-webkit-transform", "scale(0.9)");
     addClass("#dock_" + $window.attr('id') + " > a > span", "dock_dotHidden");
     $(".menuPunkt" + $window.attr('id')).hide();
 }

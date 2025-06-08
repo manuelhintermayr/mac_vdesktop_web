@@ -246,7 +246,7 @@ do_header_jquery();
 
     <!-- Start: Application Windows -->
     <div id="content">
-        <div class="window contactInfo" id="item1" style="display: none;">
+        <div class="window contactInfo" id="contactInfo" style="display: none;">
             <div class="head">
                 <div class="ui-right">
                     <div class="exit"></div>
@@ -259,7 +259,7 @@ do_header_jquery();
                 <div class="ui-left">
                 </div>
             </div>
-            <div class="body" id="contactInfo">
+            <div class="body" id="contactInfoBody">
                 Lade...
             </div>
         </div>
@@ -290,7 +290,7 @@ do_header_jquery();
             </div>
         </div>
 
-        <div class="window stundenPlan" id="item2" style="display: none;">
+        <div class="window stundenPlan" id="stundenPlan" style="display: none;">
             <div class="head">
                 <div class="ui-right">
                     <div class="exit"></div>
@@ -328,7 +328,7 @@ do_header_jquery();
             </div>
         </div>
 
-        <div class="window lehrerListe" id="item3" style="display: none;">
+        <div class="window lehrerListe" id="lehrerListe" style="display: none;">
             <div class="head">
                 <div class="ui-right">
                     <div class="exit"></div>

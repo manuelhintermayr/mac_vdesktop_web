@@ -1,15 +1,14 @@
 function prepareDock() {
-    $("#dock_contactInfo").bind('click', { item: 1 }, function (event) {
-        dockAuswahl(event.data.item);
-    });
-    $("#dock_timetable").bind('click', { item: 2 }, function (event) {
-        dockAuswahl(event.data.item);
-    });
-    $("#dock_teacherList").bind('click', { item: 3 }, function (event) {
-        dockAuswahl(event.data.item);
-    });
-    $("#dock_calendar").bind('click', { item: 4 }, function (event) {
-        dockAuswahl(event.data.item);
+    const dockItems = [
+        { id: "#dock_contactInfo", item: 1 },
+        { id: "#dock_timetable", item: 2 },
+        { id: "#dock_teacherList", item: 3 },
+        { id: "#dock_calendar", item: 4 }
+    ];
+    dockItems.forEach(({ id, item }) => {
+        $(id).bind('click', { item }, function (event) {
+            dockAuswahl(event.data.item);
+        });
     });
 }
 

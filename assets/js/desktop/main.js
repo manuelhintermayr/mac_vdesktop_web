@@ -60,9 +60,9 @@ function starteCode() {
     positionDock();
     loadChart();
 
-    $("#contactInfo").load("scripts/contactInfo.php");
-    $("timeTable").load("scripts/timeTable.php");
-    $("#calendar").load("scripts/calendar.php");
+    $("#contactInfoBody").load("scripts/contactInfo.php");
+    $("#timeTableBody").load("scripts/timeTable.php");
+    $("#calendarBody").load("scripts/calendar.php");
 
     $(document).bind("contextmenu", function (event) {
         event.preventDefault(); // Prevent the default right click menu from appearing
