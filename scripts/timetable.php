@@ -17,9 +17,9 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
                             <br>
                             <?php if (!empty($mockClasses)): ?>
                                 <?php foreach ($mockClasses as $id => $name): ?>
-                                <li><a href="#" class="timetable-link" data-type="class" data-id="<?php echo htmlspecialchars($id); ?>">
+                                <li onclick="ladeStundenplan('<?php echo htmlspecialchars($id); ?>', 'class')" class="timetable-link" data-type="class" data-id="<?php echo htmlspecialchars($id); ?>">
                                     <i></i><?php echo htmlspecialchars($id); ?>
-                                </a></li>
+                                </li>
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <li><i></i>Keine Eintr&auml;ge vorhanden.</li>
@@ -29,9 +29,9 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
                             <br>
                             <?php if (!empty($mockTeachers)): ?>
                                 <?php foreach ($mockTeachers as $id => $name): ?>
-                                <li><a href="#" class="timetable-link" data-type="teacher" data-id="<?php echo htmlspecialchars($id); ?>">
+                                <li onclick="ladeStundenplan('<?php echo htmlspecialchars($id); ?>', 'teacher')" class="timetable-link" data-type="teacher" data-id="<?php echo htmlspecialchars($id); ?>">
                                     <i></i><?php echo htmlspecialchars($name); ?>
-                                </a></li>
+                                </li>
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <li><i></i>Keine Eintr&auml;ge vorhanden.</li>

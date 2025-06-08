@@ -104,9 +104,37 @@ function ladeInfoTimetableInPage() {
     $("#section_resize").html(inhalt);
 }
 
-function ladeStundenplan(link) {
+// Updated function to work with both old API and new mock data system
+function ladeStundenplan(id, type) {
+    // Show loading message
     $("#timetableContent").html('<center><h2>Lade Seite...</h2><br> <div class="progress-bar progress-bar--yosemite"><span class="progress-bar__line" style="width: 30%;"></span></div></center>');
-    $("#timetableContent").load("getContentFromPage.php?url=" + encodeURI(link) + "&var=null");
+    
+    // Use the mock data system instead of the old API
+    $.ajax({
+        url: 'scripts/getTimetable.php',
+        data: { id: id },
+        method: 'GET',
+        success: function(response) {
+            // Display the timetable in the content area
+            $('#timetableContent').html(response);
+            
+            // Highlight the selected item
+            $('.timetable-link').removeClass('active');
+            $('a[data-id="' + id + '"]').addClass('active');
+            
+            // Optionally load additional information if needed
+            if (type === 'class') {
+                // You could load class info
+                // $('#tempDivForInfotimetable').load('scripts/getClassInfo.php?id=' + id);
+            } else if (type === 'teacher') {
+                // You could load teacher info
+                // $('#tempDivForInfotimetable').load('scripts/getTeacherInfo.php?id=' + id);
+            }
+        },
+        error: function() {
+            $('#timetableContent').html('<div class="msg error"><h4>Fehler</h4><p>Der Stundenplan konnte nicht geladen werden.</p></div>');
+        }
+    });
 }
 
 // New functionality for using mock data
