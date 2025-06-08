@@ -40,7 +40,7 @@ do_header_jquery();
 <link rel="stylesheet" href="assets/style/desktop/windows.css" type="text/css" />
 </head>
 
-<body class="loading" onload="runPageConfiguration()">    <!-- Loading Screen -->
+<body class="loading" onload="runPageConfiguration()"> <!-- Loading Screen -->
     <div id="loadingScreen">
         <div class="spinner"></div>
         <h2>VDesktop Loading</h2>
