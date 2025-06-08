@@ -37,6 +37,7 @@ do_header_jquery();
 </head>
 
 <body>
+    <!-- Start: Navigation Bar -->
     <menu>
         <div id="menu-bar"></div>
         <nav id="menu-links">
@@ -122,6 +123,9 @@ do_header_jquery();
             </ul>
         </nav>
     </menu>
+    <!-- End: Navigation Bar -->
+
+    <!-- Start: Dock -->
     <div id="dock">
         <ul>
             <li id="dock_item1">
@@ -142,7 +146,9 @@ do_header_jquery();
             </li>
         </ul>
     </div>
+    <!-- End: Dock -->
 
+    <!-- Start: Notification Center -->
     <div id="notificationCenter" style="display: none;">
         <div id="notification_inhalt">
             <ul id="notification_HEADER">
@@ -174,39 +180,39 @@ do_header_jquery();
                         </span>
                         <br>
                         <span style="background-color: rgba(255, 255, 255, .8);
-height: 7px;
-width: 6px;
-background-color: rgba(240, 3, 3, 0.8);
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
--o-border-radius: 5px;
-border-radius: 5px;
--webkit-box-shadow: inset 0 1px 3px rgba(215, 74, 90, 0.4), 0 0 4px rgba(232, 10, 36, 0.5), 0 -1px 7px rgb(250, 6, 34);
--moz-box-shadow: inset 0 1px 3px rgba(215, 74, 90, 0.4), 0 0 4px rgba(232, 10, 36, 0.5), 0 -1px 7px rgb(250, 6, 34);
-box-shadow: inset 0 1px 3px rgba(215, 74, 90, 0.4), 0 0 4px rgba(232, 10, 36, 0.5), 0 -1px 7px rgb(250, 6, 34);
--webkit-transition: opacity .5s;
--moz-transition: opacity .5s;
--o-transition: opacity .5s;
-position: absolute;
-margin-top: 5px;">&nbsp;</span>&nbsp;&nbsp;&nbsp;= % des vergangenen Schuljahres
+    height: 7px;
+    width: 6px;
+    background-color: rgba(240, 3, 3, 0.8);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(215, 74, 90, 0.4), 0 0 4px rgba(232, 10, 36, 0.5), 0 -1px 7px rgb(250, 6, 34);
+    -moz-box-shadow: inset 0 1px 3px rgba(215, 74, 90, 0.4), 0 0 4px rgba(232, 10, 36, 0.5), 0 -1px 7px rgb(250, 6, 34);
+    box-shadow: inset 0 1px 3px rgba(215, 74, 90, 0.4), 0 0 4px rgba(232, 10, 36, 0.5), 0 -1px 7px rgb(250, 6, 34);
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -o-transition: opacity .5s;
+    position: absolute;
+    margin-top: 5px;">&nbsp;</span>&nbsp;&nbsp;&nbsp;= % des vergangenen Schuljahres
                         <br>
                         <span style="background-color: rgba(255, 255, 255, .8);
-height: 7px;
-width: 6px;
-background-color: rgba(255, 251, 251, 0.8);
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
--o-border-radius: 5px;
-border-radius: 5px;
--webkit-box-shadow: inset 0 1px 3px rgba(244, 237, 238, 0.4), 0 0 4px rgba(247, 241, 241, 0.5), 0 -1px 7px rgb(228, 179, 184);
--moz-box-shadow: inset 0 1px 3px rgba(244, 237, 238, 0.4), 0 0 4px rgba(247, 241, 241, 0.5), 0 -1px 7px rgb(228, 179, 184);
-box-shadow: inset 0 1px 3px rgba(244, 237, 238, 0.4), 0 0 4px rgba(247, 241, 241, 0.5), 0 -1px 7px rgb(228, 179, 184);
--webkit-transition: opacity .5s;
--moz-transition: opacity .5s;
--o-transition: opacity .5s;
-position: absolute;
-margin-top: 5px;
-">&nbsp;</span>&nbsp;&nbsp;&nbsp;= % des verbleibenden Schuljahres
+    height: 7px;
+    width: 6px;
+    background-color: rgba(255, 251, 251, 0.8);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(244, 237, 238, 0.4), 0 0 4px rgba(247, 241, 241, 0.5), 0 -1px 7px rgb(228, 179, 184);
+    -moz-box-shadow: inset 0 1px 3px rgba(244, 237, 238, 0.4), 0 0 4px rgba(247, 241, 241, 0.5), 0 -1px 7px rgb(228, 179, 184);
+    box-shadow: inset 0 1px 3px rgba(244, 237, 238, 0.4), 0 0 4px rgba(247, 241, 241, 0.5), 0 -1px 7px rgb(228, 179, 184);
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -o-transition: opacity .5s;
+    position: absolute;
+    margin-top: 5px;
+    ">&nbsp;</span>&nbsp;&nbsp;&nbsp;= % des verbleibenden Schuljahres
                     </span>
                 </li>
                 <li class="notification_neueUeberschrift">
@@ -245,7 +251,9 @@ margin-top: 5px;
             </ul>
         </div>
     </div>
+    <!-- End: Notification Center -->
 
+    <!-- Easter Egg: Error -->
     <div class="errorEasterEgg" style="display: none">
         <div class="errorEasterEgg_titleError">
             Critical Error
@@ -257,7 +265,9 @@ margin-top: 5px;
         </div>
         <button class="errorEasterEgg_ok"> <span>OK</span></button>
     </div>
+    <!-- End: Easter Egg -->
 
+    <!-- Start: Application Windows -->
     <div id="body">
         <div class="window contactInfo" id="item1">
             <div class="head">
@@ -368,6 +378,7 @@ margin-top: 5px;
             </div>
         </div>
     </div>
+    <!-- End: Application Windows -->
 
     <!-- Div existiert nur damit dort ein Javascript-durch Ajax ausgeführt werden kann -->
     <div id="tempDivForInfostundenplan"></div>
