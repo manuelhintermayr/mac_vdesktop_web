@@ -1,0 +1,270 @@
+@font-face {
+  font-family: osxFont;
+  src: url("../../fonts/HelveticaNeue-Light.otf");
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  background-color: #5a82eb;
+  background: url("../../images/yosemite.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+html {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Start - Code for the cursors */
+a {
+  cursor: url("../../cursors/link_mac.cur"), default !important;
+}
+
+html,
+body,
+div,
+.disabled,
+#menu-right ul a,
+.rightClickMenu {
+  cursor: url("../../cursors/cursor_mac.cur"), default !important;
+}
+
+#dock ul img,
+.deskIcon img,
+#notificationIcon,
+.exit:hover,
+.minimize:hover,
+.expand:hover,
+.timetable .body .left ul li,
+.rightClickMenu menuitem,
+#x,
+#right-half {
+  cursor: url("../../cursors/link_mac.cur"), default !important;
+}
+
+.errorEasterEgg,
+.errorEasterEgg_titleError,
+.errorEasterEgg_message {
+  cursor: url("../../cursors/cursor_win_default.png"), default !important;
+}
+
+.errorEasterEgg_closeButton,
+.errorEasterEgg_ok span {
+  cursor: url("../../cursors/cursor_win_hand.png"), default !important;
+}
+
+/* End - Code for the cursors */
+
+/* Start - Code for the right mouse menu */
+.rightClickMenu {
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+
+  margin: 0;
+  padding: 3px 0 4px;
+
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.35);
+  border-radius: 4px;
+
+  font-family: Lucida Grande;
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.rightClickMenu::before {
+  display: block;
+  position: absolute;
+  content: "";
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  right: -1px;
+
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  z-index: -1;
+}
+
+.rightClickMenu hr {
+  border: none;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.10);
+  margin: 6px 1px 5px;
+  padding: 0;
+}
+
+.rightClickMenu menuitem {
+  display: block;
+  padding: 0 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 14px;
+  color: #000;
+  padding-top: 4px;
+  z-index: 100;
+}
+
+.rightClickMenu menuitem::after {
+  vertical-align: 2px;
+  content: attr(label);
+}
+
+.rightClickMenu menuitem:hover {
+  background: -webkit-linear-gradient(top, #648bf5, #2866f2);
+  background: linear-gradient(to bottom, #648bf5 0%, #2866f2 100%);
+  border-top: 1px solid #5a82eb;
+  border-bottom: 1px solid #1758e7;
+}
+
+.rightClickMenu menuitem:hover::after {
+  color: #fff;
+}
+
+#target {
+  background: #cad;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+/* End - Code for the right mouse menu */
+
+/* Start: Code for the Desktop (icons, like readme) */
+.desktop {
+  position: absolute;
+  top: 96px;
+  left: 32px;
+}
+
+.desktop .deskIcon {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  padding: 12px 12px;
+}
+
+.desktop .deskIcon span {
+  position: absolute;
+  top: 84px;
+  left: 13px;
+  font-family: soleil, sans-serif;
+  font-weight: 100;
+  color: #fff;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.desktop .deskIcon img {
+  width: 64px;
+  border-radius: 5px;
+  padding: 0px 2px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  transition: background 0.1s, border-color 0.1s, -webkit-transform 0.2s;
+}
+
+.desktop .deskIcon img:hover {
+  -webkit-transform: scale(1.08);
+}
+
+/* End: Code for the Desktop */
+
+/* Center timetable h2 titles */
+#timetableContent h2 {
+  text-align: center;
+}
+
+/* Loading Screen Styles */
+#loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+#loadingScreen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+#loadingScreen .spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top: 6px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 30px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loadingScreen h2 {
+    font-size: 28px;
+    font-weight: 300;
+    margin: 0 0 15px 0;
+    letter-spacing: 1px;
+}
+
+#loadingScreen p {
+    font-size: 16px;
+    font-weight: 200;
+    margin: 0;
+    opacity: 0.8;
+}
+
+#loadingScreen .loading-dots {
+    display: inline-block;
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+/* Hide main content initially */
+body.loading {
+    overflow: hidden !important;
+}
+
+body.loading menu,
+body.loading #dock,
+body.loading #notificationCenter,
+body.loading .errorEasterEgg,
+body.loading .desktop,
+body.loading #content {
+    display: none !important;
+}
+
+/* Reset overflow when loading is done */
+body:not(.loading) {
+    overflow: auto;
+}

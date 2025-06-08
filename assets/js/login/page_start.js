@@ -1,4 +1,4 @@
-function loadAnfang() {
+function loadLoginConfig() {
     $("#loginButton").click(function (event) {
         event.preventDefault();
         login();
@@ -10,4 +10,4 @@ function loadAnfang() {
         }
     });
 }
-window.addEventListener('DOMContentLoaded', loadAnfang);
+window.addEventListener('DOMContentLoaded', loadLoginConfig);

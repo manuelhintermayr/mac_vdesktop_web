@@ -1,0 +1,518 @@
+/* Start: Style for error popups */
+.ErrorWindow {
+    background: #eee;
+    width: 415px;
+    margin: auto;
+    margin-top: 12.5vh;
+    border: 1px solid #acacac;
+    border-radius: 6px;
+    box-shadow: 0px 0px 20px #acacac;
+    padding-bottom: 0px;
+}
+
+#ErrorWindow {
+    display: flex;
+}
+
+.ErrorPopUp_close a {
+    text-decoration: none;
+}
+
+.ErrorPopUp_close a:hover {
+    cursor: pointer;
+}
+
+.ErrorPopUp_closebutton span {
+    line-height: 9px;
+    vertical-align: 50%;
+}
+
+.ErrorPopUp_titlebar:hover {
+    cursor: all-scroll;
+}
+
+.ErrorPopUp_titlebar {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ebebeb, color-stop(1.0, #d5d5d5)));
+    background: -webkit-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: -moz-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: -ms-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: -o-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: linear-gradient(top, #ebebeb, #d5d5d5);
+    color: #4d494d;
+    font-size: 11pt;
+    line-height: 20px;
+    text-align: center;
+    width: 100%;
+    height: 20px;
+    border-top: 1px solid #f3f1f3;
+    border-bottom: 1px solid #b1aeb1;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    cursor: default;
+    font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+}
+
+.ErrorPopUp_buttons {
+    padding-left: 8px;
+    padding-top: 3px;
+    float: left;
+    line-height: 0px;
+}
+
+.ErrorPopUp_buttons:hover a {
+    visibility: visible;
+}
+
+.ErrorPopUp_close {
+    background: #ff5c5c;
+    font-size: 9pt;
+    width: 11px;
+    height: 11px;
+    border: 1px solid #e33e41;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.ErrorPopUp_close:active {
+    background: #c14645;
+    border: 1px solid #b03537;
+}
+
+.ErrorPopUp_close:active .ErrorPopUp_closebutton {
+    color: #4e0002;
+}
+
+.ErrorPopUp_closebutton {
+    color: #820005;
+    visibility: hidden;
+    cursor: default;
+}
+
+.ErrorPopUp_container-alert {
+    padding: 15px 20px;
+    position: relative;
+}
+
+.ErrorPopUp_about-alert {
+    width: 295px;
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    line-height: 15px;
+    margin-left: 15px;
+}
+
+.ErrorPopUp_container-alert img {
+    float: left;
+}
+
+.ErrorPopUp_about-alert p {
+    color: #000;
+    font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+    font-size: 10px;
+    margin-top: 5px;
+    line-height: 14px;
+}
+
+.button {
+    float: right;
+}
+
+.button {
+    font: normal normal bold normal 12px/22px osxFont;
+    border-collapse: collapse;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: rgb(43, 38, 38);
+    cursor: pointer;
+    display: block;
+    height: 23px;
+    text-align: center;
+    text-shadow: rgba(255, 255, 255, 0.74902) 0px 1px 0px;
+    white-space: nowrap;
+    width: 32px;
+    background: rgb(251, 251, 251);
+    border-top: 0px none rgb(43, 38, 38);
+    border-right: 0px none rgb(43, 38, 38);
+    border-bottom: 1px solid rgb(206, 206, 206);
+    border-left: 0px none rgb(43, 38, 38);
+    border-radius: 4px 4px 4px 4px;
+    -webkit-border-after: 1px solid rgb(206, 206, 206);
+    -webkit-border-before: 0px none rgb(43, 38, 38);
+    -webkit-border-end: 0px none rgb(43, 38, 38);
+    -webkit-border-start: 0px none rgb(43, 38, 38);
+    -webkit-transition: all 0.25s ease 0s;
+    border: 1px solid #999;
+    border-bottom: 1px solid #777;
+    padding: 0px 8px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #f2f2f2;
+    color: #666;
+}
+
+.button:active {
+    height: auto;
+    background: rgb(192, 192, 192);
+    box-shadow: rgba(0, 0, 0, 0.14902) 0px 2px 4px 0px inset;
+}
+
+/* End: Style for error popups */
+
+/* Start: Code for the application windows */
+.window {
+    position: absolute;
+    width: 780px;
+    height: 400px;
+    left: 384px;
+    top: 128px;
+    background: rgba(245, 245, 245, 1);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 12px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    transition: box-shadow 0.4s, -webkit-transform 0.3s;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
+    z-index: 900;
+}
+
+.window .body {
+    width: 100%;
+    height: 100%;
+    padding: 4px 6px;
+    font-family: "Source Code Pro", sans-serif;
+    font-weight: 100;
+}
+
+.head {
+    position: relative;
+    top: -12px;
+    left: -12px;
+    width: 101.8%;
+    height: 18px;
+    padding: 6px 6px;
+    background: linear-gradient(#ddd, #ccc);
+    border-bottom: 1px solid #898989;
+    z-index: 1000;
+}
+
+div.active {
+    z-index: 9999 !important;
+    -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.75) !important;
+    -moz-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.75) !important;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.75) !important;
+}
+
+.body {
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+.ui-right {
+    margin-top: 1px;
+    padding-left: 12px;
+    cursor: default;
+}
+
+.exit {
+    display: inline-block;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    background: #FF4344;
+    border: 1px solid #CC3738;
+    transition: background 0.1s;
+}
+
+.exit:hover {
+    background: #FF6A6B;
+}
+
+.exit:active {
+    background: #CC3738;
+}
+
+.minimize {
+    display: inline-block;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    background: #FFBA36;
+    border: 1px solid #CC952B;
+    transition: background 0.15s;
+}
+
+.minimize:hover {
+    background: #FFC85E;
+}
+
+.minimize:active {
+    background: #CC952B;
+}
+
+.exit {
+    display: inline-block;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    background: #FF4546;
+    border: 1px solid #CC3738;
+    transition: background 0.1s;
+}
+
+.exit:hover {
+    background: #FF6A6B;
+}
+
+.exit:active {
+    background: #CC3738;
+}
+
+.expand {
+    display: inline-block;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    background: #00D147;
+    border: 1px solid #00A739;
+    transition: background 0.1s;
+}
+
+.expand:hover {
+    background: #33DA6C;
+}
+
+.expand:active {
+    background: #00A739;
+}
+
+.ui-center {
+    font-family: soleil, sans-serif;
+    font-weight: 100;
+    text-align: center;
+    margin-top: -36px;
+    margin-right: 20px;
+    cursor: default;
+}
+
+/* End: Code for the application windows */
+
+/* Start: Code for the Contact Info */
+.contactInfo {
+    max-width: 1920px !important;
+    height: 296px;
+    overflow: hidden;
+}
+
+/* End: Code for the Contact Info */
+
+/* Start: Code for the timetable */
+.timetable .body .left {
+    position: relative;
+    width: 22.5%;
+    background-image: url('../../images/bluredBackground.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 97.1%;
+    height: calc(100% - 19px);
+    top: -16px;
+    left: -7px;
+    z-index: 100;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom-left-radius: 5px;
+}
+
+.timetable .body .left::-webkit-scrollbar,
+.timetable .body .center::-webkit-scrollbar,
+#readMeInfoDiv>div.body::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.timetable .body .left.thin::-webkit-scrollbar,
+.timetable .body .center.thin::-webkit-scrollbar {
+    width: 2px;
+}
+
+.timetable .body .left::-webkit-scrollbar-track,
+.timetable .body .center::-webkit-scrollbar-track,
+.timetable .body .left::-webkit-scrollbar-track-piece,
+.timetable .body .center::-webkit-scrollbar-track-piece,
+#readMeInfoDiv>div.body::-webkit-scrollbar-track,
+#readMeInfoDiv>div.body::-webkit-scrollbar-track-piece {
+    border-radius: 10px;
+    background: #eee;
+}
+
+.timetable .body .left::-webkit-scrollbar-thumb,
+.timetable .body .center::-webkit-scrollbar-thumb,
+#readMeInfoDiv>div.body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #888;
+}
+
+.timetable .body .left::-webkit-scrollbar-thumb:window-inactive,
+.timetable .body .center::-webkit-scrollbar-thumb:window-inactive,
+#readMeInfoDiv>div.body ::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(100, 100, 100, 0.4);
+}
+
+.timetable .body .center {
+    position: absolute;
+    top: 0;
+    padding-top: 38px;
+    left: 22.5%;
+    z-index: 80;
+    width: 77.5%;
+    height: 88%;
+    height: calc(100% - 38px);
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+.timetable .body .left div {
+    background: rgba(255, 255, 255, 0.26);
+    position: absolute;
+    margin-top: -12px;
+    width: 100%;
+}
+
+.timetable .body .left ul {
+    padding-left: 0px;
+    list-style: none;
+    height: 100%;
+}
+
+.timetable .body .left ul span {
+    padding: 4px 4px;
+    color: #000;
+    font-family: soleil, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.timetable .body .left ul li i {
+    padding-right: 4px;
+}
+
+.timetable .body .left ul li {
+    width: 100%;
+    padding: 6px 12px;
+    color: #000;
+    font-family: soleil, sans-serif;
+    font-weight: 100;
+    transition: background 0.2s;
+    letter-spacing: 0.12em;
+}
+
+.timetable .body .left ul li:hover {
+    background: rgba(255, 255, 255, 0.45) !important;
+}
+
+.timetable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.timetable th,
+.timetable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.timetable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.lesson {
+    background-color: #e0f7fa;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.timetable-link {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 4px;
+}
+
+.timetable-link.active {
+    background-color: #e3f2fd;
+    font-weight: bold;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #777;
+}
+
+.msg {
+    margin: 0 0 1em;
+    padding: 1.6em 18px 1px;
+    border: 1px solid #F1F2F6;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -kthml-border-radius: 5px;
+    margin: 1%;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.msg.error,
+.msg.confirm,
+.msg.warn,
+.msg.announce {
+    padding: 25px 25px 19px 80px;
+    min-height: 48px;
+}
+
+.msg.warn,
+.msg.announce {
+    border-color: #EBE9C5;
+    background: #FDFDEF url("../../images/alert_warning.png") no-repeat 20px 1.6em;
+}
+
+/* End: Code for the timetable */
+
+/* Start: Code for the calendar */
+#calendarBody {
+    padding: 0;
+}
+
+/* End: Code for the calendar */

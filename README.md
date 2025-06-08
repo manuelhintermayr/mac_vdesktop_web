@@ -35,21 +35,22 @@ This project was built using:
 - **jQuery**
 - **jQuery Easing**
 - **easyPieChart**
-- **Progress Bar Animation**  
-  from [Irina Tsareva's CodePen](https://codepen.io/Irina_Tsareva/pen/oNrLKr)
 
 - **XP-style Error Message Easter Egg**  
-  inspired by [this Windows XP CodePen by N19](https://codepen.io/N19/pen/ZYrrrN)
+  from [this Windows XP CodePen by N19](https://codepen.io/N19/pen/ZYrrrN)
 
 - **Window Management Concept**  
-  inspired by [this draggable windows CodePen by Keubix](https://codepen.io/Keubix/pen/LEeXQr) (used as conceptual basis for multi-window interaction)
+  from [this draggable windows CodePen by Keubix](https://codepen.io/Keubix/pen/LEeXQr) (used as conceptual basis for multi-window interaction)
+
+- **iOS Clear Notifications Button in CSS**  
+  from [Adrian Osmond's CodePen](https://codepen.io/adrianosmond/pen/ALjgev)
 
 ---
 
 ## 🧪 Project Status
 
-This project has been lightly updated to remain runnable for demonstration purposes.  
-It should be viewed as a project of its time (2014/2015) and is not actively maintained or developed further.
+This project has been lightly updated to remain runnable for demonstration purposes. 
+It should be viewed as a project of its time (2014/2015) and is not actively maintained or developed further. Nevertheless, it got refactored 2025 to be fully finished as it was intended to look alike.
 
 ---
 

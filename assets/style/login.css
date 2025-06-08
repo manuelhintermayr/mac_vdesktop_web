@@ -1,4 +1,4 @@
-/*Der Allgemeine Hintergrund*/
+/* General Background */
 body {
     background: url("../images/login/transparent.png");
     background-size: cover;
@@ -14,7 +14,7 @@ a,
     cursor: url("../cursors/link_mac.cur"), default !important;
 }
 
-#hintergrund {
+#background {
     background: url("../images/yosemite.jpg") no-repeat center center fixed;
     -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
@@ -111,7 +111,7 @@ a,
     }
 }
 
-/*Style für Cancel Button*/
+/*Style for Cancel Button*/
 #cancelButton {
     width: 100%;
     bottom: 0px;
@@ -120,12 +120,12 @@ a,
     padding-bottom: 26px;
 }
 
-/* START: Style für Login-Panel*/
+/* START: Style for Login-Panel*/
 #pageWrapper {
     font: normal normal normal normal 12px/16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* Position wo sich das Login-Fenster aufhält */
+/* Position where the login window is held */
 #loginWindowWrapper {
     left: 50%;
     position: absolute;
@@ -320,13 +320,13 @@ a,
     position: relative;
 }
 
-/* END: Style für Login-Panel*/
+/* END: Style for Login-Panel*/
 
 /* macOS-style window: */
 .mac-window {
     display: none;
     position: fixed;
-    top: 28%; 
+    top: 28%;
     left: calc(50% - 200px);
     width: 400px;
     background: #ececec;
