@@ -193,7 +193,7 @@ $mockTimetablesClasses = [
             ['time' => '8:50-9:40', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'A1.01'],
             ['time' => '9:50-10:40', 'subject' => 'DBS', 'teacher' => 'DEF', 'room' => 'A2.15'],
             ['time' => '10:40-11:30', 'subject' => 'DBS', 'teacher' => 'DEF', 'room' => 'A2.15'],
-            // Mittagspause
+            // Lunch break
             ['time' => '12:30-13:20', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'B3.22'],
             ['time' => '13:30-14:20', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'B3.22'],
             ['time' => '14:20-15:10', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'C1.04']
@@ -202,7 +202,7 @@ $mockTimetablesClasses = [
             ['time' => '9:50-10:40', 'subject' => 'NWT', 'teacher' => 'GHI', 'room' => 'D2.08'],
             ['time' => '10:40-11:30', 'subject' => 'NWT', 'teacher' => 'GHI', 'room' => 'D2.08'],
             ['time' => '11:40-12:30', 'subject' => 'BWM', 'teacher' => 'VWX', 'room' => 'A1.01'],
-            // Mittagspause
+            // Lunch break
             ['time' => '13:30-14:20', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'A2.15'],
             ['time' => '14:20-15:10', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'A2.15']
         ],
@@ -210,14 +210,14 @@ $mockTimetablesClasses = [
             ['time' => '8:00-8:50', 'subject' => 'DEU', 'teacher' => 'PQR', 'room' => 'B3.22'],
             ['time' => '8:50-9:40', 'subject' => 'DEU', 'teacher' => 'PQR', 'room' => 'B3.22'],
             ['time' => '9:50-10:40', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'C1.04'],
-            // Mittagspause
+            // Lunch break
             ['time' => '12:30-13:20', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'A1.01'],
             ['time' => '13:30-14:20', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'A1.01']
         ],
         'thursday' => [
             ['time' => '10:40-11:30', 'subject' => 'DBS', 'teacher' => 'DEF', 'room' => 'A2.15'],
             ['time' => '11:40-12:30', 'subject' => 'DBS', 'teacher' => 'DEF', 'room' => 'A2.15'],
-            // Mittagspause
+            // Lunch break
             ['time' => '13:30-14:20', 'subject' => 'NWT', 'teacher' => 'GHI', 'room' => 'D2.08'],
             ['time' => '14:20-15:10', 'subject' => 'NWT', 'teacher' => 'GHI', 'room' => 'D2.08'],
             ['time' => '15:20-16:10', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'C1.04']
@@ -225,7 +225,7 @@ $mockTimetablesClasses = [
         'friday' => [
             ['time' => '9:50-10:40', 'subject' => 'BWM', 'teacher' => 'VWX', 'room' => 'A1.01'],
             ['time' => '10:40-11:30', 'subject' => 'BWM', 'teacher' => 'VWX', 'room' => 'A1.01'],
-            // Mittagspause
+            // Lunch break
             ['time' => '12:30-13:20', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'A2.15'],
             ['time' => '13:30-14:20', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'A2.15'],
             ['time' => '14:20-15:10', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'B3.22']
@@ -236,7 +236,7 @@ $mockTimetablesClasses = [
             ['time' => '8:50-9:40', 'subject' => 'DBS', 'teacher' => 'DEF', 'room' => 'A2.15'],
             ['time' => '9:50-10:40', 'subject' => 'DBS', 'teacher' => 'DEF', 'room' => 'A2.15'],
             ['time' => '10:40-11:30', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'C1.04'],
-            // Mittagspause
+            // Lunch break
             ['time' => '12:30-13:20', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'B3.22'],
             ['time' => '13:30-14:20', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'B3.22']
         ],
@@ -244,27 +244,27 @@ $mockTimetablesClasses = [
             ['time' => '8:00-8:50', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'D2.08'],
             ['time' => '8:50-9:40', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'D2.08'],
             ['time' => '9:50-10:40', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'A1.01'],
-            // Mittagspause
+            // Lunch break
             ['time' => '12:30-13:20', 'subject' => 'NWT', 'teacher' => 'GHI', 'room' => 'C1.04']
         ],
         'wednesday' => [
             ['time' => '10:40-11:30', 'subject' => 'DEU', 'teacher' => 'PQR', 'room' => 'B3.22'],
             ['time' => '11:40-12:30', 'subject' => 'DEU', 'teacher' => 'PQR', 'room' => 'B3.22'],
-            // Mittagspause
+            // Lunch break
             ['time' => '13:30-14:20', 'subject' => 'BWM', 'teacher' => 'YZA', 'room' => 'A2.15'],
             ['time' => '14:20-15:10', 'subject' => 'BWM', 'teacher' => 'YZA', 'room' => 'A2.15']
         ],
         'thursday' => [
             ['time' => '8:00-8:50', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'A1.01'],
             ['time' => '8:50-9:40', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'A1.01'],
-            // Mittagspause
+            // Lunch break
             ['time' => '10:40-11:30', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'B3.22'],
             ['time' => '11:40-12:30', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'B3.22']
         ],
         'friday' => [
             ['time' => '9:50-10:40', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'C1.04'],
             ['time' => '10:40-11:30', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'C1.04'],
-            // Mittagspause
+            // Lunch break
             ['time' => '12:30-13:20', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'A1.01'],
             ['time' => '13:30-14:20', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'A1.01']
         ]
@@ -274,35 +274,35 @@ $mockTimetablesClasses = [
             ['time' => '8:00-8:50', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'C1.04'],
             ['time' => '8:50-9:40', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'C1.04'],
             ['time' => '9:50-10:40', 'subject' => 'NWT', 'teacher' => 'GHI', 'room' => 'B3.22'],
-            // Mittagspause
+            // Lunch break
             ['time' => '11:40-12:30', 'subject' => 'DBS', 'teacher' => 'DEF', 'room' => 'A2.15'],
             ['time' => '12:30-13:20', 'subject' => 'DBS', 'teacher' => 'DEF', 'room' => 'A2.15']
         ],
         'tuesday' => [
             ['time' => '10:40-11:30', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'A1.01'],
             ['time' => '11:40-12:30', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'A1.01'],
-            // Mittagspause
+            // Lunch break
             ['time' => '13:30-14:20', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'C1.04'],
             ['time' => '14:20-15:10', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'C1.04']
         ],
         'wednesday' => [
             ['time' => '8:00-8:50', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'D2.08'],
             ['time' => '8:50-9:40', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'D2.08'],
-            // Mittagspause
+            // Lunch break
             ['time' => '10:40-11:30', 'subject' => 'BWM', 'teacher' => 'YZA', 'room' => 'B3.22'],
             ['time' => '11:40-12:30', 'subject' => 'BWM', 'teacher' => 'YZA', 'room' => 'B3.22']
         ],
         'thursday' => [
             ['time' => '9:50-10:40', 'subject' => 'DEU', 'teacher' => 'PQR', 'room' => 'A2.15'],
             ['time' => '10:40-11:30', 'subject' => 'DEU', 'teacher' => 'PQR', 'room' => 'A2.15'],
-            // Mittagspause
+            // Lunch break
             ['time' => '12:30-13:20', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'C1.04'],
             ['time' => '13:30-14:20', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'C1.04']
         ],
         'friday' => [
             ['time' => '8:00-8:50', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'C1.04'],
             ['time' => '8:50-9:40', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'C1.04'],
-            // Mittagspause
+            // Lunch break
             ['time' => '10:40-11:30', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'A1.01'],
             ['time' => '11:40-12:30', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'A1.01']
         ]
@@ -311,35 +311,35 @@ $mockTimetablesClasses = [
         'monday' => [
             ['time' => '9:50-10:40', 'subject' => 'NWT', 'teacher' => 'GHI', 'room' => 'B3.22'],
             ['time' => '10:40-11:30', 'subject' => 'NWT', 'teacher' => 'GHI', 'room' => 'B3.22'],
-            // Mittagspause
+            // Lunch break
             ['time' => '12:30-13:20', 'subject' => 'BWM', 'teacher' => 'YZA', 'room' => 'C1.04'],
             ['time' => '13:30-14:20', 'subject' => 'BWM', 'teacher' => 'YZA', 'room' => 'C1.04']
         ],
         'tuesday' => [
             ['time' => '8:00-8:50', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'C1.04'],
             ['time' => '8:50-9:40', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'C1.04'],
-            // Mittagspause
+            // Lunch break
             ['time' => '10:40-11:30', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'D2.08'],
             ['time' => '11:40-12:30', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'D2.08']
         ],
         'wednesday' => [
             ['time' => '9:50-10:40', 'subject' => 'DEU', 'teacher' => 'PQR', 'room' => 'A2.15'],
             ['time' => '10:40-11:30', 'subject' => 'DEU', 'teacher' => 'PQR', 'room' => 'A2.15'],
-            // Mittagspause
+            // Lunch break
             ['time' => '12:30-13:20', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'A1.01'],
             ['time' => '13:30-14:20', 'subject' => 'PRG', 'teacher' => 'ABC', 'room' => 'A1.01']
         ],
         'thursday' => [
             ['time' => '8:00-8:50', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'D2.08'],
             ['time' => '8:50-9:40', 'subject' => 'ENG', 'teacher' => 'MNO', 'room' => 'D2.08'],
-            // Mittagspause
+            // Lunch break
             ['time' => '10:40-11:30', 'subject' => 'BWM', 'teacher' => 'YZA', 'room' => 'C1.04'],
             ['time' => '11:40-12:30', 'subject' => 'BWM', 'teacher' => 'YZA', 'room' => 'C1.04']
         ],
         'friday' => [
             ['time' => '9:50-10:40', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'A1.01'],
             ['time' => '10:40-11:30', 'subject' => 'SYP', 'teacher' => 'JKL', 'room' => 'A1.01'],
-            // Mittagspause
+            // Lunch break
             ['time' => '12:30-13:20', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'B3.22'],
             ['time' => '13:30-14:20', 'subject' => 'MAT', 'teacher' => 'STU', 'room' => 'B3.22']
         ]

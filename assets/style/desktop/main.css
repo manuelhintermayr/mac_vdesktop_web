@@ -171,3 +171,8 @@ div,
     -webkit-transform: scale(1.08);
 }
 /* End: Code for the Desktop */
+
+/* Center timetable h2 titles */
+#timetableContent h2 {
+    text-align: center;
+}
