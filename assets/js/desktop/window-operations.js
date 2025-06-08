@@ -79,11 +79,11 @@ function openTeacherInfo() {
 }
 
 function openCalendar() {
-    alert("Die Kalenderfunktion ist noch nicht implementiert.");
+    alert("The calendar function is not yet implemented.");
 }
 
 setTimeout(function () {
-    /* Start - Script fuer Scrollbar */
+    /* Start - Script for Scrollbar */
     $(".stundenPlan .body .left").addClass("thin");
     // If user has Javascript disabled, the thick scrollbar is shown
     $(".stundenPlan .body .left").mouseover(function () {
@@ -92,7 +92,7 @@ setTimeout(function () {
     $(".stundenPlan .body .left").mouseout(function () {
         $(this).addClass("thin");
     });
-    /* Ende - Script fuer Scrollbar */
+    /* End - Script for Scrollbar */
 
     $("#dock_item1").mouseover(function () {
     });
@@ -141,10 +141,9 @@ setTimeout(function () {
             right: windowX2
         }, 125, function () {
             windowWidth = $(".window").width();
-        });
-    });
+        });    });
 
-    /* Das Fenster groesser machen*/
+    /* Make the window bigger */
     $(".expand").click(function () {
         $(this).css("z-index", "9999");
         if (windowWidth != width) {
@@ -241,10 +240,9 @@ setTimeout(function () {
         $(".window").css("z-index", "100"),
             $(this).css("-webkit-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
             $(this).css("-moz-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
-            $(this).css("box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important");
-    });
+            $(this).css("box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important");    });
 
-    /* Damit das Desktop Icon funktioniert */
+    /* So that the Desktop Icon works */
     $(".deskIcon img").click(function (e) {
         $(".deskIcon img").css("background", "rgba(255,255,255,0)"),
             $(".deskIcon img").css("border-color", "rgba(255,255,255,0)"),
@@ -255,7 +253,7 @@ setTimeout(function () {
 
 }, 1000);
 
-window.setTimeout('starteCode()', 100); //Damit der ganze Javascript-Part nun doch ausgefuehrt wird
+window.setTimeout('starteCode()', 100); //So that the entire Javascript part is executed
 
 
 function closeApplicationWindow($window) {

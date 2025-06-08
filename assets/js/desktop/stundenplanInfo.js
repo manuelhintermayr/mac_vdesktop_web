@@ -1,6 +1,6 @@
     var schuelerKlasse = "";
 
-    /* Start - Berechnung der Kalenderwoche */
+    /* Start - Calendar week calculation */
     var KWDatum = new Date();
     var DonnerstagDat = new Date(KWDatum.getTime() + (3 - ((KWDatum.getDay() + 6) % 7)) * 86400000);
     KWJahr = DonnerstagDat.getFullYear();
@@ -12,11 +12,10 @@
     }
     else {
         KWstring = "" + KW;
-    }
-    localStorage["KWstring"] = KWstring;
-    /* Ende - Berechnung der Kalenderwoche */
+    }    localStorage["KWstring"] = KWstring;
+    /* End - Calendar week calculation */
 
-    /* Start - Berechnung der Klassen */
+    /* Start - Class calculation */
     $(function () {
         $.get('scripts/getContentFromPage.php?url=https%3A%2F%2Fintranet.spengergasse.at%2Finfostundenplan%2Fframes%2Fnavbar.htm&var=null', function (result) {
             var startIndex = result.indexOf("var classes");

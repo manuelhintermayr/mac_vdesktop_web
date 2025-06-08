@@ -1,6 +1,6 @@
-/* Allgemeiner Code fuer die Haupt-GUI */
+/* General code for the main GUI */
 
-/* Fuer Sonderzeichen und Schriftarten. */
+/* For special characters and fonts. */
 @font-face {
   font-family: osxFont;
   src: url("../../fonts/HelveticaNeue-Light.otf");
@@ -46,7 +46,7 @@ div,
 
 
 
-/* Design der Buttons */
+/* Design of the buttons */
 .button {
   font: normal normal bold normal 12px/22px osxFont;
   border-collapse: collapse;
@@ -91,7 +91,7 @@ div,
 
 
 
-/* Start - Style fuer Die Dock */
+/* Start - Style for the Dock */
 #dock {
   height: 95px;
   position: fixed;
@@ -113,7 +113,7 @@ div,
   padding-top: 0;
 }
 
-/* Code fuer die Mini-Ueberschriften */
+/* Code for the mini headings */
 .osx-tooltip:hover:before {
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
@@ -140,7 +140,7 @@ div,
   white-space: nowrap;
 }
 
-/* Fuer die Dock das Huepfen*/
+/* For the dock bouncing */
 
 
 #dock ul li a span img {
@@ -198,7 +198,7 @@ div,
 
 
 
-/* Blauer Punkt*/
+/* Blue point */
 .bluePoint:after,
 .bluePoint:hover:after,
 .bluePoint:focus:after,
@@ -240,11 +240,10 @@ div,
 }
 
 
-#dock ul li a:target .bluePoint:after{
-    margin-left: 0px;    
+#dock ul li a:target .bluePoint:after{    margin-left: 0px;    
 }*/
 
-/* Alle Objekte mit dieser Klasse, bei denen wird der after-CSS-Pseudo Tag angezeigt*/
+/* All objects with this class will have the after-CSS-Pseudo tag displayed */
 .deaktiviert:after {
   opacity: 0;
   visibility: hidden;
@@ -543,7 +542,7 @@ span.new .plus.y {
   height: 350px;
 }
 
-/* Start - Style fuer FehlerPopUps */
+/* Start - Style for error popups */
 .ErrorWindow {
   background: #eee;
   width: 415px;
@@ -666,13 +665,13 @@ span.new .plus.y {
   float: right;
 }
 
-/* Ende - Style fuer FehlerPopUps */
+/* End - Style for error popups */
 
 
 
 
 
-/* Start - Code fuer das rechte Mausmenu */
+/* Start - Code for the right mouse menu */
 .rightClickMenu {
   display: block;
   position: absolute;
@@ -748,63 +747,63 @@ span.new .plus.y {
   height: 100px;
 }
 
-/* Ende - Code fuer das rechte Mausmenu*/
+/* End - Code for the right mouse menu */
 
-    #dock {
-        left: 50%;
-        /*Berechnung: 50% - (WIDTH-PX/2)*/
-        left: calc(50% - 78px);
-        /*Bei Lehrer*/
-        left: calc(50% - 115px);
-        /*Bei Schueler*/
-    }
+#dock {
+  left: 50%;
+  /*Calculation: 50% - (WIDTH-PX/2)*/
+  left: calc(50% - 78px);
+  /*For teacher*/
+  left: calc(50% - 115px);
+  /*For student*/
+}
 
 
-    .percent {
-        display: inline-block;
-        z-index: 2;
-        left: 70px;
-        top: -48px;
-        position: relative;
-    }
+.percent {
+  display: inline-block;
+  z-index: 2;
+  left: 70px;
+  top: -48px;
+  position: relative;
+}
 
-    .percent:after {
-        content: '%';
-        margin-left: 0.1em;
-        font-size: .8em;
-    }
+.percent:after {
+  content: '%';
+  margin-left: 0.1em;
+  font-size: .8em;
+}
 
-    .msg {
-        margin: 0 0 1em;
-        padding: 1.6em 18px 1px;
-        border: 1px solid #F1F2F6;
-        border-radius: 5px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        -o-border-radius: 5px;
-        -kthml-border-radius: 5px;
-        margin: 1%;
-    }
+.msg {
+  margin: 0 0 1em;
+  padding: 1.6em 18px 1px;
+  border: 1px solid #F1F2F6;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -kthml-border-radius: 5px;
+  margin: 1%;
+}
 
-    .noselect {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-    .msg.error,
-    .msg.confirm,
-    .msg.warn,
-    .msg.announce {
-        padding: 25px 25px 19px 80px;
-        min-height: 48px;
-    }
+.msg.error,
+.msg.confirm,
+.msg.warn,
+.msg.announce {
+  padding: 25px 25px 19px 80px;
+  min-height: 48px;
+}
 
-    .msg.warn,
-    .msg.announce {
-        border-color: #EBE9C5;
-        background: #FDFDEF url("../../images/alert_warning.png") no-repeat 20px 1.6em;
-    }
+.msg.warn,
+.msg.announce {
+  border-color: #EBE9C5;
+  background: #FDFDEF url("../../images/alert_warning.png") no-repeat 20px 1.6em;
+}
