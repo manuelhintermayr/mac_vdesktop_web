@@ -1,5 +1,6 @@
 <?php
-// Simple Markdown to HTML converter for README.md
+// === Simple Markdown to HTML converter for README.md ===
+
 function markdownToHtml($markdownText)
 {    // Remove HTML comments
     $html = preg_replace('/<!--.*?-->/s', '', $markdownText);
@@ -23,10 +24,11 @@ function markdownToHtml($markdownText)
     $html = preg_replace('/`(.+?)`/', '<code>$1</code>', $html);    // Convert images BEFORE links (important order!)
     $html = preg_replace('/!\[([^\]]*)\]\(([^)]+)\)/', '<img src="$2" alt="$1" style="max-width: 100%; height: auto;" />', $html);
     // Convert links
-    $html = preg_replace('/\[(.+?)\]\((.+?)\)/', '<a href="$2" target="_blank">$1</a>', $html);
-
-    // Convert blockquotes
+    $html = preg_replace('/\[(.+?)\]\((.+?)\)/', '<a href="$2" target="_blank">$1</a>', $html);    // Convert blockquotes
     $html = preg_replace('/^> (.+)$/m', '<blockquote>$1</blockquote>', $html);
+
+    // Convert lists (process before line breaks)
+    $html = convertLists($html);
 
     // Convert emojis to Unicode (basic ones)
     $emojiMap = [
@@ -45,20 +47,27 @@ function markdownToHtml($markdownText)
 
     foreach ($emojiMap as $emoji => $unicode) {
         $html = str_replace($emoji, $unicode, $html);
-    }
-
-    // Convert line breaks to <br> and paragraphs
+    }    // Convert line breaks to <br> and paragraphs
     $lines = explode("\n", $html);
     $result = '';
     $inBlockquote = false;
+    $inList = false;
 
     foreach ($lines as $line) {
         $line = trim($line);
 
         if (empty($line)) {
-            if (!$inBlockquote) {
+            if (!$inBlockquote && !$inList) {
                 $result .= "</p><p>";
             }
+        } else if (strpos($line, '<ul>') === 0) {
+            $inList = true;
+            $result .= "</p>" . $line;
+        } else if (strpos($line, '</ul>') === 0) {
+            $inList = false;
+            $result .= $line . "<p>";
+        } else if (strpos($line, '<li>') === 0) {
+            $result .= $line;
         } else if (strpos($line, '<h') === 0 || strpos($line, '<hr>') !== false || strpos($line, '<hr') === 0 || strpos($line, '<img') === 0) {
             $result .= "</p>" . $line . "<p>";
         } else if (strpos($line, '<blockquote>') === 0) {
@@ -68,7 +77,7 @@ function markdownToHtml($markdownText)
             $inBlockquote = false;
             $result .= $line . "<p>";
         } else {
-            $result .= $line . ($inBlockquote ? '' : '<br>');
+            $result .= $line . ($inBlockquote || $inList ? '' : '<br>');
         }
     }
 
@@ -79,6 +88,40 @@ function markdownToHtml($markdownText)
     $result = preg_replace('/<br><\/p>/', '</p>', $result);
 
     return $result;
+}
+
+// Function to convert Markdown lists to HTML
+function convertLists($html) {
+    $lines = explode("\n", $html);
+    $result = [];
+    $inList = false;
+    
+    foreach ($lines as $line) {
+        $trimmedLine = trim($line);
+        
+        // Check if line is a list item
+        if (preg_match('/^- (.+)$/', $trimmedLine, $matches)) {
+            if (!$inList) {
+                $result[] = '<ul>';
+                $inList = true;
+            }
+            $result[] = '<li>' . $matches[1] . '</li>';
+        } else {
+            // If we were in a list and this line is not a list item, close the list
+            if ($inList) {
+                $result[] = '</ul>';
+                $inList = false;
+            }
+            $result[] = $line;
+        }
+    }
+    
+    // Close list if we ended while still in one
+    if ($inList) {
+        $result[] = '</ul>';
+    }
+    
+    return implode("\n", $result);
 }
 
 // Read the README.md file
@@ -120,13 +163,20 @@ if (file_exists($readmePath)) {
             color: #7f8c8d;
             margin-top: 25px;
             margin-bottom: 10px;
-        }
-        .readme-content blockquote {
+        }        .readme-content blockquote {
             border-left: 4px solid #3498db;
             margin: 15px 0;
             padding: 10px 15px;
             background-color: #f8f9fa;
             font-style: italic;
+        }
+        .readme-content ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        .readme-content li {
+            margin: 8px 0;
+            line-height: 1.6;
         }
         .readme-content code {
             background-color: #f1f2f6;
