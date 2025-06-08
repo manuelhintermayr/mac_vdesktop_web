@@ -56,7 +56,75 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
         
         // Get previous month data for displaying last days of previous month
         $prevMonthDays = date('t', mktime(0, 0, 0, $prevMonth, 1, $prevYear));
-          // Function to check if a date is an Austrian holiday
+        
+        // Function to get school events for a specific date
+        function getSchoolEvents($day, $month) {
+            // Define school events with day-month keys
+            $schoolEvents = [
+                // January events
+                '01-15' => [['name' => 'Math Test', 'time' => '10a']],
+                '01-22' => [['name' => 'English Essay Due', 'time' => '2p']],
+                '01-28' => [['name' => 'Physics Lab', 'time' => '1p']],
+                
+                // February events
+                '02-05' => [['name' => 'History Exam', 'time' => '9a']],
+                '02-14' => [['name' => 'Chemistry Test', 'time' => '11a']],
+                '02-26' => [['name' => 'Coding Project Due', 'time' => '4p']],
+                
+                // March events
+                '03-08' => [['name' => 'Literature Essay', 'time' => '12p']],
+                '03-17' => [['name' => 'Science Fair', 'time' => '2p']],
+                '03-25' => [['name' => 'Math Exam', 'time' => '9a']],
+                
+                // April events
+                '04-03' => [['name' => 'Language Test', 'time' => '10a']],
+                '04-12' => [['name' => 'Biology Lab', 'time' => '1p']],
+                '04-22' => [['name' => 'Term Paper Due', 'time' => '3p']],
+                
+                // May events
+                '05-05' => [['name' => 'Geography Test', 'time' => '11a']],
+                '05-16' => [['name' => 'Group Presentation', 'time' => '1p']],
+                '05-27' => [['name' => 'Final Project Due', 'time' => '4p']],
+                
+                // June events
+                '06-03' => [['name' => 'French Oral Exam', 'time' => '9a']],
+                '06-10' => [['name' => 'PE Assessment', 'time' => '2p'],
+                             ['name' => 'Art Exhibition', 'time' => '5p']],
+                '06-21' => [['name' => 'End of Year Exam', 'time' => '10a']],
+                
+                // September events (after summer break)
+                '09-12' => [['name' => 'Class Photo', 'time' => '10a']],
+                '09-18' => [['name' => 'Math Quiz', 'time' => '11a']],
+                '09-26' => [['name' => 'Science Project', 'time' => '2p']],
+                
+                // October events
+                '10-04' => [['name' => 'Book Report Due', 'time' => '9a']],
+                '10-15' => [['name' => 'History Test', 'time' => '1p']],
+                '10-28' => [['name' => 'Computer Lab', 'time' => '3p']],
+                
+                // November events
+                '11-08' => [['name' => 'Physics Test', 'time' => '10a']],
+                '11-17' => [['name' => 'Essay Deadline', 'time' => '4p']],
+                '11-29' => [['name' => 'Math Final', 'time' => '9a']],
+                
+                // December events
+                '12-05' => [['name' => 'Chemistry Lab', 'time' => '11a']],
+                '12-12' => [['name' => 'Language Final', 'time' => '10a']],
+                '12-18' => [['name' => 'End of Term Test', 'time' => '9a']]
+            ];
+            
+            // Format key for lookup
+            $dateKey = sprintf('%02d-%02d', $month, $day);
+            
+            // Return events if they exist for this date
+            if (isset($schoolEvents[$dateKey])) {
+                return $schoolEvents[$dateKey];
+            }
+            
+            return [];
+        }
+        
+        // Function to check if a date is an Austrian holiday
         function isAustrianHoliday($day, $month, $year) {
             // Fixed holidays
             $fixedHolidays = [
@@ -82,14 +150,13 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
             $easterDay = date('d', $easter);
             $easterMonth = date('m', $easter);
             $easterTimestamp = mktime(0, 0, 0, $easterMonth, $easterDay, $year);
-            
-            // Define Easter-dependent holidays
+              // Define Easter-dependent holidays
             $easterHolidays = [
-                date('d.m', strtotime('-2 days', $easterTimestamp)) => 'Good Friday',
-                date('d.m', strtotime('+1 day', $easterTimestamp)) => 'Easter Monday',
-                date('d.m', strtotime('+39 days', $easterTimestamp)) => 'Ascension Day',
-                date('d.m', strtotime('+50 days', $easterTimestamp)) => 'Whit Monday',
-                date('d.m', strtotime('+60 days', $easterTimestamp)) => 'Corpus Christi'
+                date('d.m', strtotime('-2 days', $easterTimestamp)) => 'Karfreitag',
+                date('d.m', strtotime('+1 day', $easterTimestamp)) => 'Ostermontag',
+                date('d.m', strtotime('+39 days', $easterTimestamp)) => 'Christi Himmelfahrt',
+                date('d.m', strtotime('+50 days', $easterTimestamp)) => 'Pfingstmontag',
+                date('d.m', strtotime('+60 days', $easterTimestamp)) => 'Fronleichnam'
             ];
             
             // Format current date for comparison
@@ -181,6 +248,17 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
             // Display holiday name if it's a holiday
             if ($isHoliday) {
                 echo '<div class="holiday-name">' . $holidayName . '</div>';
+            }
+              // Get and display school events for the day
+            $schoolEvents = getSchoolEvents($day, $displayMonth);
+            if (!empty($schoolEvents)) {
+                foreach ($schoolEvents as $index => $event) {
+                    $topPosition = 35 + ($index * 18); // Position each event below the previous one
+                    echo '<div class="school-event" style="top: ' . $topPosition . 'px;">';
+                    echo '<span class="event-time">' . $event['time'] . '</span> ';
+                    echo '<span class="event-name">' . $event['name'] . '</span>';
+                    echo '</div>';
+                }
             }
             
             echo '</div>';
@@ -430,14 +508,34 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
             left: 12px;
             font-size: 24px;
         }
-        
-        .holiday-name {
+          .holiday-name {
             position: absolute;
             bottom: 8px;
             left: 8px;
             font-size: 12px;
             color: #007aff;
             font-weight: 400;
+        }
+        
+        .school-event {
+            position: absolute;
+            left: 8px;
+            font-size: 12px;
+            line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 90%;
+        }
+        
+        .event-time {
+            color: #FF5500;
+            font-weight: 500;
+            margin-right: 4px;
+        }
+        
+        .event-name {
+            color: #007aff;
         }
         </style>';
     }
