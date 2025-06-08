@@ -1,0 +1,10 @@
+{
+    "name": "mac_vdesktop_web",
+    "version": "1.0.0",
+    "description": "A web application for VDesktop",
+    "scripts": {
+        "start": "powershell -Command \"& 'C:\\xampp\\php\\php.exe' -S localhost:8000\""
+    },
+    "author": "",
+    "license": "ISC"
+}
