@@ -46,11 +46,11 @@ function openTimetable() {
     });
 }
 
-function openTeacherInfo() {
-    $(".menuPunktitem3").show();
-    removeClass("#dock_teacherList > a > span", "dock_dotHidden");
+function openCalendar() {
+    $(".navigation_calendar").show();
+    removeClass("#dock_calendar > a > span", "dock_dotHidden");
     if (minimize == 0) {
-        $(".lehrerListe").animate({
+        $(".calendar").animate({
             width: windowWidth2,
             height: windowHeight2,
             top: "106px",
@@ -59,13 +59,13 @@ function openTeacherInfo() {
             transform: "scale(1)"
         }, 0, function () {
             windowWidth = $(".window").width();
-            $(".lehrerListe").fadeIn(75, function () {
+            $(".calendar").fadeIn(75, function () {
             });
         });
     }
     else {
         minimize = -1;
-        $(".lehrerListe").animate({
+        $(".calendar").animate({
             width: windowWidth,
             height: windowHeight,
             top: windowY,
@@ -78,11 +78,6 @@ function openTeacherInfo() {
     }
 }
 
-function openCalendar() {
-    removeClass("#dock_calendar > a > span", "dock_dotHidden");
-    alert("The calendar function is not yet implemented.");
-}
-
 setTimeout(function () {
     /* Start - Script for Scrollbar */
     $(".timetable .body .left").addClass("thin");
@@ -93,7 +88,8 @@ setTimeout(function () {
     $(".timetable .body .left").mouseout(function () {
         $(this).addClass("thin");
     });
-    /* End - Script for Scrollbar */    $("#dock_contactInfo").mouseover(function () {
+    /* End - Script for Scrollbar */    
+    $("#dock_contactInfo").mouseover(function () {
     });
 
     $(".deskIcon").draggable({
