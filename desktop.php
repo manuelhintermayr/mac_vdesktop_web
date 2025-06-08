@@ -45,64 +45,64 @@ do_header_jquery();
                 <li><a style="font-size: 20px; text-shadow: 0px 1px 0px white;"></a>
                     <div>
                         <ul>
-                            <li><a href="#" onclick="zeigeUeberDiesesProejkt()">&Uuml;ber diesen Webservice</a></li>
+                            <li><a href="#" onclick="zeigeUeberDiesesProejkt()">About this Webservice</a></li>
                             <li class="separator"></li>
-                            <li><a href="#" onclick="$('.errorEasterEgg').show();">Abstr&uuml;rzen...</a></li>
-                            <li><a href="#" class="disabled">Herunterfahren...</a></li>
+                            <li><a href="#" onclick="$('.errorEasterEgg').show();">Crash...</a></li>
+                            <li><a href="#" class="disabled">Shutdown...</a></li>
                             <li class="separator"></li>
-                            <li><a href="logout/index.php">Ausloggen...<span>⇧⌘Q</span></a></li>
+                            <li><a href="logout/index.php">Logout...<span>⇧⌘Q</span></a></li>
                         </ul>
                     </div>
                 </li>
-                <li><a><b>Programme</b></a>
+                <li><a><b>Programs</b></a>
                     <div>
                         <ul>
-                            <li><a href="#" class="disabled">Kontaktinfo</a></li>
-                            <li><a href="#" class="disabled">Stundenplan<!--<span>▶︎</span>--></a></li>
-                            <li><a href="#" class="disabled">Lehrerliste</a></li>
+                            <li><a href="#" class="disabled">Contact Info</a></li>
+                            <li><a href="#" class="disabled">Timetable<!--<span>▶︎</span>--></a></li>
+                            <li><a href="#" class="disabled">Teacher List</a></li>
                             <li class="separator"></li>
-                            <li><a href="#" class="disabled">Kalender</a></li>
-                            <li><a href="#" class="disabled">E-Mails</a></li>
+                            <li><a href="#" class="disabled">Calendar</a></li>
+                            <li><a href="#" class="disabled">Emails</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="menuPunktitem1">
-                    <a href="#">Kontaktinfo</a>
+                    <a href="#">Contact Info</a>
                     <div>
                         <ul>
-                            <li><a href="#" class="disabled">Momentan nicht verf&uuml;gbar.</a></li>
+                            <li><a href="#" class="disabled">Currently unavailable.</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="menuPunktitem2">
-                    <a href="#">Stundenplan</a>
+                    <a href="#">Timetable</a>
                     <div>
                         <ul>
-                            <li><a href="#" class="disabled">Momentan nicht verf&uuml;gbar.</a></li>
+                            <li><a href="#" class="disabled">Currently unavailable.</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="menuPunktitem3">
-                    <a href="#">Lehrerliste</a>
+                    <a href="#">Teacher List</a>
                     <div>
                         <ul>
-                            <li><a href="#" class="disabled">Momentan nicht verf&uuml;gbar.</a></li>
+                            <li><a href="#" class="disabled">Currently unavailable.</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="menuPunktKalender">
-                    <a href="#">Kalender</a>
+                    <a href="#">Calendar</a>
                     <div>
                         <ul>
-                            <li><a href="#" class="disabled">Momentan nicht verf&uuml;gbar.</a></li>
+                            <li><a href="#" class="disabled">Currently unavailable.</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="menuPunktEmails">
-                    <a href="#">E-Mails</a>
+                    <a href="#">Emails</a>
                     <div>
                         <ul>
-                            <li><a href="#" class="disabled">Momentan nicht verf&uuml;gbar.</a></li>
+                            <li><a href="#" class="disabled">Currently unavailable.</a></li>
                         </ul>
                     </div>
                 </li>
@@ -129,19 +129,18 @@ do_header_jquery();
     <div id="dock">
         <ul>
             <li id="dock_item1">
-                <a id="eins" class='osx-tooltip' href="#eins" data-text="Kontaktinfo">
-                    <span class="bluePoint deaktiviert"><img src="assets/images/finder.png" alt="Kontaktinfo" /></span>
+                <a id="eins" class='osx-tooltip' href="#eins" data-text="Contact Info">
+                    <span class="bluePoint deaktiviert"><img src="assets/images/finder.png" alt="Contact Info" /></span>
                 </a>
             </li>
             <li id="dock_item2">
-                <a id="zwei" class='osx-tooltip' href="#zwei" data-text="Stundeplan">
-                    <span class="bluePoint deaktiviert"><img src="assets/images/calendar.png" alt="Stundeplan" /></span>
+                <a id="zwei" class='osx-tooltip' href="#zwei" data-text="Timetable">
+                    <span class="bluePoint deaktiviert"><img src="assets/images/calendar.png" alt="Timetable" /></span>
                 </a>
             </li>
             <li id="dock_item3">
-                <a id="drei" class='osx-tooltip' href="#drei" data-text="Lehrerliste">
-                    <span class="bluePoint deaktiviert"><img src="assets/images/contacts.png"
-                            alt="Lehrerliste" /></span>
+                <a id="drei" class='osx-tooltip' href="#drei" data-text="Teacher List">
+                    <span class="bluePoint deaktiviert"><img src="assets/images/contacts.png" alt="Teacher List" /></span>
                 </a>
             </li>
         </ul>
