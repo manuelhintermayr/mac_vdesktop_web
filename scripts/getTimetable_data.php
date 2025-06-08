@@ -25,7 +25,12 @@ $mockTeachers = [
     'PQR' => 'Fischer',
     'STU' => 'Gruber',
     'VWX' => 'Huber',
-    'YZA' => 'Jäger'
+    'YZA' => 'Jäger',
+    'SCH' => 'Schmidt',
+    'MUL' => 'Müller',
+    'JOH' => 'Johnson',
+    'FIS' => 'Fischer',
+    'WEB' => 'Weber'
 ];
 
 // Rooms - anonymized
@@ -42,12 +47,7 @@ $mockRooms = [
     'C109' => 'C109'
 ];
 
-// Add new teachers for 5AHIF schedule
-$mockTeachers['SCH'] = 'Schmidt';
-$mockTeachers['MUL'] = 'Müller';
-$mockTeachers['JOH'] = 'Johnson';
-$mockTeachers['FIS'] = 'Fischer';
-$mockTeachers['WEB'] = 'Weber';
+
 
 // Import timetable data from separate files
 require_once __DIR__ . '/getTimetable_data_classes.php';
@@ -63,7 +63,7 @@ $mockTimetables = array_merge(
 
 // Function to get HTML representation of a timetable
 function getTimetableHTML($id) {
-    global $mockTimetables, $mockClasses, $mockTeachers;
+    global $mockTimetables, $mockClasses, $mockTeachers, $mockRooms;
     
     // Check if the ID exists in our mock data
     if (!isset($mockTimetables[$id])) {
@@ -74,7 +74,15 @@ function getTimetableHTML($id) {
     }
     
     $timetable = $mockTimetables[$id];
-    $title = isset($mockClasses[$id]) ? $mockClasses[$id] : $mockTeachers[$id];
+    if (isset($mockClasses[$id])) {
+        $title = $mockClasses[$id];
+    } elseif (isset($mockTeachers[$id])) {
+        $title = $mockTeachers[$id];
+    } elseif (isset($mockRooms[$id])) {
+        $title = $mockRooms[$id];
+    } else {
+        $title = $id;
+    }
     
     // Build HTML for the timetable based on mock data
     $html = '<h2>' . htmlspecialchars($title) . '</h2>';
