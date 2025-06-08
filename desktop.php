@@ -69,7 +69,7 @@ do_header_jquery();
                         </ul>
                     </div>
                 </li>
-                <li class="navigation_contactInfo">
+                <li class="navigation_contactInfo" style="display: none;">
                     <a href="#">Contact Info</a>
                     <div>
                         <ul>
@@ -80,7 +80,7 @@ do_header_jquery();
                         </ul>
                     </div>
                 </li>
-                <li class="navigation_timetable">
+                <li class="navigation_timetable" style="display: none;">
                     <a href="#">Timetable</a>
                     <div>
                         <ul>
@@ -91,7 +91,7 @@ do_header_jquery();
                         </ul>
                     </div>
                 </li>
-                <li class="navigation_calendar">
+                <li class="navigation_calendar" style="display: none;">
                     <a href="#">Calendar</a>
                     <div>
                         <ul>
@@ -276,7 +276,7 @@ do_header_jquery();
 
     <!-- Start: Application Windows -->
     <div id="content">
-        <div class="window contactInfo" id="item1">
+        <div class="window contactInfo" id="item1" style="display: none;">
             <div class="head">
                 <div class="ui-right">
                     <div class="exit"></div>
@@ -294,7 +294,7 @@ do_header_jquery();
             </div>
         </div>
 
-        <div class="window" id="readMeInfoDiv" style="visibility: visible">
+        <div class="window" id="readMeInfoDiv" style="display: none;">
             <div class="head">
                 <div class="ui-right">
                     <div class="exit"></div>
@@ -320,7 +320,7 @@ do_header_jquery();
             </div>
         </div>
 
-        <div class="window stundenPlan" id="item2">
+        <div class="window stundenPlan" id="item2" style="display: none;">
             <div class="head">
                 <div class="ui-right">
                     <div class="exit"></div>
@@ -358,7 +358,7 @@ do_header_jquery();
             </div>
         </div>
 
-        <div class="window lehrerListe" id="item3">
+        <div class="window lehrerListe" id="item3" style="display: none;">
             <div class="head">
                 <div class="ui-right">
                     <div class="exit"></div>

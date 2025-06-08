@@ -12,12 +12,6 @@ function starteCode() {
         }
     });
 
-    $('.navigation_contactInfo').hide();
-    $('.navigation_timetable').hide();
-    $('.menuPunktitem3').hide();
-    $('.navigation_calendar').hide();
-    $('.menuPunktEmails').hide();
-
     $("#kontaktinfo").load("scripts/kontaktinfo.php");
     $("#lehrerliste").load("scripts/lehrerliste.php");
 }
