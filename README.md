@@ -24,6 +24,7 @@ This project was originally created as a **school project** by class **4AHIF of 
 ## 🚨 Login Information
 
 **👉 Default login on the demo page is: `admin` / `admin`**
+[demo page](https://vdesktop.manuelweb.at/desktop.php)
 
 ---
 
