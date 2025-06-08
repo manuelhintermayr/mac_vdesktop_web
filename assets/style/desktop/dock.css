@@ -46,10 +46,9 @@
   position: absolute;
   top: -44px;
   white-space: nowrap;
-  margin-left: -86px;
+  margin-left: -70px;
 }
 
-/* For the dock bouncing */
 #dock ul li a span img {
   width: 64px;
   height: auto;
@@ -63,24 +62,20 @@
 #dock ul li a:focus img {
   width: 70px;
   position: relative;
-  top: -5px;
+  bottom: 0px;
 }
 
-#dock li:active img {
-  opacity: .9;
-}
-
-#dock ul li a:target span {
+/* For the dock bouncing */
+#dock ul li.bounce a span img {
   -moz-animation: bounce .3s 6 alternate ease-out;
-  width: 100px;
+  position: relative;
+  display: table;
   -webkit-animation-iteration-count: 6;
   -webkit-animation-delay: .3s;
   -webkit-animation-name: bounce;
   -webkit-animation-direction: alternate;
   -webkit-animation-duration: 300ms;
-
 }
-
 @-webkit-keyframes bounce {
   0% {
     -webkit-transform: translateY(0);
@@ -90,7 +85,6 @@
     -webkit-transform: translateY(-20px);
   }
 }
-
 @-moz-keyframes bounce {
   0% {
     -moz-transform: translateY(0);
@@ -99,6 +93,9 @@
   100% {
     -moz-transform: translateY(-20px);
   }
+}
+#dock ul li.bounce a.osx-tooltip:hover:after {
+  margin-left: 0px;
 }
 
 /* For the blue dot */

@@ -19,6 +19,7 @@ function positionDock() {
 
 function dockAuswahl(item) {
     addClassForShortTime("#dock_" + getItemName(item), "bounce");
+    console.log("#dock_" + getItemName(item));
     setTimeout(function () { }, 3000); //Wait so the animation can finish
     switch (item) {
         case 1:
