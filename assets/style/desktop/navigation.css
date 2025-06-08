@@ -189,7 +189,13 @@ menu #menu-links ul {
   width: 21px;
 }
 
-/* Damit genug Platz fuer das Icon ist*/
+/* Style for the Apple logo in the navigation bar */
+#menu-links ul li a.apple-logo {
+    font-size: 20px;
+    text-shadow: 0px 1px 0px white;
+}
+
+/* Enough space for the icon */
 #menu-rechts>ul>li:nth-child(1)>a {
   padding: 2px 7px 0px 7px;
 }

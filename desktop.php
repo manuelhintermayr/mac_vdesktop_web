@@ -43,12 +43,12 @@ do_header_jquery();
         <div id="menu-bar"></div>
         <nav id="menu-links">
             <ul>
-                <li><a style="font-size: 20px; text-shadow: 0px 1px 0px white;"></a>
+                <li><a class="apple-logo"></a>
                     <div>
                         <ul>
                             <li><a href="#" onclick="showAboutThisProject()">About this Webservice</a></li>
                             <li class="separator"></li>
-                            <li><a href="#" onclick="$('.errorEasterEgg').show();">Crash...</a></li>
+                            <li><a href="#" onclick="showErrorEasterEgg()">Crash...</a></li>
                             <li><a href="#" class="disabled">Shutdown...</a></li>
                             <li class="separator"></li>
                             <li><a href="logout/index.php">Logout...<span>⇧⌘Q</span></a></li>
