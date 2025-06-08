@@ -17,7 +17,7 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
     }
 }
 
-do_header_start("VDesktop - Home");?>
+do_header_start("VDesktop - Home"); ?>
 <!-- Javascript -->
 <?php
 do_header_jquery();
@@ -32,13 +32,11 @@ do_header_jquery();
 <script src="assets/js/desktop/window-operations.js"></script>
 <!-- Stylesheets -->
 <link rel="stylesheet" href="assets/style/desktop/main.css" type="text/css" />
+<link rel="stylesheet" href="assets/style/desktop/navigation.css" type="text/css" />
 <link rel="stylesheet" href="assets/style/desktop/windows.css" type="text/css" />
 </head>
 
 <body>
-    <!-- Div existiert nur damit dort ein Javascript-durch Ajax ausgeführt werden kann -->
-    <div id="tempDivForInfostundenplan"></div>
-
     <menu>
         <div id="menu-bar"></div>
         <nav id="menu-links">
@@ -370,6 +368,9 @@ margin-top: 5px;
             </div>
         </div>
     </div>
+
+    <!-- Div existiert nur damit dort ein Javascript-durch Ajax ausgeführt werden kann -->
+    <div id="tempDivForInfostundenplan"></div>
 </body>
 
 </html>
