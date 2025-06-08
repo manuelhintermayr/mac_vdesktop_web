@@ -35,8 +35,6 @@ This project was built using:
 - **jQuery**
 - **jQuery Easing**
 - **easyPieChart**
-- **Progress Bar Animation**  
-  from [Irina Tsareva's CodePen](https://codepen.io/Irina_Tsareva/pen/oNrLKr)
 
 - **XP-style Error Message Easter Egg**  
   from [this Windows XP CodePen by N19](https://codepen.io/N19/pen/ZYrrrN)

@@ -30,7 +30,7 @@ do_header_jquery();
 <script src="assets/js/desktop/errorEasterEgg.js"></script>
 <script src="assets/js/desktop/dock.js"></script>
 <script src="assets/js/desktop/window-operations.js"></script>
-<script src="assets/js/desktop/timetableInfo.js"></script>
+<script src="assets/js/desktop/timetable.js"></script>
 <!-- Stylesheets -->
 <link rel="stylesheet" href="assets/style/desktop/main.css" type="text/css" />
 <link rel="stylesheet" href="assets/style/desktop/navigation.css" type="text/css" />

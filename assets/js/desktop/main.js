@@ -65,6 +65,8 @@ function starteCode() {
     
     // Load README.md content into the readMe window
     $("#readMeInfoDiv .body").load("scripts/readmeContent.php");
+    // Load the timetable for the own class
+    loadTimetable("5AHIF", "class"); 
 
     $(document).bind("contextmenu", function (event) {
         event.preventDefault(); // Prevent the default right click menu from appearing
