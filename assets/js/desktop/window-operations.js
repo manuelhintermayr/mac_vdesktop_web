@@ -141,7 +141,8 @@ setTimeout(function () {
             right: windowX2
         }, 125, function () {
             windowWidth = $(".window").width();
-        });    });
+        });
+    });
 
     /* Make the window bigger */
     $(".expand").click(function () {
@@ -240,7 +241,8 @@ setTimeout(function () {
         $(".window").css("z-index", "100"),
             $(this).css("-webkit-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
             $(this).css("-moz-box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important"),
-            $(this).css("box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important");    });
+            $(this).css("box-shadow", "0px 0px 10px 0px rgba(0, 0, 0, 0.65)", "!important");
+    });
 
     /* So that the Desktop Icon works */
     $(".deskIcon img").click(function (e) {

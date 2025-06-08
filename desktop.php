@@ -256,12 +256,12 @@ do_header_jquery();
                     <div class="expand"></div>
                 </div>
                 <div class="ui-center">
-                    <p>Kontaktinfo</p>
+                    <p>Contact Info</p>
                 </div>
                 <div class="ui-left">
                 </div>
             </div>
-            <div class="body" id="kontaktinfo">
+            <div class="body" id="contactInfo">
                 Lade...
             </div>
         </div>

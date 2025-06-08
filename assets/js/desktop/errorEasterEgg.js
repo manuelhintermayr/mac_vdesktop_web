@@ -1,4 +1,3 @@
-/* Code for the Error-EasterEgg */
 function configureErrorEasterEgg() {
     $('.errorEasterEgg').draggable({
         scroll: false

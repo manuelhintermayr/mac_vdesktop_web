@@ -1,11 +1,11 @@
 /* Calculates where the dock should be positioned */
-function dockPosition() {
+function positionDock() {
     var erg = (document.getElementById("dock").offsetWidth / 2);
     document.getElementById("dock").style.left = "calc(50% - " + erg + "px)";
 }
 
 /* Defines which functions should be called when an item on the dock is selected. */
-function prepareEventHandlers() {
+function prepareDock() {
     $("#dock_item1").bind('click', { item: 1 }, function (event) {
         dockAuswahl(event.data.item);
     });

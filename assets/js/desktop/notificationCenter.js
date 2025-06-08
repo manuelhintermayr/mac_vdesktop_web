@@ -31,6 +31,15 @@ function toggleNotificationCenter() {
     updateDateDisplay(today);
 }
 
+function loadChart() {
+    $('.chart').easyPieChart({
+        easing: 'easeOutBounce',
+        onStep: function (from, to, percent) {
+            $(this.el).find('.percent').text(Math.round(percent));
+        }
+    });
+}
+
 function calculateTotalDays(start, end, today) {
     const oneDay = 1000 * 60 * 60 * 24; // Day in milliseconds
     if (today > end) {
@@ -80,9 +89,4 @@ function clearNotificationCenter() {
         $("#clearNotificationCenter").hide();
     }
     $close.toggleClass("closing");
-}
-
-if (navigator.userAgent.indexOf("Firefox") != -1) {
-    //Firefox unterstuetzt den CSS-ZOOM-PREFIX nicht.
-    $("#clearNotificationCenter").hide();
 }
