@@ -58,9 +58,13 @@ function starteCode() {
     prepareDock();
     configureErrorEasterEgg();
     positionDock();
-    loadChart();    $("#contactInfoBody").load("scripts/contactInfo.php");
+    loadChart();      
+    $("#contactInfoBody").load("scripts/contactInfo.php");
     $("#timetableBody").load("scripts/timeTable.php");
     $("#calendarBody").load("scripts/calendar.php");
+    
+    // Load README.md content into the readMe window
+    $("#readMeInfoDiv .body").load("scripts/readmeContent.php");
 
     $(document).bind("contextmenu", function (event) {
         event.preventDefault(); // Prevent the default right click menu from appearing

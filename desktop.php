@@ -83,8 +83,8 @@ do_header_jquery();
                 <li class="navigation_timetable" style="display: none;">
                     <a href="#">Timetable</a>
                     <div>
-                        <ul>                            <li><a href="#"
-                                    onclick="closeApplicationWindow($('.window.timetable.ui-draggable'))">Close
+                        <ul>
+                            <li><a href="#" onclick="closeApplicationWindow($('.window.timetable.ui-draggable'))">Close
                                     window.</a>
                             </li>
                         </ul>
@@ -156,7 +156,8 @@ do_header_jquery();
                 <li id="notification_todayHeading">
                     Today
                 </li>
-            </ul> <br>
+            </ul>
+            <br />
             <div class="notification_seperator"></div>
             <br>
             <li class="notification_entry">
@@ -236,7 +237,9 @@ do_header_jquery();
             <img alt="error" src="assets/images/errorEasterEgg.png" />
             An error has occurred while trying to display an error message.
         </div>
-        <button class="errorEasterEgg_ok"> <span>OK</span></button>
+        <button class="errorEasterEgg_ok">
+            <span>OK</span>
+        </button>
     </div>
     <!-- End: Easter Egg -->
 
@@ -244,8 +247,8 @@ do_header_jquery();
     <div class="desktop">
         <div class="deskIcon" style="left: 280px; top: 120px;">
             <img src="assets/images/textedit.png" id="readmeRightClick" oncontextmenu="javascript:readMeRightClick()"
-                ondblclick="showAboutThisProject()" alt="readme.txt" />
-            <span>readme.txt</span>
+                ondblclick="showAboutThisProject()" alt="README.md" />
+            <span>README.md</span>
         </div>
     </div>
 
@@ -258,23 +261,16 @@ do_header_jquery();
                     <div class="exit"></div>
                 </div>
                 <div class="ui-center">
-                    <p>readme.txt</p>
+                    <p>README.md</p>
                 </div>
                 <div class="ui-left">
                 </div>
             </div>
             <div class="body" style=" overflow-y: scroll; position:relative;top: -18px; height:94%; width: 98.4%;">
-                <center>
-                    <h2>VDesktop</h2>
-                    <img src="assets/images/preview_pic.jpg" alt="preview" style="height:50%;" />
-                    <br>
-                    Der praktische virtuelle Computer. Im Browser. Einfach und Zuverl&auml;ssig.<br>
-                    <br>
-                    VDesktop startete als ein Schulprojekt der 4AHIF im Schuljahr 2014/2015 der HTL Spengergasse.
-                    <br>
-                    Das Ziel war, Schülern sowie Lehrern mit kleinen n&auml;tzlichen Tools zu unterst&auml;zen, die
-                    schnell und einfach f&uuml;r beide zu bedienen sind.
-                </center>
+                <div style="padding: 20px; text-align: center;">
+                    <h3>Loading...</h3>
+                    <p>Please wait while the content is loading.</p>
+                </div>
             </div>
         </div>
 
@@ -293,9 +289,12 @@ do_header_jquery();
                 </div>
             </div>
             <div class="body" id="contactInfoBody">
-                Lade...
+                <h3>Loading...</h3>
+                <p>Please wait while the content is loading.</p>
             </div>
-        </div>        <!-- Window: Timetable -->
+        </div>
+
+        <!-- Window: Timetable -->
         <div class="window timetable" id="timetable" style="display: none;">
             <div class="head">
                 <div class="ui-right">
@@ -349,7 +348,8 @@ do_header_jquery();
                 </div>
             </div>
             <div class="body" id="calendarBody">
-                Lade...
+                <h3>Loading...</h3>
+                <p>Please wait while the content is loading.</p>
             </div>
         </div>
     </div>

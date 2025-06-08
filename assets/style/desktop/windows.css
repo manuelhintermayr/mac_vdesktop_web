@@ -237,7 +237,7 @@
 .window {
     position: absolute;
     width: 768px;
-    height: auto;
+    height: 400px;
     left: 384px;
     top: 128px;
     background: rgba(245, 245, 245, 1);
