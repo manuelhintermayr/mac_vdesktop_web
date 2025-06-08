@@ -78,3 +78,5 @@ function starteCode() {
         $("#clearNotificationCenter").hide(); // Hide the clear notifications button in Firefox
     }
 }
+
+// starteCode();

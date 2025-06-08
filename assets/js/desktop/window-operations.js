@@ -1,81 +1,40 @@
+function openAppWindow(windowClass, navigationClass, dockId) {
+    $(navigationClass).show();
+    removeClass(dockId + " > a > span", "dock_dotHidden");
+    if (minimize == 0) {
+        $(windowClass).animate({
+            width: windowWidth2,
+            height: windowHeight2,
+            top: "106px",
+            left: "30.5%",
+            opacity: 1,
+            transform: "scale(1)"
+        }, 0, function () {
+            windowWidth = $(".window").width();
+            $(windowClass).fadeIn(75);
+        });
+    } else {
+        minimize = -1;
+        $(windowClass).animate({
+            width: windowWidth,
+            height: windowHeight,
+            top: windowY,
+            bottom: windowY2,
+            left: windowX,
+            right: windowX2,
+            opacity: 1
+        }, 175);
+    }
+}
+
 function openUserInfo() {
-    $(".navigation_contactInfo").show();
-    removeClass("#dock_contactInfo > a > span", "dock_dotHidden");
-    if (minimize == 0) {
-        $(".contactInfo").animate({
-            width: windowWidth2,
-            height: windowHeight2,
-            top: "106px",
-            left: "30.5%",
-            opacity: 1,
-            transform: "scale(1)"
-        }, 0, function () {
-            windowWidth = $(".window").width();
-            $(".contactInfo").fadeIn(75, function () {
-            });
-        });
-    }
-    else {
-        minimize = -1;
-        $(".contactInfo").animate({
-            width: windowWidth,
-            height: windowHeight,
-            top: windowY,
-            bottom: windowY2,
-            left: windowX,
-            right: windowX2,
-            opacity: 1
-        }, 175, function () {
-        });
-    }
+    openAppWindow(".contactInfo", ".navigation_contactInfo", "#dock_contactInfo");
 }
-
 function openTimetable() {
-    $(".navigation_timetable").show();
-    removeClass("#dock_timetable > a > span", "dock_dotHidden");
-    $(".timetable").animate({
-        width: windowWidth2,
-        height: windowHeight2,
-        top: "106px",
-        left: "30.5%",
-        opacity: 1,
-        transform: "scale(1)"    }, 0, function () {
-        windowWidth = $(".window").width();
-        $(".timetable").fadeIn(75, function () {
-        });
-    });
+    openAppWindow(".timetable", ".navigation_timetable", "#dock_timetable");
 }
-
 function openCalendar() {
-    $(".navigation_calendar").show();
-    removeClass("#dock_calendar > a > span", "dock_dotHidden");
-    if (minimize == 0) {
-        $(".calendar").animate({
-            width: windowWidth2,
-            height: windowHeight2,
-            top: "106px",
-            left: "30.5%",
-            opacity: 1,
-            transform: "scale(1)"
-        }, 0, function () {
-            windowWidth = $(".window").width();
-            $(".calendar").fadeIn(75, function () {
-            });
-        });
-    }
-    else {
-        minimize = -1;
-        $(".calendar").animate({
-            width: windowWidth,
-            height: windowHeight,
-            top: windowY,
-            bottom: windowY2,
-            left: windowX,
-            right: windowX2,
-            opacity: 1
-        }, 175, function () {
-        });
-    }
+    openAppWindow(".calendar", ".navigation_calendar", "#dock_calendar");
 }
 
 setTimeout(function () {
@@ -149,8 +108,8 @@ setTimeout(function () {
             windowY2 = $(".window").css("bottom");
             $(".window").animate({
                 width: width,
-                height: height,
-                top: 0,
+                height: height - 120,
+                top: 9,
                 left: 0
             }, 125, function () {
                 windowWidth = $(".window").width();

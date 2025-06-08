@@ -469,19 +469,6 @@ div.active {
     color: #777;
 }
 
-/* End: Code for the timetable */
-
-/* Start: Code for the calendar */
-#calendarBody {
-    padding: 0;
-}
-/* End: Code for the calendar */
-
-
-
-
-
-/* ???? */	
 .msg {
     margin: 0 0 1em;
     padding: 1.6em 18px 1px;
@@ -517,14 +504,10 @@ div.active {
     background: #FDFDEF url("../../images/alert_warning.png") no-repeat 20px 1.6em;
 }
 
-#calendarWindow>div.inside>iframe {
-    margin-bottom: -3px;
-    width: 100%;
-    margin-bottom: -3px;
-    height: 100%;
-}
+/* End: Code for the timetable */
 
-.inside {
-    padding: 0px;
-    height: 350px;
+/* Start: Code for the calendar */
+#calendarBody {
+    padding: 0;
 }
+/* End: Code for the calendar */
