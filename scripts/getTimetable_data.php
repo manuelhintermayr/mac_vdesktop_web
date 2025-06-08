@@ -6,51 +6,60 @@ $mockClasses = [
     '1AHIF' => '1AHIF - Höhere Lehranstalt für Informatik',
     '1BHIF' => '1BHIF - Höhere Lehranstalt für Informatik',
     '1CHIF' => '1CHIF - Höhere Lehranstalt für Informatik',
-    '2AHIF' => '2AHIF - Höhere Lehranstalt für Informatik',
-    '2BHIF' => '2BHIF - Höhere Lehranstalt für Informatik'
+    '1DHIF' => '1DHIF - Höhere Lehranstalt für Informatik',
+    '2AVIF' => '2AVIF - Höhere Lehranstalt für Informatik',
+    '2BVIF' => '2BVIF - Höhere Lehranstalt für Informatik',
+    '2CVIF' => '2CVIF - Höhere Lehranstalt für Informatik',
+    '4ABIF' => '4ABIF - Höhere Lehranstalt für Informatik',
+    '4BBIF' => '4BBIF - Höhere Lehranstalt für Informatik',
+    '5AHIF' => '5AHIF - Höhere Lehranstalt für Informatik'
 ];
 
-// Teachers with IDs
+// Teachers with IDs - anonymized
 $mockTeachers = [
-    'KNJ' => 'Knezevic',
-    'SAM' => 'Samek',
-    'POS' => 'Poszvek',
-    'RE' => 'Redl',
-    'TT' => 'Taubner'
+    'ABC' => 'Aigner',
+    'DEF' => 'Berger',
+    'GHI' => 'Conrad',
+    'JKL' => 'Dietrich',
+    'MNO' => 'Eckhart',
+    'PQR' => 'Fischer',
+    'STU' => 'Gruber',
+    'VWX' => 'Huber',
+    'YZA' => 'Jäger'
 ];
 
-// Mock timetable data structure - simplified version of what was shown in the image
-$mockTimetables = [
-    // Class timetables
-    '1AHIF' => [
-        'monday' => [
-            ['time' => '8:00-8:50', 'subject' => 'DX', 'teacher' => 'KY', 'room' => 'C3.11'],
-            ['time' => '8:50-9:40', 'subject' => 'SAM', 'teacher' => 'SAM', 'room' => 'C3.08']
-        ],
-        'tuesday' => [
-            ['time' => '8:00-8:50', 'subject' => 'BSPM', 'teacher' => 'KNJ', 'room' => 'AU.04'],
-            ['time' => '8:50-9:40', 'subject' => 'HAC', 'teacher' => 'BSP', 'room' => 'CU.28']
-        ],
-        'wednesday' => [
-            ['time' => '8:00-8:50', 'subject' => 'POS', 'teacher' => 'TT', 'room' => 'B3.07MM'],
-            ['time' => '8:50-9:40', 'subject' => 'KS', 'teacher' => 'POS', 'room' => 'B3.08MF']
-        ]
-    ],
-    
-    // Teacher timetables (simplified)
-    'KNJ' => [
-        'monday' => [
-            ['time' => '8:00-8:50', 'subject' => 'BSPM', 'class' => '1AHIF', 'room' => 'AU.04'],
-            ['time' => '9:50-10:40', 'subject' => 'BSPM', 'class' => '2AHIF', 'room' => 'AU.05']
-        ]
-    ],
-    'SAM' => [
-        'monday' => [
-            ['time' => '8:50-9:40', 'subject' => 'SAM', 'class' => '1AHIF', 'room' => 'C3.08'],
-            ['time' => '10:40-11:30', 'subject' => 'SAM', 'class' => '2BHIF', 'room' => 'C3.09']
-        ]
-    ]
+// Rooms - anonymized
+$mockRooms = [
+    'A1.01' => 'A1.01',
+    'A2.15' => 'A2.15',
+    'B3.22' => 'B3.22',
+    'C1.04' => 'C1.04',
+    'D2.08' => 'D2.08',
+    'A201' => 'A201',
+    'C105' => 'C105',
+    'B304' => 'B304',
+    'C107' => 'C107',
+    'C109' => 'C109'
 ];
+
+// Add new teachers for 5AHIF schedule
+$mockTeachers['SCH'] = 'Schmidt';
+$mockTeachers['MUL'] = 'Müller';
+$mockTeachers['JOH'] = 'Johnson';
+$mockTeachers['FIS'] = 'Fischer';
+$mockTeachers['WEB'] = 'Weber';
+
+// Import timetable data from separate files
+require_once __DIR__ . '/getTimetable_data_classes.php';
+require_once __DIR__ . '/getTimetable_data_teachers.php';
+require_once __DIR__ . '/getTimetable_data_rooms.php';
+
+// Merge all timetable arrays into one
+$mockTimetables = array_merge(
+    $mockTimetablesClasses,
+    $mockTimetablesTeachers,
+    $mockTimetablesRooms
+);
 
 // Function to get HTML representation of a timetable
 function getTimetableHTML($id) {
@@ -73,7 +82,22 @@ function getTimetableHTML($id) {
     $html .= '<tr><th>Zeit</th><th>Montag</th><th>Dienstag</th><th>Mittwoch</th><th>Donnerstag</th><th>Freitag</th></tr>';
     
     // Time slots
-    $timeSlots = ['8:00-8:50', '8:50-9:40', '9:50-10:40', '10:40-11:30', '11:40-12:30', '12:30-13:20'];
+    $timeSlots = [
+        '8:00-8:50',
+        '8:50-9:40',
+        '9:50-10:40',
+        '10:40-11:30',
+        '11:40-12:30',
+        '12:30-13:20',
+        '13:30-14:20',
+        '14:20-15:10',
+        '15:20-16:10',
+        '16:05-16:55',
+        '16:55-17:45',
+        '17:00-17:50',
+        '17:50-18:40',
+        '18:10-19:00'
+    ];
     
     foreach ($timeSlots as $timeSlot) {
         $html .= '<tr>';

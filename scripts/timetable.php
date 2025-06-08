@@ -36,6 +36,18 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
                             <?php else: ?>
                                 <li><i></i>Keine Eintr&auml;ge vorhanden.</li>
                             <?php endif; ?>
+                            <br>
+                            <span>R&auml;ume:</span>
+                            <br>
+                            <?php if (!empty($mockRooms)): ?>
+                                <?php foreach ($mockRooms as $id => $name): ?>
+                                <li onclick="ladeStundenplan('<?php echo htmlspecialchars($id); ?>', 'room')" class="timetable-link" data-type="room" data-id="<?php echo htmlspecialchars($id); ?>">
+                                    <i></i><?php echo htmlspecialchars($id); ?>
+                                </li>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <li><i></i>Keine Eintr&auml;ge vorhanden.</li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>
