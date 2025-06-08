@@ -25,6 +25,10 @@
     padding-bottom: 0px;
 }
 
+#ErrorWindow {
+    display: flex;
+}
+
 .ErrorPopUp_close a {
     text-decoration: none;
 }

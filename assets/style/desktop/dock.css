@@ -1,4 +1,3 @@
-/* Start - Style for the Dock */
 #dock {
   height: 95px;
   position: fixed;
@@ -7,12 +6,14 @@
   border-top-right-radius: 10px;
   border: 1px solid black;
   background-color: rgba(0, 0, 0, 0.65);
+  left: 50%;
 }
 
 #dock>ul>li {
   display: block;
   float: left;
   padding: 6.5px;
+  padding-top: 3px;
 }
 
 #dock>ul {
@@ -20,7 +21,7 @@
   padding-top: 0;
 }
 
-/* mini headings */
+/* For the mini headings */
 .osx-tooltip:hover:before {
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
@@ -80,8 +81,6 @@
 
 }
 
-
-
 @-webkit-keyframes bounce {
   0% {
     -webkit-transform: translateY(0);
@@ -91,8 +90,6 @@
     -webkit-transform: translateY(-20px);
   }
 }
-
-
 
 @-moz-keyframes bounce {
   0% {
@@ -104,13 +101,14 @@
   }
 }
 
+/* For the blue dot */
 .dock_dot:after,
 .dock_dot:hover:after,
 .dock_dot:focus:after,
 .dock_dot:target:after {
   content: " ";
   position: absolute;
-  bottom: 0px;
+  bottom: 4px;
   margin-left: 30px;
   width: 5px;
   height: 5px;
@@ -137,30 +135,7 @@
   display: block;
 }
 
-
-
-/*
-.osx-tooltip:hover .dock_dot:after{
-    margin-left: 34px;
-}
-
-
-#dock ul li a:target .dock_dot:after{    margin-left: 0px;    
-}*/
-
-/* All objects with this class will have the after-CSS-Pseudo tag displayed */
 .dock_dotHidden:after {
   opacity: 0;
   visibility: hidden;
-}
-
-
-
-#dock {
-  left: 50%;
-  /*Calculation: 50% - (WIDTH-PX/2)*/
-  left: calc(50% - 78px);
-  /*For teacher*/
-  left: calc(50% - 115px);
-  /*For student*/
 }
