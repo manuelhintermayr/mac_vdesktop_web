@@ -348,25 +348,25 @@ $mockTimetablesClasses = [
     '5AHIF' => [
         'monday' => [
             // 07:55-08:45 → 8:00-8:50 (Mathematics)
-            ['time' => '8:00-8:50', 'subject' => 'Mathematics', 'teacher' => 'SCH', 'room' => 'A201'],
+            ['time' => '8:00-8:50', 'subject' => 'MAT', 'teacher' => 'SCH', 'room' => 'A201'],
             // 08:45-09:35 → 8:50-9:40 (Mathematics)
-            ['time' => '8:50-9:40', 'subject' => 'Mathematics', 'teacher' => 'SCH', 'room' => 'A201'],
+            ['time' => '8:50-9:40', 'subject' => 'MAT', 'teacher' => 'SCH', 'room' => 'A201'],
             // 09:45-10:35 → 9:50-10:40 (Programming)
-            ['time' => '9:50-10:40', 'subject' => 'Programming', 'teacher' => 'MUL', 'room' => 'C105'],
+            ['time' => '9:50-10:40', 'subject' => 'PRG', 'teacher' => 'MUL', 'room' => 'C105'],
             // 10:35-11:25 → 10:40-11:30 (Programming)
-            ['time' => '10:40-11:30', 'subject' => 'Programming', 'teacher' => 'MUL', 'room' => 'C105'],
+            ['time' => '10:40-11:30', 'subject' => 'PRG', 'teacher' => 'MUL', 'room' => 'C105'],
             // 11:35-12:25 → 11:40-12:30 (English)
-            ['time' => '11:40-12:30', 'subject' => 'English', 'teacher' => 'JOH', 'room' => 'B304'],
+            ['time' => '11:40-12:30', 'subject' => 'ENG', 'teacher' => 'JOH', 'room' => 'B304'],
             // 12:25-13:15 → 12:30-13:20 (English)
-            ['time' => '12:30-13:20', 'subject' => 'English', 'teacher' => 'JOH', 'room' => 'B304'],
+            ['time' => '12:30-13:20', 'subject' => 'ENG', 'teacher' => 'JOH', 'room' => 'B304'],
             // 14:15-15:05 → 14:20-15:10 (Databases)
-            ['time' => '14:20-15:10', 'subject' => 'Databases', 'teacher' => 'FIS', 'room' => 'C107'],
+            ['time' => '14:20-15:10', 'subject' => 'DBS', 'teacher' => 'FIS', 'room' => 'C107'],
             // 15:05-15:55 → 15:20-16:10 (Databases)
-            ['time' => '15:20-16:10', 'subject' => 'Databases', 'teacher' => 'FIS', 'room' => 'C107'],
+            ['time' => '15:20-16:10', 'subject' => 'DBS', 'teacher' => 'FIS', 'room' => 'C107'],
             // 16:05-16:55 → 16:05-16:55 (Operating Systems)
-            ['time' => '16:05-16:55', 'subject' => 'Operating Systems', 'teacher' => 'WEB', 'room' => 'C109'],
+            ['time' => '16:05-16:55', 'subject' => 'OSY', 'teacher' => 'WEB', 'room' => 'C109'],
             // 16:55-17:45 → 16:55-17:45 (Operating Systems)
-            ['time' => '16:55-17:45', 'subject' => 'Operating Systems', 'teacher' => 'WEB', 'room' => 'C109']
+            ['time' => '16:55-17:45', 'subject' => 'OSY', 'teacher' => 'WEB', 'room' => 'C109']
         ],
         'tuesday' => [
             // Add some placeholder data for other days
@@ -384,8 +384,8 @@ $mockTimetablesClasses = [
         'thursday' => [
             ['time' => '8:00-8:50', 'subject' => 'MAT', 'teacher' => 'SCH', 'room' => 'A201'],
             ['time' => '8:50-9:40', 'subject' => 'MAT', 'teacher' => 'SCH', 'room' => 'A201'],
-            ['time' => '9:50-10:40', 'subject' => 'OS', 'teacher' => 'WEB', 'room' => 'C109'],
-            ['time' => '10:40-11:30', 'subject' => 'OS', 'teacher' => 'WEB', 'room' => 'C109']
+            ['time' => '9:50-10:40', 'subject' => 'OSY', 'teacher' => 'WEB', 'room' => 'C109'],
+            ['time' => '10:40-11:30', 'subject' => 'OSY', 'teacher' => 'WEB', 'room' => 'C109']
         ],
         'friday' => [
             ['time' => '11:40-12:30', 'subject' => 'PRG', 'teacher' => 'MUL', 'room' => 'C105'],
