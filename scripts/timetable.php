@@ -52,7 +52,7 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
                     </div>
                 </div>
                 <div class="center" id="timetableContent">
-                    <!-- Standardmässig wird immer ein Fehler hier angezeigt -->
+                    <!-- By default, an error is always displayed here -->
                     <div class="msg warn noselect">
                         <h4>The timetable for your class was not found.</h4>
                         <p>Please select a timetable on the left.

@@ -7,18 +7,18 @@ do_header_end();
 
 
 if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
-    // Dann wurde noch nicht eingeloggt ==> Weiterleitung auf Login
-    echo "Not logged in... Forwarding to loggin...";
+    // User is not logged in ==> Redirect to login
+    echo "Not logged in... Forwarding to login...";
     header("location: login.php");
 
 } else {
     if (!isValidUser($_SESSION['s_username'], $_SESSION['s_pw'])) {
-        // Das Loggin stimmt nicht mehr ==> Weiterleitung auf Login
+        // Login credentials are no longer valid ==> Redirect to logout
         echo "Login is no longer correct... Redirection to logout...";
         $_SESSION['loggedIn'] = "";
         header("location: logout/index.php");
     } else {
-        // Korrektes Login ==> Weiterleitung auf Desktop
+        // Valid login ==> Redirect to desktop
         echo "Forwarding to <a href='desktop.php'>Desktop</a>...";
         header("location: desktop.php");
     }

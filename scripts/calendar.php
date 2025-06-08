@@ -2,10 +2,10 @@
 include('login_functions.php');
 
 if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
-    echo "Nicht angemeldet.";
+    echo "Not logged in.";
 } else {
     if (!isValidUser($_SESSION['s_username'], $_SESSION['s_pw'])) {
-        echo "Falsche Zugangsdaten.";
+        echo "Invalid credentials.";
     } else {
         // Get current date
         $currentYear = date('Y');
@@ -125,18 +125,17 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
         }
         
         // Function to check if a date is an Austrian holiday
-        function isAustrianHoliday($day, $month, $year) {
-            // Fixed holidays
+        function isAustrianHoliday($day, $month, $year) {            // Fixed holidays
             $fixedHolidays = [
-                '01-01' => 'Neujahr',                     // New Year's Day
-                '01-06' => 'Heilige Drei Könige',         // Epiphany
-                '05-01' => 'Staatsfeiertag',              // Labor Day
-                '08-15' => 'Mariä Himmelfahrt',           // Assumption of Mary
-                '10-26' => 'Nationalfeiertag',            // National Day
-                '11-01' => 'Allerheiligen',               // All Saints' Day
-                '12-08' => 'Mariä Empfängnis',            // Immaculate Conception
-                '12-25' => 'Weihnachten',                 // Christmas Day
-                '12-26' => 'Stefanitag'                   // St. Stephen's Day
+                '01-01' => 'New Year',                     // New Year's Day
+                '01-06' => 'Epiphany',         // Epiphany
+                '05-01' => 'Labor Day',              // Labor Day
+                '08-15' => 'Assumption Day',           // Assumption of Mary
+                '10-26' => 'National Day',            // National Day
+                '11-01' => 'All Saints Day',               // All Saints' Day
+                '12-08' => 'Immaculate Conception',            // Immaculate Conception
+                '12-25' => 'Christmas',                 // Christmas Day
+                '12-26' => 'Boxing Day'                   // St. Stephen's Day
             ];
             
             // Check if the date is a fixed holiday
@@ -149,14 +148,13 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
             $easter = easter_date($year);
             $easterDay = date('d', $easter);
             $easterMonth = date('m', $easter);
-            $easterTimestamp = mktime(0, 0, 0, $easterMonth, $easterDay, $year);
-              // Define Easter-dependent holidays
+            $easterTimestamp = mktime(0, 0, 0, $easterMonth, $easterDay, $year);              // Define Easter-dependent holidays
             $easterHolidays = [
-                date('d.m', strtotime('-2 days', $easterTimestamp)) => 'Karfreitag',
-                date('d.m', strtotime('+1 day', $easterTimestamp)) => 'Ostermontag',
-                date('d.m', strtotime('+39 days', $easterTimestamp)) => 'Christi Himmelfahrt',
-                date('d.m', strtotime('+50 days', $easterTimestamp)) => 'Pfingstmontag',
-                date('d.m', strtotime('+60 days', $easterTimestamp)) => 'Fronleichnam'
+                date('d.m', strtotime('-2 days', $easterTimestamp)) => 'Good Friday',
+                date('d.m', strtotime('+1 day', $easterTimestamp)) => 'Easter Monday',
+                date('d.m', strtotime('+39 days', $easterTimestamp)) => 'Ascension Day',
+                date('d.m', strtotime('+50 days', $easterTimestamp)) => 'Whit Monday',
+                date('d.m', strtotime('+60 days', $easterTimestamp)) => 'Corpus Christi'
             ];
             
             // Format current date for comparison

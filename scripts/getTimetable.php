@@ -9,8 +9,8 @@ if (isset($_GET['id'])) {
     echo getTimetableHTML($id);
 } else {
     echo '<div class="msg error">
-        <h4>Fehler</h4>
-        <p>Es wurde keine ID angegeben.</p>
+        <h4>Error</h4>
+        <p>No ID was provided.</p>
     </div>';
 }
 ?>

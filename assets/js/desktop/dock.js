@@ -3,21 +3,20 @@ function prepareDock() {
         { id: "#dock_contactInfo", item: 1 },
         { id: "#dock_timetable", item: 2 },
         { id: "#dock_teacherList", item: 3 },
-        { id: "#dock_calendar", item: 4 }
-    ];
+        { id: "#dock_calendar", item: 4 }    ];
     dockItems.forEach(({ id, item }) => {
         $(id).bind('click', { item }, function (event) {
-            dockAuswahl(event.data.item);
+            selectDockItem(event.data.item);
         });
     });
 }
 
 function positionDock() {
-    var erg = (document.getElementById("dock").offsetWidth / 2);
-    document.getElementById("dock").style.left = "calc(50% - " + erg + "px)";
+    var result = (document.getElementById("dock").offsetWidth / 2);
+    document.getElementById("dock").style.left = "calc(50% - " + result + "px)";
 }
 
-function dockAuswahl(item) {
+function selectDockItem(item) {
     addClassForShortTime("#dock_" + getItemName(item), "bounce");
     setTimeout(function () { }, 3000); //Wait so the animation can finish
     switch (item) {

@@ -231,9 +231,8 @@ if (file_exists($readmePath)) {
 
     echo $styledContent;
 } else {
-    echo '<div style="padding: 20px; text-align: center; color: #e74c3c;">
-            <h3>README.md nicht gefunden</h3>
-            <p>Die README.md Datei konnte nicht geladen werden.</p>
+    echo '<div style="padding: 20px; text-align: center; color: #e74c3c;">            <h3>README.md not found</h3>
+            <p>The README.md file could not be loaded.</p>
           </div>';
 }
 ?>

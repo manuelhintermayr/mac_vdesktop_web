@@ -15,15 +15,15 @@ function addClassForShortTime(id, className) {
 function showElement(target) {
     $(target).show("slow");
 }
-function newErrorPopUp(titel, fehlermeldung, fehlerinhalt) {
-    var neueID = Math.floor(Math.random() * 1000000000);
-    var popUp = '<div class=\"ErrorWindow\" id=\"ErrorWindow_' + neueID + '\">\n  <div class=\"ErrorPopUp_titlebar\">\n    <div class=\"ErrorPopUp_buttons\">\n      <div class=\"ErrorPopUp_close\">\n        <a onclick=\"removeElement(\'#ErrorWindow_' + neueID + '\')\" class=\"ErrorPopUp_closebutton\" href=\"#\"><span><strong>x<\/strong><\/span><\/a>\n      <\/div>\n    <\/div>\n    ' + titel + '\n  <\/div>\n  <div class=\"ErrorPopUp_content\">\n        <div class=\"ErrorPopUp_container-alert\">\n        <img src=\"assets/images/Alert.png\" alt=\"Fehler\">\n        <div class=\"ErrorPopUp_about-alert\">\n        <p><b>' + fehlermeldung + '<\/b>\n        <p>' + fehlerinhalt + '<\/p>\n        <a href=\"#\" onclick=\"removeElement(\'#ErrorWindow_' + neueID + '\')\" class=\"button\" data-rel=\"close\">Close<\/a>\n        <\/div>\n        <\/div>\n    \n  <\/div>\n<\/div>';
+function newErrorPopUp(title, errorMessage, errorContent) {
+    var newID = Math.floor(Math.random() * 1000000000);
+    var popUp = '<div class=\"ErrorWindow\" id=\"ErrorWindow_' + newID + '\">\n  <div class=\"ErrorPopUp_titlebar\">\n    <div class=\"ErrorPopUp_buttons\">\n      <div class=\"ErrorPopUp_close\">\n        <a onclick=\"removeElement(\'#ErrorWindow_' + newID + '\')\" class=\"ErrorPopUp_closebutton\" href=\"#\"><span><strong>x<\/strong><\/span><\/a>\n      <\/div>\n    <\/div>\n    ' + title + '\n  <\/div>\n  <div class=\"ErrorPopUp_content\">\n        <div class=\"ErrorPopUp_container-alert\">\n        <img src=\"assets/images/Alert.png\" alt=\"Error\">\n        <div class=\"ErrorPopUp_about-alert\">\n        <p><b>' + errorMessage + '<\/b>\n        <p>' + errorContent + '<\/p>\n        <a href=\"#\" onclick=\"removeElement(\'#ErrorWindow_' + newID + '\')\" class=\"button\" data-rel=\"close\">Close<\/a>\n        <\/div>\n        <\/div>\n    \n  <\/div>\n<\/div>';
     $('<div/>', {
-        'class': 'ErrorWindow_' + neueID,
+        'class': 'ErrorWindow_' + newID,
         'id': 'ErrorWindow',
         'html': popUp
     }).appendTo('body');
-    $('.ErrorWindow_' + neueID).draggable({
+    $('.ErrorWindow_' + newID).draggable({
         revert: "invalid",
         scroll: false
     });

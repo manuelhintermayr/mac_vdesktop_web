@@ -3,13 +3,13 @@ include('scripts/login_functions.php');
 include('scripts/functions.inc.php');
 
 if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
-    // Dann wurde noch nicht eingeloggt ==> Weiterleitung auf Login
-    echo "Not logged in... Forwarding to loggin...";
+    // User is not logged in ==> Redirect to login
+    echo "Not logged in... Forwarding to login...";
     header("location: login.php");
     exit;
 } else {
     if (!isValidUser($_SESSION['s_username'], $_SESSION['s_pw'])) {
-        // Das Loggin stimmt nicht mehr ==> Weiterleitung auf Login
+        // Login credentials are no longer valid ==> Redirect to logout
         echo "Login is no longer correct... Redirection to logout...";
         $_SESSION['loggedIn'] = "";
         header("location: logout/index.php");
@@ -60,12 +60,11 @@ do_header_jquery();
                 </li>
                 <li><a><b>Programs</b></a>
                     <div>
-                        <ul>
-                            <li><a href="#" onclick="dockAuswahl(1)">Contact Info</a></li>
-                            <li><a href="#" onclick="dockAuswahl(2)">Timetable</a></li>
+                        <ul>                            <li><a href="#" onclick="selectDockItem(1)">Contact Info</a></li>
+                            <li><a href="#" onclick="selectDockItem(2)">Timetable</a></li>
                             <li><a href="#" class="disabled">Teacher List</a></li>
                             <li class="separator"></li>
-                            <li><a href="#" onclick="dockAuswahl(4)">Calendar</a></li>
+                            <li><a href="#" onclick="selectDockItem(4)">Calendar</a></li>
                         </ul>
                     </div>
                 </li>
@@ -120,27 +119,26 @@ do_header_jquery();
 
     <!-- Start: Dock -->
     <div id="dock">
-        <ul>
-            <li id="dock_contactInfo">
-                <a id="eins" class='osx-tooltip' href="#" data-text="Contact Info">
+        <ul>            <li id="dock_contactInfo">
+                <a id="one" class='osx-tooltip' href="#" data-text="Contact Info">
                     <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/finder.png"
                             alt="Contact Info" /></span>
                 </a>
             </li>
             <li id="dock_timetable">
-                <a id="zwei" class='osx-tooltip' href="#" data-text="Timetable">
+                <a id="two" class='osx-tooltip' href="#" data-text="Timetable">
                     <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/reminders.png"
                             alt="Timetable" /></span>
                 </a>
             </li>
             <li id="dock_teacherList">
-                <a id="drei" class='osx-tooltip' href="#" data-text="Teacher List">
+                <a id="three" class='osx-tooltip' href="#" data-text="Teacher List">
                     <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/contacts.png"
                             alt="Teacher List" /></span>
                 </a>
             </li>
             <li id="dock_calendar">
-                <a id="vier" class='osx-tooltip' href="#" data-text="Calendar">
+                <a id="four" class='osx-tooltip' href="#" data-text="Calendar">
                     <span class="dock_dot dock_dotHidden"><img src="assets/images/dock/calendar.png"
                             alt="Calendar" /></span>
                 </a>

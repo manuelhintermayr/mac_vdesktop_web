@@ -10,32 +10,31 @@ function login() {
         success: function (data) {
             $('section').fadeOut('slow', function () {
                 $('body').css({ 'background-image': "url('assets/images/yosemite.jpg')" });
-                $('section').html('<span style="border-color: rgba(255, 255, 255, 0.498039); padding:2px; background: rgba(255, 255, 255, 0.4);">Lade Hauptseite... </span>').fadeIn('fast', function () {
+                $('section').html('<span style="border-color: rgba(255, 255, 255, 0.498039); padding:2px; background: rgba(255, 255, 255, 0.4);">Loading main page... </span>').fadeIn('fast', function () {
                     window.history.pushState("", "", 'desktop.php');
                 });
             });
             location.reload();
             $("body").load("desktop.php");
         },
-        statusCode: {
-            403: function (e) {
+        statusCode: {            403: function (e) {
                 $("#loadingSpinner").hide();
                 $("#loginButtonIcon").show();
                 $("#message").text(e.responseText);
-                fehlAnmeldung();
+                failedLogin();
             },
             500: function (e) {
                 $("#loadingSpinner").hide();
                 $("#loginButtonIcon").show();
-                $("#message").html("Anmelde-Server funktioniert momentan nicht. <br><u>(500 Error Response)</u>");
-                fehlAnmeldung();
+                $("#message").html("Login server is currently not working. <br><u>(500 Error Response)</u>");
+                failedLogin();
             }
         }
     });
     return false;
 }
 
-function fehlAnmeldung() {
+function failedLogin() {
     $("#loginMessageBox").show("slow");
     $("#loginPanel").addClass("error");
     window.setTimeout('removeClass("#loginPanel","error")', 1000);

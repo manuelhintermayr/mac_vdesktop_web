@@ -3,16 +3,16 @@
 
 // Classes with IDs
 $mockClasses = [
-    '1AHIF' => '1AHIF - Höhere Lehranstalt für Informatik',
-    '1BHIF' => '1BHIF - Höhere Lehranstalt für Informatik',
-    '1CHIF' => '1CHIF - Höhere Lehranstalt für Informatik',
-    '1DHIF' => '1DHIF - Höhere Lehranstalt für Informatik',
-    '2AVIF' => '2AVIF - Höhere Lehranstalt für Informatik',
-    '2BVIF' => '2BVIF - Höhere Lehranstalt für Informatik',
-    '2CVIF' => '2CVIF - Höhere Lehranstalt für Informatik',
-    '4ABIF' => '4ABIF - Höhere Lehranstalt für Informatik',
-    '4BBIF' => '4BBIF - Höhere Lehranstalt für Informatik',
-    '5AHIF' => '5AHIF - Höhere Lehranstalt für Informatik'
+    '1AHIF' => '1AHIF - Higher Technical College for Computer Science',
+    '1BHIF' => '1BHIF - Higher Technical College for Computer Science',
+    '1CHIF' => '1CHIF - Higher Technical College for Computer Science',
+    '1DHIF' => '1DHIF - Higher Technical College for Computer Science',
+    '2AVIF' => '2AVIF - Higher Technical College for Computer Science',
+    '2BVIF' => '2BVIF - Higher Technical College for Computer Science',
+    '2CVIF' => '2CVIF - Higher Technical College for Computer Science',
+    '4ABIF' => '4ABIF - Higher Technical College for Computer Science',
+    '4BBIF' => '4BBIF - Higher Technical College for Computer Science',
+    '5AHIF' => '5AHIF - Higher Technical College for Computer Science'
 ];
 
 // Teachers with IDs - anonymized
@@ -68,8 +68,8 @@ function getTimetableHTML($id) {
     // Check if the ID exists in our mock data
     if (!isset($mockTimetables[$id])) {
         return '<div class="msg warn">
-            <h4>Kein Stundenplan gefunden</h4>
-            <p>Für die ausgewählte ID wurde kein Stundenplan gefunden.</p>
+            <h4>No Timetable Found</h4>
+            <p>No timetable was found for the selected ID.</p>
         </div>';
     }
     
@@ -87,7 +87,7 @@ function getTimetableHTML($id) {
     // Build HTML for the timetable based on mock data
     $html = '<h2>' . htmlspecialchars($title) . '</h2>';
     $html .= '<table class="timetable">';
-    $html .= '<tr><th>Zeit</th><th>Montag</th><th>Dienstag</th><th>Mittwoch</th><th>Donnerstag</th><th>Freitag</th></tr>';
+    $html .= '<tr><th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr>';
     
     // Time slots
     $timeSlots = [
