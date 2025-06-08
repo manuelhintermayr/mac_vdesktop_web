@@ -143,7 +143,8 @@ do_header_jquery();
             </li>
             <li id="dock_item3">
                 <a id="drei" class='osx-tooltip' href="#drei" data-text="Teacher List">
-                    <span class="bluePoint deaktiviert"><img src="assets/images/contacts.png" alt="Teacher List" /></span>
+                    <span class="bluePoint deaktiviert"><img src="assets/images/contacts.png"
+                            alt="Teacher List" /></span>
                 </a>
             </li>
         </ul>
@@ -152,30 +153,29 @@ do_header_jquery();
 
     <!-- Start: Notification Center -->
     <div id="notificationCenter" style="display: none;">
-        <div id="notification_inhalt">
+        <div id="notification_content">
             <ul id="notification_HEADER">
-                <li id="notification_heutigeUeberschrift">
-                    Heute
+                <li id="notification_todayHeading">
+                    Today
                 </li>
-            </ul>
-            <br>
+            </ul> <br>
             <div style="border-bottom: 2px solid rgba(178,178,178,0.5);display: block;"></div>
             <br>
-            <li class="notification_neuerEintrag">
-                <span class="notification_neuerEintragText">
-                    <span class="notification_datum">
+            <li class="notification_newEntry">
+                <span class="notification_newEntryText">
+                    <span class="notification_date">
                         <span id="datumSchrift"></span>
                     </span>
                 </span>
             </li>
-            <ul id="notification_benarichtigunen">
-                <li class="notification_neueUeberschrift">
+            <ul id="notification_notifications">
+                <li class="notification_newHeading">
                     <div class="notification_icon spengergasse_icon">
-                    </div> Schuljahr - &Uuml;bersicht:
+                    </div> School Year - Overview:
                 </li>
-                <li class="notification_neuerEintrag">
-                    <span class="notification_neuerEintragText">
-                        Restliche Schuljahr-Dauer:
+                <li class="notification_newEntry">
+                    <span class="notification_newEntryText">
+                        Remaining School Year Duration:
                         <br>
                         <span class="chart" data-percent="0">
                             <span class="percent"></span>
@@ -196,7 +196,7 @@ do_header_jquery();
     -moz-transition: opacity .5s;
     -o-transition: opacity .5s;
     position: absolute;
-    margin-top: 5px;">&nbsp;</span>&nbsp;&nbsp;&nbsp;= % des vergangenen Schuljahres
+    margin-top: 5px;">&nbsp;</span>&nbsp;&nbsp;&nbsp;= % of the past school year
                         <br>
                         <span style="background-color: rgba(255, 255, 255, .8);
     height: 7px;
@@ -214,12 +214,12 @@ do_header_jquery();
     -o-transition: opacity .5s;
     position: absolute;
     margin-top: 5px;
-    ">&nbsp;</span>&nbsp;&nbsp;&nbsp;= % des verbleibenden Schuljahres
+    ">&nbsp;</span>&nbsp;&nbsp;&nbsp;= % of the remaining school year
                     </span>
                 </li>
-                <li class="notification_neueUeberschrift">
+                <li class="notification_newHeading">
                     <div class="notification_icon moodle_icon">
-                    </div> Moodle - Abgabe Termine:
+                    </div> Moodle - Submission Deadlines:
                     <div id="close" class="hidden invisible">
                         <div id="left-half" class="bevel-box"></div>
                         <div id="centre"></div>
@@ -227,27 +227,27 @@ do_header_jquery();
                         <div id="x" class="text-shadow">×</div>
                     </div>
                 </li>
-                <li class="notification_neuerEintrag">
-                    <span class="notification_neuerEintragUeberschrift">GIS</span>
-                    <span class="notification_neuerEintragText notification_neuerEintragDatum">Dienstag, 21. April,
+                <li class="notification_newEntry">
+                    <span class="notification_newEntryHeading">GIS</span>
+                    <span class="notification_newEntryText notification_newEntryDate">Tuesday, 21 April,
                         10:00</span>
                     <br>
-                    <span class="notification_neuerEintragText">
-                        LE19 - Digitalisieren von Fl&auml;chen
+                    <span class="notification_newEntryText">
+                        LE19 - Digitizing Areas
                     </span>
                 </li>
-                <li class="notification_neuerEintrag">
-                    <span class="notification_neuerEintragUeberschrift">PRE</span>
-                    <span class="notification_neuerEintragText notification_neuerEintragDatum">Mittwoch, 22. April,
+                <li class="notification_newEntry">
+                    <span class="notification_newEntryHeading">PRE</span>
+                    <span class="notification_newEntryText notification_newEntryDate">Wednesday, 22 April,
                         10:00</span>
                     <br>
-                    <span class="notification_neuerEintragText">
-                        Upload StatusBERICHT
+                    <span class="notification_newEntryText">
+                        Upload Status Report
                     </span>
                 </li>
-                <li class="notification_neuerEintrag">
-                    <span class="notification_neuerEintragText">
-                        <i>Keine Aufgaben gefunden.</i>
+                <li class="notification_newEntry">
+                    <span class="notification_newEntryText">
+                        <i>No tasks found.</i>
                     </span>
                 </li>
             </ul>
@@ -372,7 +372,7 @@ do_header_jquery();
         </div>
 
         <div class="desktop">
-            <div class="deskIcon" style="left: 1279px; top: 121px;">
+            <div class="deskIcon" style="left: 279px; top: 121px;">
                 <img src="assets/images/textedit.png" id="readmeRightClick"
                     oncontextmenu="javascript:readMeRightClick()" ondblclick="showAboutThisProject()"
                     alt="readme.txt" />

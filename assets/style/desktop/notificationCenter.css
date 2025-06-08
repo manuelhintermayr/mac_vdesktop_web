@@ -19,7 +19,7 @@
     z-index: 2;
 }
 
-#notification_inhalt {
+#notification_content {
     height: 100%;
     position: absolute;
     width: 361px;
@@ -34,7 +34,7 @@
     padding: 0px;
 }
 
-#notification_heutigeUeberschrift {
+#notification_todayHeading {
     color: rgb(51, 51, 51);
     text-align: center;
     width: 330px;
@@ -44,12 +44,12 @@
     border-radius: 5px;
 }
 
-#notification_benarichtigunen {
+#notification_notifications {
     margin: 20px 0px 0px;
     padding: 0px;
 }
 
-.notification_neueUeberschrift {
+.notification_newHeading {
     height: 19px;
     color: rgba(255, 255, 255, 0.6);
     -webkit-text-fill-color: rgba(255, 255, 255, 0.6);
@@ -74,7 +74,7 @@
     background: rgba(0, 0, 0, 0) url("../../images/spengergasse.png") no-repeat scroll 1px -1px / 72% padding-box border-box;
 }
 
-.notification_neuerEintrag {
+.notification_newEntry {
     width: 311px;
     font: normal normal normal normal 16px/normal 'Times New Roman';
     list-style: none outside none;
@@ -82,25 +82,25 @@
     padding-bottom: 15px;
 }
 
-.notification_neuerEintragUeberschrift {
+.notification_newEntryHeading {
     color: rgb(255, 255, 255);
     -webkit-text-fill-color: rgb(255, 255, 255);
     font: normal normal bold normal 16px/normal 'Helvetica Neue', Arial;
     list-style: none outside none;
 }
 
-.notification_neuerEintragText {
+.notification_newEntryText {
     color: rgba(255, 255, 255, 0.6);
     -webkit-text-fill-color: rgba(255, 255, 255, 0.6);
     font: normal normal normal normal 16px/normal 'Helvetica Neue', Arial;
     list-style: none outside none;
 }
 
-.notification_neuerEintragDatum {
+.notification_newEntryDate {
     margin: 0px 0px 0px 10px;
 }
 
-.notification_datum {
+.notification_date {
     font-family: osxFont;
     font-size: 40px;
 }
