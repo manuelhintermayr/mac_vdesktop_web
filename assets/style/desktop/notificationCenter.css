@@ -1,0 +1,106 @@
+#notificationCenter:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 100%;
+    width: 361px;
+    -webkit-filter: blur(5px);
+    background: rgba(102, 102, 102, 0.59) none repeat scroll 0% 0% / cover padding-box border-box;
+}
+
+#notificationCenter {
+    height: calc(100% - 24px);
+    position: fixed;
+    right: 0px;
+    top: 24px;
+    width: 361px;
+    border: 1px solid rgba(0, 0, 0, 0.298039);
+    z-index: 2;
+}
+
+#notification_inhalt {
+    height: 100%;
+    position: absolute;
+    width: 361px;
+    z-index: 2;
+    background: rgba(50, 50, 50, 0.2) none repeat scroll 0% 0% / auto padding-box border-box;
+}
+
+#notification_HEADER {
+    height: 30px;
+    list-style: none outside none;
+    margin: 10px 0px 0px 15px;
+    padding: 0px;
+}
+
+#notification_heutigeUeberschrift {
+    color: rgb(51, 51, 51);
+    text-align: center;
+    width: 330px;
+    background: rgba(255, 255, 255, 0.4) none repeat scroll 0% 0% / auto padding-box border-box;
+    font: normal normal normal normal 16px/normal 'Helvetica Neue', Arial;
+    padding: 10px 0px;
+    border-radius: 5px;
+}
+
+#notification_benarichtigunen {
+    margin: 20px 0px 0px;
+    padding: 0px;
+}
+
+.notification_neueUeberschrift {
+    height: 19px;
+    color: rgba(255, 255, 255, 0.6);
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.6);
+    background: rgba(0, 0, 0, 0.298039) none repeat scroll 0% 0% / auto padding-box border-box;
+    font: normal normal normal normal 16px/normal 'Helvetica Neue', Arial;
+    list-style: none outside none;
+    padding: 5px 0px;
+}
+
+.notification_icon {
+    float: left;
+    height: 25px;
+    width: 25px;
+    margin: 0px 0px 0px 5px;
+}
+
+.moodle_icon {
+    background: rgba(0, 0, 0, 0) url("../../images/moodle.gif") no-repeat scroll 1px -1px / 72% padding-box border-box;
+}
+
+.spengergasse_icon {
+    background: rgba(0, 0, 0, 0) url("../../images/spengergasse.png") no-repeat scroll 1px -1px / 72% padding-box border-box;
+}
+
+.notification_neuerEintrag {
+    width: 311px;
+    font: normal normal normal normal 16px/normal 'Times New Roman';
+    list-style: none outside none;
+    padding: 10px 10px 10px 40px;
+    padding-bottom: 15px;
+}
+
+.notification_neuerEintragUeberschrift {
+    color: rgb(255, 255, 255);
+    -webkit-text-fill-color: rgb(255, 255, 255);
+    font: normal normal bold normal 16px/normal 'Helvetica Neue', Arial;
+    list-style: none outside none;
+}
+
+.notification_neuerEintragText {
+    color: rgba(255, 255, 255, 0.6);
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.6);
+    font: normal normal normal normal 16px/normal 'Helvetica Neue', Arial;
+    list-style: none outside none;
+}
+
+.notification_neuerEintragDatum {
+    margin: 0px 0px 0px 10px;
+}
+
+.notification_datum {
+    font-family: osxFont;
+    font-size: 40px;
+}

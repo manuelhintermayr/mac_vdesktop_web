@@ -28,13 +28,14 @@ do_header_jquery();
 <script src="assets/js/desktop/notificationCenter.js"></script>
 <script src="assets/js/desktop/main.js"></script>
 <script src="assets/js/desktop/data.js"></script>
-<script src="assets/js/desktop/error_easter_egg.js"></script>
+<script src="assets/js/desktop/errorEasterEgg.js"></script>
 <script src="assets/js/desktop/desktop.js"></script>
 <script src="assets/js/desktop/stundenplanInfo.js"></script>
 <script src="assets/js/desktop/window-operations.js"></script>
 <!-- Stylesheets -->
 <link rel="stylesheet" href="assets/style/desktop/main.css" type="text/css" />
 <link rel="stylesheet" href="assets/style/desktop/navigation.css" type="text/css" />
+<link rel="stylesheet" href="assets/style/desktop/notificationCenter.css" type="text/css" />
 <link rel="stylesheet" href="assets/style/desktop/windows.css" type="text/css" />
 </head>
 
