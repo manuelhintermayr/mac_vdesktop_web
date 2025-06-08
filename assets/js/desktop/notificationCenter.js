@@ -69,7 +69,7 @@ function updateDateDisplay(date) {
 
 /* Clears the notification center */
 function clearNotificationCenter() {
-    var $close = $("#clearNotificationCenter");
+    var $close = $("#close");
 
     if ($close.hasClass("closing")) {
         $close.addClass("invisible");
