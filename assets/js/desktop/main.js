@@ -53,7 +53,8 @@ function showErrorEasterEgg() {
 /* End: Specific functionality */
 
 /* This method starts all other methods that need to be called for the class to work */
-function starteCode() {
+function runPageConfiguration() {
+    configureApplicationWindows();
     startClock();
     prepareDock();
     configureErrorEasterEgg();
@@ -78,5 +79,3 @@ function starteCode() {
         $("#clearNotificationCenter").hide(); // Hide the clear notifications button in Firefox
     }
 }
-
-// starteCode();

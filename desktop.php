@@ -40,7 +40,7 @@ do_header_jquery();
 <link rel="stylesheet" href="assets/style/desktop/windows.css" type="text/css" />
 </head>
 
-<body>
+<body onload="runPageConfiguration()">
     <!-- Start: Navigation Bar -->
     <menu>
         <div id="menu-bar"></div>

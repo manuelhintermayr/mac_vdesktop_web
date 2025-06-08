@@ -37,7 +37,7 @@ function openCalendar() {
     openAppWindow(".calendar", ".navigation_calendar", "#dock_calendar");
 }
 
-setTimeout(function () {
+function configureApplicationWindows() {
     /* Start - Script for Scrollbar */
     $(".timetable .body .left").addClass("thin");
     // If user has Javascript disabled, the thick scrollbar is shown
@@ -47,7 +47,7 @@ setTimeout(function () {
     $(".timetable .body .left").mouseout(function () {
         $(this).addClass("thin");
     });
-    /* End - Script for Scrollbar */    
+    /* End - Script for Scrollbar */
     $("#dock_contactInfo").mouseover(function () {
     });
 
@@ -207,12 +207,10 @@ setTimeout(function () {
         e.stopPropagation();
     });
 
-}, 1000);
+}
 
-window.setTimeout('starteCode()', 100); //So that the entire Javascript part is executed
-
-
-function closeApplicationWindow($window) {    if ($window.hasClass("contactInfo")) {
+function closeApplicationWindow($window) {
+    if ($window.hasClass("contactInfo")) {
         $('.navigation_contactInfo').hide();
     }
     if ($window.hasClass("timetable")) {
