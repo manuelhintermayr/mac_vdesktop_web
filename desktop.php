@@ -37,7 +37,7 @@ do_header_jquery();
     <div id="tempDivForInfostundenplan"></div>
 
     <menu>
-        <div id="div1"></div>
+        <div id="menu-bar"></div>
         <nav id="menu-links">
             <ul>
                 <li><a style="font-size: 20px; text-shadow: 0px 1px 0px white;"></a>
