@@ -61,7 +61,7 @@ do_header_jquery();
                     <div>
                         <ul>
                             <li><a href="#" class="disabled">Contact Info</a></li>
-                            <li><a href="#" class="disabled">Timetable<!--<span>▶︎</span>--></a></li>
+                            <li><a href="#" class="disabled">Timetable</a></li>
                             <li><a href="#" class="disabled">Teacher List</a></li>
                             <li class="separator"></li>
                             <li><a href="#" class="disabled">Calendar</a></li>
@@ -97,8 +97,7 @@ do_header_jquery();
         <nav id="menu-rechts">
             <ul>
                 <li>
-                    <a href="#" onclick="toggleNotificationCenter()"><span
-                            id="notificationIcon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
+                    <a href="#" onclick="toggleNotificationCenter()"><span id="notificationIcon"></span></a>
                 </li>
                 <li>
                     <a href="#"><b><span id="personName">Max Mustermann</span></b>

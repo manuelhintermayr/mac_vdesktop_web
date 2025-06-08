@@ -187,6 +187,7 @@ menu #menu-links ul {
   height: 21px;
   background-position: -586px -1px;
   width: 21px;
+  display: block;
 }
 
 /* Style for the Apple logo in the navigation bar */
