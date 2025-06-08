@@ -1,5 +1,6 @@
 <?php
 include('login_functions.php');
+include('getTimetable_data.php'); // Updated path
 
 if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
     echo "<div class='error-message'>Not logged in.</div>";
@@ -14,16 +15,32 @@ if ($_SESSION['loggedIn'] == false || empty($_SESSION['loggedIn'])) {
                         <ul>
                             <span>Klassen:</span>
                             <br>
-                            <li><i></i>Keine Eintr&auml;ge vorhanden.</li>
+                            <?php if (!empty($mockClasses)): ?>
+                                <?php foreach ($mockClasses as $id => $name): ?>
+                                <li><a href="#" class="timetable-link" data-type="class" data-id="<?php echo htmlspecialchars($id); ?>">
+                                    <i></i><?php echo htmlspecialchars($id); ?>
+                                </a></li>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <li><i></i>Keine Eintr&auml;ge vorhanden.</li>
+                            <?php endif; ?>
                             <br>
                             <span>Lehrer:</span>
                             <br>
-                            <li><i></i>Keine Eintr&auml;ge vorhanden.</li>
+                            <?php if (!empty($mockTeachers)): ?>
+                                <?php foreach ($mockTeachers as $id => $name): ?>
+                                <li><a href="#" class="timetable-link" data-type="teacher" data-id="<?php echo htmlspecialchars($id); ?>">
+                                    <i></i><?php echo htmlspecialchars($name); ?>
+                                </a></li>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <li><i></i>Keine Eintr&auml;ge vorhanden.</li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>
                 <div class="center" id="timetableContent">
-                    <!-- Standartmaessig wird immer ein Fehler hier angezeigt -->
+                    <!-- Standardmässig wird immer ein Fehler hier angezeigt -->
                     <div class="msg warn noselect">
                         <h4>Der Stundenplan f&uuml;r deine Klasse wurde nicht gefunden.</h4>
                         <p>W&auml;hle links einen Stundenplan aus.

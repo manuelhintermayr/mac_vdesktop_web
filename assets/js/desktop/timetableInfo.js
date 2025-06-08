@@ -16,28 +16,16 @@ else {
 /* End - Calendar week calculation */
 
 /* Start - Class calculation */
-$(function () {
-    $.get('scripts/getContentFromPage.php?url=https%3A%2F%2Fintranet.spengergasse.at%2Finfostundenplan%2Fframes%2Fnavbar.htm&var=null', function (result) {
-        var startIndex = result.indexOf("var classes");
-        var endIndex = result.indexOf('var flcl');
+var classes = ["1AHIF", "1BHIF", "1CHIF", "1DHIF", "2AVIF", "2BVIF", "2CVIF", "4ABIF", "4BBIF", "5AHIF"];
+var teachers = ["DX", "KNJ", "BS", "HAC", "RE", "TT", "KS"];
+var rooms = ["B3.07MM", "B1.15HW", "C3.11", "AU.04", "CU.28"];
 
-        if (startIndex !== -1 && endIndex !== -1) {
-            var result_1 = result.substring(startIndex); // Extract substring starting from "var classes"
-            var result_2 = result_1.substr(0, endIndex); // Extract substring up to "var flcl"
-
-            $("#tempDivForInfotimetable").html('<script>' + result_2 + '\nlocalStorage["classes"] = JSON.stringify(classes);\nlocalStorage["teachers"] = JSON.stringify(teachers);\nlocalStorage["rooms"] = JSON.stringify(rooms);\n<\/script>');
-            ladeInfoTimetableInPage();
-        } else {
-            console.error("Expected substrings not found in the result.");
-        }
-    });
-});
-
+// Old function that uses the Spengergasse API (kept for reference)
 function ladeInfoTimetableInPage() {
     var inhalt = "<div>"
         + "<ul><span>Klassen:<\/span><br>";
-    var klassen = JSON.parse(localStorage["classes"]);
-    for (var idx = 0; idx < klassen.length; idx++) {
+        alert("hey!");
+    for (var idx = 0; idx < classes.length; idx++) {
         var aktueller_index_int = (idx + 1);
         var aktueller_index = aktueller_index_int + "";
         if (aktueller_index_int < 10) {
@@ -58,13 +46,11 @@ function ladeInfoTimetableInPage() {
                 }
             }
         }
-        var hinzufuegen = "<li onclick=\"ladeStundenplan('https://intranet.spengergasse.at/infostundenplan/" + KW + "/c/c" + aktueller_index + ".htm')\"><i><\/i>" + klassen[idx] + "<\/li>";
+        var hinzufuegen = "<li onclick=\"ladeStundenplan('https://intranet.spengergasse.at/infostundenplan/" + KW + "/c/c" + aktueller_index + ".htm')\"><i><\/i>" + classes[idx] + "<\/li>";
         inhalt = inhalt + hinzufuegen;
     }
 
-    inhalt = inhalt + "<br><span>Lehrer:</span><br>";
-    var lehrer = JSON.parse(localStorage["teachers"]);
-    for (var idx = 0; idx < lehrer.length; idx++) {
+    for (var idx = 0; idx < teachers.length; idx++) {
         var aktueller_index_int = (idx + 1);
         var aktueller_index = aktueller_index_int + "";
         if (aktueller_index_int < 10) {
@@ -90,8 +76,7 @@ function ladeInfoTimetableInPage() {
     }
 
     inhalt = inhalt + "<br><span>R&auml;me:</span><br>";
-    var raume = JSON.parse(localStorage["rooms"]);
-    for (var idx = 0; idx < raume.length; idx++) {
+    for (var idx = 0; idx < rooms.length; idx++) {
         var aktueller_index_int = (idx + 1);
         var aktueller_index = aktueller_index_int + "";
         if (aktueller_index_int < 10) {
@@ -123,3 +108,55 @@ function ladeStundenplan(link) {
     $("#timetableContent").html('<center><h2>Lade Seite...</h2><br> <div class="progress-bar progress-bar--yosemite"><span class="progress-bar__line" style="width: 30%;"></span></div></center>');
     $("#timetableContent").load("getContentFromPage.php?url=" + encodeURI(link) + "&var=null");
 }
+
+// New functionality for using mock data
+$(document).ready(function() {
+    // Click handler for timetable links
+    $(document).on('click', '.timetable-link', function(e) {
+        e.preventDefault();
+        
+        // Get the ID of the selected class or teacher
+        const id = $(this).data('id');
+        const type = $(this).data('type');
+        
+        // Highlight the selected item
+        $('.timetable-link').removeClass('active');
+        $(this).addClass('active');
+        
+        // Show loading message
+        $('#timetableContent').html('<div class="loading">Stundenplan wird geladen...</div>');
+        
+        // Fetch the timetable from our mock data PHP script
+        $.ajax({
+            url: 'scripts/getTimetable.php',
+            data: { id: id },
+            method: 'GET',
+            success: function(response) {
+                // Display the timetable in the content area
+                $('#timetableContent').html(response);
+                
+                // Optionally load additional information if needed
+                if (type === 'class') {
+                    loadClassInfo(id);
+                } else if (type === 'teacher') {
+                    loadTeacherInfo(id);
+                }
+            },
+            error: function() {
+                $('#timetableContent').html('<div class="msg error"><h4>Fehler</h4><p>Der Stundenplan konnte nicht geladen werden.</p></div>');
+            }
+        });
+    });
+    
+    // Example function to load additional class information
+    function loadClassInfo(classId) {
+        // This could fetch additional info about the class
+        $('#tempDivForInfotimetable').load('scripts/getClassInfo.php?id=' + classId);
+    }
+    
+    // Example function to load additional teacher information
+    function loadTeacherInfo(teacherId) {
+        // This could fetch additional info about the teacher
+        $('#tempDivForInfotimetable').load('scripts/getTeacherInfo.php?id=' + teacherId);
+    }
+});
