@@ -46,6 +46,8 @@ This project was built using:
 - **iOS Clear Notifications Button in CSS**  
   from [Adrian Osmond's CodePen](https://codepen.io/adrianosmond/pen/ALjgev)
 
+The origin, authorship, and (where determinable) license of these reused third-party sources are documented in [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md).
+
 ---
 
 ## 🧪 Project Status
@@ -65,19 +67,23 @@ For modern and production-grade web, automation, or software engineering project
 
 ## ⚖️ License
 
-This project is released under the **MIT License**.  
-See the [`LICENSE`](./LICENSE) file for details.
+The original source code of this project is released under the **MIT License** – see the [`LICENSE`](./LICENSE) file for details.
+
+The MIT License covers **only** this project's own source code. It does **not** grant any rights in third-party trademarks (such as Apple, macOS, Mac, or Finder), in third-party icons or designs, or in the reused third-party code snippets listed in [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md).
+
+> **Note on authorship:** This project originated as a school project by class 4AHIF of HTL Spengergasse (2014/2015) and may include contributions from several original authors. The `LICENSE` file names a single copyright holder; where the license status of individual original contributions is not clearly documented in the repository history, this is recorded as an open point in [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md).
 
 ---
 
 ## 📜 Legal Disclaimer
 
 > **Disclaimer:**  
-> This is a fan-made project created for educational and demonstration purposes only.  
-> This site/project/repo and its contents are not endorsed, associated or affiliated with Apple Computers, Inc.©
-> All trademarks, logos, and brand names such as "macOS", "Mac", "Finder", and the Apple logo are the property of Apple Inc.  
-> Icons and designs resembling Apple's intellectual property are used under fair use for non-commercial and illustrative purposes.  
-> If you are a representative of Apple Inc. and would like any material to be removed or modified, please contact me and I will comply immediately.
+> This is an **inofficial, non-commercial** project created for **historical and educational/demonstration purposes** only.  
+> This site/project/repo and its contents are **not** endorsed by, associated with, or affiliated with Apple Inc.  
+> All trademarks, logos, and brand names such as “macOS”, “Mac”, “Finder”, and the Apple logo are the property of Apple Inc. and their respective rights holders.  
+> Any icons or designs resembling Apple's intellectual property remain the property of their respective owners. This project makes **no** claim that all third-party content it contains is freely licensed, and it makes **no** definitive legal assertion (such as a blanket “fair use” claim) about such material.  
+> Reused third-party code snippets are documented in [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md).  
+> If you are a rights holder and would like any material to be removed or modified, please contact me and I will comply.
 
 ---
 
