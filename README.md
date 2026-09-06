@@ -81,7 +81,7 @@ The MIT License covers **only** this project's own source code. It does **not** 
 > This is an **inofficial, non-commercial** project created for **historical and educational/demonstration purposes** only.  
 > This site/project/repo and its contents are **not** endorsed by, associated with, or affiliated with Apple Inc.  
 > All trademarks, logos, and brand names such as “macOS”, “Mac”, “Finder”, and the Apple logo are the property of Apple Inc. and their respective rights holders.  
-> Any icons or designs resembling Apple's intellectual property remain the property of their respective owners. This project makes **no** claim that all third-party content it contains is freely licensed, and it makes **no** definitive legal assertion (such as a blanket “fair use” claim) about such material.  
+> Third-party trademarks, icons, designs, and other intellectual property are not licensed by this repository and remain subject to the rights of their respective owners. This project does not make a definitive legal claim regarding the permitted use of such third-party material.  
 > Reused third-party code snippets are documented in [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md).  
 > If you are a rights holder and would like any material to be removed or modified, please contact me and I will comply.
 
